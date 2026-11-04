@@ -16,8 +16,20 @@
   },
   "ios": {
     "xcode_project_export": "passed on Windows using official iOS template",
-    "native_compilation": "pending macOS workflow",
-    "signed": false
+    "native_compilation": "passed",
+    "signed": false,
+    "platform": "iphoneos",
+    "architecture": "arm64",
+    "xcode": "26.3",
+    "workflow_run": "https://github.com/swaggyer/game/actions/runs/41835670299",
+    "source_commit": "2971f652f4c5ee2dd3842e530cf74040a05a056e",
+    "scheme_references": "repaired and validated before build",
+    "directly_installable": false,
+    "ipa_sha256": "37f8d12781423ba399b17ea2a1bfec0d4f015d52983c607aa69ee319a426ec80",
+    "xcode_zip_sha256": "21349f0e5f8d8668a6498dbbae0972741d36afed6f4b3de2ead48499c46ad51e",
+    "actual_device_tested": false
   },
-  "font": "Noto Sans SC Regular plus bundled StarLantern UI Symbols; OFL notices included"
+  "font": "Noto Sans SC Regular plus bundled StarLantern UI Symbols; OFL notices included",
+  "repository": "https://github.com/swaggyer/game",
+  "release": "https://github.com/swaggyer/game/releases/tag/v1.2.1"
 }
