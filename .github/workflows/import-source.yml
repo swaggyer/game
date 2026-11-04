@@ -50,7 +50,7 @@ jobs:
               target.write_bytes(data)
           assert (root/'mobile_game/project.godot').is_file()
           assert (root/'mobile_game/assets/font-license/OFL.txt').is_file()
-          assert (root/'.release-assets/StarLanternIsland-v1.2.1-arm64.apk').is_file()
+          assert (root/'.release-assets/StarLanternIsland-v1.3.0-arm64.apk').is_file()
           assert upload.resolve().is_relative_to(root) and upload.name=='.source-upload'
           shutil.rmtree(upload)
           print('Verified source delivery:',manifest['source_files'],'files')
@@ -67,8 +67,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release view v1.2.1 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create v1.2.1 --repo "$GITHUB_REPOSITORY" --title '星灯岛 v1.2.1 · Android 与 iOS 构建' --notes-file .release-assets/RELEASE-NOTES.md --target main
-          gh release upload v1.2.1 .release-assets/StarLanternIsland-v1.2.1-arm64.apk --repo "$GITHUB_REPOSITORY" --clobber
+          gh release view v1.3.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create v1.3.0 --repo "$GITHUB_REPOSITORY" --title '星灯岛 v1.3.0 · Android 与 iOS 构建' --notes-file .release-assets/RELEASE-NOTES.md --target main
+          gh release upload v1.3.0 .release-assets/StarLanternIsland-v1.3.0-arm64.apk --repo "$GITHUB_REPOSITORY" --clobber
       - name: Start native macOS iOS compilation
         env:
           GH_TOKEN: ${{ github.token }}
