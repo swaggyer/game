@@ -1,0 +1,889 @@
+{
+  "version": 1,
+  "generator": "res://tools/compose_music_v13.py",
+  "authorship": "Original melodies and arrangements authored for Star Lantern Island.",
+  "samples": "Acoustic/orchestral General MIDI instrument samples from the identified external SoundFont; its license is separate from the score.",
+  "loop_method": "Render three musical cycles at exact MIDI tempo; retain the middle cycle with the previous cycle's reverb; apply an 8 ms raised-cosine edge taper; encode with LAME gapless metadata. MP3 decoder padding may differ by approximately 1 ms on some lengths.",
+  "tracks": {
+    "region_0": {
+      "name": "村庄与庭院",
+      "bars": 32,
+      "time_signature": [
+        4,
+        4
+      ],
+      "bpm": 92,
+      "tempo_microseconds": 652174,
+      "loop_seconds": 83.478272,
+      "key_midi_note": 62,
+      "mode": "major",
+      "note_count": 752,
+      "tracks": [
+        {
+          "name": "Melody",
+          "channel": 1,
+          "gm_program": 74,
+          "notes": 148
+        },
+        {
+          "name": "Acoustic figure",
+          "channel": 2,
+          "gm_program": 25,
+          "notes": 256
+        },
+        {
+          "name": "Warm sustained harmony",
+          "channel": 3,
+          "gm_program": 50,
+          "notes": 96
+        },
+        {
+          "name": "Bass",
+          "channel": 4,
+          "gm_program": 43,
+          "notes": 64
+        },
+        {
+          "name": "Answer",
+          "channel": 5,
+          "gm_program": 12,
+          "notes": 36
+        },
+        {
+          "name": "Orchestral detail",
+          "channel": 6,
+          "gm_program": 46,
+          "notes": 0
+        },
+        {
+          "name": "Acoustic percussion",
+          "channel": 10,
+          "gm_program": 1,
+          "notes": 152
+        }
+      ],
+      "midi": "source/region_0.mid",
+      "midi_sha256": "8fd4e3b4a1f5eb1dedd119c6e3764a7dd9121a7f83e51f8742f823cc1a1427f9",
+      "melody_provenance": "Original authored theme and arrangement in tools/compose_music_v13.py; no external melody or audio recording used.",
+      "pcm_measurements": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 3681392,
+        "duration_seconds": 83.478277,
+        "gain_db": 12.835,
+        "peak_dbfs": -6.346,
+        "rms_dbfs": -20.5,
+        "seam_sample_delta_dbfs": -90.309,
+        "edge_cosine_fade_seconds": 0.008
+      },
+      "mp3_measurements": {
+        "decoded_frames": 3681392,
+        "decoded_duration_seconds": 83.478277,
+        "decoded_channels": 2,
+        "decoded_peak_dbfs": -6.805,
+        "decoded_clipping_sample_count": 0,
+        "decoded_seam_delta_dbfs": -72.247
+      },
+      "path": "res://assets/audio_v13/music/region_0.mp3",
+      "bytes": 1670908,
+      "sha256": "d0acd8892d5b843158f4ffaeb2d8d8f9873ae5f7e994943b8dc1cd889e317199",
+      "soundfont": {
+        "filename": "GeneralUser-GS.sf2",
+        "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+        "license": "res://assets/audio_v13/licenses/GeneralUser-LICENSE.txt"
+      }
+    },
+    "region_1": {
+      "name": "萤火森林",
+      "bars": 32,
+      "time_signature": [
+        4,
+        4
+      ],
+      "bpm": 80,
+      "tempo_microseconds": 750000,
+      "loop_seconds": 96.0,
+      "key_midi_note": 64,
+      "mode": "natural_minor",
+      "note_count": 477,
+      "tracks": [
+        {
+          "name": "Melody",
+          "channel": 1,
+          "gm_program": 74,
+          "notes": 116
+        },
+        {
+          "name": "Acoustic figure",
+          "channel": 2,
+          "gm_program": 47,
+          "notes": 192
+        },
+        {
+          "name": "Warm sustained harmony",
+          "channel": 3,
+          "gm_program": 50,
+          "notes": 96
+        },
+        {
+          "name": "Bass",
+          "channel": 4,
+          "gm_program": 43,
+          "notes": 48
+        },
+        {
+          "name": "Answer",
+          "channel": 5,
+          "gm_program": 9,
+          "notes": 12
+        },
+        {
+          "name": "Orchestral detail",
+          "channel": 6,
+          "gm_program": 69,
+          "notes": 13
+        },
+        {
+          "name": "Acoustic percussion",
+          "channel": 10,
+          "gm_program": 1,
+          "notes": 0
+        }
+      ],
+      "midi": "source/region_1.mid",
+      "midi_sha256": "1552698e09a20f85e2f6aee95ee4954a540fd11de11ad8cb334a7f79ee101d56",
+      "melody_provenance": "Original authored theme and arrangement in tools/compose_music_v13.py; no external melody or audio recording used.",
+      "pcm_measurements": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 4233600,
+        "duration_seconds": 96.0,
+        "gain_db": 12.741,
+        "peak_dbfs": -5.726,
+        "rms_dbfs": -20.5,
+        "seam_sample_delta_dbfs": -90.309,
+        "edge_cosine_fade_seconds": 0.008
+      },
+      "mp3_measurements": {
+        "decoded_frames": 4233600,
+        "decoded_duration_seconds": 96.0,
+        "decoded_channels": 2,
+        "decoded_peak_dbfs": -6.165,
+        "decoded_clipping_sample_count": 0,
+        "decoded_seam_delta_dbfs": -74.746
+      },
+      "path": "res://assets/audio_v13/music/region_1.mp3",
+      "bytes": 1921158,
+      "sha256": "19b7b92c16a3d85bc2bf0a38056aaa4bd781b6f1e629215298e51c5f543b04f1",
+      "soundfont": {
+        "filename": "GeneralUser-GS.sf2",
+        "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+        "license": "res://assets/audio_v13/licenses/GeneralUser-LICENSE.txt"
+      }
+    },
+    "region_2": {
+      "name": "风车原野",
+      "bars": 32,
+      "time_signature": [
+        4,
+        4
+      ],
+      "bpm": 108,
+      "tempo_microseconds": 555556,
+      "loop_seconds": 71.111168,
+      "key_midi_note": 67,
+      "mode": "major",
+      "note_count": 960,
+      "tracks": [
+        {
+          "name": "Melody",
+          "channel": 1,
+          "gm_program": 74,
+          "notes": 152
+        },
+        {
+          "name": "Acoustic figure",
+          "channel": 2,
+          "gm_program": 26,
+          "notes": 384
+        },
+        {
+          "name": "Warm sustained harmony",
+          "channel": 3,
+          "gm_program": 49,
+          "notes": 72
+        },
+        {
+          "name": "Bass",
+          "channel": 4,
+          "gm_program": 46,
+          "notes": 96
+        },
+        {
+          "name": "Answer",
+          "channel": 5,
+          "gm_program": 72,
+          "notes": 64
+        },
+        {
+          "name": "Orchestral detail",
+          "channel": 6,
+          "gm_program": 25,
+          "notes": 0
+        },
+        {
+          "name": "Acoustic percussion",
+          "channel": 10,
+          "gm_program": 1,
+          "notes": 192
+        }
+      ],
+      "midi": "source/region_2.mid",
+      "midi_sha256": "1613fb7414f2ccc188924c3f691978c2fb23c56ae93ccf8cd21d40bc53ca4db4",
+      "melody_provenance": "Original authored theme and arrangement in tools/compose_music_v13.py; no external melody or audio recording used.",
+      "pcm_measurements": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 3136002,
+        "duration_seconds": 71.111156,
+        "gain_db": 12.265,
+        "peak_dbfs": -7.321,
+        "rms_dbfs": -20.5,
+        "seam_sample_delta_dbfs": -90.309,
+        "edge_cosine_fade_seconds": 0.008
+      },
+      "mp3_measurements": {
+        "decoded_frames": 3136002,
+        "decoded_duration_seconds": 71.111156,
+        "decoded_channels": 2,
+        "decoded_peak_dbfs": -7.791,
+        "decoded_clipping_sample_count": 0,
+        "decoded_seam_delta_dbfs": -69.481
+      },
+      "path": "res://assets/audio_v13/music/region_2.mp3",
+      "bytes": 1423787,
+      "sha256": "f2ef5675d6b2558a3ed3edabdcb932ccc820e40c6faecf86689262093e64a39c",
+      "soundfont": {
+        "filename": "GeneralUser-GS.sf2",
+        "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+        "license": "res://assets/audio_v13/licenses/GeneralUser-LICENSE.txt"
+      }
+    },
+    "region_3": {
+      "name": "月光水乡",
+      "bars": 32,
+      "time_signature": [
+        4,
+        4
+      ],
+      "bpm": 84,
+      "tempo_microseconds": 714286,
+      "loop_seconds": 91.428608,
+      "key_midi_note": 65,
+      "mode": "major",
+      "note_count": 684,
+      "tracks": [
+        {
+          "name": "Melody",
+          "channel": 1,
+          "gm_program": 13,
+          "notes": 148
+        },
+        {
+          "name": "Acoustic figure",
+          "channel": 2,
+          "gm_program": 47,
+          "notes": 256
+        },
+        {
+          "name": "Warm sustained harmony",
+          "channel": 3,
+          "gm_program": 50,
+          "notes": 96
+        },
+        {
+          "name": "Bass",
+          "channel": 4,
+          "gm_program": 43,
+          "notes": 64
+        },
+        {
+          "name": "Answer",
+          "channel": 5,
+          "gm_program": 74,
+          "notes": 16
+        },
+        {
+          "name": "Orchestral detail",
+          "channel": 6,
+          "gm_program": 1,
+          "notes": 96
+        },
+        {
+          "name": "Acoustic percussion",
+          "channel": 10,
+          "gm_program": 1,
+          "notes": 8
+        }
+      ],
+      "midi": "source/region_3.mid",
+      "midi_sha256": "92c65a59da7b2c4782e7affe99470d8da5a7dfd9aba16e2d13ef08cfbe9820df",
+      "melody_provenance": "Original authored theme and arrangement in tools/compose_music_v13.py; no external melody or audio recording used.",
+      "pcm_measurements": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 4032001,
+        "duration_seconds": 91.428594,
+        "gain_db": 15.372,
+        "peak_dbfs": -5.52,
+        "rms_dbfs": -20.5,
+        "seam_sample_delta_dbfs": -90.309,
+        "edge_cosine_fade_seconds": 0.008
+      },
+      "mp3_measurements": {
+        "decoded_frames": 4032047,
+        "decoded_duration_seconds": 91.429637,
+        "decoded_channels": 2,
+        "decoded_peak_dbfs": -5.915,
+        "decoded_clipping_sample_count": 0,
+        "decoded_seam_delta_dbfs": -78.268
+      },
+      "path": "res://assets/audio_v13/music/region_3.mp3",
+      "bytes": 1830252,
+      "sha256": "7135794b1283c53dcb9c33fd1362e52f4fce9cf396cc869c2a22d0fa1f442c66",
+      "soundfont": {
+        "filename": "GeneralUser-GS.sf2",
+        "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+        "license": "res://assets/audio_v13/licenses/GeneralUser-LICENSE.txt"
+      }
+    },
+    "region_4": {
+      "name": "旧王遗迹",
+      "bars": 32,
+      "time_signature": [
+        4,
+        4
+      ],
+      "bpm": 80,
+      "tempo_microseconds": 750000,
+      "loop_seconds": 96.0,
+      "key_midi_note": 62,
+      "mode": "natural_minor",
+      "note_count": 395,
+      "tracks": [
+        {
+          "name": "Melody",
+          "channel": 1,
+          "gm_program": 9,
+          "notes": 100
+        },
+        {
+          "name": "Acoustic figure",
+          "channel": 2,
+          "gm_program": 47,
+          "notes": 128
+        },
+        {
+          "name": "Warm sustained harmony",
+          "channel": 3,
+          "gm_program": 49,
+          "notes": 96
+        },
+        {
+          "name": "Bass",
+          "channel": 4,
+          "gm_program": 44,
+          "notes": 48
+        },
+        {
+          "name": "Answer",
+          "channel": 5,
+          "gm_program": 71,
+          "notes": 12
+        },
+        {
+          "name": "Orchestral detail",
+          "channel": 6,
+          "gm_program": 15,
+          "notes": 11
+        },
+        {
+          "name": "Acoustic percussion",
+          "channel": 10,
+          "gm_program": 1,
+          "notes": 0
+        }
+      ],
+      "midi": "source/region_4.mid",
+      "midi_sha256": "1bbb23c8b2f00addc0b4b7743d7e39eb3793830379f3bff704e66d111cc9d467",
+      "melody_provenance": "Original authored theme and arrangement in tools/compose_music_v13.py; no external melody or audio recording used.",
+      "pcm_measurements": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 4233600,
+        "duration_seconds": 96.0,
+        "gain_db": 16.892,
+        "peak_dbfs": -5.726,
+        "rms_dbfs": -20.5,
+        "seam_sample_delta_dbfs": -90.309,
+        "edge_cosine_fade_seconds": 0.008
+      },
+      "mp3_measurements": {
+        "decoded_frames": 4233600,
+        "decoded_duration_seconds": 96.0,
+        "decoded_channels": 2,
+        "decoded_peak_dbfs": -6.183,
+        "decoded_clipping_sample_count": 0,
+        "decoded_seam_delta_dbfs": -67.386
+      },
+      "path": "res://assets/audio_v13/music/region_4.mp3",
+      "bytes": 1921158,
+      "sha256": "0f81debb80a1d7f30833964657cd663894040edb4347e6e81a5d46caf459c201",
+      "soundfont": {
+        "filename": "GeneralUser-GS.sf2",
+        "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+        "license": "res://assets/audio_v13/licenses/GeneralUser-LICENSE.txt"
+      }
+    },
+    "region_5": {
+      "name": "村庄上空的星脉裂隙",
+      "bars": 32,
+      "time_signature": [
+        4,
+        4
+      ],
+      "bpm": 116,
+      "tempo_microseconds": 517241,
+      "loop_seconds": 66.206848,
+      "key_midi_note": 60,
+      "mode": "natural_minor",
+      "note_count": 1015,
+      "tracks": [
+        {
+          "name": "Melody",
+          "channel": 1,
+          "gm_program": 43,
+          "notes": 136
+        },
+        {
+          "name": "Acoustic figure",
+          "channel": 2,
+          "gm_program": 49,
+          "notes": 256
+        },
+        {
+          "name": "Warm sustained harmony",
+          "channel": 3,
+          "gm_program": 50,
+          "notes": 96
+        },
+        {
+          "name": "Bass",
+          "channel": 4,
+          "gm_program": 44,
+          "notes": 96
+        },
+        {
+          "name": "Answer",
+          "channel": 5,
+          "gm_program": 61,
+          "notes": 16
+        },
+        {
+          "name": "Orchestral detail",
+          "channel": 6,
+          "gm_program": 48,
+          "notes": 16
+        },
+        {
+          "name": "Acoustic percussion",
+          "channel": 10,
+          "gm_program": 1,
+          "notes": 399
+        }
+      ],
+      "midi": "source/region_5.mid",
+      "midi_sha256": "a1a05366a0d89676864a0555bc45e5a9ece8b7cf6cc335865b68f28a6c716ec3",
+      "melody_provenance": "Original authored theme and arrangement in tools/compose_music_v13.py; no external melody or audio recording used.",
+      "pcm_measurements": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 2919722,
+        "duration_seconds": 66.206848,
+        "gain_db": 15.97,
+        "peak_dbfs": -4.433,
+        "rms_dbfs": -20.5,
+        "seam_sample_delta_dbfs": -90.309,
+        "edge_cosine_fade_seconds": 0.008
+      },
+      "mp3_measurements": {
+        "decoded_frames": 2919722,
+        "decoded_duration_seconds": 66.206848,
+        "decoded_channels": 2,
+        "decoded_peak_dbfs": -4.903,
+        "decoded_clipping_sample_count": 0,
+        "decoded_seam_delta_dbfs": -66.787
+      },
+      "path": "res://assets/audio_v13/music/region_5.mp3",
+      "bytes": 1325582,
+      "sha256": "95c1e3e60a016a4955b41dc333db8818622453c8bcb3d2b92c76a51001c419f2",
+      "soundfont": {
+        "filename": "GeneralUser-GS.sf2",
+        "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+        "license": "res://assets/audio_v13/licenses/GeneralUser-LICENSE.txt"
+      }
+    },
+    "region_6": {
+      "name": "星灯岛",
+      "bars": 32,
+      "time_signature": [
+        4,
+        4
+      ],
+      "bpm": 80,
+      "tempo_microseconds": 750000,
+      "loop_seconds": 96.0,
+      "key_midi_note": 60,
+      "mode": "major",
+      "note_count": 563,
+      "tracks": [
+        {
+          "name": "Melody",
+          "channel": 1,
+          "gm_program": 1,
+          "notes": 132
+        },
+        {
+          "name": "Acoustic figure",
+          "channel": 2,
+          "gm_program": 47,
+          "notes": 256
+        },
+        {
+          "name": "Warm sustained harmony",
+          "channel": 3,
+          "gm_program": 50,
+          "notes": 96
+        },
+        {
+          "name": "Bass",
+          "channel": 4,
+          "gm_program": 43,
+          "notes": 48
+        },
+        {
+          "name": "Answer",
+          "channel": 5,
+          "gm_program": 74,
+          "notes": 16
+        },
+        {
+          "name": "Orchestral detail",
+          "channel": 6,
+          "gm_program": 9,
+          "notes": 7
+        },
+        {
+          "name": "Acoustic percussion",
+          "channel": 10,
+          "gm_program": 1,
+          "notes": 8
+        }
+      ],
+      "midi": "source/region_6.mid",
+      "midi_sha256": "3f08701c5463625d9ecfa8d3a398b6dec7b37c6789ded06f84421da9ba759372",
+      "melody_provenance": "Original authored theme and arrangement in tools/compose_music_v13.py; no external melody or audio recording used.",
+      "pcm_measurements": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 4233600,
+        "duration_seconds": 96.0,
+        "gain_db": 14.906,
+        "peak_dbfs": -3.948,
+        "rms_dbfs": -20.5,
+        "seam_sample_delta_dbfs": -90.309,
+        "edge_cosine_fade_seconds": 0.008
+      },
+      "mp3_measurements": {
+        "decoded_frames": 4233600,
+        "decoded_duration_seconds": 96.0,
+        "decoded_channels": 2,
+        "decoded_peak_dbfs": -4.394,
+        "decoded_clipping_sample_count": 0,
+        "decoded_seam_delta_dbfs": -73.407
+      },
+      "path": "res://assets/audio_v13/music/region_6.mp3",
+      "bytes": 1921155,
+      "sha256": "69222aa2bc8ec93921150e024a90abea8fda7dd0ac89baa2cdc71fa9fac4ba0a",
+      "soundfont": {
+        "filename": "GeneralUser-GS.sf2",
+        "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+        "license": "res://assets/audio_v13/licenses/GeneralUser-LICENSE.txt"
+      }
+    },
+    "title": {
+      "name": "星灯岛 · 约定之光",
+      "bars": 32,
+      "time_signature": [
+        4,
+        4
+      ],
+      "bpm": 84,
+      "tempo_microseconds": 714286,
+      "loop_seconds": 91.428608,
+      "key_midi_note": 62,
+      "mode": "major",
+      "note_count": 566,
+      "tracks": [
+        {
+          "name": "Melody",
+          "channel": 1,
+          "gm_program": 1,
+          "notes": 128
+        },
+        {
+          "name": "Acoustic figure",
+          "channel": 2,
+          "gm_program": 47,
+          "notes": 256
+        },
+        {
+          "name": "Warm sustained harmony",
+          "channel": 3,
+          "gm_program": 50,
+          "notes": 96
+        },
+        {
+          "name": "Bass",
+          "channel": 4,
+          "gm_program": 43,
+          "notes": 64
+        },
+        {
+          "name": "Answer",
+          "channel": 5,
+          "gm_program": 74,
+          "notes": 16
+        },
+        {
+          "name": "Orchestral detail",
+          "channel": 6,
+          "gm_program": 12,
+          "notes": 6
+        },
+        {
+          "name": "Acoustic percussion",
+          "channel": 10,
+          "gm_program": 1,
+          "notes": 0
+        }
+      ],
+      "midi": "source/title.mid",
+      "midi_sha256": "b4b578f63a52d47fc92a739645a8c044c8031d04ab89d7fa21e4ac9f892d0605",
+      "melody_provenance": "Original authored theme and arrangement in tools/compose_music_v13.py; no external melody or audio recording used.",
+      "pcm_measurements": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 4032001,
+        "duration_seconds": 91.428594,
+        "gain_db": 14.566,
+        "peak_dbfs": -5.101,
+        "rms_dbfs": -20.5,
+        "seam_sample_delta_dbfs": -90.309,
+        "edge_cosine_fade_seconds": 0.008
+      },
+      "mp3_measurements": {
+        "decoded_frames": 4032047,
+        "decoded_duration_seconds": 91.429637,
+        "decoded_channels": 2,
+        "decoded_peak_dbfs": -5.552,
+        "decoded_clipping_sample_count": 0,
+        "decoded_seam_delta_dbfs": -72.247
+      },
+      "path": "res://assets/audio_v13/music/title.mp3",
+      "bytes": 1830265,
+      "sha256": "a5db11bd2a977f05733d577ce5057f40f7bd020ccbf29ad95f894a99e1e3897a",
+      "soundfont": {
+        "filename": "GeneralUser-GS.sf2",
+        "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+        "license": "res://assets/audio_v13/licenses/GeneralUser-LICENSE.txt"
+      }
+    },
+    "battle": {
+      "name": "伙伴并肩",
+      "bars": 32,
+      "time_signature": [
+        4,
+        4
+      ],
+      "bpm": 120,
+      "tempo_microseconds": 500000,
+      "loop_seconds": 64.0,
+      "key_midi_note": 62,
+      "mode": "natural_minor",
+      "note_count": 1123,
+      "tracks": [
+        {
+          "name": "Melody",
+          "channel": 1,
+          "gm_program": 72,
+          "notes": 172
+        },
+        {
+          "name": "Acoustic figure",
+          "channel": 2,
+          "gm_program": 46,
+          "notes": 256
+        },
+        {
+          "name": "Warm sustained harmony",
+          "channel": 3,
+          "gm_program": 49,
+          "notes": 72
+        },
+        {
+          "name": "Bass",
+          "channel": 4,
+          "gm_program": 44,
+          "notes": 96
+        },
+        {
+          "name": "Answer",
+          "channel": 5,
+          "gm_program": 74,
+          "notes": 96
+        },
+        {
+          "name": "Orchestral detail",
+          "channel": 6,
+          "gm_program": 48,
+          "notes": 32
+        },
+        {
+          "name": "Acoustic percussion",
+          "channel": 10,
+          "gm_program": 1,
+          "notes": 399
+        }
+      ],
+      "midi": "source/battle.mid",
+      "midi_sha256": "a6ef8abb1ea7736f8890031006aa5124cd12a8e471f10d1a8a235bf527fa5bcd",
+      "melody_provenance": "Original authored theme and arrangement in tools/compose_music_v13.py; no external melody or audio recording used.",
+      "pcm_measurements": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 2822400,
+        "duration_seconds": 64.0,
+        "gain_db": 14.135,
+        "peak_dbfs": -6.131,
+        "rms_dbfs": -20.5,
+        "seam_sample_delta_dbfs": -90.309,
+        "edge_cosine_fade_seconds": 0.008
+      },
+      "mp3_measurements": {
+        "decoded_frames": 2822400,
+        "decoded_duration_seconds": 64.0,
+        "decoded_channels": 2,
+        "decoded_peak_dbfs": -6.54,
+        "decoded_clipping_sample_count": 0,
+        "decoded_seam_delta_dbfs": -61.366
+      },
+      "path": "res://assets/audio_v13/music/battle.mp3",
+      "bytes": 1281158,
+      "sha256": "73bee8ce1332511b6aacd187cb4f5c6d5dfd0d3660a9ce2be09f84bb9b5bb5a6",
+      "soundfont": {
+        "filename": "GeneralUser-GS.sf2",
+        "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+        "license": "res://assets/audio_v13/licenses/GeneralUser-LICENSE.txt"
+      }
+    },
+    "boss": {
+      "name": "守灯之战",
+      "bars": 32,
+      "time_signature": [
+        4,
+        4
+      ],
+      "bpm": 112,
+      "tempo_microseconds": 535714,
+      "loop_seconds": 68.571392,
+      "key_midi_note": 62,
+      "mode": "natural_minor",
+      "note_count": 1053,
+      "tracks": [
+        {
+          "name": "Melody",
+          "channel": 1,
+          "gm_program": 61,
+          "notes": 124
+        },
+        {
+          "name": "Acoustic figure",
+          "channel": 2,
+          "gm_program": 49,
+          "notes": 256
+        },
+        {
+          "name": "Warm sustained harmony",
+          "channel": 3,
+          "gm_program": 50,
+          "notes": 96
+        },
+        {
+          "name": "Bass",
+          "channel": 4,
+          "gm_program": 44,
+          "notes": 96
+        },
+        {
+          "name": "Answer",
+          "channel": 5,
+          "gm_program": 69,
+          "notes": 16
+        },
+        {
+          "name": "Orchestral detail",
+          "channel": 6,
+          "gm_program": 48,
+          "notes": 66
+        },
+        {
+          "name": "Acoustic percussion",
+          "channel": 10,
+          "gm_program": 1,
+          "notes": 399
+        }
+      ],
+      "midi": "source/boss.mid",
+      "midi_sha256": "ef815d915579d96fa1f5b41c40593823b3c42225441482af2c978306ea0169f3",
+      "melody_provenance": "Original authored theme and arrangement in tools/compose_music_v13.py; no external melody or audio recording used.",
+      "pcm_measurements": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 3023999,
+        "duration_seconds": 68.571406,
+        "gain_db": 11.529,
+        "peak_dbfs": -6.384,
+        "rms_dbfs": -20.5,
+        "seam_sample_delta_dbfs": -90.309,
+        "edge_cosine_fade_seconds": 0.008
+      },
+      "mp3_measurements": {
+        "decoded_frames": 3023999,
+        "decoded_duration_seconds": 68.571406,
+        "decoded_channels": 2,
+        "decoded_peak_dbfs": -6.839,
+        "decoded_clipping_sample_count": 0,
+        "decoded_seam_delta_dbfs": -66.787
+      },
+      "path": "res://assets/audio_v13/music/boss.mp3",
+      "bytes": 1372587,
+      "sha256": "a96293ac465f6f3a4c87541aaad36e2bcbc6cef2cd95dbb3da0f2083b390cdea",
+      "soundfont": {
+        "filename": "GeneralUser-GS.sf2",
+        "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+        "license": "res://assets/audio_v13/licenses/GeneralUser-LICENSE.txt"
+      }
+    }
+  }
+}

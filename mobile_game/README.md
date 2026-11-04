@@ -1,4 +1,6 @@
-# 星灯岛与回家的小龙 · v1.2.1
+# 星灯岛与回家的小龙 · v1.3.0
+
+v1.3.0 为七个区域、标题、战斗与首领加入十首配乐，并为全部剧情提供可暂停、重听和跳过的中文旁白。详见 [音乐与剧情朗读说明](docs/V1.3音乐与剧情朗读.md)。
 
 基于《星灯岛》故事设定与既有角色模型制作的横屏单机冒险。v1.2 加入妖怪有效命中最低四分之一最大生命、三位伙伴八方向步态、每区三个真实挑战，并重做全部主线目标，移除站位摇铃解锁。左上角双角色头像根据用户照片保真绘制，背景适配森林冒险风格。自然卡通场景、七个开放区域和双主角战斗继续保留。
 
@@ -102,7 +104,7 @@ $env:APPDATA = 'E:\game\StarLanternIsland\mobile_game\tests\manual-v1-data'
 
 ## 手机导出
 
-已生成独立签名的 Android arm64 release APK：`builds/android/StarLanternIsland-v1.2.1-arm64.apk`，最低 Android 7.0，已校验签名、16KB 对齐、完整游戏资源与包信息。构建方法见 [Android发布说明](docs/ANDROID发布说明.md)。
+已生成独立签名的 Android arm64 release APK：`builds/android/StarLanternIsland-v1.3.0-arm64.apk`，最低 Android 7.0，已校验签名、16KB 对齐、完整游戏资源与包信息。构建方法见 [Android发布说明](docs/ANDROID发布说明.md)。
 
 iOS 采用用户选择的 Xcode 工程与未签名构建方案；完整 Xcode 工程已导出，GitHub macOS 工作流负责原生编译未签名设备 IPA，并将产物附加到仓库 Release。未签名 IPA 需要后续签名，不能直接安装到普通 iPhone；构建状态与操作见 [iOS发布说明](docs/IOS发布说明.md)。当前未进行 Android 或 iPhone 真机试玩。
 

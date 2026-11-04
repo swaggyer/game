@@ -10,6 +10,7 @@ const DamageRules=preload("res://scripts/damage_rules.gd")
 const MainTrials=preload("res://scripts/main_trials.gd")
 const Challenges=preload("res://scripts/challenge_director.gd")
 const Locomotion=preload("res://scripts/locomotion.gd")
+const AudioDirector=preload("res://scripts/audio_director.gd")
 var campaign=Campaign.new()
 var world:Node2D
 var ui:CanvasLayer
@@ -66,6 +67,8 @@ var map_button:Button
 var attack_sound:AudioStreamPlayer
 var chime_sound:AudioStreamPlayer
 var music:AudioStreamPlayer
+var audio_director=AudioDirector.new()
+var music_combat_hold=0.0
 var save_tick=0.0
 var map_tick=0.0
 var bell_cooldown=0.0
@@ -120,14 +123,28 @@ func _connect_ui() -> void:
 	ui.skill_requested.connect(func(id):
 		if id in campaign.available_skills():campaign.selected_skill=id;_save_all();ui.refresh_pause())
 	ui.difficulty_requested.connect(func(id):campaign.difficulty=id;hp=minf(hp,campaign.max_hp());_save_all();ui.refresh_pause())
+	ui.story_opened.connect(func(id,text):audio_director.play_story(id,text))
+	ui.story_closed.connect(func():audio_director.stop_narration())
+	ui.narration_toggle_requested.connect(func():
+		if audio_director.narration_state=="playing":audio_director.pause_narration()
+		elif audio_director.narration_state=="paused":audio_director.resume_narration()
+		else:audio_director.replay_narration())
+	ui.narration_replay_requested.connect(func():audio_director.replay_narration())
+	ui.audio_setting_changed.connect(func(kind,value):
+		if kind=="voice_enabled":audio_director.set_enabled("voice",bool(value))
+		else:audio_director.set_volume(kind,float(value)))
 
 func _setup_audio() -> void:
-	attack_sound=AudioStreamPlayer.new();chime_sound=AudioStreamPlayer.new();music=AudioStreamPlayer.new()
-	add_child(attack_sound);add_child(chime_sound);add_child(music)
-	if DisplayServer.get_name()=="headless":return
+	attack_sound=AudioStreamPlayer.new();chime_sound=AudioStreamPlayer.new()
+	add_child(attack_sound);add_child(chime_sound)
 	attack_sound.stream=load("res://assets/audio/attack.wav");attack_sound.volume_db=-15
 	chime_sound.stream=load("res://assets/audio/chime.wav");chime_sound.volume_db=-14
-	music.stream=load("res://assets/audio/island.wav");music.volume_db=-23;music.play();music.finished.connect(func():music.play())
+	audio_director.setup(self);music=audio_director.music_player;ui.audio_controller=audio_director
+	audio_director.narration_state_changed.connect(ui.set_story_audio_state)
+	audio_director.narration_finished.connect(func(_id):ui.set_story_audio_state("finished"))
+	ui.title_screen.visibility_changed.connect(func():
+		if ui.title_screen.visible:audio_director.stop_narration();audio_director.set_music_context("title"))
+	audio_director.set_music_context("title")
 
 func _start(continue_game:bool) -> void:
 	get_tree().paused=false
@@ -145,6 +162,7 @@ func _load_stage(index:int) -> void:
 	objective_sprites.clear();chest_sprites.clear();camp_sprites.clear()
 	if is_instance_valid(lamp_sprite):lamp_sprite.queue_free()
 	campaign.stage=index;stage_info=campaign.stage_data(index);world.configure(int(index/3),index%3)
+	music_combat_hold=0;audio_director.stop_narration();audio_director.set_region(int(index/3))
 	points=world.definition.objectives.duplicate();spawn_position=world.definition.spawn;lamp_position=world.definition.lamp
 	camp_positions=world.definition.camps.duplicate();chest_positions=world.definition.chests.duplicate()
 	checkpoint_position=spawn_position;last_safe_position=spawn_position;objective_done=[false,false,false]
@@ -184,7 +202,7 @@ func _load_stage(index:int) -> void:
 	_spawn_patrols();_ensure_encounters();_discover();mini_map.setup(self,false)
 	changing_stage=false;_save_all();_update_hud()
 	if index%3==0 and done==0:
-		ui.show_dialog(stage_info.chapter_name,stage_info.chapter_summary+"\n\n本次实战目标：\n• "+objectives[0].label+"\n• "+objectives[1].label+"\n• "+objectives[2].label+"\n\n地图另有3项可反复尝试的挑战。妖怪命中至少扣除最大生命的四分之一，注意走位与预警。","出发闯关",func():pass)
+		ui.show_dialog(stage_info.chapter_name,stage_info.chapter_summary+"\n\n本次实战目标：\n• "+objectives[0].label+"\n• "+objectives[1].label+"\n• "+objectives[2].label+"\n\n地图另有3项可反复尝试的挑战。妖怪命中至少扣除最大生命的四分之一，注意走位与预警。","出发闯关",func():pass,"intro_%d"%int(index/3),stage_info.chapter_summary)
 	else:ui.toast(stage_info.name+" · 轻点右侧地图查看区域")
 	queue_redraw();combat_overlay.queue_redraw()
 
@@ -247,6 +265,7 @@ func _process(delta:float) -> void:
 	player.modulate=Color(1,0.75,0.7,0.68) if invulnerable>0 and int(elapsed*14)%2==0 else Color.WHITE
 	_update_companions(delta);camera.position=player.position+Vector2(40,-30)
 	enemy_director.update(delta);trap_director.update(delta);main_trials.update(delta);challenge_director.update(delta)
+	_update_music_context(delta)
 	if not pending_skill.is_empty():
 		pending_skill.time-=delta
 		if pending_skill.time<=0:
@@ -263,6 +282,17 @@ func _crate_collision(old:Vector2,next:Vector2) -> Vector2:
 	for i in range(3):
 		if objectives[i].kind=="push" and not objective_done[i] and next.distance_to(objectives[i].crate_p)<42:return old
 	return next
+
+func _update_music_context(delta:float)->void:
+	if _combat():
+		music_combat_hold=3.0
+		var boss_near=false
+		for enemy in enemies:
+			if enemy.hp>0 and enemy.boss and enemy.sprite.position.distance_to(player.position)<700:boss_near=true;break
+		audio_director.set_music_context("boss" if boss_near else "battle")
+	else:
+		music_combat_hold=maxf(0,music_combat_hold-delta)
+		if music_combat_hold<=0:audio_director.set_music_context("explore")
 
 func _update_companions(delta:float) -> void:
 	companion_path_tick-=delta
@@ -459,8 +489,10 @@ func _complete_stage() -> void:
 	hp=campaign.max_hp();campaign.fruits=maxi(2,campaign.fruits);_save_all()
 	var body=stage_info.success+"\n\n"+stage_info.reward
 	if reward.first_clear:body+="\n\n经验 +%d · 队伍 Lv.%d"%[int(reward.xp),campaign.level()]
-	if index<20:ui.show_dialog("星灯已点亮 · "+stage_info.name,body,"继续下一段旅程",func():changing_stage=false;_load_stage(index+1))
-	else:ui.show_dialog("回家的门，也为朋友敞开",body+"\n\n七章冒险已完成。地图中保留所有区域，可继续寻宝、挑战妖怪和探索未走过的角落。","回到约定之灯",func():changing_stage=false;_resume())
+	if index<20:ui.show_dialog("星灯已点亮 · "+stage_info.name,body,"继续下一段旅程",func():changing_stage=false;_load_stage(index+1),"clear_%d"%index,stage_info.success)
+	else:
+		var closing="七章冒险已完成。地图中保留所有区域，可继续寻宝、挑战妖怪和探索未走过的角落。"
+		ui.show_dialog("回家的门，也为朋友敞开",body+"\n\n"+closing,"回到约定之灯",func():changing_stage=false;_resume(),"ending",stage_info.success+"\n\n"+closing)
 
 func _switch(index:int) -> void:
 	if not active or get_tree().paused or hero_actions.busy:return
@@ -469,10 +501,12 @@ func _switch(index:int) -> void:
 
 func _pause() -> void:
 	if not active:return
-	move_input=Vector2.ZERO;context_latch.clear();_save_all();get_tree().paused=true;ui.show_pause()
+	move_input=Vector2.ZERO;context_latch.clear();_save_all();get_tree().paused=true;ui.show_pause();audio_director.set_music_context("pause")
 
 func _resume() -> void:
 	ui.hide_pause();get_tree().paused=false;move_input=Vector2.ZERO;context_latch.clear()
+	audio_director.set_music_context("explore")
+	_update_music_context(0)
 
 func _show_area_map() -> void:
 	if not active:return

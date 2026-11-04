@@ -9,7 +9,7 @@ $savedLocalData = $env:LOCALAPPDATA
 try {
     $env:APPDATA = Join-Path $projectRoot 'tests\export_data'
     $env:LOCALAPPDATA = Join-Path $projectRoot 'tests\localdata'
-    & $consoleEngine --headless --path $projectRoot --export-pack 'Windows Desktop' (Join-Path $buildRoot 'StarLanternIsland.pck')
+    & $consoleEngine --headless --audio-driver Dummy --path $projectRoot --export-pack 'Windows Desktop' (Join-Path $buildRoot 'StarLanternIsland.pck')
     if ($LASTEXITCODE -ne 0) { throw 'Godot resource export failed.' }
     Copy-Item -LiteralPath $windowEngine -Destination (Join-Path $buildRoot 'StarLanternIsland.exe')
     Write-Output 'Portable Windows build ready in builds.'

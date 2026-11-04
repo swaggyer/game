@@ -69,7 +69,7 @@ ditto -x -k "$TOOL_CACHE/$EDITOR_NAME" "$EDITOR_DIR"
 GODOT="$EDITOR_DIR/Godot.app/Contents/MacOS/Godot"
 [ -f "$GODOT" ] || die "Godot.app is missing from the official editor archive."
 chmod +x "$GODOT"
-"$GODOT" --headless --version | tee "$LOG_DIR/godot-version.txt"
+"$GODOT" --headless --audio-driver Dummy --version | tee "$LOG_DIR/godot-version.txt"
 grep -q '^4\.7\.2\.stable' "$LOG_DIR/godot-version.txt" || die "Wrong Godot editor version."
 
 TEMPLATE_DIR="$HOME/Library/Application Support/Godot/export_templates/$GODOT_TEMPLATE_VERSION"
@@ -116,8 +116,8 @@ assert value(options, 'architectures/arm64', 'true') == 'true', 'Device arm64 mu
 print('Validated unsigned project-only iOS preset. Team field is not used to sign this build.')
 PY
 
-"$GODOT" --headless --editor --path "$PROJECT_DIR" --import 2>&1 | tee "$LOG_DIR/godot-import.log"
-"$GODOT" --headless --path "$PROJECT_DIR" --export-release "$PRESET" "$PROJECT_PATH" 2>&1 | tee "$LOG_DIR/godot-export.log"
+"$GODOT" --headless --audio-driver Dummy --editor --path "$PROJECT_DIR" --import 2>&1 | tee "$LOG_DIR/godot-import.log"
+"$GODOT" --headless --audio-driver Dummy --path "$PROJECT_DIR" --export-release "$PRESET" "$PROJECT_PATH" 2>&1 | tee "$LOG_DIR/godot-export.log"
 [ -s "$PROJECT_PATH/project.pbxproj" ] || die "Godot did not generate an Xcode project."
 find "$XCODE_DIR" -type f -name '*.pck' -size +0c | grep -q . || die "Exported project has no game PCK."
 find "$XCODE_DIR" -type d -name '*.xcframework' | grep -q . || die "Exported project has no Godot XCFramework."

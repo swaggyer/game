@@ -1,0 +1,759 @@
+{
+  "version": 1,
+  "language": "zh-CN",
+  "generated_by": "res://tools/story_audio_manifest.py",
+  "source_policy": "与章节简介、通关故事及最终对话结尾逐字一致；不朗读奖励、经验、操作提示或实战目标；不改写原故事。",
+  "asset_policy": "音频随游戏离线打包；独立录音与全部音乐已生成，制作参数及文件校验见各音频目录 production/score_manifest 记录。带 alias_of 的条目复用同一录音。",
+  "voice": {
+    "role": "narrator",
+    "style": "温暖、自然、清晰的中文童话旁白，情绪克制，人物名保持一致；不添加原文没有的台词。",
+    "rate": 1.0,
+    "pronunciation": {
+      "旺仔": "wàng zǎi",
+      "小馒头": "xiǎo mán tou",
+      "小龙": "xiǎo lóng",
+      "星契": "xīng qì",
+      "埙": "xūn"
+    }
+  },
+  "music": {
+    "contexts": {
+      "title": {
+        "id": "title",
+        "name": "星灯岛 · 约定之光",
+        "path": "res://assets/audio_v13/music/title.mp3",
+        "gain": 0.6,
+        "mood": "温暖、奇幻、星海中相遇与启程的期待",
+        "instruments": [
+          "钢琴",
+          "竖琴",
+          "木管",
+          "柔和弦乐"
+        ],
+        "bpm": 84,
+        "prompt": "温暖奇幻冒险游戏的标题配乐。钢琴奏出容易记住的简短星光主题，竖琴点缀，木管与柔和弦乐逐渐加入。像夜空下一盏灯邀请朋友启程，明亮、亲切、有一点辽远的星海感。纯器乐，无人声，无歌词，无突然音量变化，首尾可平滑循环。",
+        "loop": true,
+        "bars": 32,
+        "target_duration_seconds": 91.429
+      },
+      "battle": {
+        "id": "battle",
+        "name": "伙伴并肩",
+        "path": "res://assets/audio_v13/music/battle.mp3",
+        "gain": 0.7,
+        "mood": "灵动、警觉、有节奏的伙伴战斗",
+        "instruments": [
+          "拨弦弦乐",
+          "木管",
+          "低鼓",
+          "轻打击乐"
+        ],
+        "bpm": 120,
+        "prompt": "伙伴并肩战斗的原创管弦乐。拨弦弦乐与轻打击乐保持清晰节拍，木管奏出勇敢简洁的动机，低鼓克制有力。紧张但不压迫，给战斗预警和中文旁白留出空间。纯器乐，无人声，无歌词，首尾可平滑循环。",
+        "loop": true,
+        "bars": 32,
+        "target_duration_seconds": 64
+      },
+      "boss": {
+        "id": "boss",
+        "name": "守灯之战",
+        "path": "res://assets/audio_v13/music/boss.mp3",
+        "gain": 0.7,
+        "mood": "庄严、紧张、守护星灯的决心",
+        "instruments": [
+          "圆号",
+          "短弓弦乐",
+          "低弦",
+          "定音鼓"
+        ],
+        "bpm": 112,
+        "prompt": "守护星灯的首领战原创管弦乐。圆号提出有分量的主题，低弦与短弓弦乐形成推进，定音鼓标记段落。戏剧性充足但避免噪声和刺耳铜管，不覆盖敌人预警。纯器乐，无人声，无歌词，首尾可平滑循环。",
+        "loop": true,
+        "bars": 32,
+        "target_duration_seconds": 68.571
+      }
+    },
+    "regions": [
+      {
+        "id": "chapter_0",
+        "chapter_index": 0,
+        "chapter_id": "prologue",
+        "name": "村庄与庭院",
+        "path": "res://assets/audio_v13/music/region_0.mp3",
+        "gain": 0.6,
+        "mood": "亲切、明亮、第一次结伴冒险的期待",
+        "instruments": [
+          "木吉他",
+          "柔和木琴",
+          "轻拨弦乐",
+          "竹笛"
+        ],
+        "bpm": 92,
+        "prompt": "温暖童话冒险的村庄配乐。木吉他与木琴交替奏出轻巧旋律，竹笛回应，柔和弦乐托底。轻快但不催促，像孩子们在清晨院落结识一位新朋友。自然有呼吸，避免尖锐高音和密集鼓点。纯器乐，无人声，无歌词，无突然音量变化，首尾可平滑循环，为中文旁白保留空间。",
+        "loop": true,
+        "bars": 32,
+        "target_duration_seconds": 83.478
+      },
+      {
+        "id": "chapter_1",
+        "chapter_index": 1,
+        "chapter_id": "forest",
+        "name": "萤火森林",
+        "path": "res://assets/audio_v13/music/region_1.mp3",
+        "gain": 0.6,
+        "mood": "幽静、神秘、萤火引路中的温暖",
+        "instruments": [
+          "竖琴泛音",
+          "气声长笛",
+          "钟琴",
+          "低音弦乐"
+        ],
+        "bpm": 80,
+        "prompt": "夜间萤火森林的童话探索配乐。稀疏竖琴泛音与柔软气声长笛，远处少量钟琴像萤火闪烁，低弦保持安静的神秘感。旋律带一点寻找同伴的希望，避免恐怖音效和突发惊吓。纯器乐，无人声，无歌词，无突然音量变化，首尾可平滑循环，为中文旁白保留空间。",
+        "loop": true,
+        "bars": 32,
+        "target_duration_seconds": 96.0
+      },
+      {
+        "id": "chapter_2",
+        "chapter_index": 2,
+        "chapter_id": "windmill",
+        "name": "风车原野",
+        "path": "res://assets/audio_v13/music/region_2.mp3",
+        "gain": 0.6,
+        "mood": "开阔、轻盈、风车重新转动的希望",
+        "instruments": [
+          "曼陀铃",
+          "木管",
+          "拨弦大提琴",
+          "轻手鼓"
+        ],
+        "bpm": 108,
+        "prompt": "辽阔风车原野的自然冒险配乐。曼陀铃轻盈分解和弦与木管宽阔旋律交织，拨弦大提琴和很轻的手鼓形成风车转动般的节拍。明亮、有向前旅行的动感，同时保留平静田野的空气感。纯器乐，无人声，无歌词，无突然音量变化，首尾可平滑循环，为中文旁白保留空间。",
+        "loop": true,
+        "bars": 32,
+        "target_duration_seconds": 71.111
+      },
+      {
+        "id": "chapter_3",
+        "chapter_index": 3,
+        "chapter_id": "water",
+        "name": "月光水乡",
+        "path": "res://assets/audio_v13/music/region_3.mp3",
+        "gain": 0.6,
+        "mood": "流动、澄澈、月光水面下的一丝谜意",
+        "instruments": [
+          "马林巴",
+          "柔和钢琴",
+          "箫",
+          "细腻弦乐"
+        ],
+        "bpm": 84,
+        "prompt": "月光水乡的流动探索配乐。马林巴与柔和钢琴形成舒展波纹，箫吹出清澈克制的旋律，弦乐像水面倒影。带一点真假回声的谜意，最终仍然安心温柔。避免真实流水声掩盖提示音。纯器乐，无人声，无歌词，无突然音量变化，首尾可平滑循环，为中文旁白保留空间。",
+        "loop": true,
+        "bars": 32,
+        "target_duration_seconds": 91.429
+      },
+      {
+        "id": "chapter_4",
+        "chapter_index": 4,
+        "chapter_id": "ruins",
+        "name": "旧王遗迹",
+        "path": "res://assets/audio_v13/music/region_4.mp3",
+        "gain": 0.6,
+        "mood": "古老、庄重、发现父亲往事的敬意",
+        "instruments": [
+          "钢片琴",
+          "低音木管",
+          "低弦",
+          "稀疏金属钟音"
+        ],
+        "bpm": 80,
+        "prompt": "旧王遗迹的古老星图探索配乐。钢片琴与低音木管缓缓问答，低弦保持宽广空间，稀疏柔和金属钟音提示记忆苏醒。庄重而不阴森，情绪是理解父亲与朋友共同守护人间的历史。纯器乐，无人声，无歌词，无突然音量变化，首尾可平滑循环，为中文旁白保留空间。",
+        "loop": true,
+        "bars": 32,
+        "target_duration_seconds": 96.0
+      },
+      {
+        "id": "chapter_5",
+        "chapter_index": 5,
+        "chapter_id": "rift",
+        "name": "村庄上空的星脉裂隙",
+        "path": "res://assets/audio_v13/music/region_5.mp3",
+        "gain": 0.6,
+        "mood": "紧迫、坚定、伙伴互相回应的勇气",
+        "instruments": [
+          "短弓弦乐",
+          "低鼓",
+          "圆号",
+          "清亮木管"
+        ],
+        "bpm": 116,
+        "prompt": "村庄星脉裂隙的守护冒险配乐。短弓弦乐与低鼓构成稳定紧迫节奏，温暖圆号给出坚定旋律，清亮木管回应此前村庄的希望。有救援与守护的力量，避免凶暴轰鸣或连续高潮，留出敌人预警的声音空间。纯器乐，无人声，无歌词，无突然音量变化，首尾可平滑循环，为中文旁白保留空间。",
+        "loop": true,
+        "bars": 32,
+        "target_duration_seconds": 66.207
+      },
+      {
+        "id": "chapter_6",
+        "chapter_index": 6,
+        "chapter_id": "island",
+        "name": "星灯岛",
+        "path": "res://assets/audio_v13/music/region_6.mp3",
+        "gain": 0.6,
+        "mood": "辽远、温柔、带着思念接过守护之灯",
+        "instruments": [
+          "钢琴",
+          "竖琴",
+          "温暖弦乐",
+          "清亮钟琴"
+        ],
+        "bpm": 80,
+        "prompt": "星灯岛与冒险尾声的温柔配乐。钢琴和竖琴留白对话，温暖弦乐缓慢展开，极少量钟琴像星海中亮起的灯。既有想念父亲的细腻情绪，也有朋友相伴与成长的安定希望。悲伤克制，结尾落在明亮和弦。纯器乐，无人声，无歌词，无突然音量变化，首尾可平滑循环，为中文旁白保留空间。",
+        "loop": true,
+        "bars": 32,
+        "target_duration_seconds": 96.0
+      }
+    ],
+    "ending_region_id": "chapter_6"
+  },
+  "stories": {
+    "intro_0": {
+      "id": "intro_0",
+      "kind": "chapter_intro",
+      "title": "序章 · 院子里的小流星",
+      "chapter_index": 0,
+      "chapter_id": "prologue",
+      "stage_index": 0,
+      "text": "夜里，一道青金色的光落进旺仔和小馒头家的院子。两个孩子在花盆后找到又饿又紧张的小龙，并一起赶走追踪而来的影团。清晨，村口古老石灯突然熄灭，守灯人认出小龙额头的星纹，说明老龙王已经安静地离世，以及人间星脉正在受损。三位伙伴先修好村口第一盏灯，约定前往森林寻找源头。",
+      "path": "res://assets/audio_v13/voice/intro_0.mp3",
+      "text_sha256": "837d718240d7dbf4e17f666d7a1380873dc45d9135a3cedea87d0b169b0a562f",
+      "character_count": 131,
+      "estimated_duration_seconds": 32.0,
+      "sources": [
+        "res://data/chapters.json#/chapters/0/summary"
+      ]
+    },
+    "clear_0": {
+      "id": "clear_0",
+      "kind": "stage_clear",
+      "title": "花盆后面的声音",
+      "chapter_index": 0,
+      "chapter_id": "prologue",
+      "stage_index": 0,
+      "level_index": 0,
+      "level_id": "prologue-01",
+      "text": "小龙吃完食物并主动靠近两位孩子，星契标记亮起。",
+      "path": "res://assets/audio_v13/voice/clear_0.mp3",
+      "text_sha256": "0b96f45bce0f608e72e78f10923f47af5a44a26f3b922890008560db5717d0b4",
+      "character_count": 23,
+      "estimated_duration_seconds": 6.3,
+      "sources": [
+        "res://data/chapters.json#/chapters/0/levels/0/success"
+      ]
+    },
+    "clear_1": {
+      "id": "clear_1",
+      "kind": "stage_clear",
+      "title": "追来的小影团",
+      "chapter_index": 0,
+      "chapter_id": "prologue",
+      "stage_index": 1,
+      "level_index": 1,
+      "level_id": "prologue-02",
+      "text": "所有影团散去，三人一起把释放出的晶石收进星契容器。",
+      "path": "res://assets/audio_v13/voice/clear_1.mp3",
+      "text_sha256": "976a08f23d931fddd9990a6de5a410efff28d06c6b08cbaa5e3737ec2f55fff2",
+      "character_count": 25,
+      "estimated_duration_seconds": 6.8,
+      "sources": [
+        "res://data/chapters.json#/chapters/0/levels/1/success"
+      ]
+    },
+    "clear_2": {
+      "id": "clear_2",
+      "kind": "stage_clear",
+      "title": "村口第一盏灯",
+      "chapter_index": 0,
+      "chapter_id": "prologue",
+      "stage_index": 2,
+      "level_index": 2,
+      "level_id": "prologue-03",
+      "text": "古灯持续点亮、守灯人交出森林路线，萤火森林主线任务出现。",
+      "path": "res://assets/audio_v13/voice/clear_2.mp3",
+      "text_sha256": "baf0ffc0aaa9a6433499ce1747463c2d3383df6b6aeb2d043b38aa03af83959b",
+      "character_count": 28,
+      "estimated_duration_seconds": 7.5,
+      "sources": [
+        "res://data/chapters.json#/chapters/0/levels/2/success"
+      ]
+    },
+    "intro_1": {
+      "id": "intro_1",
+      "kind": "chapter_intro",
+      "title": "第一章 · 萤火森林的第一束星火",
+      "chapter_index": 1,
+      "chapter_id": "forest",
+      "stage_index": 3,
+      "text": "森林的萤火虫被关在荆棘灯笼里，回村的小路也被影藤吞没。三人跟随留下的微光寻找树根神殿，却发现占据神殿的木妖原本是一位守护森林的山灵。它吞下受污染的火源晶后失去平静，把靠近的人都当成威胁。孩子们救出萤火虫、重新连通林间镜台，并与小龙一起释放木妖心中的晶石，让森林再度拥有温暖的灯光。",
+      "path": "res://assets/audio_v13/voice/intro_1.mp3",
+      "text_sha256": "bb9f48f318f3b292c8a0336a39600cd57965b81da6fd0e18a4254f599bd45c06",
+      "character_count": 140,
+      "estimated_duration_seconds": 34.1,
+      "sources": [
+        "res://data/chapters.json#/chapters/1/summary"
+      ]
+    },
+    "clear_3": {
+      "id": "clear_3",
+      "kind": "stage_clear",
+      "title": "萤火小径",
+      "chapter_index": 1,
+      "chapter_id": "forest",
+      "stage_index": 3,
+      "level_index": 0,
+      "level_id": "forest-01",
+      "text": "三组萤火虫汇成一条光路，树根神殿方向在地图上显现。",
+      "path": "res://assets/audio_v13/voice/clear_3.mp3",
+      "text_sha256": "8c374e545c63f18678a4a9d1c0809ac8e44990054cc3f009c06deca5dc4eb62a",
+      "character_count": 25,
+      "estimated_duration_seconds": 6.8,
+      "sources": [
+        "res://data/chapters.json#/chapters/1/levels/0/success"
+      ]
+    },
+    "clear_4": {
+      "id": "clear_4",
+      "kind": "stage_clear",
+      "title": "根桥与镜林",
+      "chapter_index": 1,
+      "chapter_id": "forest",
+      "stage_index": 4,
+      "level_index": 1,
+      "level_id": "forest-02",
+      "text": "两枚门印同时亮起，根桥固定，神殿入口打开。",
+      "path": "res://assets/audio_v13/voice/clear_4.mp3",
+      "text_sha256": "6efa47277ce9de3c1612e368e4fe115e452ee136b65fcd5c45333355bc75a63e",
+      "character_count": 21,
+      "estimated_duration_seconds": 5.8,
+      "sources": [
+        "res://data/chapters.json#/chapters/1/levels/1/success"
+      ]
+    },
+    "clear_5": {
+      "id": "clear_5",
+      "kind": "stage_clear",
+      "title": "树根神殿",
+      "chapter_index": 1,
+      "chapter_id": "forest",
+      "stage_index": 5,
+      "level_index": 2,
+      "level_id": "forest-03",
+      "text": "源晶净化、木妖平静、森林星灯点亮，并用星火打开前往原野的影藤门。",
+      "path": "res://assets/audio_v13/voice/clear_5.mp3",
+      "text_sha256": "0f293dc6fbeb2e51433de63d426ccd71c74e3844c9adf999846873591066a397",
+      "character_count": 32,
+      "estimated_duration_seconds": 8.4,
+      "sources": [
+        "res://data/chapters.json#/chapters/1/levels/2/success"
+      ]
+    },
+    "intro_2": {
+      "id": "intro_2",
+      "kind": "chapter_intro",
+      "title": "第二章 · 停下来的风与回家的邀请",
+      "chapter_index": 2,
+      "chapter_id": "windmill",
+      "stage_index": 6,
+      "text": "风车原野的磨坊停转，村民的粮车被困在断桥另一端。三人追着捣蛋怪进入风车塔，发现这里的风源晶正被一台失控的旧守卫占据。几次受挫后，小龙开始怀疑自己能否成为龙王。星灯岛长老通过短暂星门邀请它先回岛休养，孩子们则继续帮助村民修桥。看见新朋友一起点灯、送粮，小龙第一次主动选择留在人间，把尚未完成的事情做好。",
+      "path": "res://assets/audio_v13/voice/intro_2.mp3",
+      "text_sha256": "0a519b8af6f8e5ae72c959de27a309ee78e98a69f30092026eb14315b4ac17e6",
+      "character_count": 150,
+      "estimated_duration_seconds": 36.5,
+      "sources": [
+        "res://data/chapters.json#/chapters/2/summary"
+      ]
+    },
+    "clear_6": {
+      "id": "clear_6",
+      "kind": "stage_clear",
+      "title": "断桥旁的粮车",
+      "chapter_index": 2,
+      "chapter_id": "windmill",
+      "stage_index": 6,
+      "level_index": 0,
+      "level_id": "windmill-01",
+      "text": "粮车回到磨坊，桥板固定，通往谷仓的道路开放。",
+      "path": "res://assets/audio_v13/voice/clear_6.mp3",
+      "text_sha256": "cae95de240296893bd98915702104dd3f3ca5c5a10dbca0da6b6b9758afd7136",
+      "character_count": 22,
+      "estimated_duration_seconds": 6.0,
+      "sources": [
+        "res://data/chapters.json#/chapters/2/levels/0/success"
+      ]
+    },
+    "clear_7": {
+      "id": "clear_7",
+      "kind": "stage_clear",
+      "title": "谷仓里的风向题",
+      "chapter_index": 2,
+      "chapter_id": "windmill",
+      "stage_index": 7,
+      "level_index": 1,
+      "level_id": "windmill-02",
+      "text": "三道风帆同时稳定转动，塔顶升降平台启动。",
+      "path": "res://assets/audio_v13/voice/clear_7.mp3",
+      "text_sha256": "ef2a680593327a580f05aeaf0eaed01c54491d52245ed5d1f57c054a37224278",
+      "character_count": 20,
+      "estimated_duration_seconds": 5.6,
+      "sources": [
+        "res://data/chapters.json#/chapters/2/levels/1/success"
+      ]
+    },
+    "clear_8": {
+      "id": "clear_8",
+      "kind": "stage_clear",
+      "title": "云帆塔顶",
+      "chapter_index": 2,
+      "chapter_id": "windmill",
+      "stage_index": 8,
+      "level_index": 2,
+      "level_id": "windmill-03",
+      "text": "守卫恢复待机、风车稳定，小龙选择留下，三人滑翔抵达通往水乡的道路。",
+      "path": "res://assets/audio_v13/voice/clear_8.mp3",
+      "text_sha256": "00f99abf98f167c04b8940b22a26307d427c29e8621aeeec22c7626a2866b2dc",
+      "character_count": 33,
+      "estimated_duration_seconds": 8.7,
+      "sources": [
+        "res://data/chapters.json#/chapters/2/levels/2/success"
+      ]
+    },
+    "intro_3": {
+      "id": "intro_3",
+      "kind": "chapter_intro",
+      "title": "第三章 · 月光下的真假回声",
+      "chapter_index": 3,
+      "chapter_id": "water",
+      "stage_index": 9,
+      "text": "水乡的水闸失灵，夜里总有奇怪的声音从河道传来，居民只好暂时关上渡口。三人发现，有些声音来自泡妖的恶作剧，真正的守灯人则被困在旧神殿。小馒头用回声铃辨认声音的方向，旺仔保护大家穿过水车回廊，小龙借风把伙伴送到安全落点。他们逐步排开积水、救出守灯人，最终在月光祭台净化水源晶，让水乡重新亮起莲灯。",
+      "path": "res://assets/audio_v13/voice/intro_3.mp3",
+      "text_sha256": "f56a606d1d22646ce8fa24b3b1c3e4b92b15badd4af8197aea6873343b83f605",
+      "character_count": 146,
+      "estimated_duration_seconds": 35.6,
+      "sources": [
+        "res://data/chapters.json#/chapters/3/summary"
+      ]
+    },
+    "clear_9": {
+      "id": "clear_9",
+      "kind": "stage_clear",
+      "title": "渡口寻声",
+      "chapter_index": 3,
+      "chapter_id": "water",
+      "stage_index": 9,
+      "level_index": 0,
+      "level_id": "water-01",
+      "text": "确认真正的守灯人标记，排除恶作剧声源，水闸入口被标记。",
+      "path": "res://assets/audio_v13/voice/clear_9.mp3",
+      "text_sha256": "227a2871fa9480754128b07e23499ddd8990caa236258fae17dec8406530ef49",
+      "character_count": 27,
+      "estimated_duration_seconds": 7.2,
+      "sources": [
+        "res://data/chapters.json#/chapters/3/levels/0/success"
+      ]
+    },
+    "clear_10": {
+      "id": "clear_10",
+      "kind": "stage_clear",
+      "title": "水车回廊",
+      "chapter_index": 3,
+      "chapter_id": "water",
+      "stage_index": 10,
+      "level_index": 1,
+      "level_id": "water-02",
+      "text": "主水位回到标记线，守灯人抵达安全点，祭台入口开放。",
+      "path": "res://assets/audio_v13/voice/clear_10.mp3",
+      "text_sha256": "6aac1dd2b2c19689db53586119cc87c57833c5b008b601bd963b142f3cd133be",
+      "character_count": 25,
+      "estimated_duration_seconds": 6.8,
+      "sources": [
+        "res://data/chapters.json#/chapters/3/levels/1/success"
+      ]
+    },
+    "clear_11": {
+      "id": "clear_11",
+      "kind": "stage_clear",
+      "title": "月光祭台",
+      "chapter_index": 3,
+      "chapter_id": "water",
+      "stage_index": 11,
+      "level_index": 2,
+      "level_id": "water-03",
+      "text": "精英泡妖散去影雾，水源晶净化，水乡主灯与沿岸莲灯一起亮起。",
+      "path": "res://assets/audio_v13/voice/clear_11.mp3",
+      "text_sha256": "0399a889e6ea2ea2f382c13c1c46e9168d91ae13a4586f60e3f3129a0a9ea027",
+      "character_count": 29,
+      "estimated_duration_seconds": 7.7,
+      "sources": [
+        "res://data/chapters.json#/chapters/3/levels/2/success"
+      ]
+    },
+    "intro_4": {
+      "id": "intro_4",
+      "kind": "chapter_intro",
+      "title": "第四章 · 父亲走过的路",
+      "chapter_index": 4,
+      "chapter_id": "ruins",
+      "stage_index": 12,
+      "text": "守灯人保存的星图指向一座被水与藤蔓围住的遗迹。借助此前学会的能力，三人进入古老长廊，发现老龙王年轻时与人类伙伴共同点灯的记录。小龙第一次知道，父亲也曾经迷路、受挫，需要别人帮助。遗迹深处的石甲守卫被吞灯妖篡改星纹，正保护着最后一颗源晶。三人修正星图、解除守卫的影雾，让遗迹重新记起它守护人间的使命。",
+      "path": "res://assets/audio_v13/voice/intro_4.mp3",
+      "text_sha256": "eaedf39e25feec954942dcdbc3c1aea2795b710d11f5793c61d84b5d837789e1",
+      "character_count": 149,
+      "estimated_duration_seconds": 36.3,
+      "sources": [
+        "res://data/chapters.json#/chapters/4/summary"
+      ]
+    },
+    "clear_12": {
+      "id": "clear_12",
+      "kind": "stage_clear",
+      "title": "潮痕下的石阶",
+      "chapter_index": 4,
+      "chapter_id": "ruins",
+      "stage_index": 12,
+      "level_index": 0,
+      "level_id": "ruins-01",
+      "text": "三道外层封锁解除，星图长廊入口点亮。",
+      "path": "res://assets/audio_v13/voice/clear_12.mp3",
+      "text_sha256": "12a82a5e93ebec09049e25a1fe047e64f0928d6daef782056e92913038d9fedf",
+      "character_count": 18,
+      "estimated_duration_seconds": 5.1,
+      "sources": [
+        "res://data/chapters.json#/chapters/4/levels/0/success"
+      ]
+    },
+    "clear_13": {
+      "id": "clear_13",
+      "kind": "stage_clear",
+      "title": "星图长廊",
+      "chapter_index": 4,
+      "chapter_id": "ruins",
+      "stage_index": 13,
+      "level_index": 1,
+      "level_id": "ruins-02",
+      "text": "三幅星图相连，老龙王与人类伙伴的往事完整呈现，王印殿开放。",
+      "path": "res://assets/audio_v13/voice/clear_13.mp3",
+      "text_sha256": "58d6e1d1490ad13a11a32c3209b94a2dd05e6a5febe29ff27dbfc0347d535288",
+      "character_count": 29,
+      "estimated_duration_seconds": 7.7,
+      "sources": [
+        "res://data/chapters.json#/chapters/4/levels/1/success"
+      ]
+    },
+    "clear_14": {
+      "id": "clear_14",
+      "kind": "stage_clear",
+      "title": "王印殿的石甲守卫",
+      "chapter_index": 4,
+      "chapter_id": "ruins",
+      "stage_index": 14,
+      "level_index": 2,
+      "level_id": "ruins-03",
+      "text": "守卫恢复友善、空间源晶净化，三人成功通过首对星门；村庄的紧急灯讯出现。",
+      "path": "res://assets/audio_v13/voice/clear_14.mp3",
+      "text_sha256": "559faf99e207ef56434b0dd82994aceb197bb975fcf4867da5972fdcacdb521b",
+      "character_count": 35,
+      "estimated_duration_seconds": 9.1,
+      "sources": [
+        "res://data/chapters.json#/chapters/4/levels/2/success"
+      ]
+    },
+    "intro_5": {
+      "id": "intro_5",
+      "kind": "chapter_intro",
+      "title": "终章 · 回家的门，救人的门",
+      "chapter_index": 5,
+      "chapter_id": "rift",
+      "stage_index": 15,
+      "text": "四地星脉刚刚相连，吞灯妖便把力量集中到村庄上空，企图吞下整条星脉。三人赶回院落时，小龙已经能够打开回岛的门，却先用这股力量撑起救援通道，让村民撤到安全处。它的星光逐渐变暗，远处却接连亮起熟悉的灯：森林、原野与水乡的伙伴正在回应。星光沿修好的星脉汇来，三人借助一路建立的联系，开始最后一次守界。",
+      "path": "res://assets/audio_v13/voice/intro_5.mp3",
+      "text_sha256": "688f4cd477c09378895801126e974502a5fc2cff134ad42286b3c55dcda51a03",
+      "character_count": 146,
+      "estimated_duration_seconds": 35.6,
+      "sources": [
+        "res://data/chapters.json#/chapters/5/summary"
+      ]
+    },
+    "clear_15": {
+      "id": "clear_15",
+      "kind": "stage_clear",
+      "title": "守灯人的归途",
+      "chapter_index": 5,
+      "chapter_id": "rift",
+      "stage_index": 15,
+      "level_index": 0,
+      "level_id": "rift-01",
+      "text": "三组村民均安全抵达，三盏救援灯持续点亮，院落通道开放。",
+      "path": "res://assets/audio_v13/voice/clear_15.mp3",
+      "text_sha256": "5f22f839e8f4a30c64fc6eddcd2519f46d6935f185336e6c66443b092d2b6678",
+      "character_count": 27,
+      "estimated_duration_seconds": 7.2,
+      "sources": [
+        "res://data/chapters.json#/chapters/5/levels/0/success"
+      ]
+    },
+    "clear_16": {
+      "id": "clear_16",
+      "kind": "stage_clear",
+      "title": "院落里的最后一盏灯",
+      "chapter_index": 5,
+      "chapter_id": "rift",
+      "stage_index": 16,
+      "level_index": 1,
+      "level_id": "rift-02",
+      "text": "四路星光汇入主阵，安全通道稳定，吞灯妖显出形体。",
+      "path": "res://assets/audio_v13/voice/clear_16.mp3",
+      "text_sha256": "e570b5746b340ccbc0458132d6b742d52b60bd2ebe9a1429d2f05077a73e438b",
+      "character_count": 24,
+      "estimated_duration_seconds": 6.5,
+      "sources": [
+        "res://data/chapters.json#/chapters/5/levels/1/success"
+      ]
+    },
+    "clear_17": {
+      "id": "clear_17",
+      "kind": "stage_clear",
+      "title": "三盏星光的守界之战",
+      "chapter_index": 5,
+      "chapter_id": "rift",
+      "stage_index": 17,
+      "level_index": 2,
+      "level_id": "rift-03",
+      "text": "吞灯妖退回幽影界、裂隙封闭、四地星灯全部亮起，小龙稳定打开通往星灯岛的门。",
+      "path": "res://assets/audio_v13/voice/clear_17.mp3",
+      "text_sha256": "b4952db32cb87eb7ca381df5270db06cee57835a1f9ff51d07e1d2489b47dbc8",
+      "character_count": 37,
+      "estimated_duration_seconds": 9.6,
+      "sources": [
+        "res://data/chapters.json#/chapters/5/levels/2/success"
+      ]
+    },
+    "intro_6": {
+      "id": "intro_6",
+      "kind": "chapter_intro",
+      "title": "尾声 · 接过那盏灯",
+      "chapter_index": 6,
+      "chapter_id": "island",
+      "stage_index": 18,
+      "text": "小龙亲自打开星门，带旺仔和小馒头来到星海中的家。长老与龙族居民迎接三位伙伴，王座旁仍放着老龙王曾教小龙点亮的那盏小灯。父亲留下的星光留言让小龙安静地听完最后一句叮嘱；思念没有消失，它也已经能够接过守护的责任。庆典结束后，新龙王在孩子们的院子留下约定之灯，让星灯岛与人间有了一条可以相聚的路。",
+      "path": "res://assets/audio_v13/voice/intro_6.mp3",
+      "text_sha256": "15d37bfa010af36f86b7974ca37c8e8eb45e1c25c80f74d117143e9cf4d793bf",
+      "character_count": 145,
+      "estimated_duration_seconds": 35.3,
+      "sources": [
+        "res://data/chapters.json#/chapters/6/summary"
+      ]
+    },
+    "clear_18": {
+      "id": "clear_18",
+      "kind": "stage_clear",
+      "title": "星海中的第一步",
+      "chapter_index": 6,
+      "chapter_id": "island",
+      "stage_index": 18,
+      "level_index": 0,
+      "level_id": "island-01",
+      "text": "三处景观被记录，龙王灯广场入口出现欢迎星光。",
+      "path": "res://assets/audio_v13/voice/clear_18.mp3",
+      "text_sha256": "d62c67475d23351c7ec08134f2fde8ed6a5f037c20c22864b04690adc605c98d",
+      "character_count": 22,
+      "estimated_duration_seconds": 6.0,
+      "sources": [
+        "res://data/chapters.json#/chapters/6/levels/0/success"
+      ]
+    },
+    "clear_19": {
+      "id": "clear_19",
+      "kind": "stage_clear",
+      "title": "王座旁的小灯",
+      "chapter_index": 6,
+      "chapter_id": "island",
+      "stage_index": 19,
+      "level_index": 1,
+      "level_id": "island-02",
+      "text": "小龙接过龙王灯，三人的星契纹样在岛上主灯中同时亮起。",
+      "path": "res://assets/audio_v13/voice/clear_19.mp3",
+      "text_sha256": "cee003eae3fce0f3ca2451f365c6d64643d09ee6c87a660ca53a5674be143ec1",
+      "character_count": 26,
+      "estimated_duration_seconds": 7.0,
+      "sources": [
+        "res://data/chapters.json#/chapters/6/levels/1/success"
+      ]
+    },
+    "ending": {
+      "id": "ending",
+      "kind": "ending",
+      "title": "院子里的约定之灯",
+      "chapter_index": 6,
+      "chapter_id": "island",
+      "stage_index": 20,
+      "level_index": 2,
+      "level_id": "island-03",
+      "text": "约定之灯点亮，主线标记完成，地图中的回访入口与支线清单可用。\n\n七章冒险已完成。地图中保留所有区域，可继续寻宝、挑战妖怪和探索未走过的角落。",
+      "path": "res://assets/audio_v13/voice/ending.mp3",
+      "text_sha256": "8ea35abf61ecafc0fb562b3952fad9e21ac72d4981955cf65b7b17f0f769e0d7",
+      "character_count": 70,
+      "estimated_duration_seconds": 17.0,
+      "sources": [
+        "res://data/chapters.json#/chapters/6/levels/2/success",
+        "res://scripts/game_main.gd#_complete_stage/final_dialog_closing"
+      ]
+    },
+    "clear_20": {
+      "id": "clear_20",
+      "kind": "ending",
+      "title": "院子里的约定之灯",
+      "chapter_index": 6,
+      "chapter_id": "island",
+      "stage_index": 20,
+      "level_index": 2,
+      "level_id": "island-03",
+      "text": "约定之灯点亮，主线标记完成，地图中的回访入口与支线清单可用。\n\n七章冒险已完成。地图中保留所有区域，可继续寻宝、挑战妖怪和探索未走过的角落。",
+      "path": "res://assets/audio_v13/voice/ending.mp3",
+      "text_sha256": "8ea35abf61ecafc0fb562b3952fad9e21ac72d4981955cf65b7b17f0f769e0d7",
+      "character_count": 70,
+      "estimated_duration_seconds": 17.0,
+      "sources": [
+        "res://data/chapters.json#/chapters/6/levels/2/success",
+        "res://scripts/game_main.gd#_complete_stage/final_dialog_closing"
+      ],
+      "alias_of": "ending"
+    }
+  },
+  "mix": {
+    "master_db": 0.0,
+    "music_db": -15.0,
+    "voice_db": -2.0,
+    "effects_db": -4.0,
+    "music_duck_db": -10.0,
+    "duck_attack_seconds": 0.18,
+    "duck_release_seconds": 0.65,
+    "music_crossfade_seconds": 1.5,
+    "voice_fade_seconds": 0.12,
+    "voice_bus": "Voice",
+    "music_bus": "Music",
+    "effects_bus": "SFX",
+    "pause_with_game": true,
+    "one_voice_at_a_time": true
+  },
+  "coverage": {
+    "chapter_intro_count": 7,
+    "stage_clear_count": 21,
+    "unique_voice_file_count": 28,
+    "story_entry_count": 29,
+    "music_file_count": 10,
+    "unique_voice_character_count": 1605,
+    "unique_voice_han_character_count": 1456,
+    "estimated_voice_seconds": 404.2
+  }
+}

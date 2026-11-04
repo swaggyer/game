@@ -55,6 +55,7 @@ TEXT_SUFFIXES = {
     ".csv", ".css", ".js", ".svg", ".gitignore", ".gitattributes", ".gdignore",
 }
 KEEP_SCREENSHOTS = {
+    "v13-main-story.png", "v13-audio-settings.png", "v13-packed-story.png",
     "v121-hud-fixed.png", "v121-packed-gameplay.png", "v12-village.png",
     "v12-main-course.png", "v12-forest-challenge.png", "v12-map.png",
     "v12-portraits-hud.png",

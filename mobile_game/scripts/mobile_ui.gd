@@ -16,6 +16,11 @@ signal skill_requested(id: String)
 signal difficulty_requested(id: String)
 signal new_game_requested
 signal start_requested(continue_game: bool)
+signal story_opened(id: String, text: String)
+signal story_closed
+signal narration_toggle_requested
+signal narration_replay_requested
+signal audio_setting_changed(kind: String, value)
 
 const INK = Color("102b35")
 const DEEP = Color("102b35f2")
@@ -58,11 +63,23 @@ var hud_visible = false
 var ui_font: Font
 var touch_buttons: Dictionary = {}
 var touch_scrolls: Dictionary = {}
+var touch_sliders: Dictionary = {}
+## Optional AudioDirector; settings are read again each time the page opens.
+var audio_controller: Object
+var story_audio_state = "idle"
+var _active_story_id = ""
+var _dialog_serial = 0
+var _story_audio_label: Label
+var _story_toggle_button: Button
+var _story_replay_button: Button
+var _audio_values = {"music_volume": 0.65, "sfx_volume": 1.0, "voice_volume": 1.0, "voice_enabled": true}
 
 func setup(value: RefCounted) -> void:
 	campaign = value
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer = 20
+	visibility_changed.connect(func():
+		if not visible: _stop_story_audio())
 	root = Control.new()
 	root.name = "MobileInterface"
 	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -386,9 +403,12 @@ func _build_dialog() -> void:
 	dialog_screen.add_child(shade)
 	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	dialog_screen.hide()
+	dialog_screen.visibility_changed.connect(func():
+		if not dialog_screen.visible: _stop_story_audio())
 
 func show_title() -> void:
 	_release_stick()
+	_dismiss_dialog(false, false)
 	get_tree().paused = true
 	continue_button.disabled = not campaign.has_save
 	_update_difficulty_choice()
@@ -399,6 +419,7 @@ func show_title() -> void:
 	title_screen.show()
 
 func show_hud() -> void:
+	_dismiss_dialog(false, false)
 	title_screen.hide()
 	pause_screen.hide()
 	dialog_screen.hide()
@@ -428,6 +449,7 @@ func show_pause() -> void:
 
 func hide_pause() -> void:
 	pause_screen.hide()
+	_stop_story_audio()
 
 func refresh_pause() -> void:
 	for node in pause_content.get_children():
@@ -525,6 +547,7 @@ func _build_supplies_content() -> void:
 
 func _build_settings_content() -> void:
 	pause_content.add_child(_label("按自己的步调冒险", 24, GOLD))
+	_build_audio_settings()
 	for pair in [["gentle", "小小守护者", "更充足的生命与较低伤害，适合练习走位和招式。"], ["explorer", "星灯探险家 · 推荐", "新版默认难度。妖怪攻击提高，利用掩体和收招窗口。"], ["brave", "勇敢冒险家", "更高伤害与更快陷阱节奏，适合熟悉协作后挑战。"]]:
 		var id: String = pair[0]
 		var b = _button(("◆ " if campaign.difficulty == id else "") + str(pair[1]), func(): difficulty_requested.emit(id); refresh_pause(), Vector2(0, 44))
@@ -541,9 +564,61 @@ func _build_settings_content() -> void:
 	pause_content.add_child(_paragraph("倒下会回到最近星灯；不扣等级、晶石或装备。普通妖怪在休息后刷新。", 17))
 	pause_content.add_child(_button("重新开始冒险…", func(): show_dialog("重新开始冒险", "这会重新开始主线旅程，并清除当前的本地冒险进度。", "确认重新开始", func(): new_game_requested.emit()), Vector2(0, 44)))
 
-func show_dialog(title: String, body: String, button_text: String, callback: Callable) -> void:
+func _build_audio_settings() -> void:
+	pause_content.add_child(_label("音乐与剧情朗读", 22, CYAN))
+	if is_instance_valid(audio_controller) and audio_controller.has_method("settings"):
+		var values = audio_controller.call("settings")
+		if values is Dictionary:
+			for key in _audio_values:
+				if values.has(key):
+					_audio_values[key] = values[key]
+	for pair in [["music", "背景音乐"], ["sfx", "动作音效"], ["voice", "剧情语音"]]:
+		var kind: String = pair[0]
+		var row = HBoxContainer.new()
+		row.add_theme_constant_override("separation", 18)
+		pause_content.add_child(row)
+		var caption = _label(str(pair[1]), 18, CREAM)
+		caption.custom_minimum_size = Vector2(110, 44)
+		caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		row.add_child(caption)
+		var slider = HSlider.new()
+		slider.name = kind.capitalize() + "Volume"
+		slider.min_value = 0.0
+		slider.max_value = 1.0
+		slider.step = 0.01
+		slider.value = clampf(float(_audio_values.get(kind + "_volume", 1.0)), 0.0, 1.0)
+		slider.custom_minimum_size = Vector2(240, 44)
+		slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		slider.focus_mode = Control.FOCUS_NONE
+		row.add_child(slider)
+		var amount = _label("%d%%" % roundi(slider.value * 100), 18, GOLD)
+		amount.custom_minimum_size = Vector2(62, 44)
+		amount.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		amount.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		row.add_child(amount)
+		slider.value_changed.connect(func(value: float):
+			_audio_values[kind + "_volume"] = value
+			amount.text = "%d%%" % roundi(value * 100)
+			audio_setting_changed.emit(kind, value))
+	var voice = _button("", func(): pass, Vector2(0, 46))
+	voice.name = "VoiceEnabled"
+	voice.text = "剧情朗读：" + ("开启" if bool(_audio_values.voice_enabled) else "关闭")
+	voice.pressed.connect(func():
+		_audio_values.voice_enabled = not bool(_audio_values.voice_enabled)
+		voice.text = "剧情朗读：" + ("开启" if bool(_audio_values.voice_enabled) else "关闭")
+		audio_setting_changed.emit("voice_enabled", bool(_audio_values.voice_enabled)))
+	pause_content.add_child(voice)
+	pause_content.add_child(_paragraph("剧情语音随窗口播放，可随时暂停、重听或跳过；继续旅程无需等待朗读结束。", 16))
+	pause_content.add_child(HSeparator.new())
+
+func show_dialog(title: String, body: String, button_text: String, callback: Callable, story_id: String = "", narration_text: String = "") -> void:
 	_release_stick()
-	was_paused = get_tree().paused
+	# Replacing a modal preserves the pause state from before the first modal.
+	if not dialog_screen.visible:
+		was_paused = get_tree().paused
+	_stop_story_audio()
+	_dialog_serial += 1
+	var serial = _dialog_serial
 	get_tree().paused = true
 	dialog_callback = callback
 	for child in dialog_screen.get_children():
@@ -551,43 +626,109 @@ func show_dialog(title: String, body: String, button_text: String, callback: Cal
 			dialog_screen.remove_child(child)
 			child.queue_free()
 	var panel = PanelContainer.new()
+	panel.name = "DialogPanel"
 	panel.add_theme_stylebox_override("panel", _style(DEEP, GOLD, 24, 2))
 	dialog_screen.add_child(panel)
-	_anchor_rect(panel, Control.PRESET_CENTER, Vector2(-410, -205), Vector2(820, 410))
+	var is_story = not story_id.is_empty()
+	var height = 488.0 if is_story else 410.0
+	_anchor_rect(panel, Control.PRESET_CENTER, Vector2(-410, -height / 2), Vector2(820, height))
 	panel.custom_minimum_size = Vector2(820, 0)
 	var margin = MarginContainer.new()
 	for edge in ["left", "right", "top", "bottom"]:
 		margin.add_theme_constant_override("margin_" + edge, 18)
 	panel.add_child(margin)
 	var v = VBoxContainer.new()
-	v.add_theme_constant_override("separation", 18)
+	v.add_theme_constant_override("separation", 14 if is_story else 18)
 	margin.add_child(v)
 	v.add_child(_label("✦  星光手记", 16, CYAN))
-	v.add_child(_label(title, 30, GOLD))
+	var heading = _label(title, 30, GOLD)
+	heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	heading.max_lines_visible = 2
+	v.add_child(heading)
 	var scroll = ScrollContainer.new()
-	scroll.custom_minimum_size = Vector2(0, 172)
+	scroll.custom_minimum_size = Vector2(0, 152 if is_story else 172)
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	v.add_child(scroll)
 	var text = _paragraph(body, 22, CREAM)
 	text.add_theme_constant_override("line_spacing", 8)
 	scroll.add_child(text)
+	if is_story:
+		_active_story_id = story_id
+		var audio_row = HBoxContainer.new()
+		audio_row.name = "StoryAudioControls"
+		audio_row.add_theme_constant_override("separation", 12)
+		v.add_child(audio_row)
+		_story_audio_label = _label("准备朗读…", 16, MUTED)
+		_story_audio_label.name = "NarrationState"
+		_story_audio_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		_story_audio_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		_story_audio_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		audio_row.add_child(_story_audio_label)
+		_story_toggle_button = _button("播放朗读", func(): narration_toggle_requested.emit(), Vector2(142, 46))
+		_story_toggle_button.name = "NarrationToggle"
+		audio_row.add_child(_story_toggle_button)
+		_story_replay_button = _button("重新朗读", func(): narration_replay_requested.emit(), Vector2(142, 46))
+		_story_replay_button.name = "NarrationReplay"
+		audio_row.add_child(_story_replay_button)
+		set_story_audio_state("idle")
 	var actions = HBoxContainer.new()
 	actions.alignment = BoxContainer.ALIGNMENT_END
 	actions.add_theme_constant_override("separation", 12)
 	v.add_child(actions)
 	if title == "重新开始冒险":
-		actions.add_child(_button("保留当前旅程", func(): dialog_screen.hide(); get_tree().paused = was_paused, Vector2(190, 48)))
-	actions.add_child(_button(button_text, _close_dialog, Vector2(190, 48)))
+		actions.add_child(_button("保留当前旅程", func():
+			if serial == _dialog_serial: _dismiss_dialog(false), Vector2(190, 48)))
+	if is_story:
+		var skip = _button("跳过剧情", func(): _close_dialog_if_current(serial), Vector2(150, 48))
+		skip.name = "SkipStory"
+		actions.add_child(skip)
+	var advance = _button(button_text, func(): _close_dialog_if_current(serial), Vector2(190, 48))
+	advance.name = "ContinueDialog"
+	actions.add_child(advance)
 	dialog_screen.show()
+	if is_story:
+		story_opened.emit(story_id, narration_text if not narration_text.is_empty() else body)
 
-func _close_dialog() -> void:
-	dialog_screen.hide()
-	get_tree().paused = was_paused
+func set_story_audio_state(state: String) -> void:
+	story_audio_state = state
+	if _active_story_id.is_empty() or not is_instance_valid(_story_audio_label):
+		return
+	var labels = {"idle": "准备朗读", "playing": "正在朗读…", "paused": "朗读已暂停", "finished": "朗读已结束", "unavailable": "本段暂无语音，可继续旅程", "disabled": "剧情朗读已关闭"}
+	_story_audio_label.text = str(labels.get(state, "准备朗读"))
+	_story_toggle_button.text = "暂停朗读" if state == "playing" else ("继续朗读" if state == "paused" else "播放朗读")
+	var unavailable = state in ["unavailable", "disabled"]
+	_story_toggle_button.disabled = unavailable
+	_story_replay_button.disabled = unavailable
+
+func _stop_story_audio() -> void:
+	if _active_story_id.is_empty():
+		return
+	_active_story_id = ""
+	story_audio_state = "idle"
+	_story_audio_label = null
+	_story_toggle_button = null
+	_story_replay_button = null
+	story_closed.emit()
+
+func _close_dialog_if_current(serial: int) -> void:
+	if serial == _dialog_serial:
+		_close_dialog()
+
+func _dismiss_dialog(run_callback: bool, restore_pause: bool = true) -> void:
+	var visible_modal = dialog_screen.visible
 	var callback = dialog_callback
 	dialog_callback = Callable()
-	if callback.is_valid():
+	_dialog_serial += 1
+	dialog_screen.hide()
+	if visible_modal and restore_pause:
+		get_tree().paused = was_paused
+	_stop_story_audio()
+	if visible_modal and run_callback and callback.is_valid():
 		callback.call()
+
+func _close_dialog() -> void:
+	_dismiss_dialog(true)
 
 func toast(message: String) -> void:
 	toast_label.text = message
@@ -619,6 +760,10 @@ func _draw_joystick() -> void:
 
 func _input(event: InputEvent) -> void:
 	# The UI continues processing while the simulation is paused.
+	if event is InputEventKey and event.pressed and not event.echo and dialog_screen.visible and event.keycode in [KEY_ENTER, KEY_KP_ENTER, KEY_SPACE]:
+		_close_dialog()
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
 		if dialog_screen.visible:
 			get_viewport().set_input_as_handled()
@@ -633,6 +778,13 @@ func _input(event: InputEvent) -> void:
 	# Godot's mouse emulation is disabled so each finger retains its own identity.
 	# Dispatch button touch events explicitly; the movement finger can remain held.
 	if event is InputEventScreenTouch:
+		if not event.pressed and touch_sliders.has(event.index):
+			var slider = touch_sliders[event.index]
+			touch_sliders.erase(event.index)
+			if not event.canceled and is_instance_valid(slider) and slider.is_visible_in_tree():
+				_touch_slider_value(slider, event.position)
+			get_viewport().set_input_as_handled()
+			return
 		if not event.pressed and (touch_buttons.has(event.index) or touch_scrolls.has(event.index)):
 			var b = touch_buttons.get(event.index)
 			var was_dragging = touch_scrolls.get(event.index, {}).get("dragging", false)
@@ -646,6 +798,12 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			return
 		if event.pressed:
+			var slider = _find_touch_slider(_touch_surface(), event.position)
+			if slider != null:
+				touch_sliders[event.index] = slider
+				_touch_slider_value(slider, event.position)
+				get_viewport().set_input_as_handled()
+				return
 			var scroller = _find_touch_scroller(_touch_surface(), event.position)
 			if scroller != null:
 				touch_scrolls[event.index] = {"node": scroller, "origin": event.position, "initial": scroller.scroll_vertical, "dragging": false}
@@ -659,6 +817,12 @@ func _input(event: InputEvent) -> void:
 			if scroller != null:
 				get_viewport().set_input_as_handled()
 				return
+	elif event is InputEventScreenDrag and touch_sliders.has(event.index):
+		var slider = touch_sliders[event.index]
+		if is_instance_valid(slider) and slider.is_visible_in_tree():
+			_touch_slider_value(slider, event.position)
+		get_viewport().set_input_as_handled()
+		return
 	elif event is InputEventScreenDrag and (touch_buttons.has(event.index) or touch_scrolls.has(event.index)):
 		var was_dragging = false
 		if touch_scrolls.has(event.index):
@@ -703,6 +867,24 @@ func _input(event: InputEvent) -> void:
 
 func _touch_button_at(point: Vector2) -> Button:
 	return _find_touch_button(_touch_surface(), point)
+
+func _find_touch_slider(node: Node, point: Vector2) -> HSlider:
+	if node is Control and (not node.is_visible_in_tree() or (node.clip_contents and not node.get_global_rect().has_point(point))):
+		return null
+	for child in node.get_children():
+		var slider = _find_touch_slider(child, point)
+		if slider != null:
+			return slider
+	if node is HSlider and node.editable and node.get_global_rect().has_point(point):
+		return node
+	return null
+
+func _touch_slider_value(slider: HSlider, point: Vector2) -> void:
+	var rect = slider.get_global_rect()
+	var grabber = slider.get_theme_icon("grabber")
+	var inset = maxf(8.0, float(grabber.get_width()) * 0.5) if grabber != null else 8.0
+	var fraction = clampf((point.x - rect.position.x - inset) / maxf(1.0, rect.size.x - inset * 2), 0.0, 1.0)
+	slider.value = lerpf(slider.min_value, slider.max_value, fraction)
 
 func _touch_surface() -> Control:
 	var surface = hud
@@ -776,3 +958,4 @@ func _notification(what: int) -> void:
 				button.set_pressed_no_signal(false)
 		touch_buttons.clear()
 		touch_scrolls.clear()
+		touch_sliders.clear()
