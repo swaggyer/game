@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PACKED BUILD VERIFIED: 96 combat textures, 12 HQ environment textures, 216 locomotion textures, 2 anime portraits, 21 challenges, quarter HP hits, live main scene

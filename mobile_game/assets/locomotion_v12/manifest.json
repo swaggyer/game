@@ -1,0 +1,1900 @@
+{
+  "version": "1.2",
+  "actors": {
+    "wangzai": {
+      "frames_per_direction": 8,
+      "directions": {
+        "right": [
+          "wangzai_walk_right_00.png",
+          "wangzai_walk_right_01.png",
+          "wangzai_walk_right_02.png",
+          "wangzai_walk_right_03.png",
+          "wangzai_walk_right_04.png",
+          "wangzai_walk_right_05.png",
+          "wangzai_walk_right_06.png",
+          "wangzai_walk_right_07.png"
+        ],
+        "front_right": [
+          "wangzai_walk_front_right_00.png",
+          "wangzai_walk_front_right_01.png",
+          "wangzai_walk_front_right_02.png",
+          "wangzai_walk_front_right_03.png",
+          "wangzai_walk_front_right_04.png",
+          "wangzai_walk_front_right_05.png",
+          "wangzai_walk_front_right_06.png",
+          "wangzai_walk_front_right_07.png"
+        ],
+        "front": [
+          "wangzai_walk_front_00.png",
+          "wangzai_walk_front_01.png",
+          "wangzai_walk_front_02.png",
+          "wangzai_walk_front_03.png",
+          "wangzai_walk_front_04.png",
+          "wangzai_walk_front_05.png",
+          "wangzai_walk_front_06.png",
+          "wangzai_walk_front_07.png"
+        ],
+        "front_left": [
+          "wangzai_walk_front_left_00.png",
+          "wangzai_walk_front_left_01.png",
+          "wangzai_walk_front_left_02.png",
+          "wangzai_walk_front_left_03.png",
+          "wangzai_walk_front_left_04.png",
+          "wangzai_walk_front_left_05.png",
+          "wangzai_walk_front_left_06.png",
+          "wangzai_walk_front_left_07.png"
+        ],
+        "left": [
+          "wangzai_walk_left_00.png",
+          "wangzai_walk_left_01.png",
+          "wangzai_walk_left_02.png",
+          "wangzai_walk_left_03.png",
+          "wangzai_walk_left_04.png",
+          "wangzai_walk_left_05.png",
+          "wangzai_walk_left_06.png",
+          "wangzai_walk_left_07.png"
+        ],
+        "back_left": [
+          "wangzai_walk_back_left_00.png",
+          "wangzai_walk_back_left_01.png",
+          "wangzai_walk_back_left_02.png",
+          "wangzai_walk_back_left_03.png",
+          "wangzai_walk_back_left_04.png",
+          "wangzai_walk_back_left_05.png",
+          "wangzai_walk_back_left_06.png",
+          "wangzai_walk_back_left_07.png"
+        ],
+        "back": [
+          "wangzai_walk_back_00.png",
+          "wangzai_walk_back_01.png",
+          "wangzai_walk_back_02.png",
+          "wangzai_walk_back_03.png",
+          "wangzai_walk_back_04.png",
+          "wangzai_walk_back_05.png",
+          "wangzai_walk_back_06.png",
+          "wangzai_walk_back_07.png"
+        ],
+        "back_right": [
+          "wangzai_walk_back_right_00.png",
+          "wangzai_walk_back_right_01.png",
+          "wangzai_walk_back_right_02.png",
+          "wangzai_walk_back_right_03.png",
+          "wangzai_walk_back_right_04.png",
+          "wangzai_walk_back_right_05.png",
+          "wangzai_walk_back_right_06.png",
+          "wangzai_walk_back_right_07.png"
+        ]
+      },
+      "idle": {
+        "right": "wangzai_idle_right.png",
+        "front_right": "wangzai_idle_front_right.png",
+        "front": "wangzai_idle_front.png",
+        "front_left": "wangzai_idle_front_left.png",
+        "left": "wangzai_idle_left.png",
+        "back_left": "wangzai_idle_back_left.png",
+        "back": "wangzai_idle_back.png",
+        "back_right": "wangzai_idle_back_right.png"
+      },
+      "step_length_world": 128,
+      "source_blend": "E:\\game\\StarLanternIsland\\source_models\\characters\\wangzai\\wangzai.blend",
+      "source_sha256": "730189c3f6f3dc872ca581bf17f63b445007c4d0c788ae533b90ef1e4660a7cf",
+      "gait": "grounded two-bone IK heel contact / toeoff",
+      "source_unchanged": true,
+      "canvas": [
+        240,
+        240
+      ],
+      "body_height_px": 180,
+      "baseline": [
+        120.0,
+        227
+      ],
+      "normalization": {
+        "source_reference_alpha": [
+          41,
+          38,
+          176,
+          254
+        ],
+        "scale": 0.8333333333333334,
+        "translation": [
+          20,
+          15
+        ]
+      },
+      "frame_sha256": {
+        "wangzai_walk_right_00.png": "0161ac40a8c566c26035d09094605902efa2f7f83352a089fb96c41576b69f0c",
+        "wangzai_walk_right_01.png": "6bce65dd59158d73c84dee69091698859a465cb0743ca111aa4115671e9f910d",
+        "wangzai_walk_right_02.png": "2288f07913216503b14d12ba65e123882b7e70b9da4e17a24d7ba0633ae51de7",
+        "wangzai_walk_right_03.png": "8866c72edae7f9919fdd518bdb0c7f3f128d52832661451dfaa3de6568256a91",
+        "wangzai_walk_right_04.png": "175e0d4c8ec18d949f2aeb4ef4669bcba51cf29397affbbe452b0f80b6a50604",
+        "wangzai_walk_right_05.png": "233f65b92d919ce5554948d846b72866e432cc0761cd654117c1f4e750edf7d8",
+        "wangzai_walk_right_06.png": "279584c214d79aafbdcc6049edc8837ac6c3908a5015a88b48f5749df476dad5",
+        "wangzai_walk_right_07.png": "9e65cccea890d7cf6b8d89a8590f8d86cd7ab469a0a7a3dabfe5378b57eac004",
+        "wangzai_walk_front_right_00.png": "63b2daa25b2cd147b97bdcd6da8915e89a99502a9decef92012ff1905842a70b",
+        "wangzai_walk_front_right_01.png": "783ab21e2ec4348b5b762910e43e0e4b549b297634b87bf6a52dae71aa558db9",
+        "wangzai_walk_front_right_02.png": "8234c5c826136877d44db2a45acfe299f6ee2c9b11215b57cd4ac3a1bc45dc9f",
+        "wangzai_walk_front_right_03.png": "d8d07f42a7e4893f0e8eeb0f0b33c046dbbce1b7dfce05ce3abdc4048cfbd904",
+        "wangzai_walk_front_right_04.png": "4e59383b1f1003a77c3cdee5c9e7caf6d75c5b7a9d910667d8fafb027bfbbb20",
+        "wangzai_walk_front_right_05.png": "cf5f46b8535890844e310142a669983c9ca5eddc2674ce5e2eb10e2199c17dd7",
+        "wangzai_walk_front_right_06.png": "9490f3d7b2db9adcc9a231b2c6eb714bf45645a576e7b36819e91bc2349b4bb5",
+        "wangzai_walk_front_right_07.png": "cf31315df3dcb5ce49555f329a3f8527dfb263e7a96da0e8b28d0f0b2d8c2583",
+        "wangzai_walk_front_00.png": "dbe327b9c782d002f21fc3016dadf56410bc8a486b479b29a67b61f850cc6afb",
+        "wangzai_walk_front_01.png": "8ff2122cc7f989d5f53812d0d5a2b491be6717c5ff27b4144b13ef1834a9b4e0",
+        "wangzai_walk_front_02.png": "52cd98f6bb41b8a203667c59804da6d9d55c57b0a3e2ca4117e99bc858d27660",
+        "wangzai_walk_front_03.png": "7a23ead159de657e2dee91c30f2c97d5cb7686caf14a0020db92d7b12b3efba2",
+        "wangzai_walk_front_04.png": "fb786e3c6ae65c6bfee46c422f00a628233e04c72fd18ab5073095a6b96d3574",
+        "wangzai_walk_front_05.png": "26a90c158ce3caf00310e6905c779fe4a807f02885f7949a7590056113746015",
+        "wangzai_walk_front_06.png": "b19eb00cd1a46ac120c9092ccb91197618dc6ca2a343f3d0213e6e98c1283561",
+        "wangzai_walk_front_07.png": "7a63718fbfb212bbb316a459ca4a1a4a0744c7a65a23ee57c72332fa41d256f2",
+        "wangzai_walk_front_left_00.png": "159657bd227eedaacf7c08a76e46e583ecfb02396f308c3190f99822bfe55b35",
+        "wangzai_walk_front_left_01.png": "850c6bf3fb0f65c31799eccf6fb43ca6137b0012c32e52300c44d0a0d9b82650",
+        "wangzai_walk_front_left_02.png": "8ae5b18edffd898060ed53f2be529e9c348e6867a96e501cbafc383c9bc00db5",
+        "wangzai_walk_front_left_03.png": "f1a7c7e65b2569b4ddf3cd1f5b3d3f4ab4c20367cd8b1443f93a06f87a87ee5e",
+        "wangzai_walk_front_left_04.png": "5692d9dd5e35a6f46d5454998983eb077edbdeb5b47583de5fa3c54e8df5c06f",
+        "wangzai_walk_front_left_05.png": "878c702c97e921cdecc3a1a70a384ec3709f9811b55f7f3a216e2cad75ee478f",
+        "wangzai_walk_front_left_06.png": "57b8e09b7fd6ad8083ccc9dd58f8f148c60a63d113e1c9261f544ccbbcf59284",
+        "wangzai_walk_front_left_07.png": "e48168656c1dc034068211cd478f198a89c16cf104782b08aa7b36a6b1607079",
+        "wangzai_walk_left_00.png": "88616699126f7f9933e8efc994ff7fa29dc5b4eebffb3adb4d787a45abc432b8",
+        "wangzai_walk_left_01.png": "20ebeca5aa8e87a2c88553e0fd9591139e8180fe27af718fb72eedaa382ea563",
+        "wangzai_walk_left_02.png": "5dba40ea8291c0d1cdf1cfb1fbcfd3fb0afb87c0d54074b023a913de44ed06cf",
+        "wangzai_walk_left_03.png": "d4fb5f7232b997815324939435de4bf64be3351fb2d051fce1a49ae5c10ecdb2",
+        "wangzai_walk_left_04.png": "dce6ce5db41135eeb93ee28e3ced5d6265403efc205475c7091f559d87326f01",
+        "wangzai_walk_left_05.png": "9175efdf12e74450ef271a655ea736aa5281e3fcccfa7875bde1aa3437550b46",
+        "wangzai_walk_left_06.png": "bcc010912c2db94636e723650cd68d54dfb06998d1c2c50c81012341592d217a",
+        "wangzai_walk_left_07.png": "3a6cd7e71fffba43ac25003dbcf841ba54356d06af5af9421caf3313d4d06b1f",
+        "wangzai_walk_back_left_00.png": "4facdeeab969a0c842cc412c639b61097ffd446c17ed24fa3924ad2dcc0d2c5e",
+        "wangzai_walk_back_left_01.png": "36bc4f48971ddc2cc4d63f1a434627d25a3633a5bf055410bcc1d13788fd98aa",
+        "wangzai_walk_back_left_02.png": "32674db9dc571da45a790b635903bc92b910ae4b7125bfc36cf1da413bdf8cb5",
+        "wangzai_walk_back_left_03.png": "aa50854f4e9183734b858531d2edb0e31fbf184f6d9a0f8937adbae8602b2301",
+        "wangzai_walk_back_left_04.png": "beca83647d90774076bc839970a47b94d2a53fc2ff345810c7b470c2475b8436",
+        "wangzai_walk_back_left_05.png": "50519c58825f3af703b1a140054db56a658bdf4582510ca58ca782cb6b8a4ea9",
+        "wangzai_walk_back_left_06.png": "b3dbde30453e69c03dc727127aad7f237f696107b052b644fc2f02ee89f7fb93",
+        "wangzai_walk_back_left_07.png": "0d6f1dc0463e37c3386a760539267e03aea56b6099676e0568aa0b1e3cd30213",
+        "wangzai_walk_back_00.png": "41975d3d3271e9f3d697a001ce285ccc52afbfd91c0ac291e1592eec83736ad6",
+        "wangzai_walk_back_01.png": "b9e04a5d0fd5e2059567063ac798866e39c22a71d5084ed14f57b3d463d8dccc",
+        "wangzai_walk_back_02.png": "54b11b106ac1fc4ce977cb6cd9c8e03f6fb75f87a23e7cc2a2cbeb877ade00fa",
+        "wangzai_walk_back_03.png": "5f2543cbb93ce45b16db03e5eb514b19e44c7ab0298f59a0b29d39313ea5e061",
+        "wangzai_walk_back_04.png": "c46ee7b13d72014d527a99a30b8e00ee335e415a6ec6e0a81d2ea35c9c07c04b",
+        "wangzai_walk_back_05.png": "8919b57d2ad70493d47cb26d87a8bd63e95ca30c80c233cc89d88bf7560f050c",
+        "wangzai_walk_back_06.png": "44710c38a588fd59662278c6a912dda8bc2f05feee9184a787d95bf05d08e3ec",
+        "wangzai_walk_back_07.png": "e6a29d1b0dd7caf2493d2bff76420c9c13ad7c51876ba75c86149b8035d7af4c",
+        "wangzai_walk_back_right_00.png": "3fcb97d64a0e41fae7329dc07fbf47998614f42e88038178f852b80c943d5d3e",
+        "wangzai_walk_back_right_01.png": "721a9746bb0f8ded9436ddc92c2c9d0b49dbfb17cae5fecbf66fd3fe12b8071a",
+        "wangzai_walk_back_right_02.png": "9db633d4fd6ed5043e8e4135b9ad836b116ccad3b52fbbaf500e386b8b106312",
+        "wangzai_walk_back_right_03.png": "7388e58dd48f1d7ce0dc687d8efdbf20a17150d56518d6d8bec42346bc74a019",
+        "wangzai_walk_back_right_04.png": "2f16cafb8822d7bd4eec6dcb3c445ad9c63d9f4b5c40d32515e7ccea6e47ee45",
+        "wangzai_walk_back_right_05.png": "eb52f740f24b3c752b055a60c322a023ba6523b345ffab55776ed74b342ba705",
+        "wangzai_walk_back_right_06.png": "59e1d9ee6b0d444ce244cb389efe5b6b5eb9d021991189c048fe50c9f4fb03db",
+        "wangzai_walk_back_right_07.png": "3d5a3f998223f8ee34af338596968988a93131a1a023715c06fa311d8f440af2",
+        "wangzai_idle_right.png": "e050de23117298750828040188bc0a65be0a7f976db2c37008edaea9f5276466",
+        "wangzai_idle_front_right.png": "91ffc4f355bb1f84b6136314e39e4527932bfac93e6c4641050fcda4e28c62fc",
+        "wangzai_idle_front.png": "93da394eb84c26a14e407865412a9e44820ae0cb5b90ede482501834240b6f15",
+        "wangzai_idle_front_left.png": "077cf1e21aed965f3372c7fcc5139d1ba71d9311afa037db367dec25392a9515",
+        "wangzai_idle_left.png": "f5bc80b72b1f4d80e3b9d5fac2df31087d224f6fc224c7a8c040ae439b0f899e",
+        "wangzai_idle_back_left.png": "d03ef199969f87f39be24523c4fa55bcfca1b41000727cf139206692251d55ff",
+        "wangzai_idle_back.png": "85cdb4ee973a54d713b84aa02664072ab318e430c0e6c6b78d034c605bdaa70b",
+        "wangzai_idle_back_right.png": "8319dd7d5ead99d6e5585c8b83e42afc9e93511d992ff6ffc293708d7fbab8d1"
+      },
+      "alpha_bounds": {
+        "wangzai_walk_right_00.png": [
+          80,
+          48,
+          166,
+          226
+        ],
+        "wangzai_walk_right_01.png": [
+          79,
+          49,
+          159,
+          229
+        ],
+        "wangzai_walk_right_02.png": [
+          78,
+          49,
+          149,
+          229
+        ],
+        "wangzai_walk_right_03.png": [
+          79,
+          49,
+          155,
+          229
+        ],
+        "wangzai_walk_right_04.png": [
+          80,
+          48,
+          166,
+          229
+        ],
+        "wangzai_walk_right_05.png": [
+          79,
+          48,
+          159,
+          230
+        ],
+        "wangzai_walk_right_06.png": [
+          78,
+          48,
+          150,
+          220
+        ],
+        "wangzai_walk_right_07.png": [
+          79,
+          48,
+          155,
+          220
+        ],
+        "wangzai_walk_front_right_00.png": [
+          70,
+          45,
+          160,
+          234
+        ],
+        "wangzai_walk_front_right_01.png": [
+          70,
+          45,
+          163,
+          234
+        ],
+        "wangzai_walk_front_right_02.png": [
+          69,
+          45,
+          164,
+          230
+        ],
+        "wangzai_walk_front_right_03.png": [
+          70,
+          45,
+          163,
+          229
+        ],
+        "wangzai_walk_front_right_04.png": [
+          70,
+          45,
+          165,
+          226
+        ],
+        "wangzai_walk_front_right_05.png": [
+          70,
+          45,
+          160,
+          226
+        ],
+        "wangzai_walk_front_right_06.png": [
+          70,
+          45,
+          155,
+          222
+        ],
+        "wangzai_walk_front_right_07.png": [
+          70,
+          45,
+          156,
+          225
+        ],
+        "wangzai_walk_front_00.png": [
+          54,
+          45,
+          167,
+          234
+        ],
+        "wangzai_walk_front_01.png": [
+          50,
+          45,
+          165,
+          232
+        ],
+        "wangzai_walk_front_02.png": [
+          50,
+          45,
+          164,
+          230
+        ],
+        "wangzai_walk_front_03.png": [
+          50,
+          45,
+          165,
+          225
+        ],
+        "wangzai_walk_front_04.png": [
+          54,
+          45,
+          167,
+          234
+        ],
+        "wangzai_walk_front_05.png": [
+          55,
+          45,
+          170,
+          232
+        ],
+        "wangzai_walk_front_06.png": [
+          56,
+          45,
+          171,
+          230
+        ],
+        "wangzai_walk_front_07.png": [
+          55,
+          45,
+          170,
+          225
+        ],
+        "wangzai_walk_front_left_00.png": [
+          60,
+          45,
+          170,
+          226
+        ],
+        "wangzai_walk_front_left_01.png": [
+          64,
+          45,
+          170,
+          226
+        ],
+        "wangzai_walk_front_left_02.png": [
+          65,
+          45,
+          170,
+          222
+        ],
+        "wangzai_walk_front_left_03.png": [
+          64,
+          45,
+          170,
+          225
+        ],
+        "wangzai_walk_front_left_04.png": [
+          60,
+          45,
+          170,
+          234
+        ],
+        "wangzai_walk_front_left_05.png": [
+          60,
+          45,
+          170,
+          234
+        ],
+        "wangzai_walk_front_left_06.png": [
+          60,
+          45,
+          171,
+          230
+        ],
+        "wangzai_walk_front_left_07.png": [
+          60,
+          45,
+          170,
+          229
+        ],
+        "wangzai_walk_left_00.png": [
+          74,
+          49,
+          160,
+          229
+        ],
+        "wangzai_walk_left_01.png": [
+          81,
+          48,
+          161,
+          230
+        ],
+        "wangzai_walk_left_02.png": [
+          91,
+          48,
+          162,
+          220
+        ],
+        "wangzai_walk_left_03.png": [
+          85,
+          48,
+          161,
+          220
+        ],
+        "wangzai_walk_left_04.png": [
+          74,
+          49,
+          160,
+          226
+        ],
+        "wangzai_walk_left_05.png": [
+          81,
+          49,
+          161,
+          229
+        ],
+        "wangzai_walk_left_06.png": [
+          90,
+          49,
+          162,
+          229
+        ],
+        "wangzai_walk_left_07.png": [
+          85,
+          49,
+          161,
+          229
+        ],
+        "wangzai_walk_back_left_00.png": [
+          80,
+          50,
+          170,
+          229
+        ],
+        "wangzai_walk_back_left_01.png": [
+          77,
+          50,
+          170,
+          230
+        ],
+        "wangzai_walk_back_left_02.png": [
+          76,
+          50,
+          171,
+          220
+        ],
+        "wangzai_walk_back_left_03.png": [
+          77,
+          50,
+          170,
+          219
+        ],
+        "wangzai_walk_back_left_04.png": [
+          75,
+          50,
+          170,
+          220
+        ],
+        "wangzai_walk_back_left_05.png": [
+          80,
+          50,
+          170,
+          222
+        ],
+        "wangzai_walk_back_left_06.png": [
+          85,
+          51,
+          170,
+          225
+        ],
+        "wangzai_walk_back_left_07.png": [
+          84,
+          50,
+          170,
+          225
+        ],
+        "wangzai_walk_back_00.png": [
+          73,
+          50,
+          186,
+          225
+        ],
+        "wangzai_walk_back_01.png": [
+          75,
+          51,
+          190,
+          229
+        ],
+        "wangzai_walk_back_02.png": [
+          76,
+          51,
+          190,
+          220
+        ],
+        "wangzai_walk_back_03.png": [
+          75,
+          51,
+          190,
+          222
+        ],
+        "wangzai_walk_back_04.png": [
+          73,
+          50,
+          186,
+          225
+        ],
+        "wangzai_walk_back_05.png": [
+          70,
+          51,
+          185,
+          229
+        ],
+        "wangzai_walk_back_06.png": [
+          69,
+          52,
+          184,
+          220
+        ],
+        "wangzai_walk_back_07.png": [
+          70,
+          51,
+          185,
+          222
+        ],
+        "wangzai_walk_back_right_00.png": [
+          70,
+          50,
+          180,
+          220
+        ],
+        "wangzai_walk_back_right_01.png": [
+          70,
+          51,
+          176,
+          222
+        ],
+        "wangzai_walk_back_right_02.png": [
+          70,
+          51,
+          175,
+          225
+        ],
+        "wangzai_walk_back_right_03.png": [
+          70,
+          51,
+          176,
+          225
+        ],
+        "wangzai_walk_back_right_04.png": [
+          70,
+          50,
+          180,
+          229
+        ],
+        "wangzai_walk_back_right_05.png": [
+          70,
+          50,
+          180,
+          230
+        ],
+        "wangzai_walk_back_right_06.png": [
+          69,
+          50,
+          180,
+          220
+        ],
+        "wangzai_walk_back_right_07.png": [
+          70,
+          50,
+          180,
+          219
+        ],
+        "wangzai_idle_right.png": [
+          84,
+          49,
+          149,
+          229
+        ],
+        "wangzai_idle_front_right.png": [
+          74,
+          46,
+          164,
+          230
+        ],
+        "wangzai_idle_front.png": [
+          54,
+          45,
+          167,
+          227
+        ],
+        "wangzai_idle_front_left.png": [
+          60,
+          46,
+          166,
+          230
+        ],
+        "wangzai_idle_left.png": [
+          91,
+          49,
+          157,
+          229
+        ],
+        "wangzai_idle_back_left.png": [
+          78,
+          49,
+          166,
+          225
+        ],
+        "wangzai_idle_back.png": [
+          73,
+          49,
+          186,
+          220
+        ],
+        "wangzai_idle_back_right.png": [
+          74,
+          50,
+          180,
+          225
+        ]
+      },
+      "stride_note": "Authored cadence distance for 2D screen movement; 3D-camera projection makes exact footplant stride shorter and direction-dependent. Distance-driven phase prevents stationary/collision skating, but this is not a full world-space foot-lock solver."
+    },
+    "little_dragon": {
+      "frames_per_direction": 8,
+      "directions": {
+        "right": [
+          "little_dragon_walk_right_00.png",
+          "little_dragon_walk_right_01.png",
+          "little_dragon_walk_right_02.png",
+          "little_dragon_walk_right_03.png",
+          "little_dragon_walk_right_04.png",
+          "little_dragon_walk_right_05.png",
+          "little_dragon_walk_right_06.png",
+          "little_dragon_walk_right_07.png"
+        ],
+        "front_right": [
+          "little_dragon_walk_front_right_00.png",
+          "little_dragon_walk_front_right_01.png",
+          "little_dragon_walk_front_right_02.png",
+          "little_dragon_walk_front_right_03.png",
+          "little_dragon_walk_front_right_04.png",
+          "little_dragon_walk_front_right_05.png",
+          "little_dragon_walk_front_right_06.png",
+          "little_dragon_walk_front_right_07.png"
+        ],
+        "front": [
+          "little_dragon_walk_front_00.png",
+          "little_dragon_walk_front_01.png",
+          "little_dragon_walk_front_02.png",
+          "little_dragon_walk_front_03.png",
+          "little_dragon_walk_front_04.png",
+          "little_dragon_walk_front_05.png",
+          "little_dragon_walk_front_06.png",
+          "little_dragon_walk_front_07.png"
+        ],
+        "front_left": [
+          "little_dragon_walk_front_left_00.png",
+          "little_dragon_walk_front_left_01.png",
+          "little_dragon_walk_front_left_02.png",
+          "little_dragon_walk_front_left_03.png",
+          "little_dragon_walk_front_left_04.png",
+          "little_dragon_walk_front_left_05.png",
+          "little_dragon_walk_front_left_06.png",
+          "little_dragon_walk_front_left_07.png"
+        ],
+        "left": [
+          "little_dragon_walk_left_00.png",
+          "little_dragon_walk_left_01.png",
+          "little_dragon_walk_left_02.png",
+          "little_dragon_walk_left_03.png",
+          "little_dragon_walk_left_04.png",
+          "little_dragon_walk_left_05.png",
+          "little_dragon_walk_left_06.png",
+          "little_dragon_walk_left_07.png"
+        ],
+        "back_left": [
+          "little_dragon_walk_back_left_00.png",
+          "little_dragon_walk_back_left_01.png",
+          "little_dragon_walk_back_left_02.png",
+          "little_dragon_walk_back_left_03.png",
+          "little_dragon_walk_back_left_04.png",
+          "little_dragon_walk_back_left_05.png",
+          "little_dragon_walk_back_left_06.png",
+          "little_dragon_walk_back_left_07.png"
+        ],
+        "back": [
+          "little_dragon_walk_back_00.png",
+          "little_dragon_walk_back_01.png",
+          "little_dragon_walk_back_02.png",
+          "little_dragon_walk_back_03.png",
+          "little_dragon_walk_back_04.png",
+          "little_dragon_walk_back_05.png",
+          "little_dragon_walk_back_06.png",
+          "little_dragon_walk_back_07.png"
+        ],
+        "back_right": [
+          "little_dragon_walk_back_right_00.png",
+          "little_dragon_walk_back_right_01.png",
+          "little_dragon_walk_back_right_02.png",
+          "little_dragon_walk_back_right_03.png",
+          "little_dragon_walk_back_right_04.png",
+          "little_dragon_walk_back_right_05.png",
+          "little_dragon_walk_back_right_06.png",
+          "little_dragon_walk_back_right_07.png"
+        ]
+      },
+      "idle": {
+        "right": "little_dragon_idle_right.png",
+        "front_right": "little_dragon_idle_front_right.png",
+        "front": "little_dragon_idle_front.png",
+        "front_left": "little_dragon_idle_front_left.png",
+        "left": "little_dragon_idle_left.png",
+        "back_left": "little_dragon_idle_back_left.png",
+        "back": "little_dragon_idle_back.png",
+        "back_right": "little_dragon_idle_back_right.png"
+      },
+      "step_length_world": 98,
+      "source_blend": "E:\\game\\StarLanternIsland\\source_models\\creatures\\creature_library.blend",
+      "source_sha256": "b7a4b2d8d4c012b597541f540a7791ac9105c8241424f4301e6b3843302050da",
+      "gait": "four articulated legs, diagonally phased stance/swing, stable head and folded wings",
+      "source_unchanged": true,
+      "canvas": [
+        320,
+        240
+      ],
+      "body_height_px": 180,
+      "baseline": [
+        160.0,
+        227
+      ],
+      "normalization": {
+        "source_reference_alpha": [
+          81,
+          65,
+          260,
+          267
+        ],
+        "scale": 0.8910891089108911,
+        "translation": [
+          17,
+          -11
+        ]
+      },
+      "frame_sha256": {
+        "little_dragon_walk_right_00.png": "1b0a4e64007f1f79e90e7d10aa72bd77a961b603e57974a6efa979e60a170486",
+        "little_dragon_walk_right_01.png": "48b18a6d4dccace5de5d9ddb98afc1d8459a2d40673a3cef8534c43d62dcf8ff",
+        "little_dragon_walk_right_02.png": "bd0b6c53fb83c2dab1ee457bdada215d8c7991fa5b526f8f2fa2ec4cbdd3c629",
+        "little_dragon_walk_right_03.png": "f9a3f1a3a8b4a37ea113d1a65aa82a9900ef0eb2b1413d722d70dd995d11e848",
+        "little_dragon_walk_right_04.png": "74259dff2bde8cb353cf4c6e9662341b9f81c28335328f6f476aea7a5790a268",
+        "little_dragon_walk_right_05.png": "e93cf189b5b55bf7809a385f52196c187ba554eaf7485dea76e8d5649651a907",
+        "little_dragon_walk_right_06.png": "dd803fe0ed7ccce7c41bcad16de1be5c34e3f015706766533bc385f8ba16c466",
+        "little_dragon_walk_right_07.png": "4bcd341fcf1acdcabcac6b2af43ca791b888c9ff8556bf7c7cdc94fd72aa1018",
+        "little_dragon_walk_front_right_00.png": "9f4b0f0c76a54b52a7f8d7f051e9e45c927e8441c3529a60527931ae43adc3ba",
+        "little_dragon_walk_front_right_01.png": "c0d8ee90a7d53ee81610c931e90d94b23caec73f63e4376689865961bfe67108",
+        "little_dragon_walk_front_right_02.png": "521b9b5029646102f8a9483078501b4f250d9d169ee9c2601648183396261fde",
+        "little_dragon_walk_front_right_03.png": "ffb088812c5e39f13ee49567aa8bde364afd7bc3c54f095d2f4efaa301a42b07",
+        "little_dragon_walk_front_right_04.png": "84138d94171f455b1d575e2c874b6e0147924a65c117bd3087cbb391531a95a8",
+        "little_dragon_walk_front_right_05.png": "a469043a197507bbd668db38c0d09c69867bddb0997f6632e859cb208acc639d",
+        "little_dragon_walk_front_right_06.png": "e4d1790c910acb050127d1c3fcd00223e2cf7ee11cbac49993f4342eff33908c",
+        "little_dragon_walk_front_right_07.png": "b5178f9adfdd48fa421c4f4bebdb8070096fc08bf96ded9d91b3237326e182a0",
+        "little_dragon_walk_front_00.png": "96494337a0a326e12e0286aa434e1bbcaa30178990489b3e50b37eb30eba8aa7",
+        "little_dragon_walk_front_01.png": "4716eba699ab2bf00300413d679ecd490a2f55f90583755f3d47fed0cc606dad",
+        "little_dragon_walk_front_02.png": "5cfcb7602c160745001a6d5108c66a1c53c0953e048bf72d77da11134ca406b7",
+        "little_dragon_walk_front_03.png": "ab565ba2fd4d36872718b6ca2e5ca011a100d46eed24ebd29cc6ebac31e582fd",
+        "little_dragon_walk_front_04.png": "7091e74e2bd242ff08458501814520d442a80270e3638466e5a238b8340c8666",
+        "little_dragon_walk_front_05.png": "29ec8452f495514b907c7ca888edaef0ea70054ca7d9995fc433577562086ead",
+        "little_dragon_walk_front_06.png": "6aebd11b9804ab85f130a5b273262cfed6a7ca61023696d7f32ddbd91486b944",
+        "little_dragon_walk_front_07.png": "4124cf0f8120152122258577a00574c7d054c49a11f7722d2cdb74962784d219",
+        "little_dragon_walk_front_left_00.png": "f071249f03b652f71ab900443a972272cdaa796bd14c697406aae42e66da9755",
+        "little_dragon_walk_front_left_01.png": "93e0f93d4fb3c55f09776fbef2ca75c3c01c3c6db4c9bd71a51230a303e85665",
+        "little_dragon_walk_front_left_02.png": "9d99c8048669c7660ca794765cc16d448f8ac14fc2537ac115d639800e180183",
+        "little_dragon_walk_front_left_03.png": "1320f99d8e4b46046c0cb21f92ae4d5be6be42b66444dbd524c114f2ceb3a24b",
+        "little_dragon_walk_front_left_04.png": "74cb79df8d5939d4f406bb18dc7219a0ce5134064299e26d7f075ab014e1064c",
+        "little_dragon_walk_front_left_05.png": "e0f561b79fce7c0924e31efdd8b7340df8d94ec5f244b61ba9ccc8f759c853fe",
+        "little_dragon_walk_front_left_06.png": "2879590bafe062266a35007ba15e03b464e722a9395cdfd03cf7b781870bdf50",
+        "little_dragon_walk_front_left_07.png": "22a27e239cd7e6eec8db0e9a78a05d7859599289ec86f7e24858dcdb169cafc3",
+        "little_dragon_walk_left_00.png": "f1c4d15b37b3a9d99761472b07b13e2af3b96fc31df1a1f85f3b6be8a78af43e",
+        "little_dragon_walk_left_01.png": "ac90397596f0cbc05f3e96668380ddf58d236cf77e1fac2b2a772f2c8ece565e",
+        "little_dragon_walk_left_02.png": "6cdd10976e5149f77247d336d5b86717b688cff96d4e540722f321bdad12cf27",
+        "little_dragon_walk_left_03.png": "1bbb82043d11e26dde3269c05e517621b410adaf882ab63b82cf5ee95189578b",
+        "little_dragon_walk_left_04.png": "05a2a330334f1862d5f529fa5173754d36ef08ceeb68be42f000b5bcad004633",
+        "little_dragon_walk_left_05.png": "1683a3dedbb5d6b4a985fef9d6bf1d5bf3f91e7789bab3654dca6b888abf4417",
+        "little_dragon_walk_left_06.png": "3ded7938f700688900637b9725d8ac0c9f9fb63484f71db1f73ae9b06f23949b",
+        "little_dragon_walk_left_07.png": "f507b06495a79f060092330cf51fc026388a02b04e5aff3d390c787181d7366f",
+        "little_dragon_walk_back_left_00.png": "e91031ec4d1033219b7299bfeda786f43b49e337dc45334636c56375ad9e5a62",
+        "little_dragon_walk_back_left_01.png": "322fab725db483e04cd24b96605fe73fae282d6003b1809c74b99fa995252f6d",
+        "little_dragon_walk_back_left_02.png": "3f6589c23161424ea58d04b7402565712d265b443e146c2432f2b9f03cbac9bf",
+        "little_dragon_walk_back_left_03.png": "4e229e2a41cf10590de1b63a7b799aad48bae458f955bf0a332b1b961e32824f",
+        "little_dragon_walk_back_left_04.png": "8418609fe23c941bf0f1367340e388d7e5b5d6d5a0bf47c4794e5acf31605893",
+        "little_dragon_walk_back_left_05.png": "05ec79a2684c2c79168618ef28822bfa0222a7ed0dd5698d5614d4f6ee826ae9",
+        "little_dragon_walk_back_left_06.png": "d222cc8df538f4ed8d1e39cb7e40077e4e03b9cedbc84495a4d7fb967f3947b9",
+        "little_dragon_walk_back_left_07.png": "d64eecc47fe23f850f22894fad2b8af8116c5b91c2c007a73222d5195dcf5be2",
+        "little_dragon_walk_back_00.png": "bd86e2af0bd14b00a8692f0eced2da13dba5981d323e2b1fda80f46cb9fcbd83",
+        "little_dragon_walk_back_01.png": "b830a272e63d30bbf6901fc498baa916e3452f3038887a3263391e930fc5ce3c",
+        "little_dragon_walk_back_02.png": "48ac3a49e36f0eda26ea104d4d86ac4124d4aec8d44666afdcab1e8639b13012",
+        "little_dragon_walk_back_03.png": "b09e913fd0a0fd29eb86ad2f15717c47046a5dd510ce12a2954ebea96145146a",
+        "little_dragon_walk_back_04.png": "ca127dee31ed96f402aefa92b34456d7c3e93182fcc390a0df4e69b0333038fb",
+        "little_dragon_walk_back_05.png": "93d79dd484d2810cb6533bd3ea3dd3acef65af9fa7ab0932a4f087f7f376ff0d",
+        "little_dragon_walk_back_06.png": "e18688694b28948d6c728e0ed90d8f5f40e6da15dbce44ebf2052f93b4f95881",
+        "little_dragon_walk_back_07.png": "f572c6c87bc26a9edee2addb09d3aef820f200cb64e59f7f4a03ab8b766e43a6",
+        "little_dragon_walk_back_right_00.png": "7c74aaecf557dd884f5f03e2b1044f0ca1bcb66c4896470b9790020fafced152",
+        "little_dragon_walk_back_right_01.png": "b4055585e71587180e809c3a6a8d8c9a170ea89e9be177f15ec3cdfaff498a06",
+        "little_dragon_walk_back_right_02.png": "4a8135e46069d1077b679bc1b1dd307013c69f84b8af793649c1388ff1249080",
+        "little_dragon_walk_back_right_03.png": "ba3be10bd3513fdcb27afb2d9a405dc31fbbf8d9bec18889cd30fd25b3594aaa",
+        "little_dragon_walk_back_right_04.png": "fa0aa906995aab4870dae593ce535b16cc0b7ce3154217bf1e02f408397f271a",
+        "little_dragon_walk_back_right_05.png": "785db4ff6f18adfd05b0fee2eb7774ca79d8bae066438c0d0a3fa523a38ddfee",
+        "little_dragon_walk_back_right_06.png": "e12ec0f0535da6c317994d3dede68ef8efb9a46099571711a3cfebd41b008662",
+        "little_dragon_walk_back_right_07.png": "b68b9c92dfdc8c6147b5d5e133ea44388bc22e721563764393de23953e5de4cf",
+        "little_dragon_idle_right.png": "0c96f287244f201efc1f13518be2f8abff2f98566595f1ac1584df58d66e5c04",
+        "little_dragon_idle_front_right.png": "e2b6e39e887a4c8b2cf3a00aa92c849ce9fb9df918214e4f95c85ddf138a3e6e",
+        "little_dragon_idle_front.png": "d5ea452b669b054b9573b6fd32731a6de5f0ccbff4c80e25048d2065a17ab703",
+        "little_dragon_idle_front_left.png": "a0cbb3b80583f56858f9d85af0ea96c2e8d13a66c4e3f5dc6bd9ea21020c0977",
+        "little_dragon_idle_left.png": "cf4a704b21c79e3d02b130b565822ee049f4c871b83637b48bc14667dd7a805a",
+        "little_dragon_idle_back_left.png": "e4db37a2935c412cb3836b93d434d2b7d3a78f1dc2aa8d342c4cc262e94a5aa3",
+        "little_dragon_idle_back.png": "bd68430d057a3db9c6109ad5583474448317f06c799b6cad67455ecf4202f834",
+        "little_dragon_idle_back_right.png": "03c55e711cf3a1983017a3ddb1a9820ce5c3e108df60a876016588aa3b64269e"
+      },
+      "alpha_bounds": {
+        "little_dragon_walk_right_00.png": [
+          34,
+          16,
+          282,
+          217
+        ],
+        "little_dragon_walk_right_01.png": [
+          28,
+          16,
+          282,
+          215
+        ],
+        "little_dragon_walk_right_02.png": [
+          26,
+          16,
+          282,
+          214
+        ],
+        "little_dragon_walk_right_03.png": [
+          28,
+          16,
+          282,
+          214
+        ],
+        "little_dragon_walk_right_04.png": [
+          34,
+          16,
+          282,
+          214
+        ],
+        "little_dragon_walk_right_05.png": [
+          37,
+          16,
+          282,
+          214
+        ],
+        "little_dragon_walk_right_06.png": [
+          40,
+          16,
+          282,
+          213
+        ],
+        "little_dragon_walk_right_07.png": [
+          37,
+          16,
+          282,
+          213
+        ],
+        "little_dragon_walk_front_right_00.png": [
+          89,
+          34,
+          275,
+          236
+        ],
+        "little_dragon_walk_front_right_01.png": [
+          88,
+          34,
+          275,
+          234
+        ],
+        "little_dragon_walk_front_right_02.png": [
+          89,
+          34,
+          275,
+          230
+        ],
+        "little_dragon_walk_front_right_03.png": [
+          89,
+          34,
+          275,
+          229
+        ],
+        "little_dragon_walk_front_right_04.png": [
+          89,
+          34,
+          275,
+          227
+        ],
+        "little_dragon_walk_front_right_05.png": [
+          89,
+          34,
+          275,
+          222
+        ],
+        "little_dragon_walk_front_right_06.png": [
+          89,
+          34,
+          275,
+          221
+        ],
+        "little_dragon_walk_front_right_07.png": [
+          89,
+          34,
+          275,
+          228
+        ],
+        "little_dragon_walk_front_00.png": [
+          89,
+          47,
+          248,
+          237
+        ],
+        "little_dragon_walk_front_01.png": [
+          89,
+          47,
+          245,
+          231
+        ],
+        "little_dragon_walk_front_02.png": [
+          89,
+          47,
+          243,
+          229
+        ],
+        "little_dragon_walk_front_03.png": [
+          89,
+          47,
+          245,
+          228
+        ],
+        "little_dragon_walk_front_04.png": [
+          89,
+          47,
+          248,
+          237
+        ],
+        "little_dragon_walk_front_05.png": [
+          89,
+          47,
+          251,
+          231
+        ],
+        "little_dragon_walk_front_06.png": [
+          89,
+          47,
+          253,
+          229
+        ],
+        "little_dragon_walk_front_07.png": [
+          89,
+          47,
+          251,
+          228
+        ],
+        "little_dragon_walk_front_left_00.png": [
+          44,
+          34,
+          302,
+          227
+        ],
+        "little_dragon_walk_front_left_01.png": [
+          44,
+          34,
+          302,
+          222
+        ],
+        "little_dragon_walk_front_left_02.png": [
+          44,
+          34,
+          302,
+          221
+        ],
+        "little_dragon_walk_front_left_03.png": [
+          44,
+          34,
+          302,
+          227
+        ],
+        "little_dragon_walk_front_left_04.png": [
+          44,
+          34,
+          302,
+          236
+        ],
+        "little_dragon_walk_front_left_05.png": [
+          44,
+          34,
+          302,
+          234
+        ],
+        "little_dragon_walk_front_left_06.png": [
+          44,
+          34,
+          302,
+          230
+        ],
+        "little_dragon_walk_front_left_07.png": [
+          44,
+          34,
+          302,
+          229
+        ],
+        "little_dragon_walk_left_00.png": [
+          37,
+          16,
+          291,
+          214
+        ],
+        "little_dragon_walk_left_01.png": [
+          37,
+          16,
+          294,
+          214
+        ],
+        "little_dragon_walk_left_02.png": [
+          37,
+          16,
+          295,
+          213
+        ],
+        "little_dragon_walk_left_03.png": [
+          37,
+          16,
+          294,
+          213
+        ],
+        "little_dragon_walk_left_04.png": [
+          37,
+          16,
+          291,
+          217
+        ],
+        "little_dragon_walk_left_05.png": [
+          37,
+          16,
+          285,
+          215
+        ],
+        "little_dragon_walk_left_06.png": [
+          37,
+          16,
+          285,
+          214
+        ],
+        "little_dragon_walk_left_07.png": [
+          37,
+          16,
+          285,
+          214
+        ],
+        "little_dragon_walk_back_left_00.png": [
+          44,
+          4,
+          233,
+          228
+        ],
+        "little_dragon_walk_back_left_01.png": [
+          44,
+          4,
+          233,
+          228
+        ],
+        "little_dragon_walk_back_left_02.png": [
+          44,
+          4,
+          231,
+          228
+        ],
+        "little_dragon_walk_back_left_03.png": [
+          44,
+          4,
+          231,
+          228
+        ],
+        "little_dragon_walk_back_left_04.png": [
+          44,
+          4,
+          233,
+          228
+        ],
+        "little_dragon_walk_back_left_05.png": [
+          44,
+          4,
+          233,
+          229
+        ],
+        "little_dragon_walk_back_left_06.png": [
+          44,
+          4,
+          233,
+          228
+        ],
+        "little_dragon_walk_back_left_07.png": [
+          44,
+          4,
+          233,
+          229
+        ],
+        "little_dragon_walk_back_00.png": [
+          69,
+          5,
+          230,
+          228
+        ],
+        "little_dragon_walk_back_01.png": [
+          74,
+          5,
+          230,
+          229
+        ],
+        "little_dragon_walk_back_02.png": [
+          76,
+          5,
+          230,
+          229
+        ],
+        "little_dragon_walk_back_03.png": [
+          74,
+          5,
+          230,
+          229
+        ],
+        "little_dragon_walk_back_04.png": [
+          69,
+          5,
+          230,
+          228
+        ],
+        "little_dragon_walk_back_05.png": [
+          68,
+          5,
+          230,
+          228
+        ],
+        "little_dragon_walk_back_06.png": [
+          66,
+          5,
+          230,
+          228
+        ],
+        "little_dragon_walk_back_07.png": [
+          68,
+          5,
+          230,
+          228
+        ],
+        "little_dragon_walk_back_right_00.png": [
+          17,
+          5,
+          276,
+          226
+        ],
+        "little_dragon_walk_back_right_01.png": [
+          17,
+          5,
+          276,
+          228
+        ],
+        "little_dragon_walk_back_right_02.png": [
+          17,
+          5,
+          276,
+          220
+        ],
+        "little_dragon_walk_back_right_03.png": [
+          17,
+          5,
+          276,
+          215
+        ],
+        "little_dragon_walk_back_right_04.png": [
+          17,
+          5,
+          276,
+          220
+        ],
+        "little_dragon_walk_back_right_05.png": [
+          17,
+          5,
+          276,
+          220
+        ],
+        "little_dragon_walk_back_right_06.png": [
+          17,
+          5,
+          276,
+          221
+        ],
+        "little_dragon_walk_back_right_07.png": [
+          17,
+          5,
+          276,
+          223
+        ],
+        "little_dragon_idle_right.png": [
+          34,
+          16,
+          282,
+          214
+        ],
+        "little_dragon_idle_front_right.png": [
+          89,
+          34,
+          275,
+          230
+        ],
+        "little_dragon_idle_front.png": [
+          89,
+          47,
+          248,
+          228
+        ],
+        "little_dragon_idle_front_left.png": [
+          44,
+          34,
+          302,
+          230
+        ],
+        "little_dragon_idle_left.png": [
+          37,
+          16,
+          291,
+          214
+        ],
+        "little_dragon_idle_back_left.png": [
+          44,
+          4,
+          233,
+          228
+        ],
+        "little_dragon_idle_back.png": [
+          69,
+          5,
+          230,
+          228
+        ],
+        "little_dragon_idle_back_right.png": [
+          17,
+          5,
+          276,
+          222
+        ]
+      },
+      "stride_note": "Authored cadence distance for 2D screen movement; 3D-camera projection makes exact footplant stride shorter and direction-dependent. Distance-driven phase prevents stationary/collision skating, but this is not a full world-space foot-lock solver."
+    },
+    "xiaomantou": {
+      "frames_per_direction": 8,
+      "directions": {
+        "right": [
+          "xiaomantou_walk_right_00.png",
+          "xiaomantou_walk_right_01.png",
+          "xiaomantou_walk_right_02.png",
+          "xiaomantou_walk_right_03.png",
+          "xiaomantou_walk_right_04.png",
+          "xiaomantou_walk_right_05.png",
+          "xiaomantou_walk_right_06.png",
+          "xiaomantou_walk_right_07.png"
+        ],
+        "front_right": [
+          "xiaomantou_walk_front_right_00.png",
+          "xiaomantou_walk_front_right_01.png",
+          "xiaomantou_walk_front_right_02.png",
+          "xiaomantou_walk_front_right_03.png",
+          "xiaomantou_walk_front_right_04.png",
+          "xiaomantou_walk_front_right_05.png",
+          "xiaomantou_walk_front_right_06.png",
+          "xiaomantou_walk_front_right_07.png"
+        ],
+        "front": [
+          "xiaomantou_walk_front_00.png",
+          "xiaomantou_walk_front_01.png",
+          "xiaomantou_walk_front_02.png",
+          "xiaomantou_walk_front_03.png",
+          "xiaomantou_walk_front_04.png",
+          "xiaomantou_walk_front_05.png",
+          "xiaomantou_walk_front_06.png",
+          "xiaomantou_walk_front_07.png"
+        ],
+        "front_left": [
+          "xiaomantou_walk_front_left_00.png",
+          "xiaomantou_walk_front_left_01.png",
+          "xiaomantou_walk_front_left_02.png",
+          "xiaomantou_walk_front_left_03.png",
+          "xiaomantou_walk_front_left_04.png",
+          "xiaomantou_walk_front_left_05.png",
+          "xiaomantou_walk_front_left_06.png",
+          "xiaomantou_walk_front_left_07.png"
+        ],
+        "left": [
+          "xiaomantou_walk_left_00.png",
+          "xiaomantou_walk_left_01.png",
+          "xiaomantou_walk_left_02.png",
+          "xiaomantou_walk_left_03.png",
+          "xiaomantou_walk_left_04.png",
+          "xiaomantou_walk_left_05.png",
+          "xiaomantou_walk_left_06.png",
+          "xiaomantou_walk_left_07.png"
+        ],
+        "back_left": [
+          "xiaomantou_walk_back_left_00.png",
+          "xiaomantou_walk_back_left_01.png",
+          "xiaomantou_walk_back_left_02.png",
+          "xiaomantou_walk_back_left_03.png",
+          "xiaomantou_walk_back_left_04.png",
+          "xiaomantou_walk_back_left_05.png",
+          "xiaomantou_walk_back_left_06.png",
+          "xiaomantou_walk_back_left_07.png"
+        ],
+        "back": [
+          "xiaomantou_walk_back_00.png",
+          "xiaomantou_walk_back_01.png",
+          "xiaomantou_walk_back_02.png",
+          "xiaomantou_walk_back_03.png",
+          "xiaomantou_walk_back_04.png",
+          "xiaomantou_walk_back_05.png",
+          "xiaomantou_walk_back_06.png",
+          "xiaomantou_walk_back_07.png"
+        ],
+        "back_right": [
+          "xiaomantou_walk_back_right_00.png",
+          "xiaomantou_walk_back_right_01.png",
+          "xiaomantou_walk_back_right_02.png",
+          "xiaomantou_walk_back_right_03.png",
+          "xiaomantou_walk_back_right_04.png",
+          "xiaomantou_walk_back_right_05.png",
+          "xiaomantou_walk_back_right_06.png",
+          "xiaomantou_walk_back_right_07.png"
+        ]
+      },
+      "idle": {
+        "right": "xiaomantou_idle_right.png",
+        "front_right": "xiaomantou_idle_front_right.png",
+        "front": "xiaomantou_idle_front.png",
+        "front_left": "xiaomantou_idle_front_left.png",
+        "left": "xiaomantou_idle_left.png",
+        "back_left": "xiaomantou_idle_back_left.png",
+        "back": "xiaomantou_idle_back.png",
+        "back_right": "xiaomantou_idle_back_right.png"
+      },
+      "step_length_world": 120,
+      "source_blend": "E:\\game\\StarLanternIsland\\source_models\\characters\\xiaomantou\\xiaomantou.blend",
+      "source_sha256": "eca06e52d5f84811ab40b9f18d02e86010a29ff399fb8fca062aa9875f6f739e",
+      "gait": "grounded two-bone IK heel contact / toeoff",
+      "source_unchanged": true,
+      "canvas": [
+        240,
+        240
+      ],
+      "body_height_px": 180,
+      "baseline": [
+        120.0,
+        227
+      ],
+      "normalization": {
+        "source_reference_alpha": [
+          64,
+          37,
+          183,
+          254
+        ],
+        "scale": 0.8294930875576036,
+        "translation": [
+          20,
+          16
+        ]
+      },
+      "frame_sha256": {
+        "xiaomantou_walk_right_00.png": "7a542cbe9388e0e41ef29ce478ca9cf8d1b82635b3e357fc39e5d880eab2fc10",
+        "xiaomantou_walk_right_01.png": "ae716fa6ffce4904cd840df3803ab312f55388eee398f559f48a8a2b5d367a85",
+        "xiaomantou_walk_right_02.png": "4e2b4a05ed0adfb9be80d5645a12af78d070b96c1a7c7fbdf274125a4604d88b",
+        "xiaomantou_walk_right_03.png": "750fc3de957b1b7c54a337a61809568f81ca00b487b7b0b9a68ae8f799a372aa",
+        "xiaomantou_walk_right_04.png": "1198f8c8834f5c8288f166ffbedc0a36e1206d957df4d2f0847405e5a8336735",
+        "xiaomantou_walk_right_05.png": "5327452677931855412d037954ce34f34e664f535373b401d0e4d819671f38db",
+        "xiaomantou_walk_right_06.png": "8ad80670b793c6d4d9a929647cb8d1817bbfb8bc203a273f4af4c9ba76026336",
+        "xiaomantou_walk_right_07.png": "8316f59d2f9432d5d47e36bbc59cc3e790bbb77b5585b3c1fd4266730e6bf36f",
+        "xiaomantou_walk_front_right_00.png": "1644b981c9d7b208e72f7f11180783b4c86f1b3309d8cbb02a0441c55461db8d",
+        "xiaomantou_walk_front_right_01.png": "e21c1dc6cc3c8086de643d886acb3c27d5f450f4d6d98ce746ff094bf898ebf9",
+        "xiaomantou_walk_front_right_02.png": "a3b4c9c2674cfb35b1917af862a9b407f8a4b5669774aee73006f082175aa57e",
+        "xiaomantou_walk_front_right_03.png": "e9adb36df63bf7abe3f152b40e90c999d5016b64ed48f8b0590a0c36d3292c3d",
+        "xiaomantou_walk_front_right_04.png": "8f97aaf75a6328c1bc74636477a74d3ca0704d3f27b972ba606496ea13a3bff0",
+        "xiaomantou_walk_front_right_05.png": "9b08b237e7cd39beb0232a9247c62c1cdf30356346631c4cedb8ba58ebaab6f0",
+        "xiaomantou_walk_front_right_06.png": "34223c002d13746b94a22775a5c6003a1bb63baf9b5d4578ac2f56166762bd3d",
+        "xiaomantou_walk_front_right_07.png": "9c374b1648d3202338631c34c43713ec934fbebf84e768a4ad750c789d2299a0",
+        "xiaomantou_walk_front_00.png": "8b1336bacb178552db48dcf912956123de6465f2cd9098fe764bf81c02edfbcf",
+        "xiaomantou_walk_front_01.png": "0f208b66738990995c436de5d333b7c39362607d0fd4cb85edecfe3d38eeebbe",
+        "xiaomantou_walk_front_02.png": "b04f0deaa4cf3f7b8ea0d1baf2a2e00f095af8458b5e4ea2f602f982fd74023b",
+        "xiaomantou_walk_front_03.png": "854340a7608d5f50c51c384c1dd126881a05deab84b0278b77368cb5a3ffde38",
+        "xiaomantou_walk_front_04.png": "02c319fe03cf192ed7fe65601a40d7faa4b917672e61913e494f88eccff676f2",
+        "xiaomantou_walk_front_05.png": "2ed62a587202e99fa844ec5f6581f4affb8b4cfbafacdd540b8a398bf0e2e6db",
+        "xiaomantou_walk_front_06.png": "813dd8405981697982eec04d7830cfd5920b57b5551ca07f01be0b556177040e",
+        "xiaomantou_walk_front_07.png": "3344865beda9a98693d0b606ea797c2295c9e6927125c60a890d9c60459e5159",
+        "xiaomantou_walk_front_left_00.png": "55dfcddcf57098c979e8b49cd611bfde74cf54d09df27f5842a21072c5e0e7f0",
+        "xiaomantou_walk_front_left_01.png": "d69e9b090022ce39c1266c9d57e32bc421126aad088b62540e2cbf02c774b9ed",
+        "xiaomantou_walk_front_left_02.png": "2cdc8dad612a85d3fe474632a9d18eb09c1c58e72e05f6f7f43d101a4b284158",
+        "xiaomantou_walk_front_left_03.png": "86db93a23f22c53a4a70cf904cf2d7dd533416885356a5df79a97a037412dcd8",
+        "xiaomantou_walk_front_left_04.png": "69b29a2b7ca3db0cd879635efd6bd32e169f44580466bdf3cea868826d36620e",
+        "xiaomantou_walk_front_left_05.png": "8b07375428daab65c772a54407fa90094d73eac94ac5a535b4e1fbf14e53d71c",
+        "xiaomantou_walk_front_left_06.png": "44f20a00949467cc5f15ac7089490caacf40b02b1561ec836f5b8958e527d198",
+        "xiaomantou_walk_front_left_07.png": "c6bb2fdffc35ad662c13299cef93204b7f4348d6eab9eb4138e885dbf62fe892",
+        "xiaomantou_walk_left_00.png": "6f55311a784b6f71d1d76d0e457bd8a9838996710453e53aa909adf4aeefdcb6",
+        "xiaomantou_walk_left_01.png": "05d948f14e5eb1704b0186f9e8af6c6ce8f9037462709263eadfa08fdbced828",
+        "xiaomantou_walk_left_02.png": "a9f811355416d1723b837b8ff7b5867e7289fb01d8430ce6f6124c79a3b40478",
+        "xiaomantou_walk_left_03.png": "550a356517899bbeea3bfccbc0a0f870a984be72eedc1afe5021eb8a0ae7eb73",
+        "xiaomantou_walk_left_04.png": "9caeb8753e78f8bf6782465d7dcce429f0777a1bc12dcd8da230d02a15451d2d",
+        "xiaomantou_walk_left_05.png": "fbd1d5f660a29a177753b1b48cf9e1e7c4e1677d0f5a8339393179b35612ce83",
+        "xiaomantou_walk_left_06.png": "b2cc72cb1b43f990d9bfb2fd93a853f55b69711578fba9b4a7627ad401098d39",
+        "xiaomantou_walk_left_07.png": "562967323a454de75acd7ab6e74636c7112c5c90eefd2dbeff4d9d2d3d8f94d7",
+        "xiaomantou_walk_back_left_00.png": "3c65608ea21d59bbaa4db7dd128269ab48b0614650274d5a9f5512a7c535b1c3",
+        "xiaomantou_walk_back_left_01.png": "63c2c107e6e0fbde4cc13a5c6d7849cad5a6477500cc6289ce714a287a7e3db0",
+        "xiaomantou_walk_back_left_02.png": "5242b57cb4b2743aeea6cc34387291ad0882f39dc8cef90ce7a875b06bd3aa13",
+        "xiaomantou_walk_back_left_03.png": "3e95edd31c4dbdec7be81fcb88224a82ecd699e7be2e8c5075b1bd8785d4b647",
+        "xiaomantou_walk_back_left_04.png": "3c20a7352b243ecb68f909ce2518c88485eded517355d6051ae645e842f59290",
+        "xiaomantou_walk_back_left_05.png": "4afee3f7f3cb4161d6d533db87bfa96dde8e31157e42500cece10ffd3abe9bed",
+        "xiaomantou_walk_back_left_06.png": "7d44e23f9d6bc3067642f0e633c4cd6a44305cfc64cd7966b23ecf70d166ea2a",
+        "xiaomantou_walk_back_left_07.png": "7b4a490c3a5300838b301c75b606bdae62e04dfae514c664a6abf08c296c1b26",
+        "xiaomantou_walk_back_00.png": "c3b72f65f2b1938de935f14c3d0c9e51f786d8ebe23339bb7f31d1ddcfdb7203",
+        "xiaomantou_walk_back_01.png": "73b5c16779c58a68cdae2145e345f402a2e1c9b97db1f1b79c0583abb1f865ee",
+        "xiaomantou_walk_back_02.png": "f07a2757ef9640d39fd6dd50712701d48b7318661f48c8fe5508a273e6a7141e",
+        "xiaomantou_walk_back_03.png": "8911a65f358ec2918150c80cb2748d6a9e5a36c8761f77adadc5206102c97329",
+        "xiaomantou_walk_back_04.png": "8e5d8721577d84497550ae5dad4954fdca8c93e491f251d80127f6637c09648b",
+        "xiaomantou_walk_back_05.png": "d7335829c7ecd3f5a3d427c638bc480f26b538e4a923e700a4daf101bad50e5f",
+        "xiaomantou_walk_back_06.png": "84abc14dcd06a6320f3f414f472b15419070d8f9faa70dcd7532c5fe1a4e57b8",
+        "xiaomantou_walk_back_07.png": "95e0856712e1cfe3ab66fe01961fd2c649ccc8506094f61bf82e2f30b3242442",
+        "xiaomantou_walk_back_right_00.png": "be9aba86d9a4c2a3730fa935671b59fc865ece3167b578eb1147858761c568f5",
+        "xiaomantou_walk_back_right_01.png": "bc873db3f3abcbc938e49daa854699a4c896bc4d2512fb82e534f4fbf3c458fd",
+        "xiaomantou_walk_back_right_02.png": "d8a2b8a3809e2142edabc027e286e9a94d123c552131b4d7fbb5a6d5de469bc0",
+        "xiaomantou_walk_back_right_03.png": "69a62844a5a0bb38c4a3eab85d6d236cfa6ff8a459104ab208957bda03995adc",
+        "xiaomantou_walk_back_right_04.png": "1f270e073484ab0a23d70ac3413cfccc00b2ecc9ac49b3f89cf5db5d29ababa2",
+        "xiaomantou_walk_back_right_05.png": "826298a5bcea5b2bcbc23d4aec25006c49f9741f785e62b040882e60f4f008f6",
+        "xiaomantou_walk_back_right_06.png": "027e489344d1952ed63fed1dd44b170f00b915aa5b26cb367938ff9db0e5a6d4",
+        "xiaomantou_walk_back_right_07.png": "f5bf5268738d51a78d8a74fb310ce581d25023c942e5067151910277296ae8ce",
+        "xiaomantou_idle_right.png": "2de32891b6c25e02f11ba021b4eea19f4a32faa40ab1a50677b872ae2a69499d",
+        "xiaomantou_idle_front_right.png": "1da8bfee70c42b998883dca2daf846055050b35bb011a6c359059320b82f6fed",
+        "xiaomantou_idle_front.png": "c6f3ad1072d7fdd8ec3e798d517f0a97e9a9b0b404d1a36d82f1ab8889104876",
+        "xiaomantou_idle_front_left.png": "7ced0100ac503f0aa00054fb96dbc8d5e590c6b66041eb31ce5df104336ca64e",
+        "xiaomantou_idle_left.png": "1a93e1cf89d4c59de8633026d60ceb22801352b7f558d4bbc4f81ca0af65a934",
+        "xiaomantou_idle_back_left.png": "575432e300890a450d2ed0c6296319ede9bef55555205b0f8c106f528c0031c3",
+        "xiaomantou_idle_back.png": "5650fbcb3b00e9f49d4f7a06b4a47b842ad243555169704bcf1190ae21a9a637",
+        "xiaomantou_idle_back_right.png": "5601411ad7c335cc2b0603ad8c7592e0a2ad4ccab0500d124866762b7a035670"
+      },
+      "alpha_bounds": {
+        "xiaomantou_walk_right_00.png": [
+          78,
+          49,
+          166,
+          226
+        ],
+        "xiaomantou_walk_right_01.png": [
+          79,
+          50,
+          160,
+          227
+        ],
+        "xiaomantou_walk_right_02.png": [
+          78,
+          50,
+          162,
+          227
+        ],
+        "xiaomantou_walk_right_03.png": [
+          79,
+          50,
+          160,
+          227
+        ],
+        "xiaomantou_walk_right_04.png": [
+          78,
+          49,
+          166,
+          227
+        ],
+        "xiaomantou_walk_right_05.png": [
+          79,
+          49,
+          156,
+          231
+        ],
+        "xiaomantou_walk_right_06.png": [
+          78,
+          49,
+          150,
+          221
+        ],
+        "xiaomantou_walk_right_07.png": [
+          79,
+          49,
+          156,
+          221
+        ],
+        "xiaomantou_walk_front_right_00.png": [
+          69,
+          47,
+          173,
+          234
+        ],
+        "xiaomantou_walk_front_right_01.png": [
+          68,
+          47,
+          177,
+          234
+        ],
+        "xiaomantou_walk_front_right_02.png": [
+          68,
+          47,
+          177,
+          231
+        ],
+        "xiaomantou_walk_front_right_03.png": [
+          68,
+          47,
+          177,
+          228
+        ],
+        "xiaomantou_walk_front_right_04.png": [
+          69,
+          47,
+          173,
+          226
+        ],
+        "xiaomantou_walk_front_right_05.png": [
+          71,
+          46,
+          170,
+          226
+        ],
+        "xiaomantou_walk_front_right_06.png": [
+          69,
+          46,
+          166,
+          222
+        ],
+        "xiaomantou_walk_front_right_07.png": [
+          71,
+          46,
+          170,
+          225
+        ],
+        "xiaomantou_walk_front_00.png": [
+          73,
+          45,
+          172,
+          234
+        ],
+        "xiaomantou_walk_front_01.png": [
+          68,
+          45,
+          167,
+          232
+        ],
+        "xiaomantou_walk_front_02.png": [
+          68,
+          45,
+          166,
+          230
+        ],
+        "xiaomantou_walk_front_03.png": [
+          68,
+          45,
+          167,
+          226
+        ],
+        "xiaomantou_walk_front_04.png": [
+          73,
+          45,
+          172,
+          234
+        ],
+        "xiaomantou_walk_front_05.png": [
+          76,
+          46,
+          177,
+          232
+        ],
+        "xiaomantou_walk_front_06.png": [
+          78,
+          45,
+          180,
+          230
+        ],
+        "xiaomantou_walk_front_07.png": [
+          76,
+          46,
+          177,
+          226
+        ],
+        "xiaomantou_walk_front_left_00.png": [
+          74,
+          47,
+          170,
+          226
+        ],
+        "xiaomantou_walk_front_left_01.png": [
+          81,
+          47,
+          168,
+          226
+        ],
+        "xiaomantou_walk_front_left_02.png": [
+          84,
+          47,
+          170,
+          222
+        ],
+        "xiaomantou_walk_front_left_03.png": [
+          83,
+          47,
+          168,
+          225
+        ],
+        "xiaomantou_walk_front_left_04.png": [
+          79,
+          47,
+          170,
+          234
+        ],
+        "xiaomantou_walk_front_left_05.png": [
+          77,
+          47,
+          171,
+          234
+        ],
+        "xiaomantou_walk_front_left_06.png": [
+          74,
+          47,
+          170,
+          231
+        ],
+        "xiaomantou_walk_front_left_07.png": [
+          77,
+          47,
+          171,
+          228
+        ],
+        "xiaomantou_walk_left_00.png": [
+          73,
+          49,
+          161,
+          227
+        ],
+        "xiaomantou_walk_left_01.png": [
+          79,
+          49,
+          161,
+          231
+        ],
+        "xiaomantou_walk_left_02.png": [
+          77,
+          49,
+          161,
+          221
+        ],
+        "xiaomantou_walk_left_03.png": [
+          79,
+          49,
+          161,
+          221
+        ],
+        "xiaomantou_walk_left_04.png": [
+          73,
+          49,
+          161,
+          226
+        ],
+        "xiaomantou_walk_left_05.png": [
+          83,
+          49,
+          161,
+          227
+        ],
+        "xiaomantou_walk_left_06.png": [
+          89,
+          49,
+          161,
+          227
+        ],
+        "xiaomantou_walk_left_07.png": [
+          83,
+          49,
+          161,
+          227
+        ],
+        "xiaomantou_walk_back_left_00.png": [
+          66,
+          52,
+          170,
+          228
+        ],
+        "xiaomantou_walk_back_left_01.png": [
+          62,
+          51,
+          171,
+          231
+        ],
+        "xiaomantou_walk_back_left_02.png": [
+          61,
+          51,
+          171,
+          221
+        ],
+        "xiaomantou_walk_back_left_03.png": [
+          62,
+          51,
+          171,
+          217
+        ],
+        "xiaomantou_walk_back_left_04.png": [
+          66,
+          52,
+          170,
+          221
+        ],
+        "xiaomantou_walk_back_left_05.png": [
+          69,
+          52,
+          168,
+          222
+        ],
+        "xiaomantou_walk_back_left_06.png": [
+          73,
+          53,
+          170,
+          225
+        ],
+        "xiaomantou_walk_back_left_07.png": [
+          69,
+          52,
+          168,
+          226
+        ],
+        "xiaomantou_walk_back_00.png": [
+          67,
+          52,
+          166,
+          226
+        ],
+        "xiaomantou_walk_back_01.png": [
+          72,
+          53,
+          171,
+          228
+        ],
+        "xiaomantou_walk_back_02.png": [
+          73,
+          53,
+          171,
+          220
+        ],
+        "xiaomantou_walk_back_03.png": [
+          72,
+          53,
+          171,
+          222
+        ],
+        "xiaomantou_walk_back_04.png": [
+          67,
+          52,
+          166,
+          226
+        ],
+        "xiaomantou_walk_back_05.png": [
+          62,
+          53,
+          163,
+          228
+        ],
+        "xiaomantou_walk_back_06.png": [
+          59,
+          53,
+          161,
+          220
+        ],
+        "xiaomantou_walk_back_07.png": [
+          62,
+          53,
+          163,
+          222
+        ],
+        "xiaomantou_walk_back_right_00.png": [
+          69,
+          51,
+          166,
+          221
+        ],
+        "xiaomantou_walk_back_right_01.png": [
+          69,
+          52,
+          158,
+          222
+        ],
+        "xiaomantou_walk_back_right_02.png": [
+          69,
+          52,
+          155,
+          225
+        ],
+        "xiaomantou_walk_back_right_03.png": [
+          69,
+          52,
+          156,
+          226
+        ],
+        "xiaomantou_walk_back_right_04.png": [
+          69,
+          51,
+          160,
+          228
+        ],
+        "xiaomantou_walk_back_right_05.png": [
+          68,
+          51,
+          163,
+          231
+        ],
+        "xiaomantou_walk_back_right_06.png": [
+          68,
+          51,
+          165,
+          221
+        ],
+        "xiaomantou_walk_back_right_07.png": [
+          68,
+          51,
+          163,
+          217
+        ],
+        "xiaomantou_idle_right.png": [
+          83,
+          49,
+          151,
+          227
+        ],
+        "xiaomantou_idle_front_right.png": [
+          73,
+          48,
+          175,
+          231
+        ],
+        "xiaomantou_idle_front.png": [
+          73,
+          47,
+          172,
+          227
+        ],
+        "xiaomantou_idle_front_left.png": [
+          77,
+          48,
+          166,
+          231
+        ],
+        "xiaomantou_idle_left.png": [
+          89,
+          48,
+          156,
+          227
+        ],
+        "xiaomantou_idle_back_left.png": [
+          64,
+          50,
+          166,
+          226
+        ],
+        "xiaomantou_idle_back.png": [
+          67,
+          50,
+          166,
+          221
+        ],
+        "xiaomantou_idle_back_right.png": [
+          73,
+          50,
+          162,
+          226
+        ]
+      },
+      "stride_note": "Authored cadence distance for 2D screen movement; 3D-camera projection makes exact footplant stride shorter and direction-dependent. Distance-driven phase prevents stationary/collision skating, but this is not a full world-space foot-lock solver."
+    }
+  },
+  "direction_convention": "actual screen-facing: right=+X, front=+Y/down; corrected Blender camera-side labels",
+  "phase_driver": "distance actually travelled; paused/stopped sprites do not cycle"
+}

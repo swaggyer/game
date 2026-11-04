@@ -1,0 +1,148 @@
+{
+  "version": "1.2.0-action-trials-portraits",
+  "engine": "Godot 4.7.2 stable",
+  "date": "2026-11-04",
+  "implemented": {
+    "open_regions": 7,
+    "region_size": [
+      3400,
+      2400
+    ],
+    "main_quest_groups": 21,
+    "main_goals": 63,
+    "optional_challenges": 21,
+    "optional_challenges_per_region": 3,
+    "challenge_types": [
+      "race",
+      "waves",
+      "pressure",
+      "targets",
+      "escort"
+    ],
+    "main_two_wave_battles": 9,
+    "walk_frames": 192,
+    "idle_frames": 24,
+    "walk_directions_per_actor": 8,
+    "combat_pose_frames": 96,
+    "hq_blender_environment_assets": 12,
+    "trap_types": 6,
+    "portraits": {
+      "xiaomantou": "user reference image 1",
+      "wangzai": "user reference image 2",
+      "revision": 2,
+      "method": "built-in image_gen, identity-priority restrained 2D rendering",
+      "prompt_record": "docs/PORTRAIT-PROMPTS-v1.2.json"
+    },
+    "removed_idle_bell_gates": true
+  },
+  "balance": {
+    "minimum_enemy_hit": "ceil(max_hp * 0.25), after passive mitigation",
+    "heavy_attack_can_exceed_quarter": true,
+    "environment_damage_rule_separate": true,
+    "successful_movement_dodge_avoids_hit": true,
+    "active_water_shield_and_grace_preserved": true,
+    "actual_AI_damage_cases": 324
+  },
+  "animation_limit": "Eight-direction 2D projected frames with natural cadence and distance-driven playback; not a full 3D world-space foot-lock solver.",
+  "save_migration": {
+    "world_version": 3,
+    "accepts": [
+      2,
+      3
+    ],
+    "v2_preserves": [
+      "campaign progression",
+      "equipment",
+      "chests",
+      "exploration",
+      "camps",
+      "disabled traps"
+    ],
+    "v2_resets": [
+      "incompatible partial stage goals",
+      "puzzle positions"
+    ],
+    "optional_rewards_once": true
+  },
+  "validation": {
+    "campaign": 105,
+    "navigation": 2190,
+    "enemy_combat": 85,
+    "trap_mechanics": 27,
+    "damage_v12": 993,
+    "locomotion_v12": 678,
+    "challenges_v12": 983,
+    "main_trials_v12": 48,
+    "full_scene_v12": 480,
+    "total_numbered_checks": 5589,
+    "hero_actions_special": "passed",
+    "trap_material_draw_special": "12 passes across 6 trap types and 4 states passed",
+    "packed_assets": "96 combat +12 environment +216 locomotion textures, 2 portraits and all challenge data verified",
+    "native_gpu": "actual Godot OpenGL on AMD Vega 8 screenshots inspected",
+    "portable_exe_exit_code": 0,
+    "native_mobile_tested": false
+  },
+  "screenshots": [
+    "v12-village.png",
+    "v12-portraits-hud.png",
+    "v12-main-course.png",
+    "v12-map.png",
+    "v12-forest-challenge.png",
+    "v12-packed-gameplay.png"
+  ],
+  "delivery": {
+    "windows_portable": true,
+    "godot_mobile_source": true,
+    "original_blender_models_in_archive": true,
+    "android_apk": false,
+    "ios_ipa": false
+  },
+  "build_files": {
+    "StarLanternIsland.exe": {
+      "bytes": 180858888,
+      "sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424"
+    },
+    "StarLanternIsland.pck": {
+      "bytes": 30372268,
+      "sha256": "8463072100414e45d0a2af788999c9b3fd7f7d108aec1301e1610294352f970f"
+    }
+  },
+  "source_hashes": {
+    "scripts/area_map.gd": "f3d1343673c05e7076d66344f713f20eb6109d52e235b37df595b54338482e73",
+    "scripts/area_map_v11.gd": "3e32d97f540cf7e15f2b605105d67f0e3d7b85df98f54fc754ed8d03506534e4",
+    "scripts/campaign.gd": "61dc7ab447a0d14ee4be5f2532742a26cf048a9082c67e6324f8484e93bbab81",
+    "scripts/challenge_director.gd": "59d958de2925a70c08a57c8a173d010ae4c70eef51c92ac267e9c95f36db2c01",
+    "scripts/damage_rules.gd": "9801bac2be933ce80f5caf4b70587e110a44ee26d164bdb6b508ddedecf24dab",
+    "scripts/enemy_director.gd": "c55f39d34e0576b749101a6feea984665f67bf36cf9ccf93519489a380569282",
+    "scripts/game.gd": "021b114913b4df8d24354265157192aad7b3c1c5712fcbf41ec27dff9c066020",
+    "scripts/game_main.gd": "f13a2738059de8809f41e3bc58dfce0abffd7e554c2d1e43ea3921017392e441",
+    "scripts/hero_actions.gd": "2920a92fad1ee211ed63a4ff420a67db3c5b6490596261bf2dd7010c8c368ae2",
+    "scripts/landscape_renderer.gd": "fbcf7f2d52f14799f5c57468ecfd4929524337b15c1b0980227a4ca9f536a597",
+    "scripts/locomotion.gd": "a9002d99d0baa5f1ced34db95424fde44550cbe6ddd5838df9577f3f0c8b1f94",
+    "scripts/main_trials.gd": "b9e585b8a7f4a11fd469deb3dbbd56b48acfc10f752aee043320e30711173ae2",
+    "scripts/map_fog.gdshader": "8ba0feddfec36dc3ec4a95d3bd4c81fcadc02484738fea87ce95541a533347ae",
+    "scripts/mobile_ui.gd": "b50c71cc3067438bf7ca11e44016d34929e16369612ad495b284f86c2c72ac1a",
+    "scripts/open_world.gd": "6231dbb34336f18ceae833b1f5681365a40f0310f2e77e70503e397e03f8c03e",
+    "scripts/trap_director.gd": "83296f800d30820c5e5584c14e57f3f766ae4ba646d3a517e6df42c544552f9a",
+    "scripts/trap_visuals.gd": "b7988ce4c469238dc94e48025f467954bb2aef4189c6ba3ea8a99fb6a258a62e",
+    "scripts/world.gd": "dfb4c1831b12c206c46ec56b834f4ad69d77bbc0f49a5074b7f692febe3ce034",
+    "shaders/bridge_deck.gdshader": "9968419b4b2f7f8f324b8881a939b4fd4c62a332f832703e0ca51727b75f45cd",
+    "shaders/foliage.gdshader": "61d9c07541e03f9806802b7fd9d4dfa7250de038b4e13b2bad2e285b5a09bc9b",
+    "shaders/meadow.gdshader": "bf801497a568c223c6f1451ac99467451daa431779cae68186ab996ffebfc923",
+    "shaders/shore_foam.gdshader": "9864896d2384d29d285fa51ea812ea5e845fca0e319d2a1c3c3fac2f9b2ffca5",
+    "shaders/soft_shadow.gdshader": "53514dd7e0b5568d98d83dfdb89ead1ddba758c637001c5e1d1e9e9ff5a6ca27",
+    "shaders/soil_path.gdshader": "0932a8f5c0829a225aaf5afdfbd3bdb33184ba5dd55e378b2e631b54e7ad2753",
+    "shaders/water.gdshader": "8880c090a206017412a1025da48bacd2a68b0620703dcadee65750c1b6af505b",
+    "data/balance_v11.json": "bcf8161338cebb1683ca4fc5479c694ab0d3ec9b2eb7eb57c31ca9fe519239e3",
+    "data/challenges_v12.json": "c4b2df4f332bd8c5f93260b1fe83cea2324006e5c0a39c0618c3501bab581a0a",
+    "data/chapters.json": "cca5303c5a543973bece57e702b23f14671d285cd9b4720c04778c0f472035dd",
+    "data/objectives.json": "53fd3864e7782fc33aa689e6c1d4c3426ad7e9c1301dea1674e4f7385de3babb",
+    "data/systems.json": "86542531998ecd7e1f1f11ca352f156dce8f9f985b22bab24bb3c592dc5b3054",
+    "assets/portraits_v12/wangzai.png": "ff1d4a6a11c626e0ae1e51ac86707d5dfe24196bb1dfb6ac7dccb1c3b5ed900b",
+    "assets/portraits_v12/xiaomantou.png": "604ab0f4f81662bb3cde0a98e6353b971bbfd04623ef6e0c91647477e20c8bd1",
+    "assets/locomotion_v12/manifest.json": "e29d2856a67c41f73562401ee604c78b495a7fba709d296942b2cf167519757d",
+    "assets/environment_v11/manifest.json": "f3eba8ea84104ad97e788fd95cab8b647e827191e166efd4cffb5673b974e7ca",
+    "project.godot": "857500c1ae763265d7476994f33e61a637958ffbc2c9ef9ce4d6c37ecc67ca51",
+    "export_presets.cfg": "d9de25a4b69d7ea8172f6d247d618323d3ff55ade889b0618e39004156d7dcf2"
+  }
+}

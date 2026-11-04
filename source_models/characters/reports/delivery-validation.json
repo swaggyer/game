@@ -1,0 +1,714 @@
+{
+  "wangzai": {
+    "model": {
+      "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\wangzai\\wangzai.glb",
+      "bytes": 11015308,
+      "mesh_nodes": 1,
+      "skin_joint_counts": [
+        18
+      ],
+      "animations": [
+        "idle",
+        "jump",
+        "ride",
+        "run",
+        "slide"
+      ],
+      "triangles": 207028,
+      "embedded_textures": true,
+      "finite_positions": true
+    },
+    "model-lod1": {
+      "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\wangzai\\wangzai-lod1.glb",
+      "bytes": 3329204,
+      "mesh_nodes": 1,
+      "skin_joint_counts": [
+        18
+      ],
+      "animations": [
+        "idle",
+        "jump",
+        "ride",
+        "run",
+        "slide"
+      ],
+      "triangles": 45000,
+      "embedded_textures": true,
+      "finite_positions": true
+    },
+    "sprite_count": 21,
+    "sprites": [
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_back.png",
+        "size": [
+          512,
+          640
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          120,
+          67,
+          449,
+          569
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_front.png",
+        "size": [
+          512,
+          640
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          63,
+          64,
+          392,
+          588
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_left.png",
+        "size": [
+          512,
+          640
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          149,
+          67,
+          332,
+          589
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_preview.png",
+        "size": [
+          640,
+          800
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          71,
+          66,
+          484,
+          762
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_right.png",
+        "size": [
+          512,
+          640
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          180,
+          66,
+          363,
+          589
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_back_00.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          54,
+          35,
+          215,
+          293
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_back_01.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          66,
+          38,
+          222,
+          285
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_back_02.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          70,
+          35,
+          228,
+          293
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_back_03.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          66,
+          38,
+          222,
+          285
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_front_00.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          41,
+          26,
+          202,
+          254
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_front_01.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          34,
+          29,
+          190,
+          294
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_front_02.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          28,
+          26,
+          185,
+          254
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_front_03.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          34,
+          29,
+          190,
+          294
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_left_00.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          43,
+          31,
+          230,
+          282
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_left_01.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          76,
+          35,
+          182,
+          295
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_left_02.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          42,
+          31,
+          230,
+          263
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_left_03.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          76,
+          35,
+          182,
+          295
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_right_00.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          27,
+          31,
+          214,
+          263
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_right_01.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          75,
+          34,
+          179,
+          295
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_right_02.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          26,
+          31,
+          214,
+          282
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_walk_right_03.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          75,
+          34,
+          179,
+          295
+        ]
+      }
+    ]
+  },
+  "xiaomantou": {
+    "model": {
+      "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\xiaomantou\\xiaomantou.glb",
+      "bytes": 9493728,
+      "mesh_nodes": 1,
+      "skin_joint_counts": [
+        18
+      ],
+      "animations": [
+        "idle",
+        "jump",
+        "ride",
+        "run",
+        "slide"
+      ],
+      "triangles": 164888,
+      "embedded_textures": true,
+      "finite_positions": true
+    },
+    "model-lod1": {
+      "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\xiaomantou\\xiaomantou-lod1.glb",
+      "bytes": 3470060,
+      "mesh_nodes": 1,
+      "skin_joint_counts": [
+        18
+      ],
+      "animations": [
+        "idle",
+        "jump",
+        "ride",
+        "run",
+        "slide"
+      ],
+      "triangles": 45000,
+      "embedded_textures": true,
+      "finite_positions": true
+    },
+    "sprite_count": 21,
+    "sprites": [
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_back.png",
+        "size": [
+          512,
+          640
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          100,
+          68,
+          392,
+          569
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_front.png",
+        "size": [
+          512,
+          640
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          120,
+          62,
+          411,
+          588
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_left.png",
+        "size": [
+          512,
+          640
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          149,
+          66,
+          330,
+          589
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_preview.png",
+        "size": [
+          640,
+          800
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          160,
+          65,
+          484,
+          762
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_right.png",
+        "size": [
+          512,
+          640
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          182,
+          64,
+          363,
+          589
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_back_00.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          42,
+          36,
+          185,
+          293
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_back_01.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          62,
+          39,
+          190,
+          285
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_back_02.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          70,
+          36,
+          202,
+          293
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_back_03.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          62,
+          39,
+          190,
+          285
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_front_00.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          70,
+          24,
+          214,
+          254
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_front_01.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          66,
+          29,
+          194,
+          294
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_front_02.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          54,
+          24,
+          185,
+          254
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_front_03.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          66,
+          29,
+          194,
+          294
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_left_00.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          43,
+          32,
+          230,
+          282
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_left_01.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          76,
+          34,
+          209,
+          295
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_left_02.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          42,
+          32,
+          234,
+          263
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_left_03.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          76,
+          34,
+          209,
+          295
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_right_00.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          27,
+          30,
+          214,
+          263
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_right_01.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          47,
+          33,
+          179,
+          295
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_right_02.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          22,
+          30,
+          214,
+          282
+        ]
+      },
+      {
+        "path": "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_right_03.png",
+        "size": [
+          256,
+          320
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "alpha_bbox": [
+          47,
+          33,
+          179,
+          295
+        ]
+      }
+    ]
+  }
+}

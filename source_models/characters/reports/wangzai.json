@@ -1,0 +1,65 @@
+{
+  "asset_id": "wangzai",
+  "source_blend": "E:\\game\\BlenderModels\\v2\\wangzai\\wangzai.blend",
+  "blend": "E:\\game\\StarLanternIsland\\source_models\\characters\\wangzai\\wangzai.blend",
+  "glb": "E:\\game\\StarLanternIsland\\source_models\\characters\\wangzai\\wangzai.glb",
+  "lod1": {
+    "glb": "E:\\game\\StarLanternIsland\\source_models\\characters\\wangzai\\wangzai-lod1.glb",
+    "triangles": 45000
+  },
+  "bones": 18,
+  "actions": [
+    "idle",
+    "jump",
+    "ride",
+    "run",
+    "slide"
+  ],
+  "vertices": 104479,
+  "triangles": 207028,
+  "head_geometry_sha256": "fb08d901b4cf6ebd250e2bbbb91e09708af8c62304323362afe01c329817cc35",
+  "head_geometry_unchanged": true,
+  "face_uv_layers": [
+    "Approved_face_projection",
+    "Head_BakedAtlas"
+  ],
+  "renders": [
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_preview.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_front.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_back.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_left.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\wangzai_right.png"
+  ],
+  "limitations": [
+    "Retained hand-parameterized source head/UV is an approximate likeness, not a 3D scan and not identical to the polished image-generation concept sheet.",
+    "Existing 18-bone idle/run/jump/slide/ride actions are retained; no facial rig, combat animation or cloth simulation is claimed.",
+    "Cape is a real static folded mesh bound to chest; source costume is re-authored, not a pixel-perfect replica of concept art."
+  ],
+  "qa_polish": [
+    "front embroidery follows actual cloth surface",
+    "closed hood roll end caps",
+    "ivory knee pads",
+    "bell-lantern cage added for younger character"
+  ],
+  "skin_qa": {
+    "repaired_meshes": [
+      "Cream_boot_cuff.L",
+      "Cream_boot_cuff.R",
+      "Cape_shoulder_clasp.L",
+      "Cape_shoulder_clasp.R",
+      "Pouch_round_closure"
+    ],
+    "all_meshes_have_armature": true,
+    "boot_cuff_rest_center": [
+      -0.101500004529953,
+      -0.001400002627633512,
+      0.20999985933303833
+    ],
+    "boot_cuff_run_center": [
+      -0.10559059679508209,
+      0.24172386527061462,
+      0.3174184262752533
+    ],
+    "boot_cuff_displacement": 0.2658283280490592
+  }
+}

@@ -1,0 +1,535 @@
+{
+  "passed": true,
+  "asset_count": 31,
+  "prop_count": 25,
+  "scene_count": 6,
+  "checks": [
+    {
+      "id": "star_lantern_lit",
+      "glb_valid": true,
+      "glb_bytes": 97612,
+      "gltf_meshes": 12,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "star_lantern_unlit",
+      "glb_valid": true,
+      "glb_bytes": 97484,
+      "gltf_meshes": 12,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "royal_lantern",
+      "glb_valid": true,
+      "glb_bytes": 154960,
+      "gltf_meshes": 17,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "chest_closed",
+      "glb_valid": true,
+      "glb_bytes": 74340,
+      "gltf_meshes": 13,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "chest_open",
+      "glb_valid": true,
+      "glb_bytes": 118780,
+      "gltf_meshes": 19,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "star_key",
+      "glb_valid": true,
+      "glb_bytes": 37268,
+      "gltf_meshes": 5,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "crystal_common",
+      "glb_valid": true,
+      "glb_bytes": 21844,
+      "gltf_meshes": 2,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "crystal_fire",
+      "glb_valid": true,
+      "glb_bytes": 38144,
+      "gltf_meshes": 6,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "crystal_wind",
+      "glb_valid": true,
+      "glb_bytes": 38060,
+      "gltf_meshes": 6,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "crystal_water",
+      "glb_valid": true,
+      "glb_bytes": 38172,
+      "gltf_meshes": 6,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "crystal_space",
+      "glb_valid": true,
+      "glb_bytes": 38188,
+      "gltf_meshes": 6,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "stone_bridge",
+      "glb_valid": true,
+      "glb_bytes": 167948,
+      "gltf_meshes": 37,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "wood_bridge",
+      "glb_valid": true,
+      "glb_bytes": 144476,
+      "gltf_meshes": 20,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "mirror_mechanism",
+      "glb_valid": true,
+      "glb_bytes": 144976,
+      "gltf_meshes": 12,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "push_crate",
+      "glb_valid": true,
+      "glb_bytes": 148628,
+      "gltf_meshes": 25,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "windmill_mechanism",
+      "glb_valid": true,
+      "glb_bytes": 229736,
+      "gltf_meshes": 33,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "star_gate",
+      "glb_valid": true,
+      "glb_bytes": 239464,
+      "gltf_meshes": 28,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "supply_basket",
+      "glb_valid": true,
+      "glb_bytes": 181524,
+      "gltf_meshes": 15,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "apple_cluster",
+      "glb_valid": true,
+      "glb_bytes": 88656,
+      "gltf_meshes": 9,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "signpost",
+      "glb_valid": true,
+      "glb_bytes": 47416,
+      "gltf_meshes": 6,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "tree_round",
+      "glb_valid": true,
+      "glb_bytes": 66380,
+      "gltf_meshes": 13,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "tree_fir",
+      "glb_valid": true,
+      "glb_bytes": 32120,
+      "gltf_meshes": 7,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "water_wheel",
+      "glb_valid": true,
+      "glb_bytes": 192852,
+      "gltf_meshes": 31,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "ruin_arch",
+      "glb_valid": true,
+      "glb_bytes": 123708,
+      "gltf_meshes": 23,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "dragon_throne",
+      "glb_valid": true,
+      "glb_bytes": 71412,
+      "gltf_meshes": 11,
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "01_home_village",
+      "glb_valid": true,
+      "glb_bytes": 2524048,
+      "gltf_meshes": 555,
+      "image_size": [
+        1200,
+        1000
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "02_firefly_forest",
+      "glb_valid": true,
+      "glb_bytes": 1396000,
+      "gltf_meshes": 335,
+      "image_size": [
+        1200,
+        1000
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "03_windmill_meadow",
+      "glb_valid": true,
+      "glb_bytes": 2636080,
+      "gltf_meshes": 570,
+      "image_size": [
+        1200,
+        1000
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "04_moon_water_town",
+      "glb_valid": true,
+      "glb_bytes": 1732172,
+      "gltf_meshes": 300,
+      "image_size": [
+        1200,
+        1000
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "05_old_king_ruins",
+      "glb_valid": true,
+      "glb_bytes": 1010784,
+      "gltf_meshes": 179,
+      "image_size": [
+        1200,
+        1000
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    },
+    {
+      "id": "06_star_lantern_island",
+      "glb_valid": true,
+      "glb_bytes": 1118672,
+      "gltf_meshes": 168,
+      "image_size": [
+        1200,
+        1000
+      ],
+      "image_mode": "RGBA",
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "alpha_valid": true,
+      "passed": true
+    }
+  ]
+}

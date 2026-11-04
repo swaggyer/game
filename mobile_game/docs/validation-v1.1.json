@@ -1,0 +1,147 @@
+{
+  "version": "1.1.0-rendered-challenge",
+  "engine": "Godot 4.7.2 stable",
+  "date": "2026-11-04",
+  "implemented": {
+    "open_regions": 7,
+    "region_size": [
+      3400,
+      2400
+    ],
+    "main_quest_groups": 21,
+    "hq_blender_environment_assets": 12,
+    "environment_asset_resolution": [
+      700,
+      800
+    ],
+    "combat_pose_frames": 96,
+    "trap_types": 6,
+    "vector_area_map": true,
+    "soft_exploration_cloud": true,
+    "dynamic_grass_water_and_sunlight": true,
+    "default_new_game_difficulty": "explorer"
+  },
+  "balance": {
+    "version": "1.1.0",
+    "default_difficulty": "explorer",
+    "enemy_hp_unchanged": true,
+    "telegraph_duration_unchanged": true,
+    "rows": [
+      {
+        "id": "shadow_blob",
+        "name": "影团",
+        "previous_attack": 6,
+        "attack": 14
+      },
+      {
+        "id": "crystal_thief",
+        "name": "偷晶小鬼",
+        "previous_attack": 8,
+        "attack": 18
+      },
+      {
+        "id": "wind_gremlin",
+        "name": "风车捣蛋怪",
+        "previous_attack": 10,
+        "attack": 24
+      },
+      {
+        "id": "moon_bubble",
+        "name": "月水泡妖",
+        "previous_attack": 12,
+        "attack": 28
+      },
+      {
+        "id": "moon_bubble_elite",
+        "name": "月水泡妖 · 回声精英",
+        "previous_attack": 16,
+        "attack": 38
+      },
+      {
+        "id": "thorn_treant",
+        "name": "荆棘木妖",
+        "previous_attack": 10,
+        "attack": 28
+      },
+      {
+        "id": "windmill_guardian",
+        "name": "风车守卫",
+        "previous_attack": 14,
+        "attack": 36
+      },
+      {
+        "id": "stone_shell_guardian",
+        "name": "石甲守卫",
+        "previous_attack": 22,
+        "attack": 48
+      },
+      {
+        "id": "lantern_devourer",
+        "name": "吞灯妖",
+        "previous_attack": 28,
+        "attack": 64
+      }
+    ]
+  },
+  "validation": {
+    "campaign": 105,
+    "navigation": 2190,
+    "enemy_combat": 85,
+    "trap_mechanics": 27,
+    "full_scene": 444,
+    "balance_v11": 60,
+    "total_numbered_checks": 2911,
+    "hero_actions_special": "passed",
+    "trap_material_draw_special": "12 passes across 6 types and 4 states passed",
+    "native_gpu": "OpenGL AMD Vega 8 actual screenshots inspected",
+    "portable_exe_exit_code": 0,
+    "packed_asset_verification": "96 combat textures and 12 HQ environment textures plus runtime manifest verified",
+    "native_mobile_tested": false
+  },
+  "screenshots": [
+    "v11-village.png",
+    "v11-region-map.png",
+    "v11-traps.png",
+    "v11-traps-closeup.png",
+    "v11-packed-gameplay.png"
+  ],
+  "delivery": {
+    "windows_portable": true,
+    "godot_mobile_source": true,
+    "android_apk": false,
+    "ios_ipa": false
+  },
+  "build_files": {
+    "StarLanternIsland.exe": {
+      "bytes": 180858888,
+      "sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424"
+    },
+    "StarLanternIsland.pck": {
+      "bytes": 16562856,
+      "sha256": "ece0d13829d356df2e87405cb842dc60af4ff3408a4137c1c25b22c0183757ba"
+    }
+  },
+  "source_hashes": {
+    "scripts/area_map.gd": "f3d1343673c05e7076d66344f713f20eb6109d52e235b37df595b54338482e73",
+    "scripts/area_map_v11.gd": "884d4b20e0c19ddce09f41e40c8d6f8b2aaff55a877780bb7827fea497246094",
+    "scripts/campaign.gd": "61dc7ab447a0d14ee4be5f2532742a26cf048a9082c67e6324f8484e93bbab81",
+    "scripts/enemy_director.gd": "21302fad7d51056d7d058f813941424550a4de442d17cb44983a733df90a1c52",
+    "scripts/game.gd": "021b114913b4df8d24354265157192aad7b3c1c5712fcbf41ec27dff9c066020",
+    "scripts/game_main.gd": "371ab6c5f40ba38ebedebd18f5d38c3b5aa0884a260f740f54213d8c95e27b6c",
+    "scripts/hero_actions.gd": "5fc50fadd003580a08d4ae7d40d6d7aad71d83c9527eeb3a8ddef926f31127ac",
+    "scripts/landscape_renderer.gd": "fbcf7f2d52f14799f5c57468ecfd4929524337b15c1b0980227a4ca9f536a597",
+    "scripts/map_fog.gdshader": "8ba0feddfec36dc3ec4a95d3bd4c81fcadc02484738fea87ce95541a533347ae",
+    "scripts/mobile_ui.gd": "a04ca8693c0af60ebb5a14853a2bc9a445f6e67b095ef5d86f8d0ebdbb19ae37",
+    "scripts/open_world.gd": "6231dbb34336f18ceae833b1f5681365a40f0310f2e77e70503e397e03f8c03e",
+    "scripts/trap_director.gd": "83296f800d30820c5e5584c14e57f3f766ae4ba646d3a517e6df42c544552f9a",
+    "scripts/trap_visuals.gd": "8e2108cd984a8a1cfb4d83bcd2b89f3ec0579727b0d9012f67a6c0166e14dde5",
+    "scripts/world.gd": "dfb4c1831b12c206c46ec56b834f4ad69d77bbc0f49a5074b7f692febe3ce034",
+    "shaders/bridge_deck.gdshader": "9968419b4b2f7f8f324b8881a939b4fd4c62a332f832703e0ca51727b75f45cd",
+    "shaders/foliage.gdshader": "61d9c07541e03f9806802b7fd9d4dfa7250de038b4e13b2bad2e285b5a09bc9b",
+    "shaders/meadow.gdshader": "bf801497a568c223c6f1451ac99467451daa431779cae68186ab996ffebfc923",
+    "shaders/shore_foam.gdshader": "9864896d2384d29d285fa51ea812ea5e845fca0e319d2a1c3c3fac2f9b2ffca5",
+    "shaders/soft_shadow.gdshader": "53514dd7e0b5568d98d83dfdb89ead1ddba758c637001c5e1d1e9e9ff5a6ca27",
+    "shaders/soil_path.gdshader": "0932a8f5c0829a225aaf5afdfbd3bdb33184ba5dd55e378b2e631b54e7ad2753",
+    "shaders/water.gdshader": "8880c090a206017412a1025da48bacd2a68b0620703dcadee65750c1b6af505b"
+  }
+}

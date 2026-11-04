@@ -1,0 +1,986 @@
+{
+  "format": 1,
+  "engine": "Blender bone poses",
+  "phases": [
+    "windup",
+    "contact",
+    "followthrough",
+    "recovery"
+  ],
+  "directions": [
+    "front",
+    "back",
+    "left",
+    "right"
+  ],
+  "heroes": {
+    "wangzai": {
+      "source_blend": "E:\\game\\StarLanternIsland\\source_models\\characters\\wangzai\\wangzai.blend",
+      "source_sha256": "730189c3f6f3dc872ca581bf17f63b445007c4d0c788ae533b90ef1e4660a7cf",
+      "bone_poses": [
+        [
+          {
+            "Hips": [
+              0,
+              0,
+              -10
+            ],
+            "Chest": [
+              -5,
+              0,
+              -20
+            ],
+            "UpperArm.R": [
+              -90,
+              -10,
+              -55
+            ],
+            "Forearm.R": [
+              -72,
+              0,
+              0
+            ],
+            "Hand.R": [
+              0,
+              0,
+              -20
+            ],
+            "UpperArm.L": [
+              -35,
+              0,
+              15
+            ],
+            "Forearm.L": [
+              -35,
+              0,
+              0
+            ],
+            "UpperLeg.L": [
+              -8,
+              0,
+              -7
+            ],
+            "UpperLeg.R": [
+              12,
+              0,
+              8
+            ]
+          },
+          {
+            "Hips": [
+              0,
+              0,
+              7
+            ],
+            "Chest": [
+              -9,
+              0,
+              27
+            ],
+            "UpperArm.R": [
+              -76,
+              5,
+              37
+            ],
+            "Forearm.R": [
+              -12,
+              0,
+              0
+            ],
+            "Hand.R": [
+              0,
+              0,
+              20
+            ],
+            "UpperArm.L": [
+              -52,
+              0,
+              8
+            ],
+            "Forearm.L": [
+              -25,
+              0,
+              0
+            ],
+            "UpperLeg.L": [
+              -18,
+              0,
+              -8
+            ],
+            "LowerLeg.R": [
+              -12,
+              0,
+              0
+            ]
+          },
+          {
+            "Chest": [
+              -7,
+              0,
+              38
+            ],
+            "UpperArm.R": [
+              -38,
+              0,
+              65
+            ],
+            "Forearm.R": [
+              -25,
+              0,
+              0
+            ],
+            "UpperArm.L": [
+              -35,
+              0,
+              15
+            ],
+            "Forearm.L": [
+              -30,
+              0,
+              0
+            ]
+          },
+          {
+            "Chest": [
+              -2,
+              0,
+              8
+            ],
+            "UpperArm.R": [
+              -24,
+              0,
+              20
+            ],
+            "Forearm.R": [
+              -42,
+              0,
+              0
+            ],
+            "UpperArm.L": [
+              -20,
+              0,
+              5
+            ],
+            "Forearm.L": [
+              -20,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "Hips": [
+              0,
+              0,
+              9
+            ],
+            "Chest": [
+              0,
+              0,
+              25
+            ],
+            "UpperArm.R": [
+              -30,
+              0,
+              65
+            ],
+            "Forearm.R": [
+              -75,
+              0,
+              -15
+            ],
+            "UpperArm.L": [
+              -35,
+              0,
+              10
+            ],
+            "Forearm.L": [
+              -30,
+              0,
+              0
+            ],
+            "UpperLeg.R": [
+              -13,
+              0,
+              8
+            ]
+          },
+          {
+            "Hips": [
+              0,
+              0,
+              -12
+            ],
+            "Chest": [
+              -10,
+              0,
+              -33
+            ],
+            "UpperArm.R": [
+              -92,
+              0,
+              -65
+            ],
+            "Forearm.R": [
+              -18,
+              0,
+              0
+            ],
+            "Hand.R": [
+              0,
+              0,
+              -25
+            ],
+            "UpperArm.L": [
+              -65,
+              0,
+              -18
+            ],
+            "Forearm.L": [
+              -20,
+              0,
+              0
+            ],
+            "UpperLeg.L": [
+              8,
+              0,
+              -10
+            ],
+            "UpperLeg.R": [
+              -22,
+              0,
+              10
+            ]
+          },
+          {
+            "Chest": [
+              -7,
+              0,
+              -42
+            ],
+            "UpperArm.R": [
+              -68,
+              0,
+              -78
+            ],
+            "Forearm.R": [
+              -15,
+              0,
+              0
+            ],
+            "UpperArm.L": [
+              -45,
+              0,
+              -12
+            ],
+            "Forearm.L": [
+              -30,
+              0,
+              0
+            ]
+          },
+          {
+            "Chest": [
+              0,
+              0,
+              -8
+            ],
+            "UpperArm.R": [
+              -30,
+              0,
+              -15
+            ],
+            "Forearm.R": [
+              -40,
+              0,
+              0
+            ],
+            "UpperArm.L": [
+              -20,
+              0,
+              0
+            ],
+            "Forearm.L": [
+              -25,
+              0,
+              0
+            ]
+          }
+        ],
+        [
+          {
+            "Hips": [
+              8,
+              0,
+              -8
+            ],
+            "Chest": [
+              12,
+              0,
+              -15
+            ],
+            "UpperArm.L": [
+              -92,
+              0,
+              25
+            ],
+            "Forearm.L": [
+              -68,
+              0,
+              12
+            ],
+            "UpperArm.R": [
+              -48,
+              0,
+              -55
+            ],
+            "Forearm.R": [
+              -65,
+              0,
+              0
+            ],
+            "UpperLeg.L": [
+              -25,
+              0,
+              -8
+            ],
+            "LowerLeg.L": [
+              -22,
+              0,
+              0
+            ],
+            "UpperLeg.R": [
+              -20,
+              0,
+              8
+            ],
+            "LowerLeg.R": [
+              -22,
+              0,
+              0
+            ]
+          },
+          {
+            "Hips": [
+              -10,
+              0,
+              0
+            ],
+            "Chest": [
+              -18,
+              0,
+              10
+            ],
+            "UpperArm.L": [
+              -100,
+              0,
+              -8
+            ],
+            "Forearm.L": [
+              -5,
+              0,
+              0
+            ],
+            "UpperArm.R": [
+              -70,
+              0,
+              -35
+            ],
+            "Forearm.R": [
+              -20,
+              0,
+              0
+            ],
+            "UpperLeg.L": [
+              -30,
+              0,
+              -8
+            ],
+            "LowerLeg.L": [
+              -10,
+              0,
+              0
+            ],
+            "UpperLeg.R": [
+              15,
+              0,
+              8
+            ]
+          },
+          {
+            "Chest": [
+              -14,
+              0,
+              16
+            ],
+            "UpperArm.L": [
+              -96,
+              0,
+              -18
+            ],
+            "Forearm.L": [
+              -12,
+              0,
+              0
+            ],
+            "UpperArm.R": [
+              -45,
+              0,
+              -20
+            ],
+            "Forearm.R": [
+              -30,
+              0,
+              0
+            ]
+          },
+          {
+            "Chest": [
+              -4,
+              0,
+              0
+            ],
+            "UpperArm.L": [
+              -45,
+              0,
+              10
+            ],
+            "Forearm.L": [
+              -40,
+              0,
+              0
+            ],
+            "UpperArm.R": [
+              -25,
+              0,
+              -10
+            ],
+            "Forearm.R": [
+              -35,
+              0,
+              0
+            ]
+          }
+        ]
+      ],
+      "frames": [
+        "wangzai_attack_0_front_0.png",
+        "wangzai_attack_0_front_1.png",
+        "wangzai_attack_0_front_2.png",
+        "wangzai_attack_0_front_3.png",
+        "wangzai_attack_1_front_0.png",
+        "wangzai_attack_1_front_1.png",
+        "wangzai_attack_1_front_2.png",
+        "wangzai_attack_1_front_3.png",
+        "wangzai_attack_2_front_0.png",
+        "wangzai_attack_2_front_1.png",
+        "wangzai_attack_2_front_2.png",
+        "wangzai_attack_2_front_3.png",
+        "wangzai_attack_0_back_0.png",
+        "wangzai_attack_0_back_1.png",
+        "wangzai_attack_0_back_2.png",
+        "wangzai_attack_0_back_3.png",
+        "wangzai_attack_1_back_0.png",
+        "wangzai_attack_1_back_1.png",
+        "wangzai_attack_1_back_2.png",
+        "wangzai_attack_1_back_3.png",
+        "wangzai_attack_2_back_0.png",
+        "wangzai_attack_2_back_1.png",
+        "wangzai_attack_2_back_2.png",
+        "wangzai_attack_2_back_3.png",
+        "wangzai_attack_0_left_0.png",
+        "wangzai_attack_0_left_1.png",
+        "wangzai_attack_0_left_2.png",
+        "wangzai_attack_0_left_3.png",
+        "wangzai_attack_1_left_0.png",
+        "wangzai_attack_1_left_1.png",
+        "wangzai_attack_1_left_2.png",
+        "wangzai_attack_1_left_3.png",
+        "wangzai_attack_2_left_0.png",
+        "wangzai_attack_2_left_1.png",
+        "wangzai_attack_2_left_2.png",
+        "wangzai_attack_2_left_3.png",
+        "wangzai_attack_0_right_0.png",
+        "wangzai_attack_0_right_1.png",
+        "wangzai_attack_0_right_2.png",
+        "wangzai_attack_0_right_3.png",
+        "wangzai_attack_1_right_0.png",
+        "wangzai_attack_1_right_1.png",
+        "wangzai_attack_1_right_2.png",
+        "wangzai_attack_1_right_3.png",
+        "wangzai_attack_2_right_0.png",
+        "wangzai_attack_2_right_1.png",
+        "wangzai_attack_2_right_2.png",
+        "wangzai_attack_2_right_3.png"
+      ],
+      "normalization": {
+        "idle_body_height": 180,
+        "canvas": [
+          240,
+          240
+        ],
+        "foot_baseline": 240,
+        "scale": 0.8955223880597015,
+        "reference_alpha_bounds": [
+          46,
+          46,
+          178,
+          247
+        ]
+      }
+    },
+    "xiaomantou": {
+      "source_blend": "E:\\game\\StarLanternIsland\\source_models\\characters\\xiaomantou\\xiaomantou.blend",
+      "source_sha256": "eca06e52d5f84811ab40b9f18d02e86010a29ff399fb8fca062aa9875f6f739e",
+      "bone_poses": [
+        [
+          {
+            "Chest": [
+              0,
+              0,
+              -12
+            ],
+            "UpperArm.R": [
+              -95,
+              0,
+              -35
+            ],
+            "Forearm.R": [
+              -65,
+              0,
+              -12
+            ],
+            "Hand.R": [
+              0,
+              0,
+              -30
+            ],
+            "UpperArm.L": [
+              -28,
+              0,
+              15
+            ],
+            "Forearm.L": [
+              -45,
+              0,
+              0
+            ]
+          },
+          {
+            "Chest": [
+              -7,
+              0,
+              18
+            ],
+            "UpperArm.R": [
+              -95,
+              0,
+              18
+            ],
+            "Forearm.R": [
+              -10,
+              0,
+              0
+            ],
+            "Hand.R": [
+              -25,
+              0,
+              35
+            ],
+            "UpperArm.L": [
+              -55,
+              0,
+              40
+            ],
+            "Forearm.L": [
+              -25,
+              0,
+              0
+            ],
+            "UpperLeg.L": [
+              -12,
+              0,
+              -5
+            ]
+          },
+          {
+            "Chest": [
+              -3,
+              0,
+              25
+            ],
+            "UpperArm.R": [
+              -65,
+              0,
+              42
+            ],
+            "Forearm.R": [
+              -24,
+              0,
+              0
+            ],
+            "Hand.R": [
+              25,
+              0,
+              -30
+            ],
+            "UpperArm.L": [
+              -35,
+              0,
+              30
+            ]
+          },
+          {
+            "Chest": [
+              0,
+              0,
+              5
+            ],
+            "UpperArm.R": [
+              -35,
+              0,
+              10
+            ],
+            "Forearm.R": [
+              -38,
+              0,
+              0
+            ],
+            "UpperArm.L": [
+              -20,
+              0,
+              15
+            ]
+          }
+        ],
+        [
+          {
+            "Chest": [
+              0,
+              0,
+              18
+            ],
+            "UpperArm.R": [
+              -75,
+              0,
+              45
+            ],
+            "Forearm.R": [
+              -70,
+              0,
+              0
+            ],
+            "Hand.R": [
+              15,
+              0,
+              28
+            ],
+            "UpperArm.L": [
+              -45,
+              0,
+              32
+            ]
+          },
+          {
+            "Chest": [
+              -9,
+              0,
+              -25
+            ],
+            "UpperArm.R": [
+              -105,
+              0,
+              -35
+            ],
+            "Forearm.R": [
+              -12,
+              0,
+              0
+            ],
+            "Hand.R": [
+              -20,
+              0,
+              -35
+            ],
+            "UpperArm.L": [
+              -70,
+              0,
+              48
+            ],
+            "Forearm.L": [
+              -20,
+              0,
+              0
+            ],
+            "UpperLeg.R": [
+              -12,
+              0,
+              6
+            ]
+          },
+          {
+            "Chest": [
+              -4,
+              0,
+              -32
+            ],
+            "UpperArm.R": [
+              -85,
+              0,
+              -52
+            ],
+            "Forearm.R": [
+              -28,
+              0,
+              0
+            ],
+            "Hand.R": [
+              20,
+              0,
+              25
+            ],
+            "UpperArm.L": [
+              -48,
+              0,
+              35
+            ]
+          },
+          {
+            "Chest": [
+              0,
+              0,
+              -8
+            ],
+            "UpperArm.R": [
+              -35,
+              0,
+              -10
+            ],
+            "Forearm.R": [
+              -40,
+              0,
+              0
+            ],
+            "UpperArm.L": [
+              -25,
+              0,
+              20
+            ]
+          }
+        ],
+        [
+          {
+            "Chest": [
+              5,
+              0,
+              -10
+            ],
+            "UpperArm.R": [
+              -148,
+              0,
+              -20
+            ],
+            "Forearm.R": [
+              -30,
+              0,
+              -5
+            ],
+            "Hand.R": [
+              -25,
+              0,
+              0
+            ],
+            "UpperArm.L": [
+              -110,
+              0,
+              40
+            ],
+            "Forearm.L": [
+              -45,
+              0,
+              0
+            ],
+            "UpperLeg.L": [
+              -15,
+              0,
+              -8
+            ],
+            "LowerLeg.L": [
+              -15,
+              0,
+              0
+            ],
+            "UpperLeg.R": [
+              -15,
+              0,
+              8
+            ],
+            "LowerLeg.R": [
+              -15,
+              0,
+              0
+            ]
+          },
+          {
+            "Chest": [
+              -8,
+              0,
+              0
+            ],
+            "UpperArm.R": [
+              -130,
+              0,
+              -48
+            ],
+            "Forearm.R": [
+              -5,
+              0,
+              0
+            ],
+            "Hand.R": [
+              25,
+              0,
+              30
+            ],
+            "UpperArm.L": [
+              -108,
+              0,
+              55
+            ],
+            "Forearm.L": [
+              -10,
+              0,
+              0
+            ]
+          },
+          {
+            "Chest": [
+              -5,
+              0,
+              12
+            ],
+            "UpperArm.R": [
+              -95,
+              0,
+              -65
+            ],
+            "Forearm.R": [
+              -20,
+              0,
+              0
+            ],
+            "Hand.R": [
+              -30,
+              0,
+              -25
+            ],
+            "UpperArm.L": [
+              -80,
+              0,
+              65
+            ],
+            "Forearm.L": [
+              -20,
+              0,
+              0
+            ]
+          },
+          {
+            "Chest": [
+              0,
+              0,
+              0
+            ],
+            "UpperArm.R": [
+              -42,
+              0,
+              -10
+            ],
+            "Forearm.R": [
+              -42,
+              0,
+              0
+            ],
+            "UpperArm.L": [
+              -35,
+              0,
+              20
+            ],
+            "Forearm.L": [
+              -30,
+              0,
+              0
+            ]
+          }
+        ]
+      ],
+      "frames": [
+        "xiaomantou_attack_0_front_0.png",
+        "xiaomantou_attack_0_front_1.png",
+        "xiaomantou_attack_0_front_2.png",
+        "xiaomantou_attack_0_front_3.png",
+        "xiaomantou_attack_1_front_0.png",
+        "xiaomantou_attack_1_front_1.png",
+        "xiaomantou_attack_1_front_2.png",
+        "xiaomantou_attack_1_front_3.png",
+        "xiaomantou_attack_2_front_0.png",
+        "xiaomantou_attack_2_front_1.png",
+        "xiaomantou_attack_2_front_2.png",
+        "xiaomantou_attack_2_front_3.png",
+        "xiaomantou_attack_0_back_0.png",
+        "xiaomantou_attack_0_back_1.png",
+        "xiaomantou_attack_0_back_2.png",
+        "xiaomantou_attack_0_back_3.png",
+        "xiaomantou_attack_1_back_0.png",
+        "xiaomantou_attack_1_back_1.png",
+        "xiaomantou_attack_1_back_2.png",
+        "xiaomantou_attack_1_back_3.png",
+        "xiaomantou_attack_2_back_0.png",
+        "xiaomantou_attack_2_back_1.png",
+        "xiaomantou_attack_2_back_2.png",
+        "xiaomantou_attack_2_back_3.png",
+        "xiaomantou_attack_0_left_0.png",
+        "xiaomantou_attack_0_left_1.png",
+        "xiaomantou_attack_0_left_2.png",
+        "xiaomantou_attack_0_left_3.png",
+        "xiaomantou_attack_1_left_0.png",
+        "xiaomantou_attack_1_left_1.png",
+        "xiaomantou_attack_1_left_2.png",
+        "xiaomantou_attack_1_left_3.png",
+        "xiaomantou_attack_2_left_0.png",
+        "xiaomantou_attack_2_left_1.png",
+        "xiaomantou_attack_2_left_2.png",
+        "xiaomantou_attack_2_left_3.png",
+        "xiaomantou_attack_0_right_0.png",
+        "xiaomantou_attack_0_right_1.png",
+        "xiaomantou_attack_0_right_2.png",
+        "xiaomantou_attack_0_right_3.png",
+        "xiaomantou_attack_1_right_0.png",
+        "xiaomantou_attack_1_right_1.png",
+        "xiaomantou_attack_1_right_2.png",
+        "xiaomantou_attack_1_right_3.png",
+        "xiaomantou_attack_2_right_0.png",
+        "xiaomantou_attack_2_right_1.png",
+        "xiaomantou_attack_2_right_2.png",
+        "xiaomantou_attack_2_right_3.png"
+      ],
+      "normalization": {
+        "idle_body_height": 180,
+        "canvas": [
+          240,
+          240
+        ],
+        "foot_baseline": 240,
+        "scale": 0.8910891089108911,
+        "reference_alpha_bounds": [
+          67,
+          45,
+          180,
+          247
+        ]
+      }
+    }
+  },
+  "normalized": true
+}

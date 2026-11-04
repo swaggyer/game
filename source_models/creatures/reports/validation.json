@@ -1,0 +1,448 @@
+{
+  "passed": true,
+  "asset_count": 11,
+  "results": [
+    {
+      "id": "little_dragon",
+      "model": {
+        "bytes": 2282076,
+        "nodes": 246,
+        "meshes": 243,
+        "vertices": 58177,
+        "triangles": 94618,
+        "skins": 0,
+        "animation_clips": 1,
+        "animation_channels": 4
+      },
+      "pngs": {
+        "little_dragon_preview.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 142104,
+          "visible_bounds": [
+            110,
+            145,
+            747,
+            668
+          ],
+          "clear_outer_margin": true
+        },
+        "little_dragon_front.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 109049,
+          "visible_bounds": [
+            188,
+            195,
+            621,
+            677
+          ],
+          "clear_outer_margin": true
+        },
+        "little_dragon_back.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 135148,
+          "visible_bounds": [
+            146,
+            84,
+            579,
+            678
+          ],
+          "clear_outer_margin": true
+        },
+        "little_dragon_left.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 154192,
+          "visible_bounds": [
+            47,
+            112,
+            709,
+            643
+          ],
+          "clear_outer_margin": true
+        },
+        "little_dragon_right.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 151841,
+          "visible_bounds": [
+            58,
+            112,
+            731,
+            643
+          ],
+          "clear_outer_margin": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "new_dragon_king",
+      "model": {
+        "bytes": 2443660,
+        "nodes": 260,
+        "meshes": 257,
+        "vertices": 63256,
+        "triangles": 103310,
+        "skins": 0,
+        "animation_clips": 1,
+        "animation_channels": 4
+      },
+      "pngs": {
+        "new_dragon_king_preview.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 144048,
+          "visible_bounds": [
+            110,
+            116,
+            747,
+            668
+          ],
+          "clear_outer_margin": true
+        },
+        "new_dragon_king_front.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 111118,
+          "visible_bounds": [
+            188,
+            177,
+            621,
+            677
+          ],
+          "clear_outer_margin": true
+        },
+        "new_dragon_king_back.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 138612,
+          "visible_bounds": [
+            146,
+            80,
+            579,
+            678
+          ],
+          "clear_outer_margin": true
+        },
+        "new_dragon_king_left.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 158388,
+          "visible_bounds": [
+            47,
+            67,
+            709,
+            643
+          ],
+          "clear_outer_margin": true
+        },
+        "new_dragon_king_right.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 156103,
+          "visible_bounds": [
+            58,
+            67,
+            731,
+            643
+          ],
+          "clear_outer_margin": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "elder_dragon_king",
+      "model": {
+        "bytes": 2517200,
+        "nodes": 265,
+        "meshes": 262,
+        "vertices": 65171,
+        "triangles": 106590,
+        "skins": 0,
+        "animation_clips": 1,
+        "animation_channels": 4
+      },
+      "pngs": {
+        "elder_dragon_king_preview.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 147982,
+          "visible_bounds": [
+            110,
+            116,
+            747,
+            668
+          ],
+          "clear_outer_margin": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "shadow_blob",
+      "model": {
+        "bytes": 192524,
+        "nodes": 13,
+        "meshes": 12,
+        "vertices": 4236,
+        "triangles": 7168,
+        "skins": 0,
+        "animation_clips": 1,
+        "animation_channels": 2
+      },
+      "pngs": {
+        "shadow_blob_preview.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 163340,
+          "visible_bounds": [
+            155,
+            174,
+            586,
+            700
+          ],
+          "clear_outer_margin": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "crystal_thief",
+      "model": {
+        "bytes": 352684,
+        "nodes": 27,
+        "meshes": 26,
+        "vertices": 7739,
+        "triangles": 12908,
+        "skins": 0,
+        "animation_clips": 1,
+        "animation_channels": 2
+      },
+      "pngs": {
+        "crystal_thief_preview.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 151177,
+          "visible_bounds": [
+            175,
+            151,
+            583,
+            693
+          ],
+          "clear_outer_margin": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "wind_gremlin",
+      "model": {
+        "bytes": 414140,
+        "nodes": 37,
+        "meshes": 36,
+        "vertices": 9427,
+        "triangles": 15500,
+        "skins": 0,
+        "animation_clips": 1,
+        "animation_channels": 2
+      },
+      "pngs": {
+        "wind_gremlin_preview.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 87310,
+          "visible_bounds": [
+            229,
+            112,
+            517,
+            688
+          ],
+          "clear_outer_margin": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "moon_bubble",
+      "model": {
+        "bytes": 312068,
+        "nodes": 21,
+        "meshes": 20,
+        "vertices": 6885,
+        "triangles": 11628,
+        "skins": 0,
+        "animation_clips": 1,
+        "animation_channels": 2
+      },
+      "pngs": {
+        "moon_bubble_preview.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 143164,
+          "visible_bounds": [
+            174,
+            177,
+            593,
+            648
+          ],
+          "clear_outer_margin": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "thorn_treant",
+      "model": {
+        "bytes": 658120,
+        "nodes": 49,
+        "meshes": 48,
+        "vertices": 15651,
+        "triangles": 26292,
+        "skins": 0,
+        "animation_clips": 1,
+        "animation_channels": 2
+      },
+      "pngs": {
+        "thorn_treant_preview.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 126116,
+          "visible_bounds": [
+            136,
+            162,
+            575,
+            703
+          ],
+          "clear_outer_margin": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "windmill_guardian",
+      "model": {
+        "bytes": 309400,
+        "nodes": 35,
+        "meshes": 34,
+        "vertices": 6743,
+        "triangles": 10948,
+        "skins": 0,
+        "animation_clips": 1,
+        "animation_channels": 2
+      },
+      "pngs": {
+        "windmill_guardian_preview.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 96751,
+          "visible_bounds": [
+            215,
+            163,
+            550,
+            684
+          ],
+          "clear_outer_margin": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "stone_shell_guardian",
+      "model": {
+        "bytes": 270844,
+        "nodes": 22,
+        "meshes": 21,
+        "vertices": 6103,
+        "triangles": 10248,
+        "skins": 0,
+        "animation_clips": 1,
+        "animation_channels": 2
+      },
+      "pngs": {
+        "stone_shell_guardian_preview.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 148571,
+          "visible_bounds": [
+            151,
+            186,
+            603,
+            708
+          ],
+          "clear_outer_margin": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "lantern_devourer",
+      "model": {
+        "bytes": 617712,
+        "nodes": 45,
+        "meshes": 44,
+        "vertices": 14800,
+        "triangles": 24960,
+        "skins": 0,
+        "animation_clips": 1,
+        "animation_channels": 2
+      },
+      "pngs": {
+        "lantern_devourer_preview.png": {
+          "width": 768,
+          "height": 768,
+          "alpha_min": 0,
+          "alpha_max": 255,
+          "visible_pixels": 127100,
+          "visible_bounds": [
+            153,
+            164,
+            613,
+            686
+          ],
+          "clear_outer_margin": true
+        }
+      },
+      "passed": true
+    }
+  ]
+}

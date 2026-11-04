@@ -1,0 +1,244 @@
+[
+  {
+    "id": "little_dragon",
+    "name_zh": "小龙",
+    "model": "E:\\game\\StarLanternIsland\\source_models\\creatures\\models\\little_dragon.glb",
+    "preview": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\little_dragon_preview.png",
+    "sprites": {
+      "front": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\little_dragon_front.png",
+      "back": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\little_dragon_back.png",
+      "left": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\little_dragon_left.png",
+      "right": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\little_dragon_right.png"
+    },
+    "mesh_objects": 200,
+    "source_polygon_count": 37693,
+    "animation_type": "object_transform_not_skeletal",
+    "animations": [
+      "little_dragon_Idle_ObjectAnimation",
+      "little_dragon_WingFlap_-1",
+      "little_dragon_WingFlap_1"
+    ],
+    "rigged": false,
+    "frames": 48,
+    "fps": 24,
+    "height_reference": 2.7,
+    "exported_triangles": 94618,
+    "exported_vertices": 58177,
+    "exported_animation_clips": 1,
+    "design_revision": "quadruped_elongated_muzzle_ivory_mane_layered_brass_scales",
+    "reference": "concepts/dragon-board.png; simplified production mesh, not exact sculpt reproduction"
+  },
+  {
+    "id": "new_dragon_king",
+    "name_zh": "新龙王",
+    "model": "E:\\game\\StarLanternIsland\\source_models\\creatures\\models\\new_dragon_king.glb",
+    "preview": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\new_dragon_king_preview.png",
+    "sprites": {
+      "front": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\new_dragon_king_front.png",
+      "back": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\new_dragon_king_back.png",
+      "left": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\new_dragon_king_left.png",
+      "right": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\new_dragon_king_right.png"
+    },
+    "mesh_objects": 203,
+    "source_polygon_count": 38473,
+    "animation_type": "object_transform_not_skeletal",
+    "animations": [
+      "new_dragon_king_Idle_ObjectAnimation",
+      "new_dragon_king_WingFlap_-1",
+      "new_dragon_king_WingFlap_1"
+    ],
+    "rigged": false,
+    "frames": 48,
+    "fps": 24,
+    "height_reference": 2.7,
+    "exported_triangles": 103310,
+    "exported_vertices": 63256,
+    "exported_animation_clips": 1,
+    "design_revision": "quadruped_elongated_muzzle_ivory_mane_layered_brass_scales",
+    "reference": "concepts/dragon-board.png; simplified production mesh, not exact sculpt reproduction"
+  },
+  {
+    "id": "elder_dragon_king",
+    "name_zh": "老龙王",
+    "model": "E:\\game\\StarLanternIsland\\source_models\\creatures\\models\\elder_dragon_king.glb",
+    "preview": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\elder_dragon_king_preview.png",
+    "sprites": {},
+    "mesh_objects": 203,
+    "source_polygon_count": 38473,
+    "animation_type": "object_transform_not_skeletal",
+    "animations": [
+      "elder_dragon_king_Idle_ObjectAnimation",
+      "elder_dragon_king_WingFlap_-1",
+      "elder_dragon_king_WingFlap_1"
+    ],
+    "rigged": false,
+    "frames": 48,
+    "fps": 24,
+    "height_reference": 2.7,
+    "exported_triangles": 106590,
+    "exported_vertices": 65171,
+    "exported_animation_clips": 1,
+    "design_revision": "quadruped_elongated_muzzle_ivory_mane_layered_brass_scales",
+    "reference": "concepts/dragon-board.png; simplified production mesh, not exact sculpt reproduction"
+  },
+  {
+    "id": "shadow_blob",
+    "name_zh": "影团",
+    "model": "E:\\game\\StarLanternIsland\\source_models\\creatures\\models\\shadow_blob.glb",
+    "preview": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\shadow_blob_preview.png",
+    "sprites": {},
+    "mesh_objects": 9,
+    "source_polygon_count": 2848,
+    "animation_type": "object_transform_not_skeletal",
+    "animations": [
+      "shadow_blob_Idle_ObjectAnimation"
+    ],
+    "rigged": false,
+    "frames": 48,
+    "fps": 24,
+    "height_reference": 1.6,
+    "exported_triangles": 7168,
+    "exported_vertices": 4236,
+    "exported_animation_clips": 1
+  },
+  {
+    "id": "crystal_thief",
+    "name_zh": "偷晶小鬼",
+    "model": "E:\\game\\StarLanternIsland\\source_models\\creatures\\models\\crystal_thief.glb",
+    "preview": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\crystal_thief_preview.png",
+    "sprites": {},
+    "mesh_objects": 25,
+    "source_polygon_count": 6538,
+    "animation_type": "object_transform_not_skeletal",
+    "animations": [
+      "crystal_thief_Idle_ObjectAnimation"
+    ],
+    "rigged": false,
+    "frames": 48,
+    "fps": 24,
+    "height_reference": 1.6,
+    "exported_triangles": 12908,
+    "exported_vertices": 7739,
+    "exported_animation_clips": 1
+  },
+  {
+    "id": "wind_gremlin",
+    "name_zh": "风车捣蛋怪",
+    "model": "E:\\game\\StarLanternIsland\\source_models\\creatures\\models\\wind_gremlin.glb",
+    "preview": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\wind_gremlin_preview.png",
+    "sprites": {},
+    "mesh_objects": 35,
+    "source_polygon_count": 7730,
+    "animation_type": "object_transform_not_skeletal",
+    "animations": [
+      "wind_gremlin_Idle_ObjectAnimation"
+    ],
+    "rigged": false,
+    "frames": 48,
+    "fps": 24,
+    "height_reference": 2.3,
+    "exported_triangles": 15500,
+    "exported_vertices": 9427,
+    "exported_animation_clips": 1
+  },
+  {
+    "id": "moon_bubble",
+    "name_zh": "月水泡妖",
+    "model": "E:\\game\\StarLanternIsland\\source_models\\creatures\\models\\moon_bubble.glb",
+    "preview": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\moon_bubble_preview.png",
+    "sprites": {},
+    "mesh_objects": 19,
+    "source_polygon_count": 5868,
+    "animation_type": "object_transform_not_skeletal",
+    "animations": [
+      "moon_bubble_Idle_ObjectAnimation"
+    ],
+    "rigged": false,
+    "frames": 48,
+    "fps": 24,
+    "height_reference": 1.7,
+    "exported_triangles": 11628,
+    "exported_vertices": 6885,
+    "exported_animation_clips": 1
+  },
+  {
+    "id": "thorn_treant",
+    "name_zh": "荆棘木妖",
+    "model": "E:\\game\\StarLanternIsland\\source_models\\creatures\\models\\thorn_treant.glb",
+    "preview": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\thorn_treant_preview.png",
+    "sprites": {},
+    "mesh_objects": 27,
+    "source_polygon_count": 7004,
+    "animation_type": "object_transform_not_skeletal",
+    "animations": [
+      "thorn_treant_Idle_ObjectAnimation"
+    ],
+    "rigged": false,
+    "frames": 48,
+    "fps": 24,
+    "height_reference": 3.15,
+    "exported_triangles": 26292,
+    "exported_vertices": 15651,
+    "exported_animation_clips": 1
+  },
+  {
+    "id": "windmill_guardian",
+    "name_zh": "风车守卫",
+    "model": "E:\\game\\StarLanternIsland\\source_models\\creatures\\models\\windmill_guardian.glb",
+    "preview": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\windmill_guardian_preview.png",
+    "sprites": {},
+    "mesh_objects": 29,
+    "source_polygon_count": 4740,
+    "animation_type": "object_transform_not_skeletal",
+    "animations": [
+      "windmill_guardian_Idle_ObjectAnimation"
+    ],
+    "rigged": false,
+    "frames": 48,
+    "fps": 24,
+    "height_reference": 3.05,
+    "exported_triangles": 10948,
+    "exported_vertices": 6743,
+    "exported_animation_clips": 1
+  },
+  {
+    "id": "stone_shell_guardian",
+    "name_zh": "石甲守卫",
+    "model": "E:\\game\\StarLanternIsland\\source_models\\creatures\\models\\stone_shell_guardian.glb",
+    "preview": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\stone_shell_guardian_preview.png",
+    "sprites": {},
+    "mesh_objects": 16,
+    "source_polygon_count": 3750,
+    "animation_type": "object_transform_not_skeletal",
+    "animations": [
+      "stone_shell_guardian_Idle_ObjectAnimation"
+    ],
+    "rigged": false,
+    "frames": 48,
+    "fps": 24,
+    "height_reference": 2.2,
+    "exported_triangles": 10248,
+    "exported_vertices": 6103,
+    "exported_animation_clips": 1
+  },
+  {
+    "id": "lantern_devourer",
+    "name_zh": "吞灯妖",
+    "model": "E:\\game\\StarLanternIsland\\source_models\\creatures\\models\\lantern_devourer.glb",
+    "preview": "E:\\game\\StarLanternIsland\\source_models\\creatures\\renders\\lantern_devourer_preview.png",
+    "sprites": {},
+    "mesh_objects": 32,
+    "source_polygon_count": 8444,
+    "animation_type": "object_transform_not_skeletal",
+    "animations": [
+      "lantern_devourer_Idle_ObjectAnimation"
+    ],
+    "rigged": false,
+    "frames": 48,
+    "fps": 24,
+    "height_reference": 3.15,
+    "exported_triangles": 24960,
+    "exported_vertices": 14800,
+    "exported_animation_clips": 1
+  }
+]

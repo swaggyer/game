@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+V1.2 DAMAGE TESTS PASSED: 993 checks; 324 actual AI hit cases across 4 levels, 3 difficulties, 3 loadouts, 9 enemy variants

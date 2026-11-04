@@ -1,0 +1,1507 @@
+{
+  "version": "1.1.0-rendered-challenge",
+  "status": "首轮可调设计；所有数值、掉落和时长均未进行完整游戏实测。",
+  "combat": {
+    "controls": [
+      "左下浮动摇杆：左手拇指移动。固定俯视镜头，人物自动朝向移动方向或当前攻击目标。",
+      "右下大攻击键：轻点攻击。近战连段自动衔接，远程自动选择正前方最近的可见目标；不要求拖拽瞄准或连续复杂手势。",
+      "攻击键左上方的小技能键：战斗时显示当前龙术名称，默认“星火”。战斗期间功能固定；其他战斗龙术在暂停菜单中选择，不设置技能排或长按轮盘。",
+      "脱战后，靠近并面向高亮机关，技能键切换为“互动”，用于点灯、开箱、对话和场景龙术。按钮提前显示目标和动作，一次按下到松开期间不切换功能或目标。",
+      "星纹盾与回声铃由同伴自动协作：移动到反光标记、显影范围或保护位置后，伙伴作出清楚的提示并响应。孩子仍负责观察、走位和选择正确的机关，不增加盾、铃、闪避或跳跃按钮。",
+      "左上点未选中头像切换旺仔与小馒头；共享生命、等级和补给。右上暂停键打开地图、装备与补给，暂停期间世界停止。小龙自动跟随，探索中的滑翔、水罩和星门由明确场景标记调用。"
+    ],
+    "rules": [
+      "两位孩子由一名玩家切换操控，另一位与小龙自动跟随。常驻操作为左手摇杆、右手攻击与一个情境技能键。",
+      "发现附近妖怪或进入首领战后，技能键保持当前龙术；高亮机关不能抢占正在按下的战斗按钮。脱战且面向目标时，才允许切换为互动。",
+      "盾反光与铃声显形均依靠明确的站位和目标标记触发；不会由同伴自行走完机关路线或解完整个谜题。",
+      "主线关卡以剧情和源晶能力解锁，没有必须刷到某级才能进入的硬门槛。",
+      "受击后默认无敌1.0秒；同一段持续伤害不会在一个判定内多次扣血。切换角色不会重置无敌时间。",
+      "普通敌人准备攻击时先给形状、方向和声音提示，不能只依赖颜色；首领动作提示至少1.3秒。",
+      "倒下后回最近已点亮的星灯并恢复生命；不扣等级、金币、晶石、装备或已完成任务。首领按已完成阶段重试。",
+      "星灯休息恢复全队生命、重置一次性装备效果，并把红星果至少补到2个。普通怪在休息后才刷新，不会在面前突然重生。",
+      "首领、源晶和主线经验奖励只可领取一次；重复战斗可自由回访练习，不能重复领取关键剧情物品。",
+      "每次净化妖怪晶石时，成长能量自动记为经验，修灯能量自动回到星脉；背包显示的普通星晶是可自由强化装备的余量，不需孩子手动分配。",
+      "不存在真实付费、抽卡、随机词条或限时付费奖励；所有影响通关的能力和武器均可在主线必得。",
+      "提示可随时开启；连续两次在同一机关停留失败后，出现可选的下一步图形提示，不自动替孩子完成整关。"
+    ],
+    "difficultyModes": [
+      {
+        "id": "gentle",
+        "name": "小小守护者",
+        "description": "保留更充足的生命和较低伤害，适合练习；采用新版妖怪基础攻击。",
+        "hpMultiplier": 1.3,
+        "enemyDamageMultiplier": 0.65,
+        "hints": "图形与简短语音提示默认开启；攻击提示延长0.3秒；首领阶段进度保留。"
+      },
+      {
+        "id": "explorer",
+        "name": "星灯探险家",
+        "description": "默认难度。妖怪攻击显著提升，观察起手、利用掩体与收招窗口推进。",
+        "hpMultiplier": 1,
+        "enemyDamageMultiplier": 0.85,
+        "hints": "主线方向默认开启；在机关前停留45秒后可主动呼叫小龙提示。"
+      },
+      {
+        "id": "brave",
+        "name": "勇敢冒险家",
+        "description": "更高伤害与更快陷阱节奏，适合熟悉连击和站位协作后挑战。",
+        "hpMultiplier": 1,
+        "enemyDamageMultiplier": 1,
+        "hints": "基础攻击预警始终开启；谜题提示由玩家主动打开。"
+      }
+    ],
+    "stats": {
+      "levelCap": 20,
+      "baseHp": 100,
+      "hpPerLevel": 5,
+      "baseAttack": 10,
+      "attackPerLevel": 2,
+      "baseDefense": 0,
+      "defensePerFourLevels": 1,
+      "baseMoveSpeed": 150,
+      "attackInterval": 0.45,
+      "hitInvulnerability": 1,
+      "shieldReduction": 0.75,
+      "dragonStarfireBaseDamage": 12,
+      "dragonStarfireDamagePerLevel": 2,
+      "dragonStarfireCooldown": 6,
+      "consumableSharedCooldown": 2,
+      "maxHpFormula": "最大生命 = round((100 + 5×(等级−1) + 已装备生命加成) × 难度生命倍率)。",
+      "attackFormula": "普通攻击 = 10 + 2×(等级−1) + 当前武器攻击 + 当前饰品攻击 + 武器槽强化攻击。",
+      "defenseFormula": "总防御 = floor((等级−1)/4) + 星纹盾防御 + 当前护甲防御 + 当前饰品防御 + 护甲槽强化防御。",
+      "incomingDamageFormula": "未格挡伤害 = max(1, round(敌人攻击×难度伤害倍率)−总防御)；正面格挡后再乘(1−格挡减伤)，向上取整至少1点。成功反射的指定光弹不造成伤害。",
+      "shieldFormula": "临时护盾先吸收伤害；多次获得时取较高剩余值并刷新持续时间，不无限相加。",
+      "equipmentSlots": [
+        "全队当前武器位1个，两位孩子都能使用",
+        "旺仔星纹盾与小馒头回声铃是固定星器，永久保留",
+        "全队护甲位1个，按主角显示各自颜色",
+        "全队饰品位1个",
+        "补给栏最多显示3种，不占装备位"
+      ],
+      "upgradeRules": "强化按武器、护甲、饰品、盾、铃五个槽位记录，每槽最多+3；费用依次10/20/35普通星晶。同槽更换装备继承等级，不能叠加多个武器或护甲的数值。村庄可免费重置并返还100%投入。武器每级+2攻击；护甲每级+5生命和+1防御；饰品每级+3生命；盾、铃按专属效果成长。",
+      "levelTable": [
+        {
+          "level": 1,
+          "baseHp": 100,
+          "baseAttack": 10,
+          "baseDefense": 0,
+          "totalXp": 0
+        },
+        {
+          "level": 2,
+          "baseHp": 105,
+          "baseAttack": 12,
+          "baseDefense": 0,
+          "totalXp": 60
+        },
+        {
+          "level": 3,
+          "baseHp": 110,
+          "baseAttack": 14,
+          "baseDefense": 0,
+          "totalXp": 180
+        },
+        {
+          "level": 4,
+          "baseHp": 115,
+          "baseAttack": 16,
+          "baseDefense": 0,
+          "totalXp": 360
+        },
+        {
+          "level": 5,
+          "baseHp": 120,
+          "baseAttack": 18,
+          "baseDefense": 1,
+          "totalXp": 600
+        },
+        {
+          "level": 6,
+          "baseHp": 125,
+          "baseAttack": 20,
+          "baseDefense": 1,
+          "totalXp": 900
+        },
+        {
+          "level": 7,
+          "baseHp": 130,
+          "baseAttack": 22,
+          "baseDefense": 1,
+          "totalXp": 1260
+        },
+        {
+          "level": 8,
+          "baseHp": 135,
+          "baseAttack": 24,
+          "baseDefense": 1,
+          "totalXp": 1680
+        },
+        {
+          "level": 9,
+          "baseHp": 140,
+          "baseAttack": 26,
+          "baseDefense": 2,
+          "totalXp": 2160
+        },
+        {
+          "level": 10,
+          "baseHp": 145,
+          "baseAttack": 28,
+          "baseDefense": 2,
+          "totalXp": 2700
+        },
+        {
+          "level": 11,
+          "baseHp": 150,
+          "baseAttack": 30,
+          "baseDefense": 2,
+          "totalXp": 3300
+        },
+        {
+          "level": 12,
+          "baseHp": 155,
+          "baseAttack": 32,
+          "baseDefense": 2,
+          "totalXp": 3960
+        },
+        {
+          "level": 13,
+          "baseHp": 160,
+          "baseAttack": 34,
+          "baseDefense": 3,
+          "totalXp": 4680
+        },
+        {
+          "level": 14,
+          "baseHp": 165,
+          "baseAttack": 36,
+          "baseDefense": 3,
+          "totalXp": 5460
+        },
+        {
+          "level": 15,
+          "baseHp": 170,
+          "baseAttack": 38,
+          "baseDefense": 3,
+          "totalXp": 6300
+        },
+        {
+          "level": 16,
+          "baseHp": 175,
+          "baseAttack": 40,
+          "baseDefense": 3,
+          "totalXp": 7200
+        },
+        {
+          "level": 17,
+          "baseHp": 180,
+          "baseAttack": 42,
+          "baseDefense": 4,
+          "totalXp": 8160
+        },
+        {
+          "level": 18,
+          "baseHp": 185,
+          "baseAttack": 44,
+          "baseDefense": 4,
+          "totalXp": 9180
+        },
+        {
+          "level": 19,
+          "baseHp": 190,
+          "baseAttack": 46,
+          "baseDefense": 4,
+          "totalXp": 10260
+        },
+        {
+          "level": 20,
+          "baseHp": 195,
+          "baseAttack": 48,
+          "baseDefense": 4,
+          "totalXp": 11400
+        }
+      ],
+      "autoReflectDetectionWindow": 0.35,
+      "autoReflectRule": "0.35秒为同伴的自动反射检测窗口；由正确站位、朝向与预警标记触发，不要求玩家精准点按盾键。"
+    },
+    "experience": {
+      "formula": "达到等级L的累计经验 T(L)=30×(L−1)×L，L为1–20；1级累计经验为0。升级自动发生，不消耗背包晶石或金币。",
+      "thresholds": [
+        60,
+        180,
+        360,
+        600,
+        900,
+        1260,
+        1680,
+        2160,
+        2700,
+        3300,
+        3960,
+        4680,
+        5460,
+        6300,
+        7200,
+        8160,
+        9180,
+        10260,
+        11400
+      ],
+      "thresholdDescription": "数组顺序对应等级2、3……20的累计经验；相邻等级需要的经验为60×当前等级。",
+      "sources": [
+        {
+          "id": "main_quest",
+          "name": "主线首次完成",
+          "description": "每章三关各有一次性任务经验；即使漏掉可选怪和宝箱，也能靠主线完成成长。",
+          "repeatable": false
+        },
+        {
+          "id": "enemy_purification",
+          "name": "击败并净化妖怪",
+          "description": "经验按妖怪表固定获得，100%结算；普通怪可在休息后重复挑战。",
+          "repeatable": true
+        },
+        {
+          "id": "side_quest",
+          "name": "村民支线",
+          "description": "六条支线依章节分别提供40/60/100/140/180/220经验，同时给晶石或纪念装备；支线不是进入主线的条件。",
+          "repeatable": false
+        },
+        {
+          "id": "secret_discovery",
+          "name": "发现隐藏地点",
+          "description": "每处首次发现获得20经验与固定补给；同一点不重复结算。",
+          "repeatable": false
+        }
+      ],
+      "chapterRewards": [
+        {
+          "id": "prologue",
+          "name": "序章 · 院子里的小流星",
+          "levelTarget": "进入森林时约3级",
+          "mainQuestXp": 180,
+          "questXp": [
+            30,
+            60,
+            90
+          ],
+          "crystals": 12,
+          "gold": 10
+        },
+        {
+          "id": "forest",
+          "name": "第一章 · 萤火森林",
+          "levelTarget": "完成后约6级",
+          "mainQuestXp": 720,
+          "questXp": [
+            180,
+            240,
+            300
+          ],
+          "crystals": 30,
+          "gold": 30
+        },
+        {
+          "id": "windmill",
+          "name": "第二章 · 风车原野",
+          "levelTarget": "完成后约9级",
+          "mainQuestXp": 1260,
+          "questXp": [
+            300,
+            420,
+            540
+          ],
+          "crystals": 40,
+          "gold": 45
+        },
+        {
+          "id": "water",
+          "name": "第三章 · 月光水乡",
+          "levelTarget": "完成后约13级",
+          "mainQuestXp": 2520,
+          "questXp": [
+            600,
+            840,
+            1080
+          ],
+          "crystals": 50,
+          "gold": 60
+        },
+        {
+          "id": "ruins",
+          "name": "第四章 · 旧王遗迹",
+          "levelTarget": "完成后约17级",
+          "mainQuestXp": 3480,
+          "questXp": [
+            840,
+            1140,
+            1500
+          ],
+          "crystals": 60,
+          "gold": 80
+        },
+        {
+          "id": "rift",
+          "name": "终章 · 人间的最后一盏灯",
+          "levelTarget": "通关后20级",
+          "mainQuestXp": 3240,
+          "questXp": [
+            900,
+            1080,
+            1260
+          ],
+          "crystals": 80,
+          "gold": 100
+        },
+        {
+          "id": "island",
+          "name": "尾声 · 星灯岛的新龙王",
+          "levelTarget": "20级；剧情无额外等级门槛",
+          "mainQuestXp": 0,
+          "questXp": [
+            0,
+            0,
+            0
+          ],
+          "crystals": 0,
+          "gold": 0
+        }
+      ],
+      "mainQuestXpTotal": 11400,
+      "guarantee": "主线一次性任务经验合计11400，足以从1级到20级；不包含沿途击败经验、首领经验和可选支线。按主线游玩即可通关，额外探索只会更早变强。等级20后停止增长等级，经验不转付费或随机奖励。",
+      "campaignBudget": {
+        "name": "主线首通成长保底",
+        "description": "七章主线一次性经验累计11400，独立达到20级阈值；无需额外刷怪。经验均为首轮待测试数值。",
+        "totalMainQuestXp": 11400,
+        "maxLevelThreshold": 11400,
+        "grindingRequired": false,
+        "chapters": [
+          {
+            "chapterId": "prologue",
+            "chapterName": "序章 · 院子里的小流星",
+            "mainQuestXp": 180,
+            "perLevelQuestXp": [
+              30,
+              60,
+              90
+            ],
+            "cumulativeMainQuestXp": 180,
+            "guaranteedLevelAfterChapter": 3,
+            "crystals": 12,
+            "gold": 10,
+            "description": "三关主线首次完成固定经验；不计可选击败、首领与支线经验。"
+          },
+          {
+            "chapterId": "forest",
+            "chapterName": "第一章 · 萤火森林",
+            "mainQuestXp": 720,
+            "perLevelQuestXp": [
+              180,
+              240,
+              300
+            ],
+            "cumulativeMainQuestXp": 900,
+            "guaranteedLevelAfterChapter": 6,
+            "crystals": 30,
+            "gold": 30,
+            "description": "三关主线首次完成固定经验；不计可选击败、首领与支线经验。"
+          },
+          {
+            "chapterId": "windmill",
+            "chapterName": "第二章 · 风车原野",
+            "mainQuestXp": 1260,
+            "perLevelQuestXp": [
+              300,
+              420,
+              540
+            ],
+            "cumulativeMainQuestXp": 2160,
+            "guaranteedLevelAfterChapter": 9,
+            "crystals": 40,
+            "gold": 45,
+            "description": "三关主线首次完成固定经验；不计可选击败、首领与支线经验。"
+          },
+          {
+            "chapterId": "water",
+            "chapterName": "第三章 · 月光水乡",
+            "mainQuestXp": 2520,
+            "perLevelQuestXp": [
+              600,
+              840,
+              1080
+            ],
+            "cumulativeMainQuestXp": 4680,
+            "guaranteedLevelAfterChapter": 13,
+            "crystals": 50,
+            "gold": 60,
+            "description": "三关主线首次完成固定经验；不计可选击败、首领与支线经验。"
+          },
+          {
+            "chapterId": "ruins",
+            "chapterName": "第四章 · 旧王遗迹",
+            "mainQuestXp": 3480,
+            "perLevelQuestXp": [
+              840,
+              1140,
+              1500
+            ],
+            "cumulativeMainQuestXp": 8160,
+            "guaranteedLevelAfterChapter": 17,
+            "crystals": 60,
+            "gold": 80,
+            "description": "三关主线首次完成固定经验；不计可选击败、首领与支线经验。"
+          },
+          {
+            "chapterId": "rift",
+            "chapterName": "终章 · 人间的最后一盏灯",
+            "mainQuestXp": 3240,
+            "perLevelQuestXp": [
+              900,
+              1080,
+              1260
+            ],
+            "cumulativeMainQuestXp": 11400,
+            "guaranteedLevelAfterChapter": 20,
+            "crystals": 80,
+            "gold": 100,
+            "description": "三关主线首次完成固定经验；不计可选击败、首领与支线经验。"
+          },
+          {
+            "chapterId": "island",
+            "chapterName": "尾声 · 星灯岛的新龙王",
+            "mainQuestXp": 0,
+            "perLevelQuestXp": [
+              0,
+              0,
+              0
+            ],
+            "cumulativeMainQuestXp": 11400,
+            "guaranteedLevelAfterChapter": 20,
+            "crystals": 0,
+            "gold": 0,
+            "description": "三关主线首次完成固定经验；不计可选击败、首领与支线经验。"
+          }
+        ]
+      }
+    },
+    "crystals": {
+      "ordinary": {
+        "id": "ordinary_crystal",
+        "name": "普通星晶",
+        "purpose": "装备槽强化与可选工匠制作；不用于购买经验或打开主线关卡。",
+        "acquisition": "普通怪固定2–5枚；首领固定20–80枚；主线任务合计固定272枚；支线和宝箱额外提供。",
+        "spend": "每个强化槽从+0到+3共65枚。主线不要求所有槽升满，免费重置支持孩子改换喜好。",
+        "repairRule": "修灯所需的星脉能量在任务中自动分流；已入背包的普通星晶不会再被修灯扣除。",
+        "description": "装备槽强化与可选工匠制作；不用于购买经验或打开主线关卡。 修灯所需的星脉能量在任务中自动分流；已入背包的普通星晶不会再被修灯扣除。"
+      },
+      "sourceCrystals": [
+        {
+          "id": "fire",
+          "name": "火源晶",
+          "chapter": "forest",
+          "ability": "星火吐息",
+          "consumed": false
+        },
+        {
+          "id": "wind",
+          "name": "风源晶",
+          "chapter": "windmill",
+          "ability": "御风滑翔",
+          "consumed": false
+        },
+        {
+          "id": "water",
+          "name": "水源晶",
+          "chapter": "water",
+          "ability": "月水护罩",
+          "consumed": false
+        },
+        {
+          "id": "space",
+          "name": "空间源晶",
+          "chapter": "ruins",
+          "ability": "短距星门",
+          "consumed": false
+        }
+      ],
+      "sourceRule": "四颗源晶均为主线唯一必得物，不随机掉落、不可出售、不可拿去强化；获得后永久开启能力与相关星脉。",
+      "gold": {
+        "id": "gold",
+        "name": "金币",
+        "purpose": "向村民购买补给与无属性外观，不购买主线能力。",
+        "mainQuestGoldTotal": 325,
+        "dropRule": "普通怪和首领按表固定掉落；所有通关必需补给也有免费来源。",
+        "description": "向村民购买补给与无属性外观，不购买主线能力。"
+      },
+      "dropRule": "本版列出的经验、普通星晶、金币和源晶掉落均为100%固定结算。普通怪每次击败可领固定常规奖励；主线源晶和首领奖励只领一次。",
+      "currencyLegend": [
+        {
+          "name": "经验",
+          "meaning": "成长记录，累计自动升级，不可花费。"
+        },
+        {
+          "name": "普通星晶",
+          "meaning": "背包材料，用于五个装备槽强化。"
+        },
+        {
+          "name": "源晶",
+          "meaning": "四种永久剧情能力钥匙，不消耗。"
+        },
+        {
+          "name": "金币",
+          "meaning": "村庄补给与外观交易货币。"
+        }
+      ],
+      "description": "经验用于自动成长，普通星晶用于装备强化，四源晶用于永久剧情能力，金币用于补给交易；四者分开记账。"
+    },
+    "progression": [
+      {
+        "milestone": "院子结成星契",
+        "level": 1,
+        "ability": "盾与铃的协作",
+        "sourceChapter": "prologue",
+        "explorationUse": "用盾反光点灯，用铃声寻找隐藏痕迹；所有星器由剧情直接获得。",
+        "combatUse": "挡住明显的正面冲撞、打断普通怪蓄力。"
+      },
+      {
+        "milestone": "点亮森林星灯",
+        "level": 5,
+        "ability": "星火吐息",
+        "sourceChapter": "forest",
+        "explorationUse": "点亮古灯、驱散影藤；回村可打开被影藤遮住的小花园。",
+        "combatUse": "攻击暗影护壳，点亮首领房中的灯；冷却6秒，无弹药消耗。"
+      },
+      {
+        "milestone": "风车重新转动",
+        "level": 8,
+        "ability": "御风滑翔",
+        "sourceChapter": "windmill",
+        "explorationUse": "沿固定气流跨越沟壑；回森林抵达树冠宝箱。",
+        "combatUse": "吹停普通风车怪的帽子，在宽阔预警后移动到安全区。"
+      },
+      {
+        "milestone": "救出水乡守灯人",
+        "level": 12,
+        "ability": "月水护罩",
+        "sourceChapter": "water",
+        "explorationUse": "穿过指定水下通道和浅水波纹；回风车磨坊探索旧水槽。",
+        "combatUse": "获得短时护盾并穿过水圈；不会造成全程无敌。"
+      },
+      {
+        "milestone": "读懂旧王星图",
+        "level": 16,
+        "ability": "短距星门",
+        "sourceChapter": "ruins",
+        "explorationUse": "连接两个有标记的星门基座，传递伙伴与光线；回访旧地图解开隐藏星室。",
+        "combatUse": "改变星光路径、绕过首领甲板；主线机关中有明确的基座提示。"
+      },
+      {
+        "milestone": "先为人间开门",
+        "level": 19,
+        "ability": "星脉共鸣",
+        "sourceChapter": "rift",
+        "explorationUse": "四地区伙伴点灯，星光沿已修复的星脉回流。",
+        "combatUse": "在最终战的协作窗口汇聚星光；由剧情目标触发，无额外刷怪或按键连打。"
+      },
+      {
+        "milestone": "小龙成为新龙王",
+        "level": 20,
+        "ability": "回家的星门",
+        "sourceChapter": "island",
+        "explorationUse": "带旺仔、小馒头往返星灯岛与已点亮的村庄，开放自由回访和合影。",
+        "combatUse": "继位为故事完成状态，不再追加一个需要练级的隐藏门槛。"
+      }
+    ],
+    "mobileLayout": {
+      "orientation": "横屏",
+      "persistentControls": [
+        "左下浮动摇杆",
+        "右下大攻击键",
+        "攻击键左上方的单个情境技能键"
+      ],
+      "secondaryControls": [
+        "左上头像切换",
+        "右上暂停"
+      ],
+      "combatSkill": "默认星火；战斗中固定当前技能，其他龙术在暂停菜单更换",
+      "explorationSkill": "脱战后靠近并面向高亮目标才显示互动",
+      "inputLock": "按下至松开期间锁定动作和目标",
+      "comfortNotes": "右手两键沿拇指弧线摆放，攻击键更大，两个按钮保持明显间距并内缩避开屏幕边缘。",
+      "prototypeOnly": true
+    }
+  },
+  "equipment": [
+    {
+      "id": "training_sword",
+      "name": "训练木剑",
+      "category": "武器",
+      "owner": "全队",
+      "rarity": "普通",
+      "unlockChapter": "prologue",
+      "description": "守灯人借给孩子们的圆头木剑，剑柄上系着一颗小星星。",
+      "stats": {
+        "attack": 2
+      },
+      "effect": "基础三段挥击；最后一下轻推普通影团，首领不被击退。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "序章教学必得，丢失可在村庄免费领取。",
+      "visualAsset": null,
+      "categoryId": "weapon"
+    },
+    {
+      "id": "star_short_sword",
+      "name": "星灯短剑",
+      "category": "武器",
+      "owner": "全队",
+      "rarity": "精良",
+      "unlockChapter": "forest",
+      "description": "由守灯工匠用修复的灯芯打造的短剑，边缘由温和星光凝成。",
+      "stats": {
+        "attack": 6
+      },
+      "effect": "轻击速度快；对刚被铃声显形的敌人多造成15%伤害。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "点亮森林星灯后由村庄工匠赠送；不花费源晶。",
+      "visualAsset": "star_key",
+      "categoryId": "weapon"
+    },
+    {
+      "id": "light_slingshot",
+      "name": "流光弹弓",
+      "category": "武器",
+      "owner": "全队",
+      "rarity": "精良",
+      "unlockChapter": "windmill",
+      "description": "能把小颗星光发射出去的木制弹弓。",
+      "stats": {
+        "attack": 5,
+        "range": 240
+      },
+      "effect": "每0.8秒自动凝聚一发光弹，无弹药消耗；可打远处铃铛与风向开关。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "完成风车塔救援主线后必得。",
+      "visualAsset": null,
+      "categoryId": "weapon"
+    },
+    {
+      "id": "moon_current_staff",
+      "name": "月流短杖",
+      "category": "武器",
+      "owner": "全队",
+      "rarity": "精良",
+      "unlockChapter": "water",
+      "description": "用月光水乡的浮木与水晶制作的短杖。",
+      "stats": {
+        "attack": 8,
+        "range": 190
+      },
+      "effect": "光波可穿过一只普通怪；在月水护罩中发射时扩大命中宽度，不叠加伤害。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "救出水下神殿的守灯人后赠送。",
+      "visualAsset": "crystal_water",
+      "categoryId": "weapon"
+    },
+    {
+      "id": "constellation_blade",
+      "name": "归途星刃",
+      "category": "武器",
+      "owner": "全队",
+      "rarity": "珍藏",
+      "unlockChapter": "ruins",
+      "description": "遗迹工匠根据老龙王年轻时的图样修复的星光短刃。",
+      "stats": {
+        "attack": 11
+      },
+      "effect": "短距星门出口后的第一次挥击扩大范围；每次开门只生效一次。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "完成遗迹星图并净化空间源晶后必得。",
+      "visualAsset": "crystal_space",
+      "categoryId": "weapon"
+    },
+    {
+      "id": "star_pattern_shield",
+      "name": "星纹盾",
+      "category": "星契器具",
+      "owner": "旺仔",
+      "rarity": "星契专属",
+      "unlockChapter": "prologue",
+      "description": "老龙王留给星契伙伴的盾，盾心会回应旺仔的守护意愿。",
+      "stats": {
+        "defense": 2,
+        "blockReduction": 0.75
+      },
+      "effect": "正面格挡减伤75%；移动到高亮反光点、面向预警方向后，同伴自动反射指定光弹。每级强化令格挡减伤增加5%，最高90%。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "结成星契时必得；保护位置与反光标记触发同伴自动协作，不占武器位。",
+      "visualAsset": "star_lantern_lit",
+      "categoryId": "starArtifact"
+    },
+    {
+      "id": "echo_bell",
+      "name": "回声铃",
+      "category": "星契器具",
+      "owner": "小馒头",
+      "rarity": "星契专属",
+      "unlockChapter": "prologue",
+      "description": "小馒头握住铃柄时，铃声会在真正的星光之间回响。",
+      "stats": {
+        "cooldown": 4
+      },
+      "effect": "靠近高亮声源与目标时显现路径或核心3秒；同伴可打断准备攻击的普通怪。每级强化令自动响应冷却减少0.2秒。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "结成星契时必得；进入高亮显影范围后由同伴自动响应，不占武器位。",
+      "visualAsset": "star_lantern_lit",
+      "categoryId": "starArtifact"
+    },
+    {
+      "id": "travel_cloak",
+      "name": "启程短披风",
+      "category": "护甲披风",
+      "owner": "全队",
+      "rarity": "普通",
+      "unlockChapter": "prologue",
+      "description": "结实轻便的初始冒险装，按两位孩子各自的青蓝和琥珀配色显示。",
+      "stats": {
+        "hp": 10,
+        "defense": 1
+      },
+      "effect": "没有额外操作，适合学习阶段。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "守灯人准备的出发礼包。",
+      "visualAsset": null,
+      "categoryId": "armor"
+    },
+    {
+      "id": "firefly_mantle",
+      "name": "萤火披风",
+      "category": "护甲披风",
+      "owner": "全队",
+      "rarity": "精良",
+      "unlockChapter": "forest",
+      "description": "披风边缘缝着会缓慢发光的星纹。",
+      "stats": {
+        "hp": 15,
+        "defense": 2
+      },
+      "effect": "在影雾附近，安全路径的提示轮廓更明亮。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "完成森林主线后必得；无需收集额外材料。",
+      "visualAsset": null,
+      "categoryId": "armor"
+    },
+    {
+      "id": "windweave_cape",
+      "name": "轻风行装",
+      "category": "护甲披风",
+      "owner": "全队",
+      "rarity": "精良",
+      "unlockChapter": "windmill",
+      "description": "披风和护腕采用轻薄的风纹布。",
+      "stats": {
+        "hp": 20,
+        "defense": 2,
+        "moveSpeedBonus": 0.05
+      },
+      "effect": "平地移动速度提高5%；不会改变机关所需的固定时序。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "点亮原野星灯后由织布师赠送。",
+      "visualAsset": null,
+      "categoryId": "armor"
+    },
+    {
+      "id": "moon_water_coat",
+      "name": "月水护衣",
+      "category": "护甲披风",
+      "owner": "全队",
+      "rarity": "精良",
+      "unlockChapter": "water",
+      "description": "织进水乡月丝的柔软冒险衣。",
+      "stats": {
+        "hp": 25,
+        "defense": 3
+      },
+      "effect": "离开水下区域后自动恢复10点生命；同一座神殿每次休息后生效一次。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "完成水乡主线后必得。",
+      "visualAsset": "crystal_water",
+      "categoryId": "armor"
+    },
+    {
+      "id": "starlight_guard_cloak",
+      "name": "守灯者披风",
+      "category": "护甲披风",
+      "owner": "全队",
+      "rarity": "珍藏",
+      "unlockChapter": "ruins",
+      "description": "带有四种源晶纹样的正式守灯行装。",
+      "stats": {
+        "hp": 30,
+        "defense": 4
+      },
+      "effect": "当前生命低于30%时获得10点临时护盾，每次在星灯休息后可触发一次。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "旧王遗迹完成主线后必得。",
+      "visualAsset": null,
+      "categoryId": "armor"
+    },
+    {
+      "id": "sunstar_pendant",
+      "name": "暖星挂坠",
+      "category": "饰品",
+      "owner": "全队",
+      "rarity": "普通",
+      "unlockChapter": "forest",
+      "description": "村民把第一盏修复的灯画在小小挂坠上。",
+      "stats": {
+        "hp": 10
+      },
+      "effect": "补给果子的治疗量增加5点，不改变补给数量。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "完成森林支线“萤火虫的新灯屋”获得。",
+      "visualAsset": "apple_cluster",
+      "categoryId": "accessory"
+    },
+    {
+      "id": "windchime_charm",
+      "name": "顺风铃扣",
+      "category": "饰品",
+      "owner": "全队",
+      "rarity": "精良",
+      "unlockChapter": "ruins",
+      "description": "会随脚步轻响的铜制小铃扣。",
+      "stats": {
+        "cooldownReduction": 0.08
+      },
+      "effect": "龙术冷却减少8%；与其他冷却效果合计上限20%。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "完成旧王遗迹后，回到原野完成支线“转不起来的小风车”获得。",
+      "visualAsset": "windmill_mechanism",
+      "categoryId": "accessory"
+    },
+    {
+      "id": "moon_shell_amulet",
+      "name": "月贝护符",
+      "category": "饰品",
+      "owner": "全队",
+      "rarity": "精良",
+      "unlockChapter": "water",
+      "description": "水乡孩子送来的月牙贝壳。",
+      "stats": {
+        "defense": 2
+      },
+      "effect": "第一次触发月水护罩时额外获得8点临时护盾，每次星灯休息后重置。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "获得月水护罩后，完成水乡支线“沉下去的莲灯”获得。",
+      "visualAsset": "crystal_water",
+      "categoryId": "accessory"
+    },
+    {
+      "id": "twin_star_brooch",
+      "name": "双星胸针",
+      "category": "饰品",
+      "owner": "全队",
+      "rarity": "珍藏",
+      "unlockChapter": "rift",
+      "description": "青蓝与琥珀两颗星并排镶在胸针上。",
+      "stats": {
+        "hp": 20,
+        "attack": 2
+      },
+      "effect": "完成盾反与铃声显形的协作后，小龙下一次星火伤害提高20%，不可重复叠加。",
+      "upgradeCosts": [
+        10,
+        20,
+        35
+      ],
+      "maxUpgrade": 3,
+      "acquisition": "终章安置好村民后必得；在最终战前即可装备。",
+      "visualAsset": "crystal_common",
+      "categoryId": "accessory"
+    },
+    {
+      "id": "dragon_royal_crown",
+      "name": "新王星冠",
+      "category": "纪念外观",
+      "owner": "小龙",
+      "rarity": "故事纪念",
+      "unlockChapter": "island",
+      "description": "小龙接过龙王灯时出现的星光冠纹。",
+      "stats": {},
+      "effect": "解锁新龙王外观、星灯岛合影点与自由回访，不增加通关所需战斗数值。",
+      "upgradeCosts": [
+        0,
+        0,
+        0
+      ],
+      "maxUpgrade": 0,
+      "acquisition": "尾声继位仪式必得。",
+      "visualAsset": "dragon_throne",
+      "categoryId": "souvenir"
+    },
+    {
+      "id": "crystal_compass",
+      "name": "寻灯罗盘",
+      "category": "探索工具",
+      "owner": "全队",
+      "rarity": "故事工具",
+      "unlockChapter": "prologue",
+      "description": "指针会朝最近尚未修复的主线星灯微微发亮。",
+      "stats": {},
+      "effect": "始终显示下一处主线方向；隐藏宝箱仍需自行观察，不自动揭示整个地图。",
+      "upgradeCosts": [
+        0,
+        0,
+        0
+      ],
+      "maxUpgrade": 0,
+      "acquisition": "守灯人交付，始终可用。",
+      "visualAsset": "signpost",
+      "categoryId": "tool"
+    },
+    {
+      "id": "red_star_fruit",
+      "name": "红星果",
+      "category": "补给",
+      "owner": "全队",
+      "rarity": "普通",
+      "unlockChapter": "prologue",
+      "description": "村民种植的温暖小果子。",
+      "stats": {
+        "heal": 35
+      },
+      "effect": "恢复35生命；背包最多5个，战斗中使用后有2秒共用补给冷却。",
+      "upgradeCosts": [
+        0,
+        0,
+        0
+      ],
+      "maxUpgrade": 0,
+      "acquisition": "村庄每个5金币；主线补给箱固定提供，星灯休息至少补到2个。",
+      "visualAsset": "apple_cluster",
+      "categoryId": "consumable"
+    },
+    {
+      "id": "moonwell_flask",
+      "name": "月泉小瓶",
+      "category": "补给",
+      "owner": "全队",
+      "rarity": "精良",
+      "unlockChapter": "water",
+      "description": "装着月光泉水的小瓶。",
+      "stats": {
+        "heal": 65
+      },
+      "effect": "恢复65生命；与红星果共用2秒补给冷却，最多3瓶。",
+      "upgradeCosts": [
+        0,
+        0,
+        0
+      ],
+      "maxUpgrade": 0,
+      "acquisition": "水乡每瓶12金币；神殿前补给箱必有1瓶。",
+      "visualAsset": "supply_basket",
+      "categoryId": "consumable"
+    },
+    {
+      "id": "lantern_biscuit",
+      "name": "星灯饼干",
+      "category": "补给",
+      "owner": "全队",
+      "rarity": "普通",
+      "unlockChapter": "forest",
+      "description": "守灯人准备的小点心，包装上画着家里的石灯。",
+      "stats": {
+        "temporaryShield": 20,
+        "duration": 8
+      },
+      "effect": "获得持续8秒的20点临时护盾；不叠加，重复使用只刷新持续时间，最多携带3份。",
+      "upgradeCosts": [
+        0,
+        0,
+        0
+      ],
+      "maxUpgrade": 0,
+      "acquisition": "村庄每份8金币；区域首领门前固定补给1份。",
+      "visualAsset": "supply_basket",
+      "categoryId": "consumable"
+    },
+    {
+      "id": "home_lantern_token",
+      "name": "归家灯符",
+      "category": "探索工具",
+      "owner": "全队",
+      "rarity": "故事工具",
+      "unlockChapter": "rift",
+      "description": "院落星灯送给三位伙伴的一点光。",
+      "stats": {},
+      "effect": "在非战斗、安全地面上回到最近已点亮的星灯；战斗与首领房中不可使用。",
+      "upgradeCosts": [
+        0,
+        0,
+        0
+      ],
+      "maxUpgrade": 0,
+      "acquisition": "修复所有区域星脉后必得，也可通过暂停菜单使用相同回灯功能。",
+      "visualAsset": "star_lantern_lit",
+      "categoryId": "tool"
+    }
+  ],
+  "enemies": [
+    {
+      "id": "shadow_blob",
+      "name": "影团",
+      "type": "普通妖怪",
+      "typeLabel": "普通妖怪",
+      "region": "村庄、萤火森林；旧图回访",
+      "level": 2,
+      "hp": 30,
+      "attack": 14,
+      "xp": 8,
+      "crystals": 2,
+      "telegraph": "眼睛先亮起，身体向后蓄力0.9秒，再沿地面的短箭头冲撞。",
+      "counter": "横向走开后攻击；回声铃可打断蓄力，星纹盾可挡住正面撞击。",
+      "drops": [
+        {
+          "item": "普通星晶",
+          "quantity": 2,
+          "chance": 1
+        },
+        {
+          "item": "金币",
+          "quantity": 1,
+          "chance": 1
+        }
+      ],
+      "bossPhases": [],
+      "notes": "首次教学影团的第一次冲撞不造成伤害；固定点位清理后只在星灯休息时刷新。",
+      "typeId": "normal"
+    },
+    {
+      "id": "crystal_thief",
+      "name": "偷晶小鬼",
+      "type": "普通妖怪",
+      "typeLabel": "普通妖怪",
+      "region": "萤火森林、旧王遗迹外缘",
+      "level": 4,
+      "hp": 45,
+      "attack": 18,
+      "xp": 12,
+      "crystals": 3,
+      "telegraph": "举起袋子并出现落点圆圈，1.0秒后扔出慢速晶屑。",
+      "counter": "绕开落点；弹弓可打断投掷，接近后连续攻击能使其短暂停顿。",
+      "drops": [
+        {
+          "item": "普通星晶",
+          "quantity": 3,
+          "chance": 1
+        },
+        {
+          "item": "金币",
+          "quantity": 2,
+          "chance": 1
+        }
+      ],
+      "bossPhases": [],
+      "notes": "它的背袋只是剧情表现，不会真的偷走玩家背包中的装备或晶石。",
+      "typeId": "normal"
+    },
+    {
+      "id": "wind_gremlin",
+      "name": "风车捣蛋怪",
+      "type": "普通妖怪",
+      "typeLabel": "普通妖怪",
+      "region": "风车原野",
+      "level": 7,
+      "hp": 60,
+      "attack": 24,
+      "xp": 16,
+      "crystals": 4,
+      "telegraph": "帽子风车开始转动，地面出现1.1秒的扇形风向提示。",
+      "counter": "走到它身侧；御风龙术可吹停帽子风车，露出短暂破绽。",
+      "drops": [
+        {
+          "item": "普通星晶",
+          "quantity": 4,
+          "chance": 1
+        },
+        {
+          "item": "金币",
+          "quantity": 2,
+          "chance": 1
+        }
+      ],
+      "bossPhases": [],
+      "notes": "妖风只将伙伴推回安全平台边缘，探索辅助模式不把角色吹落悬崖。",
+      "typeId": "normal"
+    },
+    {
+      "id": "moon_bubble",
+      "name": "月水泡妖",
+      "type": "普通妖怪 · 含回声精英",
+      "typeLabel": "普通妖怪 · 含回声精英",
+      "region": "月光水乡",
+      "level": 10,
+      "hp": 85,
+      "attack": 28,
+      "xp": 20,
+      "crystals": 5,
+      "telegraph": "水泡膨胀并映出月牙，地面圆圈闪烁1.2秒后落下。",
+      "counter": "等待落地、用回声铃打散泡壳，再用近战或光弹攻击；月水护罩可安全穿过它留下的浅水圈。",
+      "drops": [
+        {
+          "item": "普通星晶",
+          "quantity": 5,
+          "chance": 1
+        },
+        {
+          "item": "金币",
+          "quantity": 3,
+          "chance": 1
+        }
+      ],
+      "bossPhases": [],
+      "eliteVariant": {
+        "name": "月水泡妖 · 回声精英",
+        "level": 12,
+        "hp": 650,
+        "attack": 38,
+        "xp": 150,
+        "crystals": 40,
+        "region": "水下神殿",
+        "telegraph": "每次制造分身前，真身的月牙会向上闪一下；落点至少提前1.3秒显示。",
+        "drops": [
+          {
+            "item": "普通星晶",
+            "quantity": 40,
+            "chance": 1
+          },
+          {
+            "item": "金币",
+            "quantity": 20,
+            "chance": 1
+          },
+          {
+            "item": "水源晶",
+            "quantity": 1,
+            "chance": 1
+          }
+        ],
+        "bossPhases": [
+          {
+            "name": "听见真声",
+            "hpRange": "100%–60%",
+            "telegraph": "三个泡影依次发光，真身伴随清楚的低音铃声。",
+            "attack": "单次缓慢落地冲击。",
+            "counter": "观察声音和月牙提示，走入正确声源标记后，同伴自动用回声铃显露真身；走错标记只让泡影散开，不追加惩罚。"
+          },
+          {
+            "name": "月下水闸",
+            "hpRange": "60%–0%",
+            "telegraph": "水位刻度与安全平台同时亮起。",
+            "attack": "水面波纹缓慢横扫场地。",
+            "counter": "站上两侧高亮压板自动调低水闸，在安全平台避开波纹；正确站位触发铃声显形，再从干燥通道接近核心攻击。"
+          }
+        ],
+        "type": "区域精英首领",
+        "sourceCrystal": "water",
+        "sourceCrystalName": "水源晶（潮源晶）",
+        "rewardOnce": true,
+        "counter": "以回声铃找出真泡影，盾反射亮泡；调节水闸、利用安全平台接近显露的核心。净化源晶后再学习月水护罩。"
+      },
+      "notes": "精英复用同一怪物和美术ID，增加分身与水闸机关，不作为新的第九种妖怪。",
+      "typeId": "normal"
+    },
+    {
+      "id": "thorn_treant",
+      "name": "荆棘木妖",
+      "type": "区域首领",
+      "typeLabel": "区域首领",
+      "region": "萤火森林 · 树根神殿",
+      "level": 5,
+      "hp": 300,
+      "attack": 28,
+      "xp": 80,
+      "crystals": 20,
+      "telegraph": "挥臂前树冠抖落发光叶片，落点藤纹提前1.3秒出现。",
+      "counter": "用摇杆走位避开藤臂；站入反光位置自动引导神殿星光，站入显影范围触发回声铃，再点击攻击打击晶石。战后净化火源晶，永久学习星火。",
+      "drops": [
+        {
+          "item": "普通星晶",
+          "quantity": 20,
+          "chance": 1
+        },
+        {
+          "item": "金币",
+          "quantity": 12,
+          "chance": 1
+        },
+        {
+          "item": "火源晶",
+          "quantity": 1,
+          "chance": 1
+        }
+      ],
+      "bossPhases": [
+        {
+          "name": "找到树心",
+          "hpRange": "100%–55%",
+          "telegraph": "藤臂落点用亮色叶片圈提示。",
+          "attack": "轮流挥动左右藤臂。",
+          "counter": "等待挥击结束，站上对应压板调整镜台，自动引光点亮树根灯；树心露出4秒，点击攻击。"
+        },
+        {
+          "name": "重新点灯",
+          "hpRange": "55%–0%",
+          "telegraph": "三根影藤指向即将熄灭的灯，持续1.5秒。",
+          "attack": "缓慢召唤影藤阻断一条通路。",
+          "counter": "站上高亮压板调整镜台，在反光位置自动举盾引光，保持至少两灯点亮；走入显影范围让伙伴解除护壳。"
+        }
+      ],
+      "notes": "被污染的森林山灵。战胜后解除影藤、恢复温和形态，成为回访时的树冠道路引路者。",
+      "typeId": "boss"
+    },
+    {
+      "id": "windmill_guardian",
+      "name": "风车守卫",
+      "type": "区域首领",
+      "typeLabel": "区域首领",
+      "region": "风车原野 · 风车塔顶",
+      "level": 8,
+      "hp": 460,
+      "attack": 36,
+      "xp": 120,
+      "crystals": 30,
+      "telegraph": "背上风帆转向，地面画出清楚的风道；攻击前有1.3秒准备时间。",
+      "counter": "站上风向压板自动调整导风板，让守卫吹出的风推动机关；风帆停转时点击攻击打击胸前星盘。",
+      "drops": [
+        {
+          "item": "普通星晶",
+          "quantity": 30,
+          "chance": 1
+        },
+        {
+          "item": "金币",
+          "quantity": 16,
+          "chance": 1
+        },
+        {
+          "item": "风源晶",
+          "quantity": 1,
+          "chance": 1
+        }
+      ],
+      "bossPhases": [
+        {
+          "name": "借它的风",
+          "hpRange": "100%–55%",
+          "telegraph": "一条宽风道从风帆指向平台。",
+          "attack": "沿单一方向释放缓慢强风。",
+          "counter": "站上高亮风向压板，使气流吹向制动风车；守卫停机后接近并点击攻击。"
+        },
+        {
+          "name": "四帆同转",
+          "hpRange": "55%–0%",
+          "telegraph": "两片帆依次亮起，安全区域保持亮色。",
+          "attack": "交替两道风，不同时覆盖整个平台。",
+          "counter": "乘稳定升降风台抵达侧平台，站上压板开启第二处制动，再回到中央攻击星盘；此时不要求御风滑翔。"
+        }
+      ],
+      "notes": "失控的木铜守卫。战胜后重新成为磨坊的守护装置，不要求精确跳跃。",
+      "typeId": "boss"
+    },
+    {
+      "id": "stone_shell_guardian",
+      "name": "石甲守卫",
+      "type": "区域首领",
+      "typeLabel": "区域首领",
+      "region": "旧王遗迹 · 星图大厅",
+      "level": 16,
+      "hp": 900,
+      "attack": 48,
+      "xp": 180,
+      "crystals": 55,
+      "telegraph": "背部符文逐块发亮，地上显示撞击方向；蓄力1.4秒。",
+      "counter": "站上镜台压板改变光路，在反光与显影位置触发同伴盾铃；使用已获得的龙术移动、防护，点击攻击打击核心。战后才永久获得短距星门。",
+      "drops": [
+        {
+          "item": "普通星晶",
+          "quantity": 55,
+          "chance": 1
+        },
+        {
+          "item": "金币",
+          "quantity": 25,
+          "chance": 1
+        },
+        {
+          "item": "空间源晶",
+          "quantity": 1,
+          "chance": 1
+        }
+      ],
+      "bossPhases": [
+        {
+          "name": "移动的星图",
+          "hpRange": "100%–60%",
+          "telegraph": "它将要冲向的符文路段先亮起。",
+          "attack": "沿直线滚动，撞击后停顿。",
+          "counter": "用摇杆避开正前方，利用停顿站上镜台压板，把光导入甲片间的星纹。"
+        },
+        {
+          "name": "甲片后的答案",
+          "hpRange": "60%–0%",
+          "telegraph": "两处镜台同时亮起，中央核心的投影短暂显现。",
+          "attack": "展开三块缓慢旋转的护甲板。",
+          "counter": "用御风抵达侧台，站上两处压板调整镜子，让光线绕过缓慢旋转的甲板；走进显影位置触发铃声，再点击攻击。"
+        }
+      ],
+      "notes": "继承试炼的古代守卫，击败后修复其使命。空间源晶的初次共鸣在战斗前已提供试用能力，战胜后正式永久解锁，避免用未获得能力解锁自身的死循环。",
+      "typeId": "boss"
+    },
+    {
+      "id": "lantern_devourer",
+      "name": "吞灯妖",
+      "type": "最终首领",
+      "typeLabel": "最终首领",
+      "region": "人间村庄上空 · 星脉裂隙",
+      "level": 20,
+      "hp": 1350,
+      "attack": 64,
+      "xp": 240,
+      "crystals": 80,
+      "telegraph": "腹中被吞下的星灯先闪光，再在地面投下清楚的星形或扇形区域；每次攻击至少提前1.5秒提示。",
+      "counter": "先救人、再连通星灯。战前在暂停菜单选择星门；走入反光和声源标记触发同伴协作，攻击显露核心，最后用固定的星门键引光封隙。",
+      "drops": [
+        {
+          "item": "普通星晶",
+          "quantity": 80,
+          "chance": 1
+        },
+        {
+          "item": "金币",
+          "quantity": 40,
+          "chance": 1
+        },
+        {
+          "item": "回家的星灯火种",
+          "quantity": 1,
+          "chance": 1
+        }
+      ],
+      "bossPhases": [
+        {
+          "name": "为人间开门",
+          "hpRange": "100%–70%",
+          "telegraph": "村民位置和安全星门依次亮起。",
+          "attack": "向星门落点释放慢速影团。",
+          "counter": "保护撤离路线；小龙开门救人会完成阶段目标，首领血量随救援成功推进，不以纯输出过关。"
+        },
+        {
+          "name": "伙伴们的灯",
+          "hpRange": "70%–35%",
+          "telegraph": "四地灯火逐一出现，真身胸口的灯与地面机关同频闪烁。",
+          "attack": "投出可反射的光弹，分身遮住部分光路。",
+          "counter": "站入高亮反光点自动反射指定光弹，走进正确声源标记触发回声铃，显露真身并点亮至少三条星脉。"
+        },
+        {
+          "name": "新王的选择",
+          "hpRange": "35%–0%",
+          "telegraph": "四源晶的颜色依次出现在地面星门基座上。",
+          "attack": "交替缓慢冲击与影雾屏障，始终保留一条安全路线。",
+          "counter": "用星门连接星光，护住最后一盏人间灯；完成三次明确的协作窗口后封闭裂隙，不要求连续无伤或极短连招。"
+        }
+      ],
+      "notes": "战斗中途有阶段检查点。失败重试保留已完成的救援阶段；尾声以封隙与点灯完成继位，不追加刷晶石条件。",
+      "typeId": "boss"
+    }
+  ],
+  "balanceNotes": [
+    "本设定为首轮设计；数值、时长、手感和掉落需要通过实际试玩继续调整。",
+    "等级推荐与章节对齐：序章1–2、森林3–5、原野6–8、水乡9–12、遗迹13–16、裂隙17–20、星灯岛20。每章结束奖励通常使队伍进入下一章的起始等级；额外战斗可能略早升级。",
+    "主线任务经验11400独立保证20级，普通怪和支线不构成等级卡点；四源晶由剧情目标必得。",
+    "主线普通星晶272枚，加上首领固定225枚，合计至少497枚，足以支付五个强化槽全部+3的325枚；普通怪、支线与宝箱仍有额外收益。任何关卡都不要求全强化。",
+    "通关必需的新武器、护甲和能力均以主线赠送；支线装备提供偏好变化，不能成为唯一过关解法。",
+    "武器、护甲、饰品只统计当前已装备的一件；强化跟随槽位，避免不断更换装备浪费材料，也避免把全部背包装备属性相加。",
+    "困难模式仅调整生命、伤害和提示强度，故事、掉落和结局相同；随时可调，不惩罚孩子选择较轻松的方式。",
+    "单次普通遭遇建议15–35秒、区域首领建议2–4分钟、最终首领建议4–6分钟，均为待测试的节奏目标。",
+    "水乡精英与普通泡妖共用形象；其精英数值、首领奖励和阶段规则只在水下神殿生效。",
+    "每章首领使用此前已经获得的能力与场景机关即可击败；战后净化源晶，再用一段安全出口教学学习新能力，避免能力前置死循环。",
+    "失败不掉装备、不扣等级；对儿童的挑战来自观察、选择路线和协作，而不是惩罚性损失或极短反应窗口。",
+    "当前数据未包含联网、内购、抽奖、广告或外部账号功能。"
+  ]
+}

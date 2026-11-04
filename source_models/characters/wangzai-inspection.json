@@ -1,0 +1,1321 @@
+{
+  "objects": [
+    {
+      "name": "Studio_floor_NOT_EXPORTED",
+      "type": "MESH",
+      "parent": null,
+      "materials": [
+        "Studio_floor"
+      ],
+      "verts": 4
+    },
+    {
+      "name": "Key",
+      "type": "LIGHT",
+      "parent": null,
+      "materials": [],
+      "verts": 0
+    },
+    {
+      "name": "Fill",
+      "type": "LIGHT",
+      "parent": null,
+      "materials": [],
+      "verts": 0
+    },
+    {
+      "name": "Rim",
+      "type": "LIGHT",
+      "parent": null,
+      "materials": [],
+      "verts": 0
+    },
+    {
+      "name": "Preview_camera",
+      "type": "CAMERA",
+      "parent": null,
+      "materials": [],
+      "verts": 0
+    },
+    {
+      "name": "Wangzai",
+      "type": "ARMATURE",
+      "parent": null,
+      "materials": [],
+      "verts": 0
+    },
+    {
+      "name": "Continuous_flexible_body",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 13740
+    },
+    {
+      "name": "Continuous_sculpted_head",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Wangzai_BakedSmoothFace"
+      ],
+      "verts": 12416
+    },
+    {
+      "name": "Anatomical_ear_cup.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Warm_skin"
+      ],
+      "verts": 337
+    },
+    {
+      "name": "Ear_root_transition.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Warm_skin"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Natural_helix.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Warm_skin"
+      ],
+      "verts": 392
+    },
+    {
+      "name": "Ear_concha_depth.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Ear_inner"
+      ],
+      "verts": 182
+    },
+    {
+      "name": "Ear_antihelix.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Warm_skin"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Ear_tragus.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Warm_skin"
+      ],
+      "verts": 114
+    },
+    {
+      "name": "Anatomical_ear_cup.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Warm_skin"
+      ],
+      "verts": 337
+    },
+    {
+      "name": "Ear_root_transition.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Warm_skin"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Natural_helix.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Warm_skin"
+      ],
+      "verts": 392
+    },
+    {
+      "name": "Ear_concha_depth.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Ear_inner"
+      ],
+      "verts": 182
+    },
+    {
+      "name": "Ear_antihelix.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Warm_skin"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Ear_tragus.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Warm_skin"
+      ],
+      "verts": 114
+    },
+    {
+      "name": "Eye_globe.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Sclera"
+      ],
+      "verts": 362
+    },
+    {
+      "name": "Eye_globe.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Sclera"
+      ],
+      "verts": 362
+    },
+    {
+      "name": "Chest_perimeter",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 14
+    },
+    {
+      "name": "Chest_main",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 14
+    },
+    {
+      "name": "Chest_lateral_facet.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 12
+    },
+    {
+      "name": "Chest_side_seam.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Chest_lateral_facet.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 12
+    },
+    {
+      "name": "Chest_side_seam.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Chest_upper_L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Chest_upper_R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Abdominal_guard",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Abdominal_upper_segment",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Abdominal_lower_segment",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Pelvis_front",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 10
+    },
+    {
+      "name": "Chest_emblem_border",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 12
+    },
+    {
+      "name": "Chest_emblem_light",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 12
+    },
+    {
+      "name": "Back_main",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 12
+    },
+    {
+      "name": "Back_light",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Collar.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Collar_light.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Shoulder_shell.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 14
+    },
+    {
+      "name": "Shoulder_lower_lamella.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Shoulder_hinge.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Shoulder_running_light.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Bicep_armour.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Forearm_armour.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Forearm_light.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Elbow_joint.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Glove_palm.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Glove_back_plate.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Finger_upper_0.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_tip_0.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_upper_1.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_tip_1.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_upper_2.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_tip_2.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_upper_3.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_tip_3.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Thumb.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Hip_guard.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Thigh_armour.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Thigh_light.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Knee_shield.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 10
+    },
+    {
+      "name": "Shin_armour.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Shin_light.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Boot_main.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Boot_toe_cap.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Boot_sole.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Ankle_hinge.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Ankle_light.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Collar.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Collar_light.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Shoulder_shell.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 14
+    },
+    {
+      "name": "Shoulder_lower_lamella.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Shoulder_hinge.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Shoulder_running_light.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Bicep_armour.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Forearm_armour.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Forearm_light.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Elbow_joint.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Glove_palm.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Glove_back_plate.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Finger_upper_0.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_tip_0.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_upper_1.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_tip_1.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_upper_2.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_tip_2.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_upper_3.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Finger_tip_3.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Thumb.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 20
+    },
+    {
+      "name": "Hip_guard.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Thigh_armour.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Thigh_light.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Knee_shield.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 10
+    },
+    {
+      "name": "Shin_armour.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Shin_light.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Boot_main.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Boot_toe_cap.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Boot_sole.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 266
+    },
+    {
+      "name": "Ankle_hinge.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Ankle_light.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 32
+    },
+    {
+      "name": "Pectoral_trim.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 10
+    },
+    {
+      "name": "Pectoral_inset.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 10
+    },
+    {
+      "name": "Rib_vent_0.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Rib_vent_1.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Rib_vent_2.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Recessed_fastener.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 62
+    },
+    {
+      "name": "Recessed_fastener.L.001",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 62
+    },
+    {
+      "name": "Recessed_fastener.L.002",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 62
+    },
+    {
+      "name": "Recessed_fastener.L.003",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 62
+    },
+    {
+      "name": "Forearm_front_shell.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Shin_front_shell.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Shin_channel.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Shin_channel_light.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Boot_heel_counter.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Boot_tread_0.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 16
+    },
+    {
+      "name": "Boot_tread_1.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 16
+    },
+    {
+      "name": "Boot_tread_2.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 16
+    },
+    {
+      "name": "Boot_tread_3.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 16
+    },
+    {
+      "name": "Hip_panel_light.L",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Pectoral_trim.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 10
+    },
+    {
+      "name": "Pectoral_inset.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 10
+    },
+    {
+      "name": "Rib_vent_0.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Rib_vent_1.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Rib_vent_2.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Recessed_fastener.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 62
+    },
+    {
+      "name": "Recessed_fastener.R.001",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 62
+    },
+    {
+      "name": "Recessed_fastener.R.002",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 62
+    },
+    {
+      "name": "Recessed_fastener.R.003",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 62
+    },
+    {
+      "name": "Forearm_front_shell.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Shin_front_shell.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Pearl_white"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Shin_channel.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Shin_channel_light.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Boot_heel_counter.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Satin_silver"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Boot_tread_0.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 16
+    },
+    {
+      "name": "Boot_tread_1.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 16
+    },
+    {
+      "name": "Boot_tread_2.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 16
+    },
+    {
+      "name": "Boot_tread_3.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Graphite_weave"
+      ],
+      "verts": 16
+    },
+    {
+      "name": "Hip_panel_light.R",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Accent_light"
+      ],
+      "verts": 8
+    },
+    {
+      "name": "Hair_complete_short_crown",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Hair_black"
+      ],
+      "verts": 28417
+    },
+    {
+      "name": "Hair_soft_short_fringe",
+      "type": "MESH",
+      "parent": "Wangzai",
+      "materials": [
+        "Hair_black"
+      ],
+      "verts": 6696
+    }
+  ],
+  "materials": [
+    "Accent_light",
+    "Ear_inner",
+    "Graphite_weave",
+    "Hair_black",
+    "Pearl_white",
+    "Satin_silver",
+    "Sclera",
+    "Studio_floor",
+    "Wangzai_BakedSmoothFace",
+    "Warm_skin"
+  ],
+  "actions": [
+    "idle",
+    "jump",
+    "ride",
+    "run",
+    "slide"
+  ],
+  "armatures": [
+    {
+      "name": "Wangzai",
+      "scale": [
+        0.699999988079071,
+        0.699999988079071,
+        0.699999988079071
+      ],
+      "bones": [
+        "Root",
+        "Hips",
+        "Spine",
+        "Chest",
+        "Neck",
+        "Head",
+        "UpperArm.L",
+        "Forearm.L",
+        "Hand.L",
+        "UpperArm.R",
+        "Forearm.R",
+        "Hand.R",
+        "UpperLeg.L",
+        "LowerLeg.L",
+        "Foot.L",
+        "UpperLeg.R",
+        "LowerLeg.R",
+        "Foot.R"
+      ]
+    }
+  ]
+}

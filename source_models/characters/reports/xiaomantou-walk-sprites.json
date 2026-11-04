@@ -1,0 +1,40 @@
+{
+  "asset_id": "xiaomantou",
+  "source_action": "run",
+  "source_frames": [
+    1,
+    7,
+    13,
+    19
+  ],
+  "playback_fps": 8,
+  "directions": [
+    "front",
+    "back",
+    "left",
+    "right"
+  ],
+  "frame_size": [
+    256,
+    320
+  ],
+  "alpha": true,
+  "files": [
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_front_00.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_front_01.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_front_02.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_front_03.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_back_00.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_back_01.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_back_02.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_back_03.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_left_00.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_left_01.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_left_02.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_left_03.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_right_00.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_right_01.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_right_02.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_walk_right_03.png"
+  ]
+}

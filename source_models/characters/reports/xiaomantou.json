@@ -1,0 +1,67 @@
+{
+  "asset_id": "xiaomantou",
+  "source_blend": "E:\\game\\BlenderModels\\v1\\characters\\xiaomantou.blend",
+  "blend": "E:\\game\\StarLanternIsland\\source_models\\characters\\xiaomantou\\xiaomantou.blend",
+  "glb": "E:\\game\\StarLanternIsland\\source_models\\characters\\xiaomantou\\xiaomantou.glb",
+  "lod1": {
+    "glb": "E:\\game\\StarLanternIsland\\source_models\\characters\\xiaomantou\\xiaomantou-lod1.glb",
+    "triangles": 45000
+  },
+  "bones": 18,
+  "actions": [
+    "idle",
+    "jump",
+    "ride",
+    "run",
+    "slide"
+  ],
+  "vertices": 83482,
+  "triangles": 164888,
+  "head_geometry_sha256": "f4d79a6914f5a56f8b2973a779d42432b860087a02cdca2cce2b5c3055588823",
+  "head_geometry_unchanged": true,
+  "face_uv_layers": [
+    "Approved_face_projection",
+    "Head_BakedAtlas"
+  ],
+  "renders": [
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_preview.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_front.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_back.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_left.png",
+    "E:\\game\\StarLanternIsland\\source_models\\characters\\renders\\xiaomantou_right.png"
+  ],
+  "limitations": [
+    "Retained hand-parameterized source head/UV is an approximate likeness, not a 3D scan and not identical to the polished image-generation concept sheet.",
+    "Existing 18-bone idle/run/jump/slide/ride actions are retained; no facial rig, combat animation or cloth simulation is claimed.",
+    "Cape is a real static folded mesh bound to chest; source costume is re-authored, not a pixel-perfect replica of concept art."
+  ],
+  "qa_polish": [
+    "front embroidery follows actual cloth surface",
+    "closed hood roll end caps",
+    "ivory knee pads",
+    "bell-lantern cage added for younger character"
+  ],
+  "skin_qa": {
+    "repaired_meshes": [
+      "Cream_boot_cuff.L",
+      "Cream_boot_cuff.R",
+      "Cape_shoulder_clasp.L",
+      "Cape_shoulder_clasp.R",
+      "Pouch_round_closure",
+      "Final_soft_knee_pad.R",
+      "Final_lantern_glowing_star"
+    ],
+    "all_meshes_have_armature": true,
+    "boot_cuff_rest_center": [
+      -0.09207501262426376,
+      -0.0012700066436082125,
+      0.1905001401901245
+    ],
+    "boot_cuff_run_center": [
+      -0.0957857221364975,
+      0.21927808225154877,
+      0.28794384002685547
+    ],
+    "boot_cuff_displacement": 0.24114416090626936
+  }
+}

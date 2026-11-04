@@ -1,0 +1,18 @@
+{
+  "commit": "2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc",
+  "source_repository": "https://github.com/google/fonts",
+  "font_family": "Noto Sans SC",
+  "font_source": "https://raw.githubusercontent.com/google/fonts/2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
+  "license_source": "https://raw.githubusercontent.com/google/fonts/2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc/ofl/notosanssc/OFL.txt",
+  "download_sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+  "license": "SIL Open Font License 1.1",
+  "bundled_file": "assets/ui.ttf",
+  "bundled_family": "Noto Sans SC",
+  "bundled_style": "Regular",
+  "weight": 400,
+  "format": "TrueType static instance",
+  "modification": "Static Regular instance generated from official variable font with fontTools.varLib.instancer at wght=400; complete original character map and OFL notice retained.",
+  "sha256": "c84528d6b0b8294df21e87d9149147a53e0c2a0fc23ac304639dafeb6398b88d",
+  "size_bytes": 10595932,
+  "character_count": 30890
+}

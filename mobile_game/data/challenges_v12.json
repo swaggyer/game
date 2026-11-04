@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "reward": {"xp":24,"crystals":10},
+  "chapters": [
+    {"chapter":0,"avoid":[[1430,1450],[2370,910],[2830,1570]],"challenges":[
+      {"id":"village-orchard-run","name":"果园穿风赛","type":"race","p":[580,1250],"time_limit":22,"description":"按数字穿过五座风门。光栅亮黄先看方向，熄灭后再穿越；碰到光栅会损失时间。","points":[[580,1250],[790,1140],[1160,1030],[1470,1010],[1760,1420]],"hazard_count":3},
+      {"id":"village-lantern-arena","name":"院落守灯演练","type":"waves","p":[2920,1150],"time_limit":65,"description":"净化三批训练影团。每批结束有短暂准备时间，先处理远处的风弹手。","waves":[["shadow_blob","shadow_blob"],["shadow_blob","crystal_thief","shadow_blob"],["shadow_blob","wind_gremlin","crystal_thief"]]},
+      {"id":"village-echo-range","name":"星矢移动靶","type":"targets","p":[1850,2070],"time_limit":34,"description":"切换小馒头，用真正飞行的星矢弹依次击中亮起的数字靶。靶心会横向移动。","points":[[1630,1900],[1780,1840],[1960,1870],[2120,1910],[2160,2060]],"target_order":[0,2,4,1,3],"target_hits":1}
+    ]},
+    {"chapter":1,"avoid":[[1020,1460],[1290,730],[2500,1540],[1810,1960],[2820,1920]],"challenges":[
+      {"id":"forest-firefly-relay","name":"萤火踏板接力","type":"pressure","p":[880,1300],"time_limit":21,"description":"按地面的1—4顺序跑过踏板，踩入立即触发。横过根须光栅时先等预警结束，不要停在踏板上等。","points":[[750,1190],[990,1190],[1000,1400],[730,1420]],"hazard_count":2},
+      {"id":"forest-lakeside-run","name":"南岸逐光赛","type":"race","p":[1770,2160],"time_limit":26,"description":"沿南岸和东林穿过五道门。计时和光栅同时运行，可以从草地选择更好的路线。","points":[[1770,2160],[2200,2000],[2640,1840],[2870,1480],[2740,1110]],"hazard_count":3},
+      {"id":"forest-supply-escort","name":"护送萤灯粮车","type":"escort","p":[2760,1450],"time_limit":105,"description":"跟上粮车，清除三次伏击。每次清完后去车旁拉杆解除制动，再一起走向南岸。","points":[[2760,1450],[2670,1800],[2490,2000],[2190,2090]],"waves":[["shadow_blob","crystal_thief"],["shadow_blob","wind_gremlin"],["crystal_thief","shadow_blob","shadow_blob"]]}
+    ]},
+    {"chapter":2,"avoid":[[1260,1010],[2260,1140],[2660,2070],[1590,1800],[2110,810],[950,2180]],"challenges":[
+      {"id":"windmill-river-run","name":"双桥送麦赛","type":"race","p":[550,1850],"time_limit":28,"description":"从西岸经木桥跑到南岸麦田，连续穿过五座门。绕开摆锤和门间脉冲光栅。","points":[[550,1850],[860,1900],[860,2310],[1500,2300],[2100,2320]],"hazard_count":3},
+      {"id":"windmill-gust-arena","name":"麦田旋风围攻","type":"waves","p":[3150,1540],"time_limit":75,"description":"三批妖怪从不同方向靠近。利用树石挡风弹，再用盾击或回声打断冲刺。","waves":[["wind_gremlin","shadow_blob"],["crystal_thief","wind_gremlin","shadow_blob"],["wind_gremlin","wind_gremlin","crystal_thief"]]},
+      {"id":"windmill-sail-relay","name":"四帆踏板阵","type":"pressure","p":[2150,1430],"time_limit":23,"description":"在断崖东侧按1—4接通风帆踏板。走错会清空本次顺序，等待安全间隙再穿过风栅。","points":[[2080,1300],[2300,1310],[2310,1490],[2070,1560]],"hazard_count":3}
+    ]},
+    {"chapter":3,"avoid":[[1080,2070],[1750,900],[1450,700],[2100,1400],[2700,1400],[1790,2100]],"challenges":[
+      {"id":"water-lotus-range","name":"莲湾回声靶","type":"targets","p":[500,910],"time_limit":36,"description":"用小馒头的星矢依次打亮五只移动莲靶。先看数字，再选择射线，水道会挡住不合适的角度。","points":[[390,780],[510,650],[690,610],[800,820],[650,1010]],"target_order":[1,3,0,4,2],"target_hits":1},
+      {"id":"water-bridge-run","name":"三桥逐月赛","type":"race","p":[2080,700],"time_limit":30,"description":"沿东侧桥廊抵达南岛。五座数字门必须按顺序通过，桥上有交替光栅。","points":[[2080,700],[2480,830],[2720,1200],[2720,1600],[2900,2080]],"hazard_count":3},
+      {"id":"water-lantern-escort","name":"莲灯运送队","type":"escort","p":[1170,2170],"time_limit":110,"description":"把莲灯车沿南侧长桥送到东岛。三批泡妖会拦路，清完后解除车边制动。","points":[[1170,2170],[1540,2140],[2070,2140],[2570,2140]],"waves":[["moon_bubble","shadow_blob"],["moon_bubble","crystal_thief"],["moon_bubble","wind_gremlin","shadow_blob"]]}
+    ]},
+    {"chapter":4,"avoid":[[1070,1160],[2450,1700],[1560,930],[2100,1950],[1740,1760],[2840,1510]],"challenges":[
+      {"id":"ruins-star-relay","name":"西庭星纹快阵","type":"pressure","p":[820,1490],"time_limit":24,"description":"按编号穿过四块古代踏板。门洞和墙体限制走法，注意穿行中的脉冲光线。","points":[[650,1430],[950,1430],[990,1570],[650,1560]],"hazard_count":3},
+      {"id":"ruins-armored-range","name":"古镜双响靶","type":"targets","p":[1930,780],"time_limit":40,"description":"依次击中五只移动古镜。每只需要两发星矢，打错数字只会挡住弹体。","points":[[1650,650],[1810,530],[2050,570],[2200,660],[2170,830]],"target_order":[2,0,4,1,3],"target_hits":2},
+      {"id":"ruins-courtyard-arena","name":"东庭守卫演练","type":"waves","p":[3190,1380],"time_limit":80,"description":"在庭院里迎战三次混合伏击。不要追着冲锋跑进墙角，抓住收招再反击。","waves":[["crystal_thief","shadow_blob"],["moon_bubble","wind_gremlin","shadow_blob"],["crystal_thief","crystal_thief","wind_gremlin"]]}
+    ]},
+    {"chapter":5,"avoid":[[1220,1510],[2090,930],[1700,1310],[2200,2010],[2490,1470],[2890,1610],[1070,2140]],"challenges":[
+      {"id":"rift-rescue-run","name":"裂隙救援冲刺","type":"race","p":[970,1640],"time_limit":29,"description":"从西营地跑过中央桥，依次接通五处救援门。近路也要观察光栅，不要直冲裂隙。","points":[[970,1640],[1210,1310],[1720,1310],[2190,1210],[2580,1030]],"hazard_count":3},
+      {"id":"rift-shadow-arena","name":"三波影潮守界","type":"waves","p":[2670,1580],"time_limit":85,"description":"守住裂隙东岸，三批影潮依次出现。用近战盾击控制前排，远程星矢先清风弹手。","waves":[["shadow_blob","wind_gremlin"],["moon_bubble","crystal_thief","shadow_blob"],["wind_gremlin","moon_bubble","crystal_thief","shadow_blob"]]},
+      {"id":"rift-starlight-range","name":"裂光穿行靶","type":"targets","p":[2400,460],"time_limit":38,"description":"五只裂光靶按不同速度移动。用星矢打中当前数字靶，站位和射线都要避开屋檐与裂隙。","points":[[2150,360],[2310,280],[2490,300],[2730,350],[2830,500]],"target_order":[4,1,3,0,2],"target_hits":1}
+    ]},
+    {"chapter":6,"avoid":[],"challenges":[
+      {"id":"island-crown-relay","name":"星冠踏光仪式","type":"pressure","p":[950,1720],"time_limit":24,"description":"按1—4飞快踩亮庆典踏板。星桥光栅会交替开合，观察后再通过；可以反复练习。","points":[[810,1600],[1080,1580],[1100,1820],[800,1830]],"hazard_count":2},
+      {"id":"island-festival-range","name":"新龙王庆典靶","type":"targets","p":[2490,1860],"time_limit":36,"description":"用五发星矢完成庆典。按亮起的数字追踪移动星靶，完成后可挑战更快记录。","points":[[2270,1680],[2420,1570],[2610,1640],[2760,1770],[2690,1960]],"target_order":[0,4,2,1,3],"target_hits":1},
+      {"id":"island-promise-escort","name":"约定之灯巡游","type":"escort","p":[1440,650],"time_limit":115,"description":"护送庆典灯车走到南庭。沿途三场友善的影团演练结束后，亲手松开制动，继续巡游。","points":[[1440,650],[1140,800],[900,1160],[1030,1680],[1480,2020]],"waves":[["shadow_blob","shadow_blob"],["crystal_thief","shadow_blob"],["wind_gremlin","shadow_blob","shadow_blob"]]}
+    ]}
+  ]
+}

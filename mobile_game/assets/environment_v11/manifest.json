@@ -1,0 +1,264 @@
+{
+  "version": "1.1",
+  "canvas": [
+    700,
+    800
+  ],
+  "camera": "orthographic warm sunlight, cool sky fill, high three-quarter",
+  "foot_convention": "exact projection of model origin (0,0,0); no opaque floor or baked contact shadow",
+  "blend": "res://assets/environment_v11/source/environment_library.blend",
+  "assets": {
+    "tree_round": {
+      "image": "res://assets/environment_v11/tree_round.png",
+      "foot": [
+        348.783,
+        568.276
+      ],
+      "world_height": 300,
+      "blend": "res://assets/environment_v11/source/environment_library.blend",
+      "collection": "tree_round",
+      "model_dimensions": [
+        5.214,
+        4.477,
+        7.835
+      ],
+      "alpha_bbox": [
+        185,
+        142,
+        526,
+        596
+      ]
+    },
+    "tree_fir": {
+      "image": "res://assets/environment_v11/tree_fir.png",
+      "foot": [
+        351.35,
+        621.483
+      ],
+      "world_height": 310,
+      "blend": "res://assets/environment_v11/source/environment_library.blend",
+      "collection": "tree_fir",
+      "model_dimensions": [
+        4.365,
+        4.368,
+        6.683
+      ],
+      "alpha_bbox": [
+        179,
+        174,
+        524,
+        662
+      ]
+    },
+    "house_blue": {
+      "image": "res://assets/environment_v11/house_blue.png",
+      "foot": [
+        303.787,
+        603.558
+      ],
+      "world_height": 255,
+      "blend": "res://assets/environment_v11/source/environment_library.blend",
+      "collection": "house_blue",
+      "model_dimensions": [
+        5.759,
+        5.37,
+        6.405
+      ],
+      "alpha_bbox": [
+        145,
+        151,
+        594,
+        653
+      ]
+    },
+    "house_warm": {
+      "image": "res://assets/environment_v11/house_warm.png",
+      "foot": [
+        303.787,
+        603.558
+      ],
+      "world_height": 255,
+      "blend": "res://assets/environment_v11/source/environment_library.blend",
+      "collection": "house_warm",
+      "model_dimensions": [
+        5.759,
+        5.37,
+        6.405
+      ],
+      "alpha_bbox": [
+        145,
+        151,
+        594,
+        653
+      ]
+    },
+    "rock": {
+      "image": "res://assets/environment_v11/rock.png",
+      "foot": [
+        336.622,
+        518.367
+      ],
+      "world_height": 110,
+      "blend": "res://assets/environment_v11/source/environment_library.blend",
+      "collection": "rock",
+      "model_dimensions": [
+        3.69,
+        2.393,
+        2.397
+      ],
+      "alpha_bbox": [
+        107,
+        216,
+        594,
+        589
+      ]
+    },
+    "shrub": {
+      "image": "res://assets/environment_v11/shrub.png",
+      "foot": [
+        357.403,
+        501.944
+      ],
+      "world_height": 85,
+      "blend": "res://assets/environment_v11/source/environment_library.blend",
+      "collection": "shrub",
+      "model_dimensions": [
+        3.117,
+        2.622,
+        1.851
+      ],
+      "alpha_bbox": [
+        121,
+        244,
+        604,
+        588
+      ]
+    },
+    "wood_bridge": {
+      "image": "res://assets/environment_v11/wood_bridge.png",
+      "foot": [
+        350.0,
+        465.614
+      ],
+      "world_height": 150,
+      "blend": "res://assets/environment_v11/source/environment_library.blend",
+      "collection": "wood_bridge",
+      "model_dimensions": [
+        9.0,
+        4.24,
+        3.82
+      ],
+      "alpha_bbox": [
+        122,
+        275,
+        578,
+        559
+      ]
+    },
+    "stone_bridge": {
+      "image": "res://assets/environment_v11/stone_bridge.png",
+      "foot": [
+        350.0,
+        466.982
+      ],
+      "world_height": 155,
+      "blend": "res://assets/environment_v11/source/environment_library.blend",
+      "collection": "stone_bridge",
+      "model_dimensions": [
+        7.45,
+        2.79,
+        2.115
+      ],
+      "alpha_bbox": [
+        38,
+        235,
+        662,
+        605
+      ]
+    },
+    "ruin_arch": {
+      "image": "res://assets/environment_v11/ruin_arch.png",
+      "foot": [
+        342.986,
+        577.054
+      ],
+      "world_height": 245,
+      "blend": "res://assets/environment_v11/source/environment_library.blend",
+      "collection": "ruin_arch",
+      "model_dimensions": [
+        6.006,
+        2.016,
+        5.021
+      ],
+      "alpha_bbox": [
+        144,
+        124,
+        604,
+        706
+      ]
+    },
+    "windmill": {
+      "image": "res://assets/environment_v11/windmill.png",
+      "foot": [
+        350.0,
+        591.832
+      ],
+      "world_height": 330,
+      "blend": "res://assets/environment_v11/source/environment_library.blend",
+      "collection": "windmill",
+      "model_dimensions": [
+        5.254,
+        4.84,
+        7.6
+      ],
+      "alpha_bbox": [
+        135,
+        205,
+        467,
+        657
+      ]
+    },
+    "water_wheel": {
+      "image": "res://assets/environment_v11/water_wheel.png",
+      "foot": [
+        350.0,
+        603.025
+      ],
+      "world_height": 210,
+      "blend": "res://assets/environment_v11/source/environment_library.blend",
+      "collection": "water_wheel",
+      "model_dimensions": [
+        4.69,
+        3.4,
+        4.845
+      ],
+      "alpha_bbox": [
+        119,
+        154,
+        581,
+        704
+      ]
+    },
+    "lantern": {
+      "image": "res://assets/environment_v11/lantern.png",
+      "foot": [
+        362.801,
+        617.632
+      ],
+      "world_height": 150,
+      "blend": "res://assets/environment_v11/source/environment_library.blend",
+      "collection": "lantern",
+      "model_dimensions": [
+        2.9,
+        2.345,
+        4.242
+      ],
+      "alpha_bbox": [
+        268,
+        263,
+        458,
+        666
+      ]
+    }
+  }
+}

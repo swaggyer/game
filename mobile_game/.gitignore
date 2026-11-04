@@ -1,0 +1,8 @@
+.godot/
+builds/*.exe
+builds/*.pck
+builds/userdata/
+tests/userdata/
+tests/localdata/
+tests/*_data/
+*.tmp

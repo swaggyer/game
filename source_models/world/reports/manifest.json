@@ -1,0 +1,611 @@
+{
+  "style": "Rounded handcrafted starlight fantasy; warm ivory, midnight blue, brass, cyan/amber glow",
+  "props": [
+    {
+      "id": "star_lantern_lit",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\star_lantern_lit.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\star_lantern_lit.png",
+      "bounds": [
+        [
+          -0.3400000035762787,
+          -0.3400000035762787,
+          0.0
+        ],
+        [
+          0.3400000035762787,
+          0.3400000035762787,
+          1.6649999618530273
+        ]
+      ],
+      "mesh_objects": 12,
+      "evaluated_triangles": 3548
+    },
+    {
+      "id": "star_lantern_unlit",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\star_lantern_unlit.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\star_lantern_unlit.png",
+      "bounds": [
+        [
+          -0.3400000035762787,
+          -0.3400000035762787,
+          0.0
+        ],
+        [
+          0.3400000035762787,
+          0.3400000035762787,
+          1.6649999618530273
+        ]
+      ],
+      "mesh_objects": 12,
+      "evaluated_triangles": 3548
+    },
+    {
+      "id": "royal_lantern",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\royal_lantern.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\royal_lantern.png",
+      "bounds": [
+        [
+          -0.5,
+          -0.3400000035762787,
+          0.0
+        ],
+        [
+          0.5,
+          0.3400000035762787,
+          2.049999952316284
+        ]
+      ],
+      "mesh_objects": 17,
+      "evaluated_triangles": 6028
+    },
+    {
+      "id": "chest_closed",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\chest_closed.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\chest_closed.png",
+      "bounds": [
+        [
+          -0.5450000166893005,
+          -0.44200000166893005,
+          0.034999996423721313
+        ],
+        [
+          0.5450000166893005,
+          0.3700000047683716,
+          0.8799999952316284
+        ]
+      ],
+      "mesh_objects": 13,
+      "evaluated_triangles": 2696
+    },
+    {
+      "id": "chest_open",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\chest_open.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\chest_open.png",
+      "bounds": [
+        [
+          -0.5450000166893005,
+          -0.3499999940395355,
+          0.034999996423721313
+        ],
+        [
+          0.5450000166893005,
+          0.6030320525169373,
+          1.328176736831665
+        ]
+      ],
+      "mesh_objects": 19,
+      "evaluated_triangles": 4396
+    },
+    {
+      "id": "star_key",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\star_key.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\star_key.png",
+      "bounds": [
+        [
+          -0.3349999785423279,
+          -0.3349999785423279,
+          0.0886707529425621
+        ],
+        [
+          0.8949999809265137,
+          0.3349999785423279,
+          0.23132923245429993
+        ]
+      ],
+      "mesh_objects": 5,
+      "evaluated_triangles": 1320
+    },
+    {
+      "id": "crystal_common",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\crystal_common.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\crystal_common.png",
+      "bounds": [
+        [
+          -0.3100000023841858,
+          -0.2849999964237213,
+          0.0
+        ],
+        [
+          0.3100000023841858,
+          0.2849999964237213,
+          1.0800000429153442
+        ]
+      ],
+      "mesh_objects": 2,
+      "evaluated_triangles": 760
+    },
+    {
+      "id": "crystal_fire",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\crystal_fire.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\crystal_fire.png",
+      "bounds": [
+        [
+          -0.3586612939834595,
+          -0.509570300579071,
+          0.0
+        ],
+        [
+          0.580498218536377,
+          0.509570300579071,
+          1.0800000429153442
+        ]
+      ],
+      "mesh_objects": 6,
+      "evaluated_triangles": 1200
+    },
+    {
+      "id": "crystal_wind",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\crystal_wind.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\crystal_wind.png",
+      "bounds": [
+        [
+          -0.3586612939834595,
+          -0.509570300579071,
+          0.0
+        ],
+        [
+          0.580498218536377,
+          0.509570300579071,
+          1.0800000429153442
+        ]
+      ],
+      "mesh_objects": 6,
+      "evaluated_triangles": 1200
+    },
+    {
+      "id": "crystal_water",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\crystal_water.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\crystal_water.png",
+      "bounds": [
+        [
+          -0.3586612939834595,
+          -0.509570300579071,
+          0.0
+        ],
+        [
+          0.580498218536377,
+          0.509570300579071,
+          1.0800000429153442
+        ]
+      ],
+      "mesh_objects": 6,
+      "evaluated_triangles": 1200
+    },
+    {
+      "id": "crystal_space",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\crystal_space.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\crystal_space.png",
+      "bounds": [
+        [
+          -0.3586612939834595,
+          -0.509570300579071,
+          0.0
+        ],
+        [
+          0.580498218536377,
+          0.509570300579071,
+          1.0800000429153442
+        ]
+      ],
+      "mesh_objects": 6,
+      "evaluated_triangles": 1200
+    },
+    {
+      "id": "stone_bridge",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\stone_bridge.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\stone_bridge.png",
+      "bounds": [
+        [
+          -1.6649999618530273,
+          -0.7549999952316284,
+          0.24500003457069397
+        ],
+        [
+          1.6649999618530273,
+          0.7549999952316284,
+          1.0750000476837158
+        ]
+      ],
+      "mesh_objects": 37,
+      "evaluated_triangles": 6956
+    },
+    {
+      "id": "wood_bridge",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\wood_bridge.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\wood_bridge.png",
+      "bounds": [
+        [
+          -1.5092653036117554,
+          -0.6392652988433838,
+          0.08500000834465027
+        ],
+        [
+          1.5092653036117554,
+          0.6392652988433838,
+          1.034999966621399
+        ]
+      ],
+      "mesh_objects": 20,
+      "evaluated_triangles": 6072
+    },
+    {
+      "id": "mirror_mechanism",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\mirror_mechanism.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\mirror_mechanism.png",
+      "bounds": [
+        [
+          -0.574999988079071,
+          -0.47999998927116394,
+          0.0
+        ],
+        [
+          0.574999988079071,
+          0.47999998927116394,
+          1.7350000143051147
+        ]
+      ],
+      "mesh_objects": 12,
+      "evaluated_triangles": 5252
+    },
+    {
+      "id": "push_crate",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\push_crate.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\push_crate.png",
+      "bounds": [
+        [
+          -0.5199999809265137,
+          -0.5700000524520874,
+          0.009999990463256836
+        ],
+        [
+          0.5199999809265137,
+          0.5700000524520874,
+          1.0299999713897705
+        ]
+      ],
+      "mesh_objects": 25,
+      "evaluated_triangles": 5708
+    },
+    {
+      "id": "windmill_mechanism",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\windmill_mechanism.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\windmill_mechanism.png",
+      "bounds": [
+        [
+          -1.3399672508239746,
+          -0.8000000715255737,
+          0.0
+        ],
+        [
+          1.3399672508239746,
+          0.6801664233207703,
+          3.2899672985076904
+        ]
+      ],
+      "mesh_objects": 33,
+      "evaluated_triangles": 9196
+    },
+    {
+      "id": "star_gate",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\star_gate.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\star_gate.png",
+      "bounds": [
+        [
+          -1.2200000286102295,
+          -1.2200000286102295,
+          0.0
+        ],
+        [
+          1.2200000286102295,
+          1.2200000286102295,
+          3.180000066757202
+        ]
+      ],
+      "mesh_objects": 28,
+      "evaluated_triangles": 9284
+    },
+    {
+      "id": "supply_basket",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\supply_basket.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\supply_basket.png",
+      "bounds": [
+        [
+          -0.4376000165939331,
+          -0.4376000165939331,
+          0.03000001609325409
+        ],
+        [
+          0.4376000165939331,
+          0.4376000165939331,
+          1.0880422592163086
+        ]
+      ],
+      "mesh_objects": 15,
+      "evaluated_triangles": 7552
+    },
+    {
+      "id": "apple_cluster",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\apple_cluster.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\apple_cluster.png",
+      "bounds": [
+        [
+          -0.3500000834465027,
+          -0.3400000333786011,
+          -0.01000000536441803
+        ],
+        [
+          0.39000004529953003,
+          0.26999998092651367,
+          0.714679479598999
+        ]
+      ],
+      "mesh_objects": 9,
+      "evaluated_triangles": 3396
+    },
+    {
+      "id": "signpost",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\signpost.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\signpost.png",
+      "bounds": [
+        [
+          -0.46000000834465027,
+          -0.10000000149011612,
+          0.0
+        ],
+        [
+          0.46000000834465027,
+          0.07000000029802322,
+          1.2999999523162842
+        ]
+      ],
+      "mesh_objects": 6,
+      "evaluated_triangles": 1632
+    },
+    {
+      "id": "tree_round",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\tree_round.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\tree_round.png",
+      "bounds": [
+        [
+          -1.0967192649841309,
+          -1.0899999141693115,
+          -0.009850834496319294
+        ],
+        [
+          1.0657404661178589,
+          0.8299999237060547,
+          2.9738001823425293
+        ]
+      ],
+      "mesh_objects": 13,
+      "evaluated_triangles": 2084
+    },
+    {
+      "id": "tree_fir",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\tree_fir.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\tree_fir.png",
+      "bounds": [
+        [
+          -0.77986741065979,
+          -0.8199999332427979,
+          -0.009850834496319294
+        ],
+        [
+          0.77986741065979,
+          0.8199999332427979,
+          2.9800000190734863
+        ]
+      ],
+      "mesh_objects": 7,
+      "evaluated_triangles": 1076
+    },
+    {
+      "id": "water_wheel",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\water_wheel.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\water_wheel.png",
+      "bounds": [
+        [
+          -1.0299999713897705,
+          -0.42000001668930054,
+          -0.030000001192092896
+        ],
+        [
+          1.0299999713897705,
+          0.42000001668930054,
+          2.0299999713897705
+        ]
+      ],
+      "mesh_objects": 31,
+      "evaluated_triangles": 7980
+    },
+    {
+      "id": "ruin_arch",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\ruin_arch.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\ruin_arch.png",
+      "bounds": [
+        [
+          -1.1449999809265137,
+          -0.33500000834465027,
+          0.0
+        ],
+        [
+          1.1449999809265137,
+          0.33500000834465027,
+          3.009999990463257
+        ]
+      ],
+      "mesh_objects": 23,
+      "evaluated_triangles": 4828
+    },
+    {
+      "id": "dragon_throne",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\props\\dragon_throne.glb",
+      "sprite": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\dragon_throne.png",
+      "bounds": [
+        [
+          -0.7924754619598389,
+          -0.550000011920929,
+          0.009999997913837433
+        ],
+        [
+          0.7924754619598389,
+          0.550000011920929,
+          2.259999990463257
+        ]
+      ],
+      "mesh_objects": 11,
+      "evaluated_triangles": 2752
+    }
+  ],
+  "scenes": [
+    {
+      "id": "01_home_village",
+      "blend": "E:\\game\\StarLanternIsland\\source_models\\world\\scenes\\01_home_village.blend",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\scenes\\01_home_village.glb",
+      "preview": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\01_home_village.png",
+      "bounds": [
+        [
+          -4.849999904632568,
+          -4.349999904632568,
+          -0.8250000476837158
+        ],
+        [
+          4.849999904632568,
+          4.349999904632568,
+          3.411180257797241
+        ]
+      ],
+      "mesh_objects": 555,
+      "evaluated_triangles": 95348
+    },
+    {
+      "id": "02_firefly_forest",
+      "blend": "E:\\game\\StarLanternIsland\\source_models\\world\\scenes\\02_firefly_forest.blend",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\scenes\\02_firefly_forest.glb",
+      "preview": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\02_firefly_forest.png",
+      "bounds": [
+        [
+          -4.849999904632568,
+          -4.349999904632568,
+          -0.8250000476837158
+        ],
+        [
+          4.849999904632568,
+          4.349999904632568,
+          4.0736002922058105
+        ]
+      ],
+      "mesh_objects": 335,
+      "evaluated_triangles": 49212
+    },
+    {
+      "id": "03_windmill_meadow",
+      "blend": "E:\\game\\StarLanternIsland\\source_models\\world\\scenes\\03_windmill_meadow.blend",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\scenes\\03_windmill_meadow.glb",
+      "preview": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\03_windmill_meadow.png",
+      "bounds": [
+        [
+          -4.88704776763916,
+          -4.349999904632568,
+          -0.8250000476837158
+        ],
+        [
+          4.849999904632568,
+          4.349999904632568,
+          4.087961196899414
+        ]
+      ],
+      "mesh_objects": 570,
+      "evaluated_triangles": 97688
+    },
+    {
+      "id": "04_moon_water_town",
+      "blend": "E:\\game\\StarLanternIsland\\source_models\\world\\scenes\\04_moon_water_town.blend",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\scenes\\04_moon_water_town.glb",
+      "preview": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\04_moon_water_town.png",
+      "bounds": [
+        [
+          -4.849999904632568,
+          -4.349999904632568,
+          -0.8250000476837158
+        ],
+        [
+          4.849999904632568,
+          4.349999904632568,
+          2.927999973297119
+        ]
+      ],
+      "mesh_objects": 300,
+      "evaluated_triangles": 70624
+    },
+    {
+      "id": "05_old_king_ruins",
+      "blend": "E:\\game\\StarLanternIsland\\source_models\\world\\scenes\\05_old_king_ruins.blend",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\scenes\\05_old_king_ruins.glb",
+      "preview": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\05_old_king_ruins.png",
+      "bounds": [
+        [
+          -4.849999904632568,
+          -4.349999904632568,
+          -0.8250000476837158
+        ],
+        [
+          4.849999904632568,
+          4.349999904632568,
+          4.192500114440918
+        ]
+      ],
+      "mesh_objects": 179,
+      "evaluated_triangles": 40068
+    },
+    {
+      "id": "06_star_lantern_island",
+      "blend": "E:\\game\\StarLanternIsland\\source_models\\world\\scenes\\06_star_lantern_island.blend",
+      "glb": "E:\\game\\StarLanternIsland\\source_models\\world\\scenes\\06_star_lantern_island.glb",
+      "preview": "E:\\game\\StarLanternIsland\\source_models\\world\\renders\\06_star_lantern_island.png",
+      "bounds": [
+        [
+          -5.350000381469727,
+          -5.270244598388672,
+          -2.8000001907348633
+        ],
+        [
+          5.349999904632568,
+          5.26685094833374,
+          3.9469568729400635
+        ]
+      ],
+      "mesh_objects": 168,
+      "evaluated_triangles": 44576
+    }
+  ],
+  "warnings": [],
+  "coordinate_system": "Blender Z-up source; GLB exported glTF Y-up. Units are metres. Individual props rest at Z=0 in Blender.",
+  "animation": "Static editable environment/prop meshes. No skeletal animation claimed.",
+  "source_library": "E:\\game\\StarLanternIsland\\source_models\\world\\world_library.blend",
+  "notes": [
+    "Every prop has a separately rendered RGBA transparent PNG.",
+    "All .glb assets contain real mesh geometry and PBR materials, not concept-sheet planes.",
+    "Dioramas are visual scene kits; collision, navigation and gameplay must be authored in Godot."
+  ]
+}

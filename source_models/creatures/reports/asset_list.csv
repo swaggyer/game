@@ -1,0 +1,12 @@
+﻿id,name_zh,triangles,vertices,animation_clips,skeletal_rig,model,preview
+little_dragon,小龙,94618,58177,1,False,E:\game\StarLanternIsland\source_models\creatures\models\little_dragon.glb,E:\game\StarLanternIsland\source_models\creatures\renders\little_dragon_preview.png
+new_dragon_king,新龙王,103310,63256,1,False,E:\game\StarLanternIsland\source_models\creatures\models\new_dragon_king.glb,E:\game\StarLanternIsland\source_models\creatures\renders\new_dragon_king_preview.png
+elder_dragon_king,老龙王,106590,65171,1,False,E:\game\StarLanternIsland\source_models\creatures\models\elder_dragon_king.glb,E:\game\StarLanternIsland\source_models\creatures\renders\elder_dragon_king_preview.png
+shadow_blob,影团,7168,4236,1,False,E:\game\StarLanternIsland\source_models\creatures\models\shadow_blob.glb,E:\game\StarLanternIsland\source_models\creatures\renders\shadow_blob_preview.png
+crystal_thief,偷晶小鬼,12908,7739,1,False,E:\game\StarLanternIsland\source_models\creatures\models\crystal_thief.glb,E:\game\StarLanternIsland\source_models\creatures\renders\crystal_thief_preview.png
+wind_gremlin,风车捣蛋怪,15500,9427,1,False,E:\game\StarLanternIsland\source_models\creatures\models\wind_gremlin.glb,E:\game\StarLanternIsland\source_models\creatures\renders\wind_gremlin_preview.png
+moon_bubble,月水泡妖,11628,6885,1,False,E:\game\StarLanternIsland\source_models\creatures\models\moon_bubble.glb,E:\game\StarLanternIsland\source_models\creatures\renders\moon_bubble_preview.png
+thorn_treant,荆棘木妖,26292,15651,1,False,E:\game\StarLanternIsland\source_models\creatures\models\thorn_treant.glb,E:\game\StarLanternIsland\source_models\creatures\renders\thorn_treant_preview.png
+windmill_guardian,风车守卫,10948,6743,1,False,E:\game\StarLanternIsland\source_models\creatures\models\windmill_guardian.glb,E:\game\StarLanternIsland\source_models\creatures\renders\windmill_guardian_preview.png
+stone_shell_guardian,石甲守卫,10248,6103,1,False,E:\game\StarLanternIsland\source_models\creatures\models\stone_shell_guardian.glb,E:\game\StarLanternIsland\source_models\creatures\renders\stone_shell_guardian_preview.png
+lantern_devourer,吞灯妖,24960,14800,1,False,E:\game\StarLanternIsland\source_models\creatures\models\lantern_devourer.glb,E:\game\StarLanternIsland\source_models\creatures\renders\lantern_devourer_preview.png
