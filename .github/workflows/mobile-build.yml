@@ -1,0 +1,75 @@
+name: Mobile iOS unsigned build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    tags: ['v*']
+    paths:
+      - 'mobile_game/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mobile-ios-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ios-unsigned:
+    name: iOS device build (unsigned)
+    runs-on: macos-15
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+        working-directory: mobile_game
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7.0.1
+
+      - name: Check build script syntax
+        run: bash -n tools/build_ios.sh
+
+      - name: Export Xcode project and compile unsigned arm64 app
+        run: bash tools/build_ios.sh
+
+      - name: Upload exported Xcode project
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: StarLanternIsland-iOS-Xcode-${{ github.run_number }}
+          path: mobile_game/builds/ios/StarLanternIsland-iOS-Xcode.zip
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
+
+      - name: Upload compiled unsigned IPA
+        if: success()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: StarLanternIsland-unsigned-IPA-${{ github.run_number }}
+          path: mobile_game/builds/ios/StarLanternIsland-unsigned.ipa
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
+
+      - name: Attach unsigned iOS files to the game release
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload v1.2.1 builds/ios/StarLanternIsland-iOS-Xcode.zip builds/ios/StarLanternIsland-unsigned.ipa --repo "$GITHUB_REPOSITORY" --clobber
+
+      - name: Upload build evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: StarLanternIsland-iOS-build-evidence-${{ github.run_number }}
+          path: |
+            mobile_game/builds/ios/logs/
+            mobile_game/builds/ios/BUILD-INFO.json
+            mobile_game/builds/ios/README-UNSIGNED.txt
+            mobile_game/builds/ios/SHA256SUMS
+          if-no-files-found: warn
+          retention-days: 30

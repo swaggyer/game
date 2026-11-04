@@ -1,0 +1,75 @@
+name: Import complete game source
+
+on:
+  push:
+    branches: [main]
+    paths: ['.source-upload/manifest.json']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  import:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Verify and unpack the complete source delivery
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,shutil,stat,zipfile
+          root=Path.cwd().resolve()
+          upload=root/'.source-upload'
+          manifest=json.loads((upload/'manifest.json').read_text(encoding='utf-8'))
+          package=Path('/tmp/starlantern-source.zip')
+          with package.open('wb') as output:
+              for item in manifest['parts']:
+                  part=(upload/item['name']).resolve()
+                  assert part.is_relative_to(upload.resolve()) and part.is_file()
+                  data=part.read_bytes()
+                  assert hashlib.sha256(data).hexdigest()==item['sha256']
+                  output.write(data)
+          assert hashlib.sha256(package.read_bytes()).hexdigest()==manifest['archive_sha256']
+          with zipfile.ZipFile(package) as archive:
+              assert sum(i.file_size for i in archive.infolist())<500*1024*1024
+              for item in archive.infolist():
+                  target=(root/item.filename).resolve()
+                  assert target.is_relative_to(root) and not item.filename.startswith('/')
+                  assert not stat.S_ISLNK(item.external_attr>>16)
+              archive.extractall(root)
+          for item in manifest.get('overrides',[]):
+              replacement=(upload/item['name']).resolve()
+              target=(root/item['target']).resolve()
+              assert replacement.is_relative_to(upload.resolve()) and target.is_relative_to(root)
+              data=replacement.read_bytes()
+              assert hashlib.sha256(data).hexdigest()==item['sha256']
+              target.write_bytes(data)
+          assert (root/'mobile_game/project.godot').is_file()
+          assert (root/'mobile_game/assets/font-license/OFL.txt').is_file()
+          assert (root/'.release-assets/StarLanternIsland-v1.2.1-arm64.apk').is_file()
+          assert upload.resolve().is_relative_to(root) and upload.name=='.source-upload'
+          shutil.rmtree(upload)
+          print('Verified source delivery:',manifest['source_files'],'files')
+          PY
+      - name: Commit source and original models
+        run: |
+          git restore --source=HEAD -- .github/workflows/import-source.yml .github/workflows/mobile-build.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Publish Star Lantern Island source, models and mobile build workflow'
+          git push origin HEAD:main
+      - name: Publish Android install package
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view v1.2.1 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create v1.2.1 --repo "$GITHUB_REPOSITORY" --title '星灯岛 v1.2.1 · Android 与 iOS 构建' --notes-file .release-assets/RELEASE-NOTES.md --target main
+          gh release upload v1.2.1 .release-assets/StarLanternIsland-v1.2.1-arm64.apk --repo "$GITHUB_REPOSITORY" --clobber
+      - name: Start native macOS iOS compilation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run mobile-build.yml --repo "$GITHUB_REPOSITORY" --ref main
