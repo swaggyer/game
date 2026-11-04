@@ -1,35 +1,31 @@
 {
-  "version": "1.2.1",
+  "version": "1.3.0",
   "android": {
-    "apk": "StarLanternIsland-v1.2.1-arm64.apk",
-    "bytes": 64412868,
-    "sha256": "861bd82db75e47c9b6c46e8f6f832edd7570da015a952749362dcb719056b3be",
+    "apk": "StarLanternIsland-v1.3.0-arm64.apk",
+    "bytes": 85225032,
+    "sha256": "6b2499b5c3ce83e578fbdf6db04e25ac6fe6978e5c1576acacd003aeb8f97996",
     "signature_v2": true,
     "signature_v3": true,
-    "certificate_sha256": "e9067622d37e0b35a38bc21e8adf3eb53982bca1dfa979529a5c0482ebc82864",
     "zipalign_16kb": "passed",
+    "version_code": 14,
     "min_sdk": 24,
     "target_sdk": 36,
     "architecture": "arm64-v8a",
-    "game_assets": 1112,
+    "same_signing_certificate_as_v121": true,
+    "bundled_music": 10,
+    "bundled_narration": 28,
     "actual_device_tested": false
   },
   "ios": {
-    "xcode_project_export": "passed on Windows using official iOS template",
     "native_compilation": "passed",
-    "signed": false,
-    "platform": "iphoneos",
+    "workflow": "https://github.com/swaggyer/game/actions/runs/41847735433",
     "architecture": "arm64",
-    "xcode": "26.3",
-    "workflow_run": "https://github.com/swaggyer/game/actions/runs/41835670299",
-    "source_commit": "2971f652f4c5ee2dd3842e530cf74040a05a056e",
-    "scheme_references": "repaired and validated before build",
+    "minimum_ios": "15.0",
+    "signed": false,
     "directly_installable": false,
-    "ipa_sha256": "37f8d12781423ba399b17ea2a1bfec0d4f015d52983c607aa69ee319a426ec80",
-    "xcode_zip_sha256": "21349f0e5f8d8668a6498dbbae0972741d36afed6f4b3de2ead48499c46ad51e",
+    "ipa_sha256": "9ff81cdbf2ab4c1454b5af6c42a7d83e8f8ce85c9220335a2f84a004ee25b59c",
     "actual_device_tested": false
   },
-  "font": "Noto Sans SC Regular plus bundled StarLantern UI Symbols; OFL notices included",
   "repository": "https://github.com/swaggyer/game",
-  "release": "https://github.com/swaggyer/game/releases/tag/v1.2.1"
+  "release": "https://github.com/swaggyer/game/releases/tag/v1.3.0"
 }
