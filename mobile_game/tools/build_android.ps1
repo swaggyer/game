@@ -40,7 +40,7 @@ $settings = '[gd_resource type="EditorSettings" format=3]'+"`n`n[resource]`n"+'e
 [System.IO.File]::WriteAllText((Join-Path $settingsRoot 'editor_settings-4.7.tres'),$settings,[System.Text.UTF8Encoding]::new($false))
 $outputRoot = Join-Path $projectRoot 'builds\android'
 New-Item -ItemType Directory -Force -Path $outputRoot | Out-Null
-$apk = Join-Path $outputRoot 'StarLanternIsland-v1.4.0-arm64.apk'
+$apk = Join-Path $outputRoot 'StarLanternIsland-v1.5.0-arm64.apk'
 try {
     & $engine --headless --audio-driver Dummy --editor --path $projectRoot --import --quit
     if ($LASTEXITCODE -ne 0) {throw 'Android asset import failed.'}

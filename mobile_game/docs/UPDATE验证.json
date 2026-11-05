@@ -1,0 +1,38 @@
+{
+  "version": "1.5.0",
+  "date": "2026-11-05",
+  "apk": {
+    "name": "StarLanternIsland-v1.5.0-arm64.apk",
+    "bytes": 85315545,
+    "sha256": "1096ff2fa8f2bed865bcc729d9bea05c2d1432a8e8b435e9f70502a7b56bbdc0",
+    "versionCode": 16,
+    "internet_permission": true,
+    "signature_v2_v3": true,
+    "alignment_16k": true
+  },
+  "checks": {
+    "update_parser_and_platform_offline": 81,
+    "update_ui_headless": 23,
+    "update_ui_native": 25,
+    "paused_title_real_https_and_main_wiring": 7,
+    "story_ui": 49,
+    "input_and_autosave": 9,
+    "actual_apk_audio": 355
+  },
+  "network": {
+    "public_endpoint": "https://api.github.com/repos/swaggyer/game/releases/latest",
+    "live_metadata_success": true,
+    "paused_main_current_result": true,
+    "explicit_old_version_probe_returns_valid_official_apk": true,
+    "tls_verification_enabled": true,
+    "request_timeout_seconds": 8,
+    "automatic_download": false,
+    "automatic_install": false
+  },
+  "performance_fixes_retained": "V1.4性能修复.md",
+  "limits": [
+    "Android actual-device retest is still pending.",
+    "Existing old installations require one manual upgrade to receive the checker.",
+    "GitHub source commits alone are not releases and do not notify players."
+  ]
+}

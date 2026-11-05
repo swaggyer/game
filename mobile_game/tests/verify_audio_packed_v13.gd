@@ -15,7 +15,7 @@ func _initialize()->void:call_deferred("_run")
 
 func _run()->void:
 	root.size=Vector2i(1280,720)
-	_check(str(ProjectSettings.get_setting("application/config/version","")).begins_with("1.3.0"),"packed project is the audio release")
+	_check(str(ProjectSettings.get_setting("application/config/version","")).begins_with("1.5.0"),"packed project is the current update-enabled release with audio")
 	var manifest:Dictionary=_json("res://data/audio_v13.json")
 	_check(not manifest.is_empty(),"runtime audio JSON is packed")
 	_check(FileAccess.get_file_as_string("res://assets/audio_v13/licenses/GeneralUser-LICENSE.txt").contains("GeneralUser"),"music instrument license is packed")

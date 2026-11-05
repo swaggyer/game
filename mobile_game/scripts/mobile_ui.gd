@@ -22,6 +22,8 @@ signal story_closed
 signal narration_toggle_requested
 signal narration_replay_requested
 signal audio_setting_changed(kind: String, value)
+signal update_check_requested
+signal update_download_requested(info: Dictionary)
 
 const INK = Color("102b35")
 const DEEP = Color("102b35f2")
@@ -85,6 +87,15 @@ var _hud_xp = -1
 var _hud_context = ""
 var _hud_cooldown_tenth = -2
 var _context_is_down = false
+var update_screen: Control
+var update_check_button: Button
+var _update_version_label: Label
+var _update_notes_label: Label
+var _update_download_button: Button
+var _update_info: Dictionary = {}
+var _pending_update_info: Dictionary = {}
+var _update_checking = false
+var _update_download_sent = false
 
 func setup(value: RefCounted) -> void:
 	campaign = value
@@ -121,6 +132,7 @@ func setup(value: RefCounted) -> void:
 	_build_title()
 	_build_pause()
 	_build_dialog()
+	_build_update_overlay()
 	toast_panel = PanelContainer.new()
 	toast_panel.add_theme_stylebox_override("panel", _style(DEEP, GOLD, 12, 1))
 	root.add_child(toast_panel)
@@ -372,6 +384,112 @@ func _build_title() -> void:
 	var footer = _label("✦  七章冒险 · 开放区域 · 二十一段星光", 16, Color("d8d9bf"))
 	title_screen.add_child(footer)
 	_anchor_rect(footer, Control.PRESET_BOTTOM_LEFT, Vector2(94, -41), Vector2(900, 28))
+	update_check_button = _button("检查更新", _request_update_check, Vector2(158, 42))
+	update_check_button.name = "CheckUpdatesButton"
+	update_check_button.add_theme_font_size_override("font_size", 16)
+	update_check_button.tooltip_text = "检查是否有新版本"
+	title_screen.add_child(update_check_button)
+	_anchor_rect(update_check_button, Control.PRESET_TOP_RIGHT, Vector2(-192, 30), Vector2(158, 42))
+	var installed_version = str(ProjectSettings.get_setting("application/config/version", "")).get_slice("-", 0)
+	var version_label = _label("当前版本 v" + installed_version, 14, MUTED)
+	version_label.name = "InstalledVersion"
+	version_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	version_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	title_screen.add_child(version_label)
+	_anchor_rect(version_label, Control.PRESET_TOP_RIGHT, Vector2(-242, 78), Vector2(208, 24))
+
+func _build_update_overlay() -> void:
+	update_screen = _full(root, "UpdateNotice")
+	update_screen.mouse_filter = Control.MOUSE_FILTER_STOP
+	var shade = ColorRect.new()
+	shade.color = Color("061a26c9")
+	update_screen.add_child(shade)
+	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var panel = PanelContainer.new()
+	panel.name = "UpdatePanel"
+	panel.add_theme_stylebox_override("panel", _style(DEEP, GOLD, 22, 2))
+	update_screen.add_child(panel)
+	_anchor_rect(panel, Control.PRESET_CENTER, Vector2(-340, -190), Vector2(680, 380))
+	var margin = MarginContainer.new()
+	for edge in ["left", "right", "top", "bottom"]:
+		margin.add_theme_constant_override("margin_" + edge, 14)
+	panel.add_child(margin)
+	var box = VBoxContainer.new()
+	box.add_theme_constant_override("separation", 16)
+	margin.add_child(box)
+	box.add_child(_label("星灯岛 · 版本更新", 16, CYAN))
+	_update_version_label = _label("发现新版本", 28, GOLD)
+	_update_version_label.name = "UpdateVersion"
+	_update_version_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_update_version_label.max_lines_visible = 2
+	box.add_child(_update_version_label)
+	_update_notes_label = _paragraph("", 19, CREAM)
+	_update_notes_label.name = "UpdateNotes"
+	_update_notes_label.max_lines_visible = 4
+	_update_notes_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	_update_notes_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	box.add_child(_update_notes_label)
+	box.add_child(_paragraph("下载页面将在浏览器中打开，由你选择是否下载和安装。", 15))
+	var actions = HBoxContainer.new()
+	actions.alignment = BoxContainer.ALIGNMENT_END
+	actions.add_theme_constant_override("separation", 12)
+	box.add_child(actions)
+	var later = _button("稍后", _hide_update_result, Vector2(132, 48))
+	later.name = "UpdateLater"
+	actions.add_child(later)
+	_update_download_button = _button("前往下载", _request_update_download, Vector2(190, 48))
+	_update_download_button.name = "UpdateDownload"
+	actions.add_child(_update_download_button)
+	update_screen.hide()
+
+func _request_update_check() -> void:
+	if _update_checking: return
+	set_update_checking(true)
+	update_check_requested.emit()
+
+func set_update_checking(checking: bool) -> void:
+	_update_checking = checking
+	update_check_button.disabled = checking
+	update_check_button.text = "检查中…" if checking else "检查更新"
+
+func show_update_result(info: Dictionary, manual: bool = true) -> void:
+	set_update_checking(false)
+	var error = str(info.get("error", ""))
+	if not error.is_empty():
+		if manual: toast("检查更新失败：" + error.left(90))
+		return
+	if not bool(info.get("available", false)):
+		if manual: toast("当前已是最新版本")
+		return
+	# An HTTP reply may arrive after the player has already started a game.
+	if not title_screen.visible or dialog_screen.visible:
+		_pending_update_info = info.duplicate(true)
+		return
+	_show_update_available(info)
+
+func _show_update_available(info: Dictionary) -> void:
+	_cancel_touch_controls()
+	_update_info = info.duplicate(true)
+	_pending_update_info = {}
+	_update_download_sent = false
+	var version = str(info.get("version", ""))
+	_update_version_label.text = "发现新版本" + ("  " + (version if version.begins_with("v") else "v" + version) if not version.is_empty() else "")
+	var notes = str(info.get("notes", "")).strip_edges()
+	_update_notes_label.text = notes.left(320) if not notes.is_empty() else "新版本已经发布。前往下载页面查看更新说明。"
+	_update_download_button.text = "前往下载"
+	_update_download_button.disabled = str(info.get("download_url", "")).is_empty()
+	toast_time = 0; toast_panel.hide()
+	update_screen.show()
+
+func _request_update_download() -> void:
+	if _update_download_sent or str(_update_info.get("download_url", "")).is_empty(): return
+	_update_download_sent = true
+	_update_download_button.disabled = true
+	_update_download_button.text = "已打开下载页"
+	update_download_requested.emit(_update_info.duplicate(true))
+
+func _hide_update_result() -> void:
+	if is_instance_valid(update_screen): update_screen.hide()
 
 func _build_pause() -> void:
 	pause_screen = _full(root, "PauseMenu")
@@ -438,8 +556,10 @@ func show_title() -> void:
 	pause_screen.hide()
 	dialog_screen.hide()
 	title_screen.show()
+	if not _pending_update_info.is_empty(): _show_update_available(_pending_update_info)
 
 func show_hud() -> void:
+	_hide_update_result()
 	_cancel_touch_controls()
 	_dismiss_dialog(false, false)
 	title_screen.hide()
@@ -646,6 +766,7 @@ func _build_audio_settings() -> void:
 	pause_content.add_child(HSeparator.new())
 
 func show_dialog(title: String, body: String, button_text: String, callback: Callable, story_id: String = "", narration_text: String = "") -> void:
+	_hide_update_result()
 	_cancel_touch_controls()
 	_release_stick()
 	# Replacing a modal preserves the pause state from before the first modal.
@@ -793,6 +914,10 @@ func _draw_joystick() -> void:
 
 func _input(event: InputEvent) -> void:
 	# The UI continues processing while the simulation is paused.
+	if update_screen.visible and event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_ESCAPE, KEY_ENTER, KEY_KP_ENTER, KEY_SPACE]:
+		if event.keycode == KEY_ESCAPE: _hide_update_result()
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventKey and event.pressed and not event.echo and dialog_screen.visible and event.keycode in [KEY_ENTER, KEY_KP_ENTER, KEY_SPACE]:
 		_close_dialog()
 		get_viewport().set_input_as_handled()
@@ -924,7 +1049,9 @@ func _touch_slider_value(slider: HSlider, point: Vector2) -> void:
 
 func _touch_surface() -> Control:
 	var surface = hud
-	if dialog_screen.visible:
+	if update_screen.visible:
+		surface = update_screen
+	elif dialog_screen.visible:
 		surface = dialog_screen
 	elif pause_screen.visible:
 		surface = pause_screen

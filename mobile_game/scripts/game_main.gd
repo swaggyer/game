@@ -11,6 +11,7 @@ const MainTrials=preload("res://scripts/main_trials.gd")
 const Challenges=preload("res://scripts/challenge_director.gd")
 const Locomotion=preload("res://scripts/locomotion.gd")
 const AudioDirector=preload("res://scripts/audio_director.gd")
+const UpdateChecker=preload("res://scripts/update_checker.gd")
 var campaign=Campaign.new()
 var world:Node2D
 var ui:CanvasLayer
@@ -83,6 +84,9 @@ var hud_tick=0.0
 var guide_origin=Vector2.INF
 var guide_destination=Vector2.INF
 var autosave_thread:Thread
+var update_checker=UpdateChecker.new()
+var update_info:Dictionary={}
+var auto_update_checked=false
 
 func _ready() -> void:
 	Input.use_accumulated_input=false
@@ -106,6 +110,7 @@ func _ready() -> void:
 	ui.hud.add_child(map_button);ui._anchor_rect(map_button,Control.PRESET_TOP_RIGHT,Vector2(-246,108),Vector2(220,175))
 	mini_map=AreaMap.new();map_button.add_child(mini_map);mini_map.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	ui.show_title();player.hide();partner.hide();dragon.hide();map_button.hide()
+	_setup_updates()
 	if "--smoke" in OS.get_cmdline_user_args():
 		_start(false);ui.show_hud();get_tree().paused=false
 
@@ -151,6 +156,41 @@ func _setup_audio() -> void:
 	ui.title_screen.visibility_changed.connect(func():
 		if ui.title_screen.visible:audio_director.stop_narration();audio_director.set_music_context("title"))
 	audio_director.set_music_context("title")
+
+func _setup_updates() -> void:
+	update_checker.setup(self)
+	update_checker.check_finished.connect(_update_check_finished)
+	ui.update_check_requested.connect(func():_check_updates(true))
+	ui.update_download_requested.connect(_download_update)
+	ui.title_screen.visibility_changed.connect(func():
+		if ui.title_screen.visible and not update_info.is_empty():ui.show_update_result(update_info,false))
+	call_deferred("_auto_check_updates")
+
+func _auto_check_updates() -> void:
+	# Wait until SceneTree has installed the main scene. Script fixtures stay offline.
+	if not "--offline-updates" in OS.get_cmdline_user_args() and get_tree().current_scene==self:
+		_check_updates(false)
+
+func _check_updates(manual:bool=false) -> void:
+	if not manual and auto_update_checked:return
+	if not manual:auto_update_checked=true
+	if update_checker.checking:return
+	ui.set_update_checking(true)
+	if not update_checker.check(manual):ui.set_update_checking(update_checker.checking)
+
+func _update_check_finished(result:Dictionary) -> void:
+	ui.set_update_checking(false)
+	var info={"available":result.get("status","")=="update","version":result.get("version",""),"notes":result.get("notes",""),"download_url":result.get("url",""),"error":result.get("message","检查更新失败，请稍后重试") if result.get("status","")=="error" else ""}
+	update_info=info if info.available else {}
+	if ui.title_screen.visible:ui.show_update_result(info,bool(result.get("manual",false)))
+
+func _download_update(info:Dictionary) -> void:
+	# The URL must come from our validated response, never arbitrary UI text.
+	if update_info.is_empty() or not bool(update_info.get("available",false)):return
+	var url=str(update_info.get("download_url",""))
+	if url.is_empty() or str(info.get("download_url",""))!=url:return
+	if not UpdateChecker.is_allowed_url(url):return
+	if OS.shell_open(url)!=OK:ui.toast("未能打开浏览器，请稍后重试")
 
 func _start(continue_game:bool) -> void:
 	get_tree().paused=false
