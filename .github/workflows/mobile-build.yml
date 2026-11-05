@@ -59,7 +59,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release upload v1.3.0 builds/ios/StarLanternIsland-iOS-Xcode.zip builds/ios/StarLanternIsland-unsigned.ipa --repo "$GITHUB_REPOSITORY" --clobber
+          gh release view v1.4.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create v1.4.0 --repo "$GITHUB_REPOSITORY" --title '星灯岛 v1.4.0 · 安卓性能与操作响应修复' --notes '移动端渲染、触控和动作预载优化。'
+          gh release upload v1.4.0 builds/ios/StarLanternIsland-iOS-Xcode.zip builds/ios/StarLanternIsland-unsigned.ipa --repo "$GITHUB_REPOSITORY" --clobber
 
       - name: Upload build evidence
         if: always()
