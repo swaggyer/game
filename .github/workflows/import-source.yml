@@ -59,8 +59,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release download v1.3.0 --repo "$GITHUB_REPOSITORY" --pattern StarLanternIsland-v1.3.0-arm64.apk --dir /tmp/starlantern-base
-          python3 mobile_game/tools/apk_delta.py apply /tmp/starlantern-base/StarLanternIsland-v1.3.0-arm64.apk .release-assets/android.delta.zip .release-assets/StarLanternIsland-v1.4.0-arm64.apk
+          gh release download v1.4.0 --repo "$GITHUB_REPOSITORY" --pattern StarLanternIsland-v1.4.0-arm64.apk --dir /tmp/starlantern-base
+          python3 mobile_game/tools/apk_delta.py apply /tmp/starlantern-base/StarLanternIsland-v1.4.0-arm64.apk .release-assets/android.delta.zip .release-assets/StarLanternIsland-v1.5.0-arm64.apk
       - name: Commit source and original models
         run: |
           git restore --source=HEAD -- .github/workflows/import-source.yml .github/workflows/mobile-build.yml
@@ -73,8 +73,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release view v1.4.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create v1.4.0 --repo "$GITHUB_REPOSITORY" --title '星灯岛 v1.4.0 · 安卓性能与操作响应修复' --notes-file .release-assets/RELEASE-NOTES.md --target main
-          gh release upload v1.4.0 .release-assets/StarLanternIsland-v1.4.0-arm64.apk --repo "$GITHUB_REPOSITORY" --clobber
+          gh release view v1.5.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || gh release create v1.5.0 --repo "$GITHUB_REPOSITORY" --title '星灯岛 v1.5.0 · 检查更新与流畅体验' --notes-file .release-assets/RELEASE-NOTES.md --target main
+          gh release upload v1.5.0 .release-assets/StarLanternIsland-v1.5.0-arm64.apk --repo "$GITHUB_REPOSITORY" --clobber
       - name: Start native macOS iOS compilation
         env:
           GH_TOKEN: ${{ github.token }}
