@@ -46,6 +46,7 @@ func spawn(id: String, p: Vector2, boss: bool = false, objective_index: int = -1
 		"warning":0.0,"aim":p,"state":"patrol","state_time":0.0,"timer":1.0,
 		"cooldown":1.2,"memory":0.0,"last_seen":p,"path":PackedVector2Array(),
 		"path_index":0,"path_age":0.0,"path_target":p,"sequence":0,"attack_serial":0,
+		"direct_blocked":0.0,"dormant_time":0.0,
 		"attack_style":"","attack_origin":p,"direction":Vector2.RIGHT,"attack_length":240.0,
 		"radius":70.0,"half_width":30.0,"spread":0.35,"action_time":0.0,"action_duration":0.5,
 		"tell_duration":1.0,"hit":false,"fired":false,"notified":false,"pose":"idle",
@@ -85,7 +86,18 @@ func update(delta: float) -> void:
 		var step: float = minf(remaining,0.04)
 		remaining-=step;_clock+=step
 		for e in enemies.duplicate():
-			if e.hp>0 and is_instance_valid(e.sprite):_tick_enemy(e,step)
+			if e.hp>0 and is_instance_valid(e.sprite):
+				# Only unseen, non-combat patrols may tick less often. Every attack,
+				# warning, boss and projectile keeps the original simulation steps.
+				var idle_far:bool=not e.boss and e.memory<=0 and e.state in ["patrol","return"] and e.sprite.position.distance_squared_to(game.player.position)>950.0*950.0
+				if idle_far:
+					e.dormant_time=float(e.get("dormant_time",0.0))+step
+					if e.dormant_time<0.20:continue
+					var elapsed:float=e.dormant_time;e.dormant_time=0.0
+					_tick_enemy(e,elapsed)
+				else:
+					e.dormant_time=0.0
+					_tick_enemy(e,step)
 			if game.is_inside_tree() and game.get_tree().paused:return
 		_tick_projectiles(step)
 		if game.is_inside_tree() and game.get_tree().paused:return
@@ -186,16 +198,26 @@ func _preferred_range(e: Dictionary) -> float:
 func _move(e: Dictionary, destination: Vector2, speed: float, delta: float) -> void:
 	var game: Node2D = _game()
 	e.path_age-=delta
-	if e.path_age<=0 or e.path_target.distance_to(destination)>60:
-		e.path=game.world.find_path(e.sprite.position,destination)
-		e.path_index=0;e.path_age=0.55;e.path_target=destination
+	e.direct_blocked=maxf(0.0,float(e.get("direct_blocked",0.0))-delta)
+	var direct:bool=e.direct_blocked<=0.0 and _los(e.sprite.position,destination)
 	var waypoint: Vector2 = destination
-	var path: PackedVector2Array = e.path
-	while e.path_index<path.size() and e.sprite.position.distance_to(path[e.path_index])<22:e.path_index+=1
-	if e.path_index<path.size():waypoint=path[e.path_index]
-	elif not _los(e.sprite.position,destination):return
+	if direct:
+		e.path=PackedVector2Array();e.path_index=0;e.path_age=0.55;e.path_target=destination
+	else:
+		if e.path_age<=0 or e.path_target.distance_to(destination)>60:
+			e.path=game.world.find_path(e.sprite.position,destination)
+			e.path_index=0;e.path_age=0.55+fmod(float(e.uid)*0.137,0.18);e.path_target=destination
+		var path: PackedVector2Array = e.path
+		while e.path_index<path.size() and e.sprite.position.distance_to(path[e.path_index])<8:e.path_index+=1
+		if e.path_index<path.size():waypoint=path[e.path_index]
+		elif not _los(e.sprite.position,destination):return
 	var displacement: Vector2 = (waypoint-e.sprite.position).limit_length(speed*delta)
+	var before:Vector2=e.sprite.position
 	e.sprite.position=game.world.move_actor(e.sprite.position,displacement,28.0 if e.boss else 18.0)
+	# A centre ray can fit where the actor's collision radius cannot. Retry with
+	# A* after contact rather than repeatedly steering into that narrow corner.
+	if direct and displacement.length_squared()>0.25 and before.distance_squared_to(e.sprite.position)<displacement.length_squared()*0.20:
+		e.direct_blocked=0.75;e.path_age=0.0
 	if displacement.length()>0.1:e.direction=displacement.normalized()
 
 
@@ -460,9 +482,13 @@ func _pose(e: Dictionary) -> void:
 
 
 func draw(canvas: Node2D, font: Font) -> void:
+	var game:Node2D=_game()
+	if game==null:return
+	var viewer:Vector2=game.player.position
 	for e in enemies:
 		if e.hp<=0 or not is_instance_valid(e.sprite):continue
 		var p: Vector2 = e.sprite.position
+		if p.distance_squared_to(viewer)>1450.0*1450.0:continue
 		var width: float = 180 if e.boss else 68
 		var high: float = 245 if e.boss else 115
 		canvas.draw_rect(Rect2(p+Vector2(-width/2,-high),Vector2(width,8)),Color(0.02,0.07,0.1,0.85))
@@ -474,6 +500,7 @@ func draw(canvas: Node2D, font: Font) -> void:
 		if e.state=="windup":_draw_tell(canvas,e,font)
 		elif e.state=="action":_draw_action(canvas,e)
 	for q in projectiles:
+		if q.p.distance_squared_to(viewer)>1300.0*1300.0:continue
 		var color: Color = CYAN if q.returned else (Color(0.75,0.58,1) if q.kind in ["shadow","star"] else Color(0.63,0.86,1))
 		canvas.draw_line(q.p-q.velocity.normalized()*34,q.p,color*Color(1,1,1,0.45),4,true)
 		canvas.draw_circle(q.p,q.radius,color*Color(1,1,1,0.22))

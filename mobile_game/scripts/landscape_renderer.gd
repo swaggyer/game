@@ -1,6 +1,7 @@
 extends Node2D
 ## High-resolution canvas materials and smooth vector geography. No gameplay geometry.
 
+const NOISE_PATH="res://assets/environment_v11/landscape_noise_v131.png"
 const MEADOW=preload("res://shaders/meadow.gdshader")
 const WATER=preload("res://shaders/water.gdshader")
 const SOIL=preload("res://shaders/soil_path.gdshader")
@@ -30,6 +31,7 @@ var _shadow_material:ShaderMaterial
 var _foliage_material:ShaderMaterial
 var _foam_material:ShaderMaterial
 var _white:ImageTexture
+var _noise_lattice:Texture2D
 var _details:Node2D
 var _rails:Node2D
 var _land_geometry:Array=[]
@@ -40,12 +42,72 @@ var _tufts:Array=[]
 var _reeds:Array=[]
 var _lilies:Array=[]
 var _cliffs:Array=[]
+var _animated_materials:Array[ShaderMaterial]=[]
+var detail_mesh_count:=0
+var detail_triangle_count:=0
+
+## Build colored triangles once. Canvas AA primitives otherwise require thousands
+## of individual GLES draw calls, including flowers outside the camera view.
+class DetailBatch:
+	extends RefCounted
+	var vertices:=PackedVector3Array()
+	var colors:=PackedColorArray()
+	var indices:=PackedInt32Array()
+	var transform:=Transform2D.IDENTITY
+	func vertex(p:Vector2,c:Color)->int:
+		var index:=vertices.size();vertices.append(Vector3(p.x,p.y,0));colors.append(c);return index
+	func triangle(a:Vector2,b:Vector2,c:Vector2,color:Color)->void:
+		var base:=vertices.size();vertex(a,color);vertex(b,color);vertex(c,color);indices.append_array(PackedInt32Array([base,base+1,base+2]))
+	func draw_set_transform(p:Vector2,rotation:float=0,scale:Vector2=Vector2.ONE)->void:
+		transform=Transform2D(rotation,scale,0,p)
+	func draw_line(a:Vector2,b:Vector2,color:Color,width:float=1,antialiased:bool=false)->void:
+		a=transform*a;b=transform*b
+		if a.is_equal_approx(b):return
+		var normal:Vector2=(b-a).orthogonal().normalized()
+		var half:Vector2=normal*maxf(0.35,width*0.5)
+		triangle(a-half,b-half,b+half,color);triangle(a-half,b+half,a+half,color)
+		if antialiased:
+			var clear:=Color(color,0);var fringe:=normal*0.8
+			for side in [-1.0,1.0]:
+				var x:Vector2=a+half*side;var y:Vector2=b+half*side;var base:=vertices.size()
+				vertex(x,color);vertex(y,color);vertex(y+fringe*side,clear);vertex(x+fringe*side,clear)
+				indices.append_array(PackedInt32Array([base,base+1,base+2,base,base+2,base+3]))
+	func draw_polyline(points:PackedVector2Array,color:Color,width:float=1,antialiased:bool=false)->void:
+		for i in range(points.size()-1):draw_line(points[i],points[i+1],color,width,antialiased)
+	func draw_circle(p:Vector2,radius:float,color:Color,filled:bool=true,width:float=-1,antialiased:bool=false)->void:
+		if not filled:draw_arc(p,radius,0,TAU,32,color,width,antialiased);return
+		var center:Vector2=transform*p
+		var size:float=radius*maxf(transform.x.length(),transform.y.length())
+		var count:=clampi(int(ceil(size*2.0)),12,64)
+		var middle:=vertex(center,color)
+		var clear:=Color(color,0)
+		var inner:=PackedInt32Array();var outer:=PackedInt32Array()
+		for i in range(count):
+			var point:Vector2=transform*(p+Vector2.from_angle(i*TAU/count)*radius)
+			inner.append(vertex(point,color))
+			if antialiased:outer.append(vertex(point+(point-center).normalized()*0.8,clear))
+		for i in range(count):
+			var next:=(i+1)%count
+			indices.append_array(PackedInt32Array([middle,inner[i],inner[next]]))
+			if antialiased:indices.append_array(PackedInt32Array([inner[i],outer[i],outer[next],inner[i],outer[next],inner[next]]))
+	func draw_arc(p:Vector2,radius:float,start:float,end:float,count:int,color:Color,width:float=1,antialiased:bool=false)->void:
+		var points:=PackedVector2Array()
+		for i in range(count):points.append(p+Vector2.from_angle(lerpf(start,end,float(i)/maxi(1,count-1)))*radius)
+		draw_polyline(points,color,width,antialiased)
+	func draw_colored_polygon(points:PackedVector2Array,color:Color)->void:
+		var triangles:=Geometry2D.triangulate_polygon(points);var base:=vertices.size()
+		for p:Vector2 in points:vertex(transform*p,color)
+		for index in triangles:indices.append(base+index)
+	func mesh()->ArrayMesh:
+		var arrays:=[];arrays.resize(Mesh.ARRAY_MAX);arrays[Mesh.ARRAY_VERTEX]=vertices;arrays[Mesh.ARRAY_COLOR]=colors;arrays[Mesh.ARRAY_INDEX]=indices
+		var result:=ArrayMesh.new();result.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays);return result
+
 
 func configure(world:Node2D) -> void:
 	_world_ref=weakref(world)
 	_chapter=world.chapter
 	_theme=THEMES[_chapter]
-	_materials.clear()
+	_materials.clear();_animated_materials.clear()
 	_land_geometry=world._land
 	_water_geometry=world._water
 	_bridges=world._bridges
@@ -72,7 +134,7 @@ func configure(world:Node2D) -> void:
 	_foliage_material=_material(FOLIAGE)
 	_foam_material=_material(FOAM)
 	# Grass continues beyond the invisible play bounds instead of sitting inside a board frame.
-	_polygon(_rounded_rect(world.WORLD_RECT.grow(400),100),world.WORLD_RECT.grow(400),_grass,-12)
+	if _land_geometry.is_empty():_polygon(_rounded_rect(world.WORLD_RECT.grow(400),100),world.WORLD_RECT.grow(400),_grass,-12)
 	for i in range(_water_geometry.size()):
 		if i>0 and not _land_geometry.is_empty():continue
 		_add_water(_water_geometry[i],-10 if _land_geometry.is_empty() else -11)
@@ -98,19 +160,28 @@ func configure(world:Node2D) -> void:
 	_details=Node2D.new()
 	_details.name="PaintedGrassAndWildflowers"
 	_details.z_index=6
-	_details.draw.connect(_draw_details)
+	
 	add_child(_details)
 	_rails=Node2D.new()
 	_rails.name="BridgeJoineryAndStoneCoping"
 	_rails.z_index=13
-	_rails.draw.connect(_draw_bridge_details)
+	
 	add_child(_rails)
+	_build_batched_details()
+	var rail_batch:=DetailBatch.new();_draw_bridge_details(rail_batch);_commit_batch(rail_batch,_rails,"BatchedBridgeJoinery")
 	queue_redraw()
 
 func _material(shader:Shader) -> ShaderMaterial:
 	var result:=ShaderMaterial.new()
 	result.shader=shader
+	if shader in [MEADOW,WATER,SOIL,DECK]:
+		# Direct image fallback also lets isolated headless tests run before editor import.
+		if not _noise_lattice:
+			if ResourceLoader.exists(NOISE_PATH):_noise_lattice=load(NOISE_PATH)
+			else:_noise_lattice=ImageTexture.create_from_image(Image.load_from_file(NOISE_PATH))
+		result.set_shader_parameter("noise_lattice",_noise_lattice)
 	_materials.append(result)
+	if shader in [MEADOW,WATER,SOIL,FOAM,FOLIAGE]:_animated_materials.append(result)
 	return result
 
 func foliage_material() -> ShaderMaterial:
@@ -120,8 +191,7 @@ func _process(delta:float) -> void:
 	_clock+=delta;_tick+=delta
 	if _tick<0.066:return
 	_tick=0
-	for mat:ShaderMaterial in _materials:
-		if mat.shader in [MEADOW,WATER,SOIL,FOAM,FOLIAGE]:mat.set_shader_parameter("clock",_clock)
+	for mat:ShaderMaterial in _animated_materials:mat.set_shader_parameter("clock",_clock)
 
 func _draw() -> void:
 	pass
@@ -295,11 +365,9 @@ func _build_bridge(bridge:Dictionary) -> void:
 	mat.set_shader_parameter("deck_size",r.size)
 	_polygon(_rounded_rect(r,5),r,mat,10)
 
-func _draw_details() -> void:
-	var canvas:=_details
+func _draw_details(canvas:Object,tufts:Array,flowers:Array,reeds:Array,lilies:Array) -> void:
 	var green:=Color(_theme.shade).lightened(0.07)
-	for i in range(0,_tufts.size(),2):
-		var tuft:Array=_tufts[i]
+	for tuft:Array in tufts:
 		var p:Vector2=tuft[0]
 		var h:float=tuft[1]*1.2
 		var light:=Color(_theme.sun).lightened(0.04)
@@ -307,7 +375,7 @@ func _draw_details() -> void:
 			var bend:float=(n-1)*3.1
 			var points:=PackedVector2Array([p+Vector2(n*2.1,1),p+Vector2(n*2.1+bend*0.35,-h*0.6),p+Vector2(n*2.1+bend,-h)])
 			canvas.draw_polyline(points,green.lerp(light,float(n)*0.24),1.15,true)
-	for data:Array in _flowers:
+	for data:Array in flowers:
 		var p:Vector2=data[0]
 		var size_value:float=data[1]
 		for n in range(int(data[2])):
@@ -317,31 +385,54 @@ func _draw_details() -> void:
 			if _chapter==3:petal=Color("#e3b4cc") if n%2 else Color("#f0e3d2")
 			for j in range(5):canvas.draw_circle(q+Vector2.from_angle(j*TAU/5)*2.8*size_value,2.2*size_value,petal,true,-1,true)
 			canvas.draw_circle(q,1.1*size_value,Color("#c39847"),true,-1,true)
-	for p:Vector2 in _reeds:
+	for p:Vector2 in reeds:
 		for n in range(4):
 			var q:=p+Vector2(n*3.5,0)
 			canvas.draw_polyline(PackedVector2Array([q,q+Vector2(-2,-15-n*2),q+Vector2(1+n,-21-n*2)]),green.lightened(n*0.04),1.4,true)
-	for p:Vector2 in _lilies:
+	for p:Vector2 in lilies:
 		_ellipse(canvas,p,Vector2(13,6),Color("#729f71"))
 		canvas.draw_line(p,p+Vector2(10,-4),Color(_theme.water),1,true)
 		if _chapter==3:
 			for n in range(5):canvas.draw_circle(p+Vector2.from_angle(n*TAU/5)*2,2.4,Color("#efcad8"),true,-1,true)
-	for points:PackedVector2Array in _cliffs:_draw_cliff(canvas,points)
+
+func _commit_batch(batch:DetailBatch,parent:Node2D,label:String)->void:
+	if batch.indices.is_empty():return
+	var node:=MeshInstance2D.new();node.name=label;node.mesh=batch.mesh();parent.add_child(node)
+	detail_mesh_count+=1;detail_triangle_count+=batch.indices.size()/3
+
+func _build_batched_details()->void:
+	var chunks:Dictionary={}
+	var groups:Array=[[],_flowers,_reeds,_lilies]
+	for i in range(0,_tufts.size(),2):groups[0].append(_tufts[i])
+	for kind in range(4):
+		for entry in groups[kind]:
+			var p:Vector2=entry[0] if kind<2 else entry
+			var cell:=Vector2i(floori(p.x/512),floori(p.y/512))
+			if not chunks.has(cell):chunks[cell]=[[],[],[],[]]
+			chunks[cell][kind].append(entry)
+	for cell:Vector2i in chunks:
+		var data:Array=chunks[cell];var batch:=DetailBatch.new()
+		_draw_details(batch,data[0],data[1],data[2],data[3])
+		_commit_batch(batch,_details,"Wildflowers_%d_%d"%[cell.x,cell.y])
+	var landmarks:=DetailBatch.new()
+	for points:PackedVector2Array in _cliffs:_draw_cliff(landmarks,points)
 	if _chapter==2:
-		for p in [Vector2(790,1660),Vector2(1120,970),Vector2(2820,950),Vector2(2030,2300),Vector2(2900,1770)]:_draw_wheat(canvas,p)
-	if _chapter==0:_draw_garden(canvas)
+		for p in [Vector2(790,1660),Vector2(1120,970),Vector2(2820,950),Vector2(2030,2300),Vector2(2900,1770)]:_draw_wheat(landmarks,p)
+	if _chapter==0:_draw_garden(landmarks)
 	if _chapter==6:
 		for n in range(12):
 			var angle:=n*TAU/12
 			var p:=Vector2(1800,1320)+Vector2(cos(angle)*890,sin(angle)*630)
-			canvas.draw_arc(p,20,0,TAU,48,Color(0.93,0.89,0.65,0.5),1.6,true)
+			landmarks.draw_arc(p,20,0,TAU,48,Color(0.93,0.89,0.65,0.5),1.6,true)
 
-func _ellipse(canvas:CanvasItem,p:Vector2,r:Vector2,c:Color) -> void:
+	_commit_batch(landmarks,_details,"LandmarkGroundDetails")
+
+func _ellipse(canvas:Object,p:Vector2,r:Vector2,c:Color) -> void:
 	canvas.draw_set_transform(p,0,r)
 	canvas.draw_circle(Vector2.ZERO,1,c,true,-1,true)
 	canvas.draw_set_transform(Vector2.ZERO)
 
-func _draw_cliff(canvas:Node2D,points:PackedVector2Array) -> void:
+func _draw_cliff(canvas:Object,points:PackedVector2Array) -> void:
 	var center:=Vector2.ZERO
 	for p:Vector2 in points:center+=p
 	center/=points.size()
@@ -359,7 +450,7 @@ func _draw_cliff(canvas:Node2D,points:PackedVector2Array) -> void:
 		if Geometry2D.is_point_in_polygon(p,points):
 			canvas.draw_arc(p,7+i%4,PI*0.7,PI*1.8,12,color.darkened(0.10),1,true)
 
-func _draw_wheat(canvas:Node2D,p:Vector2) -> void:
+func _draw_wheat(canvas:Object,p:Vector2) -> void:
 	for row in range(8):
 		for col in range(17):
 			var jitter:=sin(row*17.1+col*3.7)*3
@@ -371,7 +462,7 @@ func _draw_wheat(canvas:Node2D,p:Vector2) -> void:
 				canvas.draw_line(tip,tip+Vector2(-3,-4),Color("#e3cc7a"),2.1,true)
 				canvas.draw_line(tip,tip+Vector2(4,-3),Color("#eee09b"),1.8,true)
 
-func _draw_garden(canvas:Node2D) -> void:
+func _draw_garden(canvas:Object) -> void:
 	for i in range(4):
 		var p:=Vector2(470+i*90,1220+i%2*75)
 		_ellipse(canvas,p,Vector2(36,45),Color("#75613f"))
@@ -382,8 +473,7 @@ func _draw_garden(canvas:Node2D) -> void:
 				canvas.draw_line(q,tip,Color("#92ac5c"),5,true)
 			canvas.draw_circle(q+Vector2(0,-3),4.0,Color("#bc8d4e"),true,-1,true)
 
-func _draw_bridge_details() -> void:
-	var canvas:=_rails
+func _draw_bridge_details(canvas:Object) -> void:
 	for bridge:Dictionary in _bridges:
 		var r:Rect2=bridge.rect
 		var horizontal:=r.size.x>r.size.y

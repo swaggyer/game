@@ -45,6 +45,8 @@ var _landscape: Node2D
 var _environment_manifest:Dictionary={}
 var _time := 0.0
 var _redraw_time := 0.0
+var _water_glints:Array=[]
+var _island_stars:Array=[]
 
 class Structure:
 	extends Node2D
@@ -132,6 +134,7 @@ func configure(chapter_index:int,stage_index:int) -> void:
 	_filter_hazards()
 	_build_navigation()
 	_decorate()
+	_cache_ambient_samples()
 	_landscape=LandscapeRenderer.new()
 	_landscape.name="SunlitPainterlyLandscape"
 	add_child(_landscape)
@@ -894,17 +897,28 @@ func _star(canvas:CanvasItem,p:Vector2,radius:float,color:Color) -> void:
 
 func _draw_ambient() -> void:
 	if not is_instance_valid(_ambient) or definition.is_empty():return
+	var visible:Rect2=(_ambient.get_canvas_transform().affine_inverse()*_ambient.get_viewport_rect()).grow(24)
 	for mote in _motes:
 		var p:Vector2=mote[0]+Vector2(sin(_time*0.5+mote[1])*9,cos(_time*0.6+mote[1])*7)
+		if not visible.has_point(p):continue
 		var alpha:float=(0.35+sin(_time*1.3+mote[1])*0.22)*mote[2]
 		_ambient.draw_circle(p,6,Color(1,0.87,0.52,alpha*0.08))
 		_ambient.draw_circle(p,1.4,Color(1,0.92,0.65,alpha))
+	for entry:Array in _water_glints:
+		var p:Vector2=entry[0];var i:int=entry[1]
+		if not visible.has_point(p):continue
+		var length:=7+sin(_time+i*1.4)*4
+		_ambient.draw_line(p-Vector2(length,0),p+Vector2(length,0),Color(0.58,0.83,0.87,0.2+sin(_time+i)*0.05),1.2,true)
+	for entry:Array in _island_stars:
+		var p:Vector2=entry[0];var i:int=entry[1]
+		if visible.has_point(p):_star(_ambient,p,1.3+sin(_time+i)*0.35,Color(0.79,0.89,1,0.55))
+
+func _cache_ambient_samples()->void:
+	_water_glints.clear();_island_stars.clear()
 	for i in range(80):
 		var p:=Vector2(190+fmod(i*631.0,3220),210+fmod(i*337.0,2220))
-		if _water_blocked(p,0):
-			var length:=7+sin(_time+i*1.4)*4
-			_ambient.draw_line(p-Vector2(length,0),p+Vector2(length,0),Color(0.58,0.83,0.87,0.2+sin(_time+i)*0.05),1.2,true)
+		if _water_blocked(p,0):_water_glints.append([p,i])
 	if chapter==6:
 		for i in range(70):
 			var p:=Vector2(140+fmod(i*817.0,3320),150+fmod(i*313.0,2310))
-			if not is_walkable(p,0):_star(_ambient,p,1.3+sin(_time+i)*0.35,Color(0.79,0.89,1,0.55))
+			if not is_walkable(p,0):_island_stars.append([p,i])

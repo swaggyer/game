@@ -79,14 +79,19 @@ var encounter_spawned:Array=[]
 var guide_path=PackedVector2Array()
 var guide_target=-2
 var battle_waves:Dictionary={}
+var hud_tick=0.0
+var guide_origin=Vector2.INF
+var guide_destination=Vector2.INF
+var autosave_thread:Thread
 
 func _ready() -> void:
+	Input.use_accumulated_input=false
 	texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	font=load("res://assets/ui.ttf")
 	objective_definitions=JSON.parse_string(FileAccess.get_file_as_string("res://data/objectives.json"))
 	world=OpenWorld.new();add_child(world);world.configure(0,0)
 	camera=Camera2D.new();camera.zoom=Vector2(0.95,0.95)
-	camera.position_smoothing_enabled=true;camera.position_smoothing_speed=6
+	camera.position_smoothing_enabled=true;camera.position_smoothing_speed=12
 	camera.limit_left=100;camera.limit_top=100;camera.limit_right=3500;camera.limit_bottom=2500
 	add_child(camera)
 	player=_sprite("res://assets/actors/wangzai_front.png",world.definition.spawn,0.65)
@@ -107,6 +112,7 @@ func _ready() -> void:
 func _connect_ui() -> void:
 	ui.move_changed.connect(func(v):move_input=v)
 	ui.attack_pressed.connect(_attack);ui.context_pressed.connect(_context_press);ui.context_released.connect(_context_release)
+	ui.context_cancelled.connect(func():context_latch.clear())
 	ui.switch_requested.connect(_switch);ui.pause_requested.connect(_pause);ui.resume_requested.connect(_resume)
 	ui.start_requested.connect(_start);ui.new_game_requested.connect(func():_start(false))
 	ui.stage_requested.connect(func(i):
@@ -275,8 +281,10 @@ func _process(delta:float) -> void:
 		if effects[i].life<=0:effects.remove_at(i)
 	map_tick+=delta;save_tick+=delta
 	if map_tick>0.4:map_tick=0;_discover();_update_guide()
-	if save_tick>12:save_tick=0;_save_all()
-	_update_hud();queue_redraw();combat_overlay.queue_redraw()
+	if save_tick>12:save_tick=0;_queue_autosave()
+	hud_tick-=delta
+	if hud_tick<=0:hud_tick=0.1;_update_hud()
+	queue_redraw();combat_overlay.queue_redraw()
 
 func _crate_collision(old:Vector2,next:Vector2) -> Vector2:
 	for i in range(3):
@@ -299,8 +307,9 @@ func _update_companions(delta:float) -> void:
 	var positions=[player.position-facing*75+Vector2(-25,30),partner.position+Vector2(-65,-5)]
 	if companion_path_tick<=0:
 		companion_path_tick=0.65
-		companion_paths["partner"]=world.find_path(partner.position,world.nearest_safe(positions[0]))
-		companion_paths["dragon"]=world.find_path(dragon.position,world.nearest_safe(positions[1]))
+		for pair in [[partner,"partner",positions[0]],[dragon,"dragon",positions[1]]]:
+			var target:Vector2=pair[2]
+			companion_paths[pair[1]]=PackedVector2Array() if world.has_line_of_sight(pair[0].position,target) else world.find_path(pair[0].position,world.nearest_safe(target))
 	for pair in [[partner,"partner",positions[0]],[dragon,"dragon",positions[1]]]:
 		var s:Sprite2D=pair[0];var target:Vector2=pair[2]
 		var old_position=s.position
@@ -366,13 +375,16 @@ func _action_label(kind:String) -> String:
 	return {"push":"推动木箱","mirror":"转动镜台","valve":"调节水闸","course":"启动闯关","seal":"攻击封印","escort":"护送出发","boss":"迎战首领","battle":"净化影团"}.get(kind,"互动")
 
 func _context_press() -> void:
-	if active and not get_tree().paused and context_latch.is_empty():context_latch=_context_action().duplicate(true)
+	if active and not get_tree().paused and context_latch.is_empty():
+		context_latch=_context_action().duplicate(true)
+		if context_latch.kind=="skill":_cast(context_latch.id)
 
 func _context_release() -> void:
 	if context_latch.is_empty():return
 	var action=context_latch.duplicate(true);context_latch.clear()
 	if not active or get_tree().paused:return
-	if action.kind=="skill":_cast(action.id);return
+	# Skills start on press; release only clears the latch, without a second cast.
+	if action.kind=="skill":return
 	var action_point:Vector2=action.get("p",player.position)
 	if _combat() or player.position.distance_to(action_point)>165 or not world.has_line_of_sight(player.position,action_point):return
 	match action.kind:
@@ -527,7 +539,9 @@ func _nearest_goal() -> int:
 func _update_guide() -> void:
 	var next=_nearest_goal()
 	var target=points[next] if next>=0 else lamp_position
+	if guide_target==next and player.position.distance_squared_to(guide_origin)<6400 and target.distance_squared_to(guide_destination)<1:return
 	guide_path=world.find_path(player.position,target);guide_target=next
+	guide_origin=player.position;guide_destination=target
 
 func _update_hud() -> void:
 	if objectives.is_empty():return
@@ -566,15 +580,45 @@ func _world_path() -> String:
 	return campaign.save_path+".world.json"
 
 func _save_all() -> void:
+	_finish_autosave()
 	if active:_store_stage_state()
 	campaign.save_game();_write_world_saves()
 
+func _queue_autosave() -> void:
+	if autosave_thread!=null and autosave_thread.is_alive():return
+	_finish_autosave()
+	if active:_store_stage_state()
+	var document:Dictionary={"version":3,"stages":world_saves,"challenges":challenge_saves}.duplicate(true)
+	autosave_thread=Thread.new()
+	var result=autosave_thread.start(_autosave_snapshot.bind(campaign.save_document(),ProjectSettings.globalize_path(campaign.save_path),document))
+	if result!=OK:autosave_thread=null;save_tick=11
+
+static func _autosave_snapshot(campaign_document:Dictionary,path:String,world_document:Dictionary) -> bool:
+	if not Campaign.write_save_document(campaign_document,path):return false
+	return _write_world_document(path+".world.json",world_document)
+
+func _finish_autosave() -> void:
+	if autosave_thread!=null and autosave_thread.is_started():
+		if autosave_thread.wait_to_finish():campaign.has_save=true
+	autosave_thread=null
+
+func _exit_tree() -> void:
+	_finish_autosave()
+
+func _notification(what:int) -> void:
+	if what==NOTIFICATION_APPLICATION_PAUSED and active:_save_all()
+
 func _write_world_saves() -> void:
-	var p=_world_path();var f=FileAccess.open(p+".tmp",FileAccess.WRITE)
-	if not f:return
-	f.store_string(JSON.stringify({"version":3,"stages":world_saves,"challenges":challenge_saves}));f.flush();f.close()
+	_write_world_document(ProjectSettings.globalize_path(_world_path()),{"version":3,"stages":world_saves,"challenges":challenge_saves})
+
+static func _write_world_document(p:String,document:Dictionary) -> bool:
+	var f=FileAccess.open(p+".tmp",FileAccess.WRITE)
+	if not f:return false
+	f.store_string(JSON.stringify(document));f.flush()
+	var error=f.get_error();f.close()
+	if error!=OK:return false
 	if FileAccess.file_exists(p):DirAccess.copy_absolute(ProjectSettings.globalize_path(p),ProjectSettings.globalize_path(p+".bak"))
-	DirAccess.rename_absolute(ProjectSettings.globalize_path(p+".tmp"),ProjectSettings.globalize_path(p))
+	return DirAccess.rename_absolute(p+".tmp",p)==OK
 
 func _load_world_saves() -> void:
 	world_saves.clear()

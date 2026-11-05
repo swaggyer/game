@@ -14,6 +14,14 @@ func setup(value: Node2D) -> void:
 	game = value
 	var parsed = JSON.parse_string(FileAccess.get_file_as_string(DATA_PATH)) if FileAccess.file_exists(DATA_PATH) else {}
 	actors = parsed.get("actors", {}) if parsed is Dictionary else {}
+	# Decode/upload every finite animation frame during scene setup. Walking must
+	# never perform its first disk read or texture upload in response to input.
+	for actor: String in actors:
+		var info: Dictionary = actors[actor]
+		for frames: Array in info.get("directions", {}).values():
+			for filename: String in frames:_texture("res://assets/locomotion_v12/"+filename)
+		for filename: String in info.get("idle", {}).values():_texture("res://assets/locomotion_v12/"+filename)
+		for direction: Vector2 in [Vector2.RIGHT,Vector2.LEFT,Vector2.UP,Vector2.DOWN]:_fallback(actor,direction)
 	reset()
 
 func reset(sprite: Sprite2D = null) -> void:
@@ -65,12 +73,13 @@ func animate(sprite: Sprite2D, actor: String, direction: Vector2, travelled: flo
 	if used_fallback:
 		texture = _fallback(actor,direction)
 	if texture != null:
-		sprite.texture = texture
-		var baseline: Array = info.get("baseline",[texture.get_width()*.5,texture.get_height()])
-		# When falling back to the old sprite, its alpha bottom is the old anchor.
-		if used_fallback:
-			baseline=[texture.get_width()*.5,texture.get_height()]
-		sprite.offset = Vector2(texture.get_width()*.5,texture.get_height()*.5)-Vector2(float(baseline[0]),float(baseline[1]))
+		if sprite.texture != texture:
+			sprite.texture = texture
+			var baseline: Array = info.get("baseline",[texture.get_width()*.5,texture.get_height()])
+			# When falling back to the old sprite, its alpha bottom is the old anchor.
+			if used_fallback:
+				baseline=[texture.get_width()*.5,texture.get_height()]
+			sprite.offset = Vector2(texture.get_width()*.5,texture.get_height()*.5)-Vector2(float(baseline[0]),float(baseline[1]))
 	sprite.rotation = 0.0
 	sprite.flip_h = false
 	sprite.z_index = int(sprite.position.y)

@@ -46,6 +46,8 @@ var _fade_elapsed:float=0.0
 var _fading:bool=false
 var _duck:float=1.0
 var _voice_gain:float=1.0
+var _music_sources:Dictionary={}
+var _sfx_applied:float=-1.0
 
 func setup(game:Node)->void:
 	process_mode=Node.PROCESS_MODE_ALWAYS
@@ -60,7 +62,7 @@ func setup(game:Node)->void:
 	music_outgoing=_player("OutgoingMusic",MUSIC_BUS)
 	voice_player=_player("StoryNarration",VOICE_BUS)
 	voice_player.finished.connect(_on_voice_finished)
-	load_manifest();load_settings();set_region(0)
+	load_manifest();_warm_music();load_settings();set_region(0)
 	_apply_volumes()
 
 func _player(player_name:String,bus_name:StringName)->AudioStreamPlayer:
@@ -82,6 +84,7 @@ func register_sfx(player:AudioStreamPlayer)->void:
 
 func load_manifest()->bool:
 	manifest.clear()
+	_music_sources.clear()
 	if not FileAccess.file_exists(manifest_path):return false
 	var parser:JSON=JSON.new()
 	if parser.parse(FileAccess.get_file_as_string(manifest_path))!=OK or not parser.data is Dictionary:
@@ -89,6 +92,22 @@ func load_manifest()->bool:
 		return false
 	manifest=parser.data
 	return true
+
+func _warm_music()->void:
+	# Keep original source resources alive. A duplicated playback stream alone
+	# does not keep ResourceLoader's weak source cache alive between encounters.
+	var music_data:Variant=manifest.get("music",{})
+	if not music_data is Dictionary:return
+	var entries:Array=[]
+	var regions:Variant=music_data.get("regions",[])
+	if regions is Array and not regions.is_empty():entries.append(regions[0])
+	elif regions is Dictionary:entries.append(regions.get("0",regions.get("chapter_0",{})))
+	var contexts:Variant=music_data.get("contexts",{})
+	if contexts is Dictionary:
+		for context:String in ["title","battle","boss"]:entries.append(contexts.get(context,{}))
+	for value:Variant in entries:
+		var entry:Dictionary=_entry(value)
+		_load_stream(str(entry.get("path","")),true)
 
 func set_region(chapter:int)->void:
 	var next_region:int=clampi(chapter,0,6)
@@ -164,6 +183,7 @@ func stop_music()->void:
 
 func _process(delta:float)->void:
 	var step:float=maxf(0.0,delta)
+	var mixing_changed:bool=_fading
 	if _fading:
 		_fade_elapsed+=step
 		var t:float=clampf(_fade_elapsed/maxf(crossfade_seconds,0.01),0.0,1.0)
@@ -174,8 +194,9 @@ func _process(delta:float)->void:
 			music_outgoing.stop();music_outgoing.stream=null
 	var narrating:bool=narration_state=="playing" and voice_enabled and voice_volume>0.0
 	var desired:float=DUCK_LEVEL if narrating else 1.0
+	var previous_duck:float=_duck
 	_duck=move_toward(_duck,desired,step/(0.12 if narrating else 0.35))
-	_apply_volumes()
+	if mixing_changed or not is_equal_approx(previous_duck,_duck):_apply_volumes()
 
 func _apply_volumes()->void:
 	var context_gain:float=0.55 if music_context=="pause" else 1.0
@@ -184,7 +205,9 @@ func _apply_volumes()->void:
 	if is_instance_valid(music_outgoing):music_outgoing.volume_linear=master*_outgoing_gain*_outgoing_weight
 	if is_instance_valid(voice_player):voice_player.volume_linear=voice_volume*_voice_gain if voice_enabled else 0.0
 	var sfx_bus:int=AudioServer.get_bus_index(SFX_BUS)
-	if sfx_bus>=0:AudioServer.set_bus_volume_linear(sfx_bus,sfx_volume)
+	if sfx_bus>=0 and not is_equal_approx(_sfx_applied,sfx_volume):
+		AudioServer.set_bus_volume_linear(sfx_bus,sfx_volume)
+		_sfx_applied=sfx_volume
 
 func _story_entry(id:String)->Dictionary:
 	var stories:Variant=manifest.get("stories",{})
@@ -263,13 +286,15 @@ func _local_audio_exists(path:String)->bool:
 	return ResourceLoader.exists(path) or FileAccess.file_exists(path)
 
 func _load_stream(path:String,looping:bool)->AudioStream:
-	if not _local_audio_exists(path):return null
-	var source:AudioStream
-	if ResourceLoader.exists(path):source=load(path) as AudioStream
-	elif path.get_extension().to_lower()=="mp3":source=AudioStreamMP3.load_from_file(path)
-	elif path.get_extension().to_lower()=="ogg":source=AudioStreamOggVorbis.load_from_file(path)
-	elif path.get_extension().to_lower()=="wav":source=AudioStreamWAV.load_from_file(path)
+	var source:AudioStream=_music_sources.get(path) if looping else null
+	if source==null:
+		if not _local_audio_exists(path):return null
+		if ResourceLoader.exists(path):source=load(path) as AudioStream
+		elif path.get_extension().to_lower()=="mp3":source=AudioStreamMP3.load_from_file(path)
+		elif path.get_extension().to_lower()=="ogg":source=AudioStreamOggVorbis.load_from_file(path)
+		elif path.get_extension().to_lower()=="wav":source=AudioStreamWAV.load_from_file(path)
 	if source==null:return null
+	if looping:_music_sources[path]=source
 	# Never change the imported shared resource: voice and music may use one file.
 	var stream:AudioStream=source.duplicate() as AudioStream
 	if stream is AudioStreamMP3:stream.loop=looping;stream.loop_offset=0.0

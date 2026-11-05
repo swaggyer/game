@@ -33,6 +33,13 @@ func setup(value: Node2D) -> void:
 	game = value
 	if is_instance_valid(game.player):
 		_base_scale = game.player.scale
+	# A tap changes the pose immediately; resource decoding belongs to loading.
+	for actor: String in ["wangzai","xiaomantou"]:
+		for direction: String in ["front","back","left","right"]:
+			_texture("res://assets/actors/%s_%s.png"%[actor,direction])
+			for attack_index: int in range(3):
+				for phase_index: int in range(4):
+					_texture("res://assets/actions/%s_attack_%d_%s_%d.png"%[actor,attack_index,direction,phase_index])
 	reset()
 
 func reset() -> void:
@@ -279,8 +286,9 @@ func _update_support(delta: float) -> void:
 	var path = "res://assets/actions/%s_attack_%d_%s_%d.png" % [key,2 if character == 0 else 0,_direction_name(direction),phase]
 	var pose = _texture(path)
 	if pose != null:
-		sprite.texture = pose
-		sprite.offset = Vector2(0,-pose.get_height()*0.5)
+		if sprite.texture != pose:
+			sprite.texture = pose
+			sprite.offset = Vector2(0,-pose.get_height()*0.5)
 		sprite.z_index = int(sprite.position.y)
 
 func _set_pose(phase: int) -> void:
@@ -290,8 +298,9 @@ func _set_pose(phase: int) -> void:
 	var path = "res://assets/actions/%s_attack_%d_%s_%d.png" % [key,combo,_direction_name(_facing),phase]
 	var pose = _texture(path)
 	if pose != null:
-		game.player.texture = pose
-		game.player.offset = Vector2(0,-pose.get_height()*0.5)
+		if game.player.texture != pose:
+			game.player.texture = pose
+			game.player.offset = Vector2(0,-pose.get_height()*0.5)
 	game.player.scale = _base_scale
 	game.player.z_index = int(game.player.position.y)
 	game.player.modulate = Color(1,0.75,0.7,0.65) if game.get("invulnerable") != null and game.invulnerable > 0 and int(_clock*12)%2 == 0 else Color.WHITE

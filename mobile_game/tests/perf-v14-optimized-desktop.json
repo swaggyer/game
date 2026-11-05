@@ -1,0 +1,117 @@
+{
+	"adapter": "AMD Radeon(TM) Vega 8 Graphics",
+	"device": "desktop Windows; NOT an Android device",
+	"display": "Windows",
+	"first_attack_ms": 0.152,
+	"godot": "4.7.2-stable (official)",
+	"label": "optimized",
+	"music_switch_ms": {
+		"battle_0": 4.8,
+		"battle_4": 2.906,
+		"boss_1": 4.682,
+		"explore_2": 5.505,
+		"explore_5": 5.612,
+		"title_3": 4.924
+	},
+	"ready_ms": 3115.206,
+	"renderer": "gl_compatibility",
+	"resolution": "1280x720",
+	"scenarios": [
+		{
+			"achieved_distance": 103.230628967285,
+			"astar_calls": 2,
+			"attack_cached": 104,
+			"draw_calls": {
+				"maximum": 343.0,
+				"mean": 321.233333333333,
+				"median": 321.0,
+				"p95": 341.0,
+				"p99": 343.0
+			},
+			"frame_ms": {
+				"maximum": 7.389,
+				"mean": 4.84487222222222,
+				"median": 4.832,
+				"p95": 6.578,
+				"p99": 7.323
+			},
+			"frames": 180,
+			"los_calls": 374,
+			"main_cpu_ms": {
+				"maximum": 1.545,
+				"mean": 0.7909,
+				"median": 0.762,
+				"p95": 1.125,
+				"p99": 1.524
+			},
+			"move_calls": 302,
+			"stage": 0,
+			"stage_load_ms": 651.768,
+			"walk_cached": 228
+		},
+		{
+			"achieved_distance": 103.230628967285,
+			"astar_calls": 2,
+			"attack_cached": 104,
+			"draw_calls": {
+				"maximum": 590.0,
+				"mean": 514.516666666667,
+				"median": 479.0,
+				"p95": 581.0,
+				"p99": 590.0
+			},
+			"frame_ms": {
+				"maximum": 14.446,
+				"mean": 9.47248888888889,
+				"median": 9.473,
+				"p95": 12.237,
+				"p99": 13.513
+			},
+			"frames": 180,
+			"los_calls": 937,
+			"main_cpu_ms": {
+				"maximum": 6.202,
+				"mean": 2.02120555555555,
+				"median": 1.944,
+				"p95": 3.044,
+				"p99": 3.752
+			},
+			"move_calls": 554,
+			"stage": 4,
+			"stage_load_ms": 479.609,
+			"walk_cached": 228
+		},
+		{
+			"achieved_distance": 103.230628967285,
+			"astar_calls": 3,
+			"attack_cached": 104,
+			"draw_calls": {
+				"maximum": 961.0,
+				"mean": 866.377777777778,
+				"median": 868.0,
+				"p95": 951.0,
+				"p99": 961.0
+			},
+			"frame_ms": {
+				"maximum": 16.085,
+				"mean": 11.0947944444444,
+				"median": 11.003,
+				"p95": 13.651,
+				"p99": 15.371
+			},
+			"frames": 180,
+			"los_calls": 786,
+			"main_cpu_ms": {
+				"maximum": 2.041,
+				"mean": 0.99293888888889,
+				"median": 0.912,
+				"p95": 1.574,
+				"p99": 1.977
+			},
+			"move_calls": 734,
+			"stage": 12,
+			"stage_load_ms": 432.67,
+			"walk_cached": 228
+		}
+	]
+}

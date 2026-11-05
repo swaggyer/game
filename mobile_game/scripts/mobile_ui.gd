@@ -4,6 +4,7 @@ signal move_changed(direction: Vector2)
 signal attack_pressed
 signal context_pressed
 signal context_released
+signal context_cancelled
 signal switch_requested(index: int)
 signal pause_requested
 signal resume_requested
@@ -28,6 +29,7 @@ const GOLD = Color("e6c783")
 const CREAM = Color("f5efd9")
 const CYAN = Color("94e0d2")
 const MUTED = Color("9db7b7")
+const COOLDOWN_CONTEXTS = ["微光", "星火", "火焰", "御风", "水罩", "护罩", "星门"]
 
 var campaign
 var root: Control
@@ -73,13 +75,26 @@ var _story_audio_label: Label
 var _story_toggle_button: Button
 var _story_replay_button: Button
 var _audio_values = {"music_volume": 0.65, "sfx_volume": 1.0, "voice_volume": 1.0, "voice_enabled": true}
+var _portrait_active_style: StyleBoxFlat
+var _portrait_idle_style: StyleBoxFlat
+var _hud_character = -1
+var _hud_hp = -1
+var _hud_max_hp = -1
+var _hud_crystals = -1
+var _hud_xp = -1
+var _hud_context = ""
+var _hud_cooldown_tenth = -2
+var _context_is_down = false
 
 func setup(value: RefCounted) -> void:
 	campaign = value
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer = 20
 	visibility_changed.connect(func():
-		if not visible: _stop_story_audio())
+		if not visible:
+			_cancel_touch_controls()
+			_release_stick()
+			_stop_story_audio())
 	root = Control.new()
 	root.name = "MobileInterface"
 	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -175,6 +190,8 @@ func _panel(parent: Node, pos: Vector2, dimensions: Vector2, edge: Color = Color
 
 func _build_hud() -> void:
 	hud = _full(root, "GameHUD")
+	_portrait_active_style = _style(Color("204b50f0"), GOLD, 12, 2)
+	_portrait_idle_style = _style(Color("15333cd0"), Color("526e72"), 12, 1)
 	var party = _panel(hud, Vector2(22, 20), Vector2(355, 108))
 	for i in 2:
 		var b = _button("", func(): switch_requested.emit(i), Vector2(70, 88))
@@ -265,7 +282,9 @@ func _build_hud() -> void:
 	joystick.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	hud.add_child(joystick)
 	joystick.draw.connect(_draw_joystick)
+	root.resized.connect(joystick.queue_redraw)
 	var attack = _button("剑·盾\n攻击", func(): attack_pressed.emit(), Vector2(110, 110))
+	attack.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
 	attack_button = attack
 	attack.add_theme_font_size_override("font_size", 24)
 	attack.tooltip_text = "轻点攻击；及时连续轻点接出三段连击。第三式：旺仔盾震，小馒头回声震荡。"
@@ -285,10 +304,11 @@ func _build_hud() -> void:
 		box.content_margin_left = 4
 		box.content_margin_right = 4
 		context_button.add_theme_stylebox_override(style_name, box)
-	context_button.button_down.connect(func(): context_pressed.emit())
-	context_button.button_up.connect(func(): context_released.emit())
+	context_button.button_down.connect(_press_context)
+	context_button.button_up.connect(_release_context)
 	hud.add_child(context_button)
 	_anchor_rect(context_button, Control.PRESET_BOTTOM_RIGHT, Vector2(-253, -249), Vector2(88, 88))
+	_update_character_hud(int(campaign.active_character))
 
 func _build_title() -> void:
 	title_screen = _full(root, "TitleScreen")
@@ -407,6 +427,7 @@ func _build_dialog() -> void:
 		if not dialog_screen.visible: _stop_story_audio())
 
 func show_title() -> void:
+	_cancel_touch_controls()
 	_release_stick()
 	_dismiss_dialog(false, false)
 	get_tree().paused = true
@@ -419,30 +440,43 @@ func show_title() -> void:
 	title_screen.show()
 
 func show_hud() -> void:
+	_cancel_touch_controls()
 	_dismiss_dialog(false, false)
 	title_screen.hide()
 	pause_screen.hide()
 	dialog_screen.hide()
 	hud.show()
 	hud_visible = true
+	joystick.queue_redraw()
 
 func update_hud(hp: float, max_hp: float, goal: String, detail: String, context: String, cooldown: float, progress_text: String) -> void:
-	hp_bar.max_value = max_hp
-	hp_bar.value = hp
-	hp_label.text = "%d / %d     星晶 %d" % [int(hp), int(max_hp), int(campaign.crystals)]
-	level_label.text = "Lv.%d · 星契伙伴" % campaign.level()
-	goal_label.text = goal
-	detail_label.text = detail
-	chapter_label.text = progress_text
-	attack_button.text = "剑·盾\n攻击" if int(campaign.active_character) == 0 else "星矢\n攻击"
-	if cooldown > 0.05 and context in ["微光", "星火", "火焰", "御风", "水罩", "护罩", "星门"]:
-		context_button.text = "%.1fs\n%s" % [cooldown, context]
-	else:
-		context_button.text = "✦\n" + context
+	if hp_bar.max_value != max_hp: hp_bar.max_value = max_hp
+	if hp_bar.value != hp: hp_bar.value = hp
+	var crystals = int(campaign.crystals)
+	if _hud_hp != int(hp) or _hud_max_hp != int(max_hp) or _hud_crystals != crystals:
+		_hud_hp = int(hp); _hud_max_hp = int(max_hp); _hud_crystals = crystals
+		hp_label.text = "%d / %d     星晶 %d" % [_hud_hp, _hud_max_hp, crystals]
+	if _hud_xp != int(campaign.xp):
+		_hud_xp = int(campaign.xp)
+		level_label.text = "Lv.%d · 星契伙伴" % campaign.level()
+	if goal_label.text != goal: goal_label.text = goal
+	if detail_label.text != detail: detail_label.text = detail
+	if chapter_label.text != progress_text: chapter_label.text = progress_text
+	_update_character_hud(int(campaign.active_character))
+	var tenth = roundi(cooldown * 10.0) if cooldown > 0.05 and context in COOLDOWN_CONTEXTS else -1
+	if context != _hud_context or tenth != _hud_cooldown_tenth:
+		_hud_context = context; _hud_cooldown_tenth = tenth
+		context_button.text = "%.1fs\n%s" % [cooldown, context] if tenth >= 0 else "✦\n" + context
+
+func _update_character_hud(character: int) -> void:
+	if _hud_character == character: return
+	_hud_character = character
+	attack_button.text = "剑·盾\n攻击" if character == 0 else "星矢\n攻击"
 	for i in portraits.size():
-		portraits[i].add_theme_stylebox_override("normal", _style(Color("204b50f0") if i == campaign.active_character else Color("15333cd0"), GOLD if i == campaign.active_character else Color("526e72"), 12, 2 if i == campaign.active_character else 1))
+		portraits[i].add_theme_stylebox_override("normal", _portrait_active_style if i == character else _portrait_idle_style)
 
 func show_pause() -> void:
+	_cancel_touch_controls()
 	_release_stick()
 	pause_screen.show()
 	refresh_pause()
@@ -612,6 +646,7 @@ func _build_audio_settings() -> void:
 	pause_content.add_child(HSeparator.new())
 
 func show_dialog(title: String, body: String, button_text: String, callback: Callable, story_id: String = "", narration_text: String = "") -> void:
+	_cancel_touch_controls()
 	_release_stick()
 	# Replacing a modal preserves the pause state from before the first modal.
 	if not dialog_screen.visible:
@@ -742,8 +777,6 @@ func _process(delta: float) -> void:
 		toast_panel.modulate.a = minf(1.0, toast_time * 2)
 		if toast_time <= 0:
 			toast_panel.hide()
-	if joystick != null and hud_visible:
-		joystick.queue_redraw()
 
 func _draw_joystick() -> void:
 	if stick_id < 0 and not mouse_stick:
@@ -792,8 +825,9 @@ func _input(event: InputEvent) -> void:
 			touch_scrolls.erase(event.index)
 			if is_instance_valid(b):
 				b.set_pressed_no_signal(false)
+				if event.canceled and b == context_button: _release_context(true)
 				b.button_up.emit()
-				if not event.canceled and not was_dragging and is_instance_valid(b) and b.is_visible_in_tree() and not b.disabled and b.get_global_rect().has_point(event.position):
+				if not event.canceled and not was_dragging and is_instance_valid(b) and b.action_mode == BaseButton.ACTION_MODE_BUTTON_RELEASE and b.is_visible_in_tree() and not b.disabled and b.get_global_rect().has_point(event.position):
 					b.pressed.emit()
 			get_viewport().set_input_as_handled()
 			return
@@ -812,6 +846,8 @@ func _input(event: InputEvent) -> void:
 				touch_buttons[event.index] = b
 				b.set_pressed_no_signal(true)
 				b.button_down.emit()
+				if is_instance_valid(b) and b.action_mode == BaseButton.ACTION_MODE_BUTTON_PRESS and b.is_visible_in_tree() and not b.disabled:
+					b.pressed.emit()
 				get_viewport().set_input_as_handled()
 				return
 			if scroller != null:
@@ -938,10 +974,13 @@ func _clamp_stick(p: Vector2) -> Vector2:
 
 func _update_stick(p: Vector2) -> void:
 	stick_offset = (p - stick_origin).limit_length(48)
-	direction = stick_offset / 48.0
-	if direction.length() < 0.12:
-		direction = Vector2.ZERO
-	move_changed.emit(direction)
+	var next_direction = stick_offset / 48.0
+	if next_direction.length() < 0.12:
+		next_direction = Vector2.ZERO
+	if direction != next_direction:
+		direction = next_direction
+		move_changed.emit(direction)
+	joystick.queue_redraw()
 
 func _release_stick() -> void:
 	stick_id = -1
@@ -949,13 +988,30 @@ func _release_stick() -> void:
 	stick_offset = Vector2.ZERO
 	direction = Vector2.ZERO
 	move_changed.emit(Vector2.ZERO)
+	if is_instance_valid(joystick): joystick.queue_redraw()
+
+func _press_context() -> void:
+	if _context_is_down: return
+	_context_is_down = true
+	context_pressed.emit()
+
+func _release_context(cancelled: bool = false) -> void:
+	if not _context_is_down: return
+	_context_is_down = false
+	if cancelled: context_cancelled.emit()
+	else: context_released.emit()
+
+func _cancel_touch_controls() -> void:
+	var held = touch_buttons.values()
+	touch_buttons.clear(); touch_scrolls.clear(); touch_sliders.clear()
+	# Cancel before button_up, which otherwise commits a normal interaction.
+	_release_context(true)
+	for button in held:
+		if is_instance_valid(button):
+			button.set_pressed_no_signal(false)
+			button.button_up.emit()
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
 		_release_stick()
-		for button in touch_buttons.values():
-			if is_instance_valid(button):
-				button.set_pressed_no_signal(false)
-		touch_buttons.clear()
-		touch_scrolls.clear()
-		touch_sliders.clear()
+		_cancel_touch_controls()

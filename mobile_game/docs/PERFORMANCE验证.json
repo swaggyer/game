@@ -1,0 +1,279 @@
+{
+  "version": "1.4.0",
+  "date": "2026-11-05",
+  "reported_device": "OnePlus 13T; first-map walking/combat stutter",
+  "android_device_connected": false,
+  "desktop_baseline": {
+    "adapter": "AMD Radeon(TM) Vega 8 Graphics",
+    "device": "desktop Windows; NOT an Android device",
+    "display": "Windows",
+    "first_attack_ms": 3.848,
+    "godot": "4.7.2-stable (official)",
+    "label": "baseline",
+    "music_switch_ms": {
+      "battle_0": 11.009,
+      "battle_4": 10.459,
+      "boss_1": 16.027,
+      "explore_2": 11.292,
+      "explore_5": 12.387,
+      "title_3": 12.311
+    },
+    "ready_ms": 1422.214,
+    "renderer": "gl_compatibility",
+    "resolution": "1280x720",
+    "scenarios": [
+      {
+        "achieved_distance": 103.230628967285,
+        "astar_calls": 17,
+        "attack_cached": 19,
+        "draw_calls": {
+          "maximum": 15760.0,
+          "mean": 15744.3944444444,
+          "median": 15742.0,
+          "p95": 15760.0,
+          "p99": 15760.0
+        },
+        "frame_ms": {
+          "maximum": 152.215,
+          "mean": 108.47915,
+          "median": 107.561,
+          "p95": 121.899,
+          "p99": 136.219
+        },
+        "frames": 180,
+        "los_calls": 394,
+        "main_cpu_ms": {
+          "maximum": 20.273,
+          "mean": 3.58189444444444,
+          "median": 1.121,
+          "p95": 13.025,
+          "p99": 19.355
+        },
+        "move_calls": 302,
+        "stage": 0,
+        "stage_load_ms": 175.101,
+        "walk_cached": 67
+      },
+      {
+        "achieved_distance": 103.230628967285,
+        "astar_calls": 47,
+        "attack_cached": 24,
+        "draw_calls": {
+          "maximum": 16030.0,
+          "mean": 15955.3055555556,
+          "median": 15919.0,
+          "p95": 16022.0,
+          "p99": 16030.0
+        },
+        "frame_ms": {
+          "maximum": 136.973,
+          "mean": 110.183266666667,
+          "median": 109.612,
+          "p95": 121.662,
+          "p99": 132.384
+        },
+        "frames": 180,
+        "los_calls": 1310,
+        "main_cpu_ms": {
+          "maximum": 39.157,
+          "mean": 3.27532777777778,
+          "median": 1.816,
+          "p95": 10.624,
+          "p99": 18.74
+        },
+        "move_calls": 1222,
+        "stage": 4,
+        "stage_load_ms": 287.923,
+        "walk_cached": 96
+      },
+      {
+        "achieved_distance": 103.230628967285,
+        "astar_calls": 51,
+        "attack_cached": 24,
+        "draw_calls": {
+          "maximum": 16953.0,
+          "mean": 16845.3722222222,
+          "median": 16844.0,
+          "p95": 16933.0,
+          "p99": 16953.0
+        },
+        "frame_ms": {
+          "maximum": 143.246,
+          "mean": 116.687122222222,
+          "median": 116.464,
+          "p95": 127.385,
+          "p99": 140.141
+        },
+        "frames": 180,
+        "los_calls": 1313,
+        "main_cpu_ms": {
+          "maximum": 4.937,
+          "mean": 1.74466666666667,
+          "median": 1.61,
+          "p95": 2.62,
+          "p99": 4.203
+        },
+        "move_calls": 1402,
+        "stage": 12,
+        "stage_load_ms": 282.015,
+        "walk_cached": 96
+      }
+    ]
+  },
+  "desktop_optimized": {
+    "adapter": "AMD Radeon(TM) Vega 8 Graphics",
+    "device": "desktop Windows; NOT an Android device",
+    "display": "Windows",
+    "first_attack_ms": 0.152,
+    "godot": "4.7.2-stable (official)",
+    "label": "optimized",
+    "music_switch_ms": {
+      "battle_0": 4.8,
+      "battle_4": 2.906,
+      "boss_1": 4.682,
+      "explore_2": 5.505,
+      "explore_5": 5.612,
+      "title_3": 4.924
+    },
+    "ready_ms": 3115.206,
+    "renderer": "gl_compatibility",
+    "resolution": "1280x720",
+    "scenarios": [
+      {
+        "achieved_distance": 103.230628967285,
+        "astar_calls": 2,
+        "attack_cached": 104,
+        "draw_calls": {
+          "maximum": 343.0,
+          "mean": 321.233333333333,
+          "median": 321.0,
+          "p95": 341.0,
+          "p99": 343.0
+        },
+        "frame_ms": {
+          "maximum": 7.389,
+          "mean": 4.84487222222222,
+          "median": 4.832,
+          "p95": 6.578,
+          "p99": 7.323
+        },
+        "frames": 180,
+        "los_calls": 374,
+        "main_cpu_ms": {
+          "maximum": 1.545,
+          "mean": 0.7909,
+          "median": 0.762,
+          "p95": 1.125,
+          "p99": 1.524
+        },
+        "move_calls": 302,
+        "stage": 0,
+        "stage_load_ms": 651.768,
+        "walk_cached": 228
+      },
+      {
+        "achieved_distance": 103.230628967285,
+        "astar_calls": 2,
+        "attack_cached": 104,
+        "draw_calls": {
+          "maximum": 590.0,
+          "mean": 514.516666666667,
+          "median": 479.0,
+          "p95": 581.0,
+          "p99": 590.0
+        },
+        "frame_ms": {
+          "maximum": 14.446,
+          "mean": 9.47248888888889,
+          "median": 9.473,
+          "p95": 12.237,
+          "p99": 13.513
+        },
+        "frames": 180,
+        "los_calls": 937,
+        "main_cpu_ms": {
+          "maximum": 6.202,
+          "mean": 2.02120555555555,
+          "median": 1.944,
+          "p95": 3.044,
+          "p99": 3.752
+        },
+        "move_calls": 554,
+        "stage": 4,
+        "stage_load_ms": 479.609,
+        "walk_cached": 228
+      },
+      {
+        "achieved_distance": 103.230628967285,
+        "astar_calls": 3,
+        "attack_cached": 104,
+        "draw_calls": {
+          "maximum": 961.0,
+          "mean": 866.377777777778,
+          "median": 868.0,
+          "p95": 951.0,
+          "p99": 961.0
+        },
+        "frame_ms": {
+          "maximum": 16.085,
+          "mean": 11.0947944444444,
+          "median": 11.003,
+          "p95": 13.651,
+          "p99": 15.371
+        },
+        "frames": 180,
+        "los_calls": 786,
+        "main_cpu_ms": {
+          "maximum": 2.041,
+          "mean": 0.99293888888889,
+          "median": 0.912,
+          "p95": 1.574,
+          "p99": 1.977
+        },
+        "move_calls": 734,
+        "stage": 12,
+        "stage_load_ms": 432.67,
+        "walk_cached": 228
+      }
+    ]
+  },
+  "fixed_camera_draw_calls": {
+    "village": {
+      "before": 15559,
+      "after": 172
+    },
+    "water": {
+      "before": 10381,
+      "after": 187
+    }
+  },
+  "checks": {
+    "full_campaign_flow": 482,
+    "world_navigation": 2190,
+    "render_regression": 598,
+    "campaign_save_recovery": 105,
+    "audio_offline": 222,
+    "audio_actual_main": 269,
+    "resource_cache_pathfinding": 15,
+    "input_and_autosave": 9,
+    "mobile_touch_native": 31,
+    "story_ui": 49
+  },
+  "android": {
+    "file": "StarLanternIsland-v1.4.0-arm64.apk",
+    "bytes": 85303094,
+    "sha256": "a318786760e2dfdf00b4b3318771fc1adf864eb05bd4ff55f7cae9856ce41f2b",
+    "versionCode": 15,
+    "package": "org.starlantern.island",
+    "original_signing_certificate_matches": true,
+    "signature_v2_v3": true,
+    "page_alignment_16k": true,
+    "target_fps": 60,
+    "logic_height": 720
+  },
+  "limits": [
+    "Desktop measurements are not Android device FPS.",
+    "OnePlus 13T device retest remains pending.",
+    "Startup prewarming moves ready time from 1.42s to 3.12s in this desktop test."
+  ]
+}

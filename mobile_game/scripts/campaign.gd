@@ -271,8 +271,8 @@ func heal_item(current_hp: float) -> float:
 	return minf(float(max_hp()), hp + heal)
 
 
-func save_game() -> bool:
-	var document: Dictionary = {
+func save_document() -> Dictionary:
+	return {
 		"version": SAVE_VERSION, "progress": progress, "stage": stage,
 		"xp": xp, "crystals": crystals, "gold": gold, "fruits": fruits,
 		"active_character": active_character, "difficulty": difficulty,
@@ -280,7 +280,16 @@ func save_game() -> bool:
 		"upgrades": upgrades.duplicate(), "completed": completed.duplicate(),
 		"boss_phases": boss_phases.duplicate(true)
 	}
-	var destination: String = ProjectSettings.globalize_path(save_path)
+
+
+func save_game() -> bool:
+	var success := write_save_document(save_document(), ProjectSettings.globalize_path(save_path))
+	if success:has_save = true
+	return success
+
+
+static func write_save_document(document: Dictionary, destination: String) -> bool:
+	# The worker receives an isolated snapshot; it never reads live campaign state.
 	var temporary: String = destination + ".tmp"
 	var backup: String = destination + ".bak"
 	var file: FileAccess = FileAccess.open(temporary, FileAccess.WRITE)
@@ -305,7 +314,6 @@ func save_game() -> bool:
 		if not FileAccess.file_exists(destination) and FileAccess.file_exists(backup):
 			DirAccess.copy_absolute(backup, destination)
 		return false
-	has_save = true
 	return true
 
 
@@ -321,7 +329,7 @@ func load_save() -> bool:
 	return true
 
 
-func _valid_document(document: Dictionary) -> bool:
+static func _valid_document(document: Dictionary) -> bool:
 	if document.is_empty() or not document.get("completed", null) is Array:
 		return false
 	if not document.get("equipped", null) is Dictionary or not document.get("upgrades", null) is Dictionary:
@@ -393,7 +401,7 @@ func _safe_int(value: Variant, fallback: int, minimum: int, maximum: int) -> int
 	return fallback
 
 
-func _read_json(path: String) -> Dictionary:
+static func _read_json(path: String) -> Dictionary:
 	if not FileAccess.file_exists(path):
 		return {}
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)

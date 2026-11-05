@@ -9,8 +9,14 @@ uniform vec2 shape_size=vec2(800.0,500.0);
 uniform float magical=0.0;
 varying vec2 world_position;
 varying vec4 vertex_tint;
-float hash21(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}
-float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);return mix(mix(hash21(i),hash21(i+vec2(1.,0.)),f.x),mix(hash21(i+vec2(0.,1.)),hash21(i+1.),f.x),f.y);}
+// Shared baked random lattice: hardware bilinear interpolation retains the
+// original smooth cubic value noise, with no per-pixel sine-based hash.
+uniform sampler2D noise_lattice : filter_linear, repeat_enable;
+float hash21(vec2 p) { return texture(noise_lattice,(mod(p,256.0)+vec2(0.5))/256.0).r; }
+float noise(vec2 p) {
+    vec2 i=floor(p),f=fract(p); f=f*f*(3.0-2.0*f);
+    return texture(noise_lattice,(mod(i,256.0)+f+vec2(0.5))/256.0).r;
+}
 void vertex(){world_position=(MODEL_MATRIX*vec4(VERTEX,0.,1.)).xy;vertex_tint=COLOR;}
 void fragment(){
     vec2 p=world_position;

@@ -2,6 +2,10 @@ extends RefCounted
 ## Material-led trap art. Only draws; trap geometry and timing remain in the
 ## director. Every animation derives from that director's simulation clock.
 
+var _unit_circle:=PackedVector2Array()
+func _init()->void:
+	for i in range(25):_unit_circle.append(Vector2.from_angle(i*TAU/24))
+
 const STONE = Color("738174")
 const IRON = Color("45565a")
 const BRASS = Color("ac8750")
@@ -336,11 +340,12 @@ func _moss(c:Node2D,p:Vector2,size:float) -> void:
 		c.draw_line(q,q+Vector2(-2,-2)*size,Color("87996b"),1,true)
 
 func _ellipse(c:Node2D,p:Vector2,radius:Vector2,color:Color) -> void:
-	var points:PackedVector2Array=PackedVector2Array()
-	for i in range(24):points.append(p+Vector2(cos(i*TAU/24)*radius.x,sin(i*TAU/24)*radius.y))
-	c.draw_colored_polygon(points,color)
+	# Native ellipse preserves the current trap transform and builds its geometry
+	# in C++; no24-element GDScript polygon or48trigonometric calls per oval.
+	c.draw_ellipse(p,radius.x,radius.y,color,true,-1,false)
 
 func _ellipse_outline(c:Node2D,p:Vector2,radius:Vector2,color:Color,width:float,rotation:float=0) -> void:
-	var points:PackedVector2Array=PackedVector2Array()
-	for i in range(25):points.append(p+Vector2(cos(i*TAU/24)*radius.x,sin(i*TAU/24)*radius.y).rotated(rotation))
+	var points:=PackedVector2Array()
+	var basis:=Transform2D(rotation,Vector2.ZERO)
+	for unit:Vector2 in _unit_circle:points.append(p+basis*(unit*radius))
 	c.draw_polyline(points,color,width,true)

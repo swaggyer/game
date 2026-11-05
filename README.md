@@ -1,14 +1,18 @@
 # 星灯岛与回家的小龙
 
-基于原故事与角色模型制作的横屏单机冒险游戏，使用 Godot 4.7.2，版本 1.3.0。支持双角色切换、手机触屏摇杆和键盘操作。
+基于原故事与角色模型制作的横屏单机冒险游戏，使用 Godot 4.7.2，版本 1.4.0。支持双角色切换、手机触屏摇杆和键盘操作。
 
 ## 下载
 
-[Android arm64 安装包与 iOS 构建](https://github.com/swaggyer/game/releases/tag/v1.3.0)
+[Android arm64 安装包与 iOS 构建](https://github.com/swaggyer/game/releases/tag/v1.4.0)
 
 Android APK 为独立签名安装包，适用于支持 arm64 的安卓设备。尚未进行安卓真机试玩。iOS 构建为未签名 IPA，并提供完整 Xcode 工程；**未签名 IPA 不能直接安装到普通 iPhone**，需要在 Mac 上配置个人开发或正式发布签名。
 
 [iOS 构建记录与工程下载](https://github.com/swaggyer/game/actions/workflows/mobile-build.yml) · [iOS 签名说明](mobile_game/docs/IOS发布说明.md)
+
+## 安卓性能与操作响应修复
+
+v1.4.0 针对首图走路与战斗卡顿，合并静态草叶花朵绘制、简化地表着色，预热动作与音乐，攻击和龙术在按下时起手，减少重复HUD更新、寻路与主线程自动存档。安卓包沿用原签名，可直接覆盖更新并保留存档。[原因、验证结果与说明](mobile_game/docs/V1.4性能修复.md)。桌面对比不代表一加13T真机帧率，本次尚未在该机型复测。
 
 ## 音乐与剧情朗读
 
